@@ -262,6 +262,24 @@ body.modal-open {
   background-color: #f1f1f1; /* Color of the track (the area behind the scrollbar) */
 }
 
+#accept-terms {
+  background-color: rgb(2, 13, 70); /* Add a semi-transparent background */
+  box-shadow: 0 0 20px rgba(2, 33, 188, 0.5); /* Add a background shadow */
+}
+
+.accept-terms-wrapper {
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.3); /* Add a shadow to the wrapper */
+}
+
+@media (max-width: 767px) {
+  .accept-terms-wrapper {
+    max-width: 90%; /* Reduce the size of the wrapper for medium-sized phones */
+  }
+
+  .accept-terms-content img {
+    max-width: 280px; /* Reduce the size of the banner for medium-sized phones */
+  }
+}
 
 ::-webkit-scrollbar-thumb {
   background-color: #ff7300; /* Color of the scrollbar thumb */
