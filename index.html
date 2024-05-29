@@ -21,7 +21,7 @@
       const img = new Image();
       img.onload = function() {
         // Internet connection is likely stable
-        alert("Your internet connection seems stable, but some elements may still take a long time to load.");
+        alert("Your internet connection seems mostly stable, however a few elements may still buffer");
       };
       img.onerror = function() {
         // Internet connection is likely unstable
@@ -441,14 +441,14 @@
     <div class="container mx-auto">
       <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8">
         <div>
-          <h3 class="text-2xl font-bold mb-4">Main Menu</h3>
+          <h3 class="text-2xl font-bold mb-4">Useful Links</h3>
           <ul class="space-y-2" id="main-menu">
             <li><a href="#" class="hover:text-orange-500">Terms of Service</a></li>
             <li><a href="#" class="hover:text-orange-500">Cookies</a></li>
             <li><a href="#" class="hover:text-orange-500">Privacy Policy</a></li>
-            <li><a href="#" class="hover:text-orange-500">Contact</a></li>
-            <li><a href="#" class="hover:text-orange-500">Dummy Link 1</a></li>
-            <li><a href="#" class="hover:text-orange-500">Dummy Link 2</a></li>
+            <li><a href="#" class="hover:text-orange-500">Volunteer</a></li>
+            <li><a href="#" class="hover:text-orange-500">Press and Contact</a></li>
+            <li><a href="#" class="hover:text-orange-500">Other</a></li>
           </ul>
         </div>
         <div>
