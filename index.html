@@ -32,6 +32,8 @@
   </script>
 
 
+
+
   <div id="accept-terms" class="fixed top-0 left-0 w-full h-full bg-gray-900 flex justify-center items-center z-50">
   <div class="accept-terms-wrapper max-w-[90%] sm:max-w-[80%] md:max-w-[70%] lg:max-w-[60%] bg-white rounded-lg shadow-lg p-8">
     <div class="accept-terms-content">
@@ -157,7 +159,36 @@
 </script>
 
 
-<section class="h-screen flex items-center justify-center bg-light-orange">
+<div class="btn-plus">
+  <i class="fas fa-plus"></i>
+</div>
+
+<div class="bubble-container">
+  <div class="bubble">
+    <i class="fas fa-arrow-up"></i>
+    <div class="tooltip">Return to Top</div>
+  </div>
+</div>
+
+<script>
+  const btnPlus = document.querySelector('.btn-plus');
+  const bubbleContainer = document.querySelector('.bubble-container');
+  const returnToTopBtn = document.querySelector('.bubble');
+
+  btnPlus.addEventListener('click', () => {
+    bubbleContainer.classList.toggle('show');
+    btnPlus.classList.toggle('dark');
+  });
+
+  returnToTopBtn.addEventListener('click', () => {
+    window.scrollTo({
+      top: 0,
+      behavior: 'smooth'
+    });
+  });
+</script>
+
+<section id="top" class="h-screen flex items-center justify-center bg-light-orange">
   <div class="relative w-full h-full">
     <div class="absolute inset-0 bg-cover bg-center" style="background-image: url('data:image/svg+xml;charset=utf8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%20512%20512%22%20width%3D%22512%22%20height%3D%22512%22%20preserveAspectRatio%3D%22none%22%3E%20%3Cstyle%3E%20rect%20%7B%20fill%3A%20rgba(0,0,0,0.212)%3B%20%7D%20%3C%2Fstyle%3E%20%3Crect%20x%3D%220%22%20y%3D%220%22%20width%3D%2250%25%22%20height%3D%2250%25%22%20%2F%3E%20%3Crect%20x%3D%2250%25%22%20y%3D%2250%25%22%20width%3D%2250%25%22%20height%3D%2250%25%22%20%2F%3E%3C%2Fsvg%3E')"></div>
     <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 z-10 flex items-center justify-center h-full">

@@ -12,6 +12,94 @@ body.dark .bg-white {
 }
 
 
+.btn-plus {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background-color: #ffa500;
+  color: #fff;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 24px;
+  cursor: pointer;
+  z-index: 100;
+}
+
+.btn-plus.dark {
+  background-color: #0066b2;
+}
+
+.bubble-container {
+  position: fixed;
+  top: 50%;
+  right: 20px;
+  transform: translateY(-50%);
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  z-index: 99;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s ease;
+}
+
+.bubble-container.show {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.bubble {
+  width: 50px;
+  height: 50px;
+  background-color: #0066b2;
+  color: #fff;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  position: relative;
+  cursor: pointer;
+}
+
+.bubble:hover .tooltip {
+  opacity: 1;
+  visibility: visible;
+}
+
+.tooltip {
+  position: absolute;
+  top: 50%;
+  left: calc(100% + 10px);
+  transform: translateY(-50%);
+  background-color: #333;
+  color: #fff;
+  padding: 8px 12px;
+  border-radius: 4px;
+  font-size: 14px;
+  white-space: nowrap;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.3s ease, visibility 0.3s ease;
+}
+
+@media (max-width: 767px) {
+  .btn-plus {
+    width: 40px;
+    height: 40px;
+    font-size: 20px;
+  }
+
+  .bubble {
+    width: 40px;
+    height: 40px;
+  }
+}
+
 .main-content.hidden {
   opacity: 0;
   pointer-events: none;
