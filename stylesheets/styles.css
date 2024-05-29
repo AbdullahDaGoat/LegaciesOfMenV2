@@ -8,9 +8,19 @@ body.dark {
 }
 
 body.dark .bg-white {
-  background-color: #2d3748;
+  background-color: #030405;
 }
 
+
+.main-content.hidden {
+  opacity: 0;
+  pointer-events: none;
+}
+
+.main-content.visible {
+  opacity: 1;
+  pointer-events: auto;
+}
 
 
 .loading-bar {
@@ -251,6 +261,7 @@ body.modal-open {
 ::-webkit-scrollbar-track {
   background-color: #f1f1f1; /* Color of the track (the area behind the scrollbar) */
 }
+
 
 ::-webkit-scrollbar-thumb {
   background-color: #ff7300; /* Color of the scrollbar thumb */
