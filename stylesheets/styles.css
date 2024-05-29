@@ -17,6 +17,38 @@ body.dark .bg-gray-100 {
 
 body.dark .bg-gray-900 {
   background-color: #0a0a0a;
+  color: white;
+}
+
+body.dark .text-gray-700{
+  color: rgb(8, 178, 221);
+}
+
+@media (max-width: 767px) {
+  .mobile-menu-button {
+    width: 40px;
+    height: 40px;
+    font-size: 20px;
+  }
+}
+
+@media (max-width: 767px) {
+  .mobile-menu-button {
+    width: 48px;
+    height: 48px;
+    font-size: 24px;
+    padding: 12px;
+  }
+}
+
+@media (max-width: 767px) {
+  .mobile-menu-button {
+    padding: 0.75rem; /* 12px */
+  }
+
+  .mobile-menu-button .fas.fa-bars {
+    font-size: 1.5rem; /* 24px */
+  }
 }
 
 body.dark .bg-orange-500 {
@@ -109,6 +141,23 @@ body.dark #search-result-list li:hover {
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
   position: relative;
   cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.bubble.bg-blue-500 {
+  background-color: #0066b2;
+}
+
+.bubble.bg-blue-500:hover {
+  background-color: #0052a3;
+}
+
+.bubble.bg-green-500 {
+  background-color: #4caf50;
+}
+
+.bubble.bg-green-500:hover {
+  background-color: #3d8b40;
 }
 
 .bubble:hover .tooltip {
