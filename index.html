@@ -15,6 +15,7 @@
   <link rel="stylesheet" type="text/css" href="./stylesheets/styles.css" />
 </head>
 <body>
+<div class="main-content">
   <nav class="bg-white shadow-lg navbar fixed top-0 left-0 right-0 z-50">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="flex justify-between h-16">
@@ -345,7 +346,7 @@
       <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8">
         <div>
           <h3 class="text-2xl font-bold mb-4">Main Menu</h3>
-          <ul class="space-y-2">
+          <ul class="space-y-2" id="main-menu">
             <li><a href="#" class="hover:text-orange-500">Home</a></li>
             <li><a href="#" class="hover:text-orange-500">About</a></li>
             <li><a href="#" class="hover:text-orange-500">Join Us</a></li>
@@ -356,7 +357,7 @@
         </div>
         <div>
           <h3 class="text-2xl font-bold mb-4">Community</h3>
-          <p class="text-gray-400 mb-4">*Our meetings are open to all men and male-identified people, regardless of race, ethnicity, sexual orientation, and age.</p>
+          <p class="text-gray-400 mb-4" id="community-text">*Our meetings are open to all men and male-identified people, regardless of race, ethnicity, sexual orientation, and age.</p>
           <div class="flex flex-col sm:flex-row items-center sm:space-x-4 space-y-4 sm:space-y-0">
             <a href="https://www.reddit.com/r/GuyCry/" class="bg-orange-500 hover:bg-orange-600 text-white font-bold py-2 px-4 rounded-full shadow-md flex items-center">
               <i class="fab fa-reddit mr-2"></i>
@@ -371,10 +372,14 @@
         <div>
           <h3 class="text-2xl font-bold mb-4">Search</h3>
           <div class="flex items-center space-x-4">
-            <input type="text" placeholder="Search..." class="bg-gray-800 text-white px-4 py-2 rounded-full w-full focus:outline-none focus:ring focus:ring-orange-500" />
-            <button class="bg-orange-500 hover:bg-orange-600 text-white font-bold py-2 px-4 rounded-full shadow-md">
-              <i class="fas fa-search"></i>
+            <input type="text" placeholder="Search..." class="bg-gray-800 text-white px-4 py-2 rounded-full w-full focus:outline-none focus:ring focus:ring-orange-500" id="search-input" />
+            <button class="bg-orange-500 hover:bg-orange-600 text-white font-bold py-2 px-4 rounded-full shadow-md" id="clear-search">
+              <i class="fas fa-times"></i>
             </button>
+          </div>
+          <div id="search-results" class="mt-4 bg-gray-800 p-4 rounded-md hidden">
+            <h4 class="text-lg font-bold mb-2">Search Results:</h4>
+            <ul id="search-result-list"></ul>
           </div>
         </div>
       </div>
@@ -387,10 +392,107 @@
       </div>
     </div>
   </footer>
-  
+</div>
 
   
   <script>
+   const mainContent = document.querySelector('.main-content');
+const searchInput = document.getElementById('search-input');
+const searchResults = document.getElementById('search-results');
+const searchResultList = document.getElementById('search-result-list');
+
+searchInput.addEventListener('input', () => {
+  const searchTerm = searchInput.value.trim().toLowerCase();
+  if (searchTerm.length > 0) {
+    const pageText = mainContent.innerText.toLowerCase();
+    const matches = findMatches(pageText, searchTerm);
+    displaySearchResults(matches);
+  } else {
+    searchResults.classList.add('hidden');
+    searchResultList.innerHTML = '';
+  }
+});
+
+const clearSearchButton = document.getElementById('clear-search');
+
+clearSearchButton.addEventListener('click', () => {
+  searchInput.value = '';
+  searchResults.classList.add('hidden');
+  searchResultList.innerHTML = '';
+});
+
+function findMatches(text, searchTerm) {
+  const regex = new RegExp(searchTerm, 'gi');
+  const matches = text.matchAll(regex);
+  return Array.from(matches);
+}
+
+function displaySearchResults(matches) {
+  searchResultList.innerHTML = '';
+
+  if (matches.length > 0) {
+    searchResults.classList.remove('hidden');
+
+    for (const match of matches) {
+      const resultItem = document.createElement('li');
+      const start = Math.max(0, match.index - 10);
+      const end = Math.min(match.input.length, match.index + match[0].length + 10);
+      const excerpt = `${match.input.slice(start, match.index)}<span class="bg-orange-500 text-white">${match[0]}</span>${match.input.slice(match.index + match[0].length, end)}`;
+      resultItem.innerHTML = excerpt;
+      resultItem.classList.add('mb-2', 'break-words'); // Add spacing and word-wrapping
+      resultItem.addEventListener('click', () => {
+        displayPopup(match, excerpt);
+      });
+      searchResultList.appendChild(resultItem);
+    }
+  } else {
+    searchResults.classList.add('hidden');
+  }
+}
+
+function displayPopup(match, excerpt) {
+  const popup = document.createElement('div');
+  popup.classList.add('fixed', 'top-0', 'left-0', 'w-full', 'h-full', 'bg-gray-900', 'bg-opacity-75', 'flex', 'justify-center', 'items-center', 'z-50');
+
+  const popupContent = document.createElement('div');
+  popupContent.classList.add('bg-white', 'p-8', 'rounded-md', 'w-full', 'max-w-2xl', 'max-h-[80vh]', 'overflow-y-auto');
+
+  const popupText = document.createElement('div');
+  popupText.classList.add('text-gray-900', 'whitespace-pre-wrap');
+
+  const matchStart = Math.max(0, match.index - 100);
+  const matchEnd = Math.min(match.input.length, match.index + match[0].length + 125);
+  const beforeMatch = match.input.slice(matchStart, match.index);
+  const afterMatch = match.input.slice(match.index + match[0].length, matchEnd);
+  const highlightedText = `...${beforeMatch}<span class="bg-orange-500 text-white">${match[0]}</span>${afterMatch}...`;
+  popupText.innerHTML = highlightedText;
+
+  const closeButton = document.createElement('button');
+  closeButton.classList.add('bg-orange-500', 'hover:bg-orange-600', 'text-white', 'font-bold', 'py-2', 'px-4', 'rounded-full', 'shadow-md', 'mt-4');
+  closeButton.textContent = 'Close';
+  closeButton.addEventListener('click', () => {
+    popup.remove();
+  });
+
+  popupContent.appendChild(popupText);
+  popupContent.appendChild(closeButton);
+  popup.appendChild(popupContent);
+  document.body.appendChild(popup);
+
+  // Add custom scrollbar styles
+  const scrollbar = popupContent.querySelector('::-webkit-scrollbar');
+  scrollbar.style.width = '8px';
+  scrollbar.style.backgroundColor = '#718096';
+
+  const scrollbarThumb = popupContent.querySelector('::-webkit-scrollbar-thumb');
+  scrollbarThumb.style.backgroundColor = '#4a5568';
+  scrollbarThumb.style.borderRadius = '4px';
+} 
+
+</script>
+
+  <!-- JavaScript for counter animation -->
+  <script type="text/javascript">
    document.addEventListener('DOMContentLoaded', function() {
   const counterContainers = document.querySelectorAll('.counter-container');
   const learnMoreButtons = document.querySelectorAll('.learn-more-btn');
