@@ -15,7 +15,38 @@
   <link rel="stylesheet" type="text/css" href="./stylesheets/styles.css" />
 </head>
 <body>
-<div class="main-content">
+    <div id="preloader" class="fixed top-0 left-0 w-full h-full bg-gray-900 flex justify-center items-center z-50">
+        <div class="preloader-wrapper">
+          <div class="preloader-content">
+            <img src="./Logo_Files/sof.png" alt="Banner Image" class="preloader-banner max-w-[400px] h-auto mb-8">
+            <div class="loading-bar w-[200px] h-[20px] bg-gray-600 rounded-full overflow-hidden relative">
+              <div class="loading-bar-fill bg-orange-500 h-full w-0 absolute top-0 left-0 animate-[loading-bar_5s_linear_forwards]"></div>
+            </div>
+            <p class="text-white mt-4">Loading...</p>
+          </div>
+        </div>
+      </div>
+
+
+    <script type="text/javascript">
+       window.addEventListener('load', function() {
+  const preloader = document.getElementById('preloader');
+  const mainContent = document.querySelector('.main-content');
+
+  // Show the preloader
+  preloader.style.display = 'flex';
+
+  // Hide the preloader after 5 seconds
+  setTimeout(function() {
+    preloader.style.display = 'none';
+    mainContent.style.opacity = '1';
+    mainContent.style.pointerEvents = 'auto';
+  }, 5000);
+});
+    </script>
+
+
+<div class="main-content" style="opacity: 0; pointer-events: none;">
   <nav class="bg-white shadow-lg navbar fixed top-0 left-0 right-0 z-50">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="flex justify-between h-16">
@@ -400,7 +431,7 @@
       </div>
     </div>
   </footer>
-
+</div>
   
   <script>
    const mainContent = document.querySelector('.main-content');
