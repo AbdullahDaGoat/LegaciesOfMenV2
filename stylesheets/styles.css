@@ -1,3 +1,36 @@
+body {
+  transition: background-color 0.3s, color 0.3s;
+}
+
+body.dark {
+  background-color: #1a202c;
+  color: #ffffff;
+}
+
+body.dark .bg-white {
+  background-color: #2d3748;
+}
+
+body.dark .text-gray-800 {
+  color: #ffffff;
+}
+
+body.dark .bg-gray-100 {
+  background-color: #94a0b7;
+}
+
+body.dark .bg-gray-900 {
+  background-color: #39445a;
+}
+
+body.dark .bg-orange-500 {
+  background-color: #ff7300;
+}
+
+body.dark .hover\:bg-orange-600:hover {
+  background-color: #ff8c00;
+}
+
 .navbar {
   transition: transform 0.3s ease-in-out; /* Add transition for smooth animation */
   transform: translateY(-100%); /* Start with the navbar hidden above the viewport */
