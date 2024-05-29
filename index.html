@@ -6,7 +6,7 @@
   <title>Legacies of Men | Index</title>
   <link rel="icon" type="image/png" href="./Logo_Files/lolfav.png" /> 
   <!-- Tailwind CSS CDN -->
-  <script src="https://cdn.tailwindcss.com" type="text/javascript" async></script>
+  <script src="https://cdn.tailwindcss.com" type="text/javascript" defer></script>
 
   <!-- Font Awesome CDN -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
@@ -522,11 +522,15 @@ function displaySearchResults(matches) {
 
     for (const match of matches) {
       const resultItem = document.createElement('div');
-      resultItem.classList.add('mb-4', 'bg-gray-800', 'rounded-full', 'p-4', 'flex', 'items-center');
+      resultItem.classList.add('mb-2', 'bg-gray-800', 'rounded-full', 'p-4', 'flex', 'items-center', 'cursor-pointer');
 
       if (match.index === 0) {
         resultItem.classList.add('bg-gray-700');
       }
+
+      resultItem.onmouseenter = () => {
+        resultItem.classList.add('cursor-pointer');
+      };
 
       const start = Math.max(0, match.index - 10);
       const end = Math.min(match.input.length, match.index + match[0].length + 10);
