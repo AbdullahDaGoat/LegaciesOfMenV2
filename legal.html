@@ -226,7 +226,6 @@
             </div>
           </div>
         </div>
-      </div>
 
 
         <div class="accordion rounded">
@@ -255,58 +254,62 @@
             </div>
           </div>
         </div>
-      </div>
 
-
+        <div class="accordion rounded">
+          <div class="accordion-item">
+            <div class="accordion-header bg-gray-100 px-6 py-4 flex justify-between items-center cursor-pointer">
+              <span class="font-bold">Brand and Press Guidelines</span>
+              <i class="fas fa-chevron-down"></i>
+            </div>
+            <div class="accordion-content bg-gray-50">
+              <div class="px-6 py-4 space-y-4">
+                <ul class="space-y-2">
+                  <li>
+                    <button class="text-orange-600 hover:underline" onclick="openModal('brand-guidelines')">Brand Guidelines</button>
+                  </li>
+                  <li>
+                    <button class="text-orange-600 hover:underline" onclick="openModal('press')">Press & Broadcast Guidelines</button>
+                  </li>
+                  <li>
+                    <button class="text-orange-600 hover:underline" onclick="openModal('advertising-guidelines')">Advertising Guidelines</button>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+  
       <div class="accordion rounded">
         <div class="accordion-item">
           <div class="accordion-header bg-gray-100 px-6 py-4 flex justify-between items-center cursor-pointer">
-            <span class="font-bold">Brand and Press Guidelines</span>
+            <span class="font-bold">Other</span>
             <i class="fas fa-chevron-down"></i>
           </div>
           <div class="accordion-content bg-gray-50">
             <div class="px-6 py-4 space-y-4">
               <ul class="space-y-2">
                 <li>
-                  <button class="text-orange-600 hover:underline" onclick="openModal('brand-guidelines')">Brand Guidelines</button>
+                  <button class="text-orange-600 hover:underline" onclick="openModal('transparency')">Transparency Reports</button>
                 </li>
                 <li>
-                  <button class="text-orange-600 hover:underline" onclick="openModal('press')">Press & Broadcast Guidelines</button>
+                  <button class="text-orange-600 hover:underline" onclick="openModal('safety')">Law Enforcement, Trust and Safety</button>
                 </li>
                 <li>
-                  <button class="text-orange-600 hover:underline" onclick="openModal('advertising-guidelines')">Advertising Guidelines</button>
+                  <button class="text-orange-600 hover:underline" onclick="openModal('report-a-bug')">Report a Bug or Discrepency</button>
                 </li>
               </ul>
             </div>
           </div>
         </div>
       </div>
-    </div>
-
-    <div class="accordion rounded">
-      <div class="accordion-item">
-        <div class="accordion-header bg-gray-100 px-6 py-4 flex justify-between items-center cursor-pointer">
-          <span class="font-bold">Other</span>
-          <i class="fas fa-chevron-down"></i>
-        </div>
-        <div class="accordion-content bg-gray-50">
-          <div class="px-6 py-4 space-y-4">
-            <ul class="space-y-2">
-              <li>
-                <button class="text-orange-600 hover:underline" onclick="openModal('transparency')">Transparency Reports</button>
-              </li>
-              <li>
-                <button class="text-orange-600 hover:underline" onclick="openModal('safety')">Law Enforcement, Trust and Safety</button>
-              </li>
-              <li>
-                <button class="text-orange-600 hover:underline" onclick="openModal('report-a-bug')">Report a Bug or Discrepency</button>
-              </li>
-            </ul>
-          </div>
-        </div>
+      
       </div>
-    </div>
-  </div>
+
+
+      
+
+
+        
   
       <div id="user-agreement-modal" class="fixed z-10 inset-0 overflow-y-auto hidden">
         <div class="flex items-center justify-center min-h-screen bg-gray-500 bg-opacity-50" onclick="closeModal('user-agreement-modal')">
