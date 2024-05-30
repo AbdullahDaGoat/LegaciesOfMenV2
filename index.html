@@ -92,26 +92,29 @@
   </head>
   <body>
     <script type="text/javascript">
-      window.addEventListener('load', function() {
-        // Check if the browser can reach an external resource, like Google's DNS server
-        const img = new Image();
-        img.onerror = function() {
-          // Internet connection is likely unstable
-          alert("Your internet connection is unstable. Some elements may take a long time to load or may not load at all.");
-        };
-        img.src = 'https://www.google.com/images/phd/px.gif?_=' + Date.now();
-      });
+      let internetConnectionAlertShown = false;
 
-      // Check screen size on page load
-        window.addEventListener('load', function() {
-          checkScreenSize();
-        });
+window.addEventListener('load', function() {
+  // Check if the browser can reach an external resource, like Google's DNS server
+  const img = new Image();
+  img.onerror = function() {
+    // Internet connection is likely unstable
+    if (!internetConnectionAlertShown) {
+      alert("Your internet connection is unstable. Some elements may take a long time to load or may not load at all.");
+      internetConnectionAlertShown = true;
+    }
+  };
+  img.src = 'https://www.google.com/images/phd/px.gif?_=' + Date.now();
 
-        function checkScreenSize() {
-          if (window.innerWidth < 325) {
-            alert("Please note that some elements may look off due to the small screen size.");
-          }
-        }
+  // Check screen size on page load
+  checkScreenSize();
+});
+
+function checkScreenSize() {
+  if (window.innerWidth < 325) {
+    alert("Please note that some elements may look off due to the small screen size.");
+  }
+}
 
     </script>
 
