@@ -1702,7 +1702,6 @@ body.modal-open {
   top: 50%;
   left: 20px;
   transform: translateY(-50%);
-  z-index: 50;
 }
 .progress-bar {
   background-color: transparent;
