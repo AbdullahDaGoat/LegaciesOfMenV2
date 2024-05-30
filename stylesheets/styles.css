@@ -1264,6 +1264,7 @@ body.dark #search-result-list li:hover {
   max-height: 0;
   overflow: hidden;
   transition: max-height 0.3s ease-in-out;
+  z-index: 9999999999;
 }
 .mobile-menu.open {
   max-height: 500px;
