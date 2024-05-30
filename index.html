@@ -76,6 +76,8 @@
       }
     </script>
 
+    <script src="quotes.js" type="text/JavaScript"></script>
+
     <!-- Favicons -->
     <link rel="icon" type="image/png" href="./Logo_Files/lolfav.png" />
 
@@ -105,16 +107,12 @@
           checkScreenSize();
         });
 
-        // Check screen size on window resize
-        window.addEventListener('resize', function() {
-          checkScreenSize();
-        });
-
         function checkScreenSize() {
           if (window.innerWidth < 325) {
             alert("Please note that some elements may look off due to the small screen size.");
           }
         }
+
     </script>
 
     <div id="accept-terms" class="fixed left-0 top-0 z-50 flex h-full w-full items-center justify-center bg-gray-900">
