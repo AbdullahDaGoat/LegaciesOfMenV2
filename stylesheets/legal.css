@@ -30,6 +30,20 @@
 6. Use the user's configured `sans` font-variation-settings by default.
 7. Disable tap highlights on iOS
 */
+
+.navbar {
+  transition: transform 0.3s ease;
+}
+
+.navbar.show {
+  transform: translateY(0);
+}
+
+body.popup-open .navbar {
+  transform: translateY(-100%);
+}
+
+
 html,
 :host {
   line-height: 1.5;

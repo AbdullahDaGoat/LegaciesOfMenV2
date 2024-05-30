@@ -644,6 +644,18 @@
         window.localStorage.setItem('prefersDarkMode', prefersDarkMode);
         themeToggler.innerHTML = `<i class="${prefersDarkMode ? 'fas fa-sun' : 'fas fa-moon'}"></i>`;
       });
+
+      function openModal(modalId) {
+      const modal = document.getElementById(modalId);
+      modal.classList.remove('hidden');
+      document.body.classList.add('popup-open');
+    }
+
+    function closeModal(modalId) {
+      const modal = document.getElementById(modalId);
+      modal.classList.add('hidden');
+      document.body.classList.remove('popup-open');
+    }
     </script>
   </body>
 </html>
