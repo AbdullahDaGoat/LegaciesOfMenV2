@@ -905,6 +905,404 @@ video {
 .ease-in-out {
   transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 }
+.dropdown-menu {
+  display: none;
+  position: absolute;
+  z-index: 1;
+  background-color: #fff;
+  border: 1px solid #ddd;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  padding: 0.5rem;
+  border-radius: 0.25rem;
+}
+.dropdown-menu a {
+  display: block;
+  padding: 0.25rem 0.5rem;
+  text-decoration: none;
+  color: #333;
+}
+.dropdown-menu a:hover {
+  background-color: #f5f5f5;
+}
+.main-content {
+  padding-top: 100px;
+  /* Adjust the value as needed */
+}
+.accordion-item .accordion-content {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.3s ease-out;
+}
+.accordion-item .accordion-content.show {
+  max-height: 1000px;
+  /* Adjust this value as needed */
+  transition: max-height 0.5s ease-in;
+}
+.accordion-item .accordion-header.active {
+  background-color: #e5e7eb;
+  /* Adjust the background color as needed */
+}
+.accordion-item .accordion-header.active i {
+  transform: rotate(180deg);
+}
+.accordion-item {
+  border-radius: 0.5rem;
+  /* Add border radius */
+  margin-bottom: 1rem;
+  /* Add spacing between accordion items */
+}
+.accordion-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 1.5rem;
+  /* Adjust padding as needed */
+  background-color: #f3f4f6;
+  /* Adjust background color as needed */
+  border-radius: 0.5rem 0.5rem 0 0;
+  /* Add border radius to the top corners */
+  cursor: pointer;
+  position: relative;
+  /* Needed for the vertical line */
+}
+.accordion-header::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  width: 0.5rem;
+  /* Adjust the width of the vertical line */
+  background-color: transparent;
+  /* Set the initial color to transparent */
+  transition: background-color 0.3s ease-in-out;
+  /* Add a smooth transition */
+}
+.accordion-item.active .accordion-header::before {
+  background-color: #ff6b00;
+  /* Set the color of the vertical line when the accordion is open */
+}
+.accordion-content {
+  padding: 1rem 1.5rem;
+  /* Adjust padding as needed */
+  background-color: #f9fafb;
+  /* Adjust background color as needed */
+  border-radius: 0 0 0.5rem 0.5rem;
+  /* Add border radius to the bottom corners */
+}
+/* Reusable CSS */
+body.dark .accordion-item .accordion-header.active {
+  background-color: #eb5c09;
+  /* Adjust the background color as needed */
+}
+html,
+body {
+  height: 100%;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+}
+.main-content {
+  flex: 1 0 auto;
+}
+footer {
+  flex-shrink: 0;
+}
+body.dark .bg-gray-50 {
+  background-color: #545556;
+}
+.hover\:text-orange-500:hover {
+  color: #ff4500;
+}
+body {
+  transition: background-color 0.3s, color 0.3s;
+}
+body.dark {
+  background-color: #0a0a0a;
+  color: #f5f5f5;
+}
+body.dark .bg-white {
+  background-color: #1a1a1a;
+}
+body.dark .bg-gray-100 {
+  background-color: #212121;
+}
+body.dark .bg-gray-900 {
+  background-color: #0a0a0a;
+  color: white;
+}
+body.dark .text-gray-700 {
+  color: rgb(8, 178, 221);
+}
+@media (max-width: 767px) {
+  .mobile-menu-button {
+    width: 48px;
+    height: 48px;
+    font-size: 24px;
+    padding: 12px;
+    padding: 0.75rem;
+    /* 12px */
+  }
+  .mobile-menu-button .fas.fa-bars {
+    font-size: 1.5rem;
+    /* 24px */
+  }
+  .progress-bar-container {
+    display: none;
+  }
+}
+body.dark .bg-orange-500 {
+  background-color: #ff8c00;
+}
+body.dark .hover\:bg-orange-600:hover {
+  background-color: #ffa500;
+}
+body.dark .text-gray-800 {
+  color: #f5f5f5;
+}
+body.dark .text-gray-600 {
+  color: #d4d4d4;
+}
+body.dark .desktop-nav-link::after {
+  background-color: #ff8c00;
+}
+body.dark .bubble {
+  background-color: #ff8c00;
+  color: #0a0a0a;
+}
+body.dark ::-webkit-scrollbar-thumb {
+  background-color: #ff8c00;
+}
+body.dark ::-webkit-scrollbar-track {
+  background-color: #1a1a1a;
+}
+body.dark #search-result-list li:hover {
+  background-color: #1a1a1a;
+}
+.btn-plus {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background-color: #ffa500;
+  color: #fff;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 24px;
+  cursor: pointer;
+  z-index: 100;
+}
+.btn-plus.dark {
+  background-color: #0066b2;
+}
+.bubble-container {
+  position: fixed;
+  top: 50%;
+  right: 20px;
+  transform: translateY(-50%);
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  z-index: 99;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s ease;
+}
+.bubble-container.show {
+  opacity: 1;
+  pointer-events: auto;
+}
+.bubble {
+  width: 50px;
+  height: 50px;
+  background-color: #0066b2;
+  color: #fff;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  position: relative;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+.bubble.bg-blue-500 {
+  background-color: #0066b2;
+}
+.bubble.bg-blue-500:hover {
+  background-color: #0052a3;
+}
+.bubble.bg-green-500 {
+  background-color: #4caf50;
+}
+.bubble.bg-green-500:hover {
+  background-color: #3d8b40;
+}
+.bubble:hover .tooltip {
+  opacity: 1;
+  visibility: visible;
+}
+.tooltip {
+  position: absolute;
+  top: 50%;
+  left: calc(100% + 10px);
+  transform: translateY(-50%);
+  background-color: #333;
+  color: #fff;
+  padding: 8px 12px;
+  border-radius: 4px;
+  font-size: 14px;
+  white-space: nowrap;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.3s ease, visibility 0.3s ease;
+}
+@media (max-width: 767px) {
+  .btn-plus {
+    width: 40px;
+    height: 40px;
+    font-size: 20px;
+  }
+  .bubble {
+    width: 40px;
+    height: 40px;
+  }
+}
+.navbar {
+  transition: transform 0.3s ease-in-out;
+  /* Add transition for smooth animation */
+  transform: translateY(-100%);
+  /* Start with the navbar hidden above the viewport */
+}
+.navbar.show {
+  transform: translateY(0);
+  /* When the "show" class is added, slide down the navbar */
+}
+.mobile-menu {
+  position: absolute;
+  top: 64px;
+  left: 0;
+  right: 0;
+  background-color: white;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+  transform-origin: top;
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.3s ease-in-out;
+}
+.mobile-menu.open {
+  max-height: 500px;
+  /* Adjust this value as needed */
+}
+.mobile-menu.closed {
+  max-height: 0;
+}
+@keyframes openMenu {
+  0% {
+    max-height: 0;
+  }
+  100% {
+    max-height: 500px;
+    /* Adjust this value as needed */
+  }
+}
+@keyframes closeMenu {
+  0% {
+    max-height: 500px;
+    /* Adjust this value as needed */
+  }
+  100% {
+    max-height: 0;
+  }
+}
+.desktop-nav-link {
+  position: relative;
+  padding-bottom: 2px;
+  overflow: hidden;
+}
+.desktop-nav-link::after {
+  content: "";
+  position: absolute;
+  width: 0;
+  height: 2px;
+  bottom: 0;
+  left: 0;
+  background-color: #fb7185;
+  transition: width 0.3s ease-in-out;
+}
+.desktop-nav-link:hover::after {
+  width: 100%;
+}
+.image-container {
+  position: relative;
+  overflow: hidden;
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+.image-container:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+}
+.image-container img {
+  width: 100%;
+  height: auto;
+  display: block;
+  transition: transform 0.3s;
+}
+.image-container:hover img {
+  transform: scale(1.1);
+}
+body.modal-open {
+  filter: blur(5px);
+  /* Adjust the blur value as needed */
+  pointer-events: none;
+}
+.modal.show {
+  display: flex;
+  pointer-events: auto;
+}
+::-webkit-scrollbar {
+  width: 12px;
+  /* Width of the scrollbar */
+}
+::-webkit-scrollbar-track {
+  background-color: #f1f1f1;
+  /* Color of the track (the area behind the scrollbar) */
+}
+::-webkit-scrollbar-thumb {
+  background-color: #ff7300;
+  /* Color of the scrollbar thumb */
+  border-radius: 6px;
+  /* Roundness of the scrollbar thumb */
+}
+::-webkit-scrollbar-thumb:hover {
+  background-color: #ff7300;
+  /* Color of the scrollbar thumb on hover */
+}
+body.dark ::-webkit-scrollbar-thumb {
+  background-color: #ff8c00;
+}
+body.dark ::-webkit-scrollbar-track {
+  background-color: #1a1a1a;
+}
+/* End of Reusable CSS */
+@media (max-width: 340px) {
+  .modal-content {
+    max-height: 80vh;
+    padding: 1rem;
+  }
+  .mb-4 {
+    margin-bottom: 1rem;
+  }
+  h3 {
+    font-size: 1.5rem;
+  }
+  h4 {
+    font-size: 1.25rem;
+  }
+}
 .hover\:border-orange-500:hover {
   --tw-border-opacity: 1;
   border-color: rgb(249 115 22 / var(--tw-border-opacity));
