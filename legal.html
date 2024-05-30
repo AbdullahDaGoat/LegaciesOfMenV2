@@ -81,7 +81,7 @@
 
     <!-- Tailwind CSS Convert Code to generated CSS (https://play.tailwindcss.com/) -->
     <!-- Keep this on until code is finialized -->
-    <script src="https://cdn.tailwindcss.com" type="text/javascript" defer></script>
+    <script src="https://cdn.tailwindcss.com" type="text/javascript"></script>
 
     <!-- Font Awesome CDN -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
@@ -90,79 +90,286 @@
 
   </head>
   <body class="bg-white text-gray-800 font-sans">
-    
-    <div class="container mx-auto py-12 px-4 sm:px-0">
-      <h1 class="text-3xl font-bold mb-8 bg-clip-text text-transparent bg-gradient-to-r from-orange-600 to-orange-300 animate-gradient-x sm:block">Legacies Of Men (LOM) Legal Policies</h1>
-      <h1 class="text-3xl font-bold mb-8 bg-clip-text text-transparent bg-gradient-to-r from-orange-600 to-orange-300 animate-gradient-x block hidden text-center">Legacies Of Men (LOM) Legal Policies</h1>
-      <div class="accordion rounded">
-        <div class="accordion-item">
-          <div class="accordion-header bg-gray-100 px-6 py-4 flex justify-between items-center cursor-pointer">
-            <span class="font-bold">Terms</span>
-            <i class="fas fa-chevron-down"></i>
-          </div>
-          <div class="accordion-content">
-            <div class="px-6 py-4 space-y-4">
-              <ul class="space-y-2">
-                <li>
-                  <button class="text-orange-600 hover:underline" onclick="openModal('user-agreement-modal')">User Agreement</button>
-                </li>
-              </ul>
+    <div class="main-content" id="mainContent">
+      <nav class="navbar fixed left-0 right-0 top-0 z-50 bg-white shadow-lg">
+        <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+          <div class="flex h-16 justify-between">
+            <div class="flex items-center">
+              <img src="./Logo_Files/Favicon.png" alt="Brand Logo" class="mr-2 h-8" />
+              <a href="index.html" class="text-2xl font-bold text-orange-500">Legacies Of Men</a>
             </div>
-          </div>
-        </div>
-        <!-- Repeat the same structure for the remaining accordion items -->
-      </div>
-    </div>
-  
-    <div id="user-agreement-modal" class="fixed z-10 inset-0 overflow-y-auto hidden">
-      <div class="flex items-center justify-center min-h-screen bg-gray-500 bg-opacity-50" onclick="closeModal('user-agreement-modal')">
-        <div class="bg-white rounded-lg shadow-lg w-full max-w-3xl p-6 overflow-y-scroll" style="max-height: 90vh;">
-          <div class="modal-content relative">
-            <div class="flex justify-between items-start mb-4">
-              <h3 class="text-2xl font-bold sm:text-3xl">User Agreement</h3>
-              <button class="text-orange-600 hover:bg-orange-600 hover:text-white rounded px-3 py-1 transition-colors duration-300" onclick="closeModal('user-agreement-modal')">
-                <span class="hidden sm:inline">Close</span>
-                <i class="fas fa-times sm:hidden"></i>
+            <div class="hidden items-center space-x-8 sm:flex">
+              <a href="#" class="desktop-nav-link text-gray-500 transition duration-150 ease-in-out hover:text-orange-600">
+                <i class="fas fa-info-circle mr-2"></i>
+                About
+              </a>
+              <a href="#" class="desktop-nav-link text-gray-500 transition duration-150 ease-in-out hover:text-orange-600">
+                <i class="fas fa-balance-scale mr-2"></i>
+                Tenets
+              </a>
+              <a href="#" class="desktop-nav-link text-gray-500 transition duration-150 ease-in-out hover:text-orange-600">
+                <i class="fas fa-newspaper mr-2"></i>
+                News
+              </a>
+              <a href="#" class="desktop-nav-link text-gray-500 transition duration-150 ease-in-out hover:text-orange-600">
+                <i class="fas fa-user-plus mr-2"></i>
+                Join
+              </a>
+              <a href="#" class="desktop-nav-link text-gray-500 transition duration-150 ease-in-out hover:text-orange-600">
+                <i class="fas fa-hand-holding-usd mr-2"></i>
+                Sponsor
+              </a>
+              <a href="#" class="desktop-nav-link text-gray-500 transition duration-150 ease-in-out hover:text-orange-600">
+                <i class="fas fa-book mr-2"></i>
+                Resource
+              </a>
+            </div>
+            <div class="hidden items-center sm:flex">
+              <a href="http://www.google.com" class="rounded bg-red-500 px-4 py-2 font-bold text-white transition duration-150 ease-in-out hover:bg-red-600">
+                <i class="fas fa-sign-out-alt mr-2"></i>
+                <span>Escape</span>
+              </a>
+            </div>
+            <div class="-mr-2 flex items-center sm:hidden">
+              <a href="http://www.google.com" class="mr-2 rounded bg-red-500 px-4 py-2 font-bold text-white transition duration-150 ease-in-out hover:bg-red-600">
+                <i class="fas fa-sign-out-alt"></i>
+              </a>
+              <button type="button" class="mobile-menu-button inline-flex items-center justify-center rounded-md p-3 text-gray-400 hover:bg-gray-100 hover:text-gray-500 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-orange-500" aria-expanded="false" id="mobile-menu-button">
+                <span class="sr-only">Open main menu</span>
+                <i class="fas fa-bars text-2xl"></i>
               </button>
             </div>
-            <p class="mb-4">Welcome to Legacies Of Men (LOM)! By accessing or using our platform, you agree to be bound by this User Agreement and our other applicable policies and terms.</p>
-            <h4 class="text-xl font-bold mb-2">1. Eligibility</h4>
-            <p class="mb-4">You must be at least 13 years old to use our platform. If you are under 18, you represent that you have your parent or guardian's permission to use our platform.</p>
-            <h4 class="text-xl font-bold mb-2">2. Your Use of LOM</h4>
-            <p class="mb-4">You agree to use our platform in a manner that is lawful, respectful, and does not infringe on the rights of others. You also agree not to engage in any activities that could disrupt, damage, or interfere with our platform or the experience of other users.</p>
-            <h4 class="text-xl font-bold mb-2">3. Intellectual Property</h4>
-            <p class="mb-4">All content and materials on our platform, including but not limited to text, graphics, logos, images, and software, are the property of LOM or our licensors and are protected by copyright, trademark, and other intellectual property laws. You may not modify, copy, distribute, transmit, display, reproduce, or create derivative works from our content without our prior written permission.</p>
-            <h4 class="text-xl font-bold mb-2">4. User Content</h4>
-            <p class="mb-4">Any content you upload, submit, or post to our platform remains yours. However, by sharing content on our platform, you grant us a worldwide, non-exclusive, royalty-free license to use, reproduce, modify, adapt, publish, translate, distribute, and display that content.</p>
-            <h4 class="text-xl font-bold mb-2">5. Termination</h4>
-            <p class="mb-4">We reserve the right to suspend or terminate your access to our platform at any time, for any reason, including if we reasonably believe you have violated this User Agreement. You may also delete your account at any time, but we may retain certain information as required by law or for legitimate business purposes.</p>
-            <h4 class="text-xl font-bold mb-2">6. Disclaimers and Limitations of Liability</h4>
-            <p class="mb-4">Our platform is provided "as is" and we make no warranties or representations about its functionality, reliability, or availability. We shall not be liable for any indirect, special, incidental, or consequential damages arising from your use of our platform.</p>
-            <h4 class="text-xl font-bold mb-2">7. Governing Law and Dispute Resolution</h4>
-            <p class="mb-4">This User Agreement shall be governed by the laws of the jurisdiction where LOM is headquartered. Any disputes arising from this agreement shall be resolved through binding arbitration in accordance with the rules of the relevant arbitration organization.</p>
-            <p class="mb-4">By using our platform, you acknowledge that you have read, understood, and agree to be bound by this User Agreement. If you have any questions or concerns, please contact us at <a href="mailto:support@lom.com" class="text-orange-600 hover:underline">support@lom.com</a>.</p>
+          </div>
+        </div>
+  
+        <div class="mobile-menu closed sm:hidden" id="mobile-menu">
+          <div class="space-y-1 pb-3 pt-2">
+            <a href="#" class="block border-l-4 border-transparent py-2 pl-3 pr-4 text-base font-medium text-gray-500 hover:border-orange-500 hover:bg-gray-50 hover:text-orange-600 focus:border-orange-500 focus:bg-gray-50 focus:text-orange-600 focus:outline-none">
+              <i class="fas fa-info-circle mr-2"></i>
+              About
+            </a>
+            <a href="#" class="block border-l-4 border-transparent py-2 pl-3 pr-4 text-base font-medium text-gray-500 hover:border-orange-500 hover:bg-gray-50 hover:text-orange-600 focus:border-orange-500 focus:bg-gray-50 focus:text-orange-600 focus:outline-none">
+              <i class="fas fa-balance-scale mr-2"></i>
+              Tenets
+            </a>
+            <a href="#" class="block border-l-4 border-transparent py-2 pl-3 pr-4 text-base font-medium text-gray-500 hover:border-orange-500 hover:bg-gray-50 hover:text-orange-600 focus:border-orange-500 focus:bg-gray-50 focus:text-orange-600 focus:outline-none">
+              <i class="fas fa-newspaper mr-2"></i>
+              News
+            </a>
+            <a href="#" class="block border-l-4 border-transparent py-2 pl-3 pr-4 text-base font-medium text-gray-500 hover:border-orange-500 hover:bg-gray-50 hover:text-orange-600 focus:border-orange-500 focus:bg-gray-50 focus:text-orange-600 focus:outline-none">
+              <i class="fas fa-user-plus mr-2"></i>
+              Join
+            </a>
+            <a href="#" class="block border-l-4 border-transparent py-2 pl-3 pr-4 text-base font-medium text-gray-500 hover:border-orange-500 hover:bg-gray-50 hover:text-orange-600 focus:border-orange-500 focus:bg-gray-50 focus:text-orange-600 focus:outline-none">
+              <i class="fas fa-hand-holding-usd mr-2"></i>
+              Sponsor
+            </a>
+            <a href="#" class="block border-l-4 border-transparent py-2 pl-3 pr-4 text-base font-medium text-gray-500 hover:border-orange-500 hover:bg-gray-50 hover:text-orange-600 focus:border-orange-500 focus:bg-gray-50 focus:text-orange-600 focus:outline-none">
+              <i class="fas fa-book mr-2"></i>
+              Resource
+            </a>
+          </div>
+        </div>
+      </nav>
+  
+      
+      <div class="container mx-auto py-12 px-4 sm:px-0">
+        <h1 class="text-3xl font-bold mb-8 bg-clip-text text-transparent bg-gradient-to-r from-orange-600 to-orange-300 animate-gradient-x sm:block">Legacies Of Men (LOM) Legal Policies</h1>
+        <h1 class="text-3xl font-bold mb-8 bg-clip-text text-transparent bg-gradient-to-r from-orange-600 to-orange-300 animate-gradient-x block hidden text-center">Legacies Of Men (LOM) Legal Policies</h1>
+        <div class="accordion rounded">
+          <div class="accordion-item">
+            <div class="accordion-header bg-gray-100 px-6 py-4 flex justify-between items-center cursor-pointer">
+              <span class="font-bold">Terms Of Service and Conditions (TOS)</span>
+              <i class="fas fa-chevron-down"></i>
+            </div>
+            <div class="accordion-content bg-gray-50">
+              <div class="px-6 py-4 space-y-4">
+                <ul class="space-y-2">
+                  <li>
+                    <button class="text-orange-600 hover:underline" onclick="openModal('user-agreement-modal')">User Agreement</button>
+                  </li>
+                  <li>
+                    <button class="text-orange-600 hover:underline" onclick="openModal('user-agreement-modal')">User Agreement</button>
+                  </li>
+                  <li>
+                    <button class="text-orange-600 hover:underline" onclick="openModal('user-agreement-modal')">User Agreement</button>
+                  </li>
+                  <li>
+                    <button class="text-orange-600 hover:underline" onclick="openModal('user-agreement-modal')">User Agreement</button>
+                  </li>
+                  <li>
+                    <button class="text-orange-600 hover:underline" onclick="openModal('user-agreement-modal')">User Agreement</button>
+                  </li>
+                  <li>
+                    <button class="text-orange-600 hover:underline" onclick="openModal('user-agreement-modal')">User Agreement</button>
+                  </li>
+                  <li>
+                    <button class="text-orange-600 hover:underline" onclick="openModal('user-agreement-modal')">User Agreement</button>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+
+
+        <div class="accordion rounded">
+          <div class="accordion-item">
+            <div class="accordion-header bg-gray-100 px-6 py-4 flex justify-between items-center cursor-pointer">
+              <span class="font-bold">Wow Yeet</span>
+              <i class="fas fa-chevron-down"></i>
+            </div>
+            <div class="accordion-content bg-gray-50">
+              <div class="px-6 py-4 space-y-4">
+                <ul class="space-y-2">
+                  <li>
+                    <button class="text-orange-600 hover:underline" onclick="openModal('user-agreement-modal')">User Agreement</button>
+                  </li>
+                  <li>
+                    <button class="text-orange-600 hover:underline" onclick="openModal('user-agreement-modal')">User Agreement</button>
+                  </li>
+                  <li>
+                    <button class="text-orange-600 hover:underline" onclick="openModal('user-agreement-modal')">User Agreement</button>
+                  </li>
+                  <li>
+                    <button class="text-orange-600 hover:underline" onclick="openModal('user-agreement-modal')">User Agreement</button>
+                  </li>
+                  <li>
+                    <button class="text-orange-600 hover:underline" onclick="openModal('user-agreement-modal')">User Agreement</button>
+                  </li>
+                  <li>
+                    <button class="text-orange-600 hover:underline" onclick="openModal('user-agreement-modal')">User Agreement</button>
+                  </li>
+                  <li>
+                    <button class="text-orange-600 hover:underline" onclick="openModal('user-agreement-modal')">User Agreement</button>
+                  </li>
+                </ul>
+              </div>
+            </div>
           </div>
         </div>
       </div>
-    </div>
   
-    <!-- Add more modal divs for the remaining buttons -->
+      <div id="user-agreement-modal" class="fixed z-10 inset-0 overflow-y-auto hidden">
+        <div class="flex items-center justify-center min-h-screen bg-gray-500 bg-opacity-50" onclick="closeModal('user-agreement-modal')">
+          <div class="bg-white rounded-lg shadow-lg w-full max-w-3xl p-6 overflow-y-scroll" style="max-height: 90vh;">
+            <div class="modal-content relative">
+              <div class="flex justify-between items-start mb-4">
+                <h3 class="text-2xl font-bold sm:text-3xl">User Agreement</h3>
+                <button class="text-orange-600 hover:bg-orange-600 hover:text-white rounded px-3 py-1 transition-colors duration-300" onclick="closeModal('user-agreement-modal')">
+                  <span class="hidden sm:inline">Close</span>
+                  <i class="fas fa-times sm:hidden"></i>
+                </button>
+              </div>
+              <p class="mb-4">Welcome to Legacies Of Men (LOM)! By accessing or using our platform, you agree to be bound by this User Agreement and our other applicable policies and terms.</p>
+              <h4 class="text-xl font-bold mb-2">1. Eligibility</h4>
+              <p class="mb-4">You must be at least 13 years old to use our platform. If you are under 18, you represent that you have your parent or guardian's permission to use our platform.</p>
+              <h4 class="text-xl font-bold mb-2">2. Your Use of LOM</h4>
+              <p class="mb-4">You agree to use our platform in a manner that is lawful, respectful, and does not infringe on the rights of others. You also agree not to engage in any activities that could disrupt, damage, or interfere with our platform or the experience of other users.</p>
+              <h4 class="text-xl font-bold mb-2">3. Intellectual Property</h4>
+              <p class="mb-4">All content and materials on our platform, including but not limited to text, graphics, logos, images, and software, are the property of LOM or our licensors and are protected by copyright, trademark, and other intellectual property laws. You may not modify, copy, distribute, transmit, display, reproduce, or create derivative works from our content without our prior written permission.</p>
+              <h4 class="text-xl font-bold mb-2">4. User Content</h4>
+              <p class="mb-4">Any content you upload, submit, or post to our platform remains yours. However, by sharing content on our platform, you grant us a worldwide, non-exclusive, royalty-free license to use, reproduce, modify, adapt, publish, translate, distribute, and display that content.</p>
+              <h4 class="text-xl font-bold mb-2">5. Termination</h4>
+              <p class="mb-4">We reserve the right to suspend or terminate your access to our platform at any time, for any reason, including if we reasonably believe you have violated this User Agreement. You may also delete your account at any time, but we may retain certain information as required by law or for legitimate business purposes.</p>
+              <h4 class="text-xl font-bold mb-2">6. Disclaimers and Limitations of Liability</h4>
+              <p class="mb-4">Our platform is provided "as is" and we make no warranties or representations about its functionality, reliability, or availability. We shall not be liable for any indirect, special, incidental, or consequential damages arising from your use of our platform.</p>
+              <h4 class="text-xl font-bold mb-2">7. Governing Law and Dispute Resolution</h4>
+              <p class="mb-4">This User Agreement shall be governed by the laws of the jurisdiction where LOM is headquartered. Any disputes arising from this agreement shall be resolved through binding arbitration in accordance with the rules of the relevant arbitration organization.</p>
+              <p class="mb-4">By using our platform, you acknowledge that you have read, understood, and agree to be bound by this User Agreement. If you have any questions or concerns, please contact us at <a href="mailto:support@lom.com" class="text-orange-600 hover:underline">support@lom.com</a>.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+  
+      <footer id="bottom" class="bg-gray-900 px-4 py-12 text-white sm:px-0">
+        <div class="container mx-auto">
+          <div class="grid grid-cols-1 gap-8 sm:grid-cols-2 md:grid-cols-3">
+            <div>
+              <h3 class="mb-4 text-2xl font-bold">Useful Links</h3>
+              <ul class="space-y-2" id="main-menu">
+                <li><a href="legal.html" class="hover:text-orange-500">Legal Documentation</a></li>
+                <li><a href="#" class="hover:text-orange-500">Volunteer</a></li>
+                <li><a href="#" class="hover:text-orange-500">Press and Contact</a></li>
+                <li><a href="#" class="hover:text-orange-500">Other</a></li>
+              </ul>
+            </div>
+            <div>
+              <h3 class="mb-4 text-2xl font-bold">Community</h3>
+              <p class="mb-4 text-gray-400" id="community-text">*Our meetings are open to all men and male-identified people, regardless of race, ethnicity, sexual orientation, and age.</p>
+              <div class="flex flex-col items-center space-y-4 sm:flex-row sm:space-x-4 sm:space-y-0">
+                <a href="https://www.reddit.com/r/GuyCry/" class="flex items-center rounded-full bg-orange-500 px-4 py-2 font-bold text-white shadow-md hover:bg-orange-600">
+                  <i class="fab fa-reddit mr-2"></i>
+                  r/GuyCry
+                </a>
+                <a href="mailto:joe@legaciesofmen.org" class="flex items-center rounded-full bg-gray-500 px-4 py-2 font-bold text-white shadow-md hover:bg-gray-600">
+                  <i class="fas fa-envelope mr-2"></i>
+                  Contact
+                </a>
+              </div>
+            </div>
+            <div>
+              <h3 class="mb-4 text-2xl font-bold">Search</h3>
+              <div class="flex items-center space-x-4">
+                <input type="text" placeholder="Search..." class="w-full rounded-full bg-gray-800 px-4 py-2 text-white focus:outline-none focus:ring focus:ring-orange-500" id="search-input" />
+                <button class="rounded-full bg-orange-500 px-4 py-2 font-bold text-white shadow-md hover:bg-orange-600" id="clear-search">
+                  <i class="fas fa-times"></i>
+                </button>
+              </div>
+              <div id="search-results" class="mt-4 hidden rounded-md bg-gray-800 p-4">
+                <h4 class="mb-2 text-lg font-bold">Search Results:</h4>
+                <ul id="search-result-list"></ul>
+              </div>
+            </div>
+          </div>
+          <div class="mt-8 text-center text-gray-400">
+            <p>Legacies Of Men and Partners &copy; 2023-Present</p>
+            <p class="sm:inline">
+              <span class="font-bold text-orange-500">Owned and Maintained by <a class="font-normal" href="https://www.linkedin.com/in/josephtruax">Joesph Traux</a></span>
+            </p>
+            <p class="sm:inline"><span class="font-normal text-gray-400"> and Abdullah Khan</span><span class="ml-2 rounded-full bg-gray-800 px-2 py-1 text-xs font-bold text-gray-400">Dev</span></p>
+          </div>
+          <div class="mt-8 flex justify-center space-x-4">
+            <button id="theme-toggler" class="rounded-full border-2 border-orange-500 px-4 py-2 text-2xl text-gray-400 transition duration-300 ease-in-out hover:text-orange-500 focus:outline-none">
+              <i class="fas fa-moon"></i>
+            </button>
+            <a href="/status" class="rounded-full border-2 border-orange-500 px-4 py-2 text-2xl text-gray-400 transition duration-300 ease-in-out hover:text-orange-500 focus:outline-none">
+              <i class="fas fa-chart-line"></i>
+            </a>
+          </div>
+        </div>
+      </footer>
+    </div>
   
     <script type="text/javascript">
       const accordionHeaders = document.querySelectorAll('.accordion-header');
-      accordionHeaders.forEach(header => {
-        header.addEventListener('click', () => {
-          header.classList.toggle('active');
-          const content = header.nextElementSibling;
-          if (content.classList.contains('show')) {
-            content.classList.remove('show');
-            content.style.maxHeight = null;
-          } else {
-            content.classList.add('show');
-            content.style.maxHeight = content.scrollHeight + 'px';
-          }
-        });
-      });
+
+accordionHeaders.forEach(header => {
+  header.addEventListener('click', () => {
+    // Close all other accordion content
+    accordionHeaders.forEach(h => {
+      if (h !== header) {
+        const content = h.nextElementSibling;
+        if (content.classList.contains('show')) {
+          content.classList.remove('show');
+          content.style.maxHeight = null;
+          h.classList.remove('active');
+        }
+      }
+    });
+
+    // Toggle the clicked accordion content
+    header.classList.toggle('active');
+    const content = header.nextElementSibling;
+    if (content.classList.contains('show')) {
+      content.classList.remove('show');
+      content.style.maxHeight = null;
+    } else {
+      content.classList.add('show');
+      content.style.maxHeight = content.scrollHeight + 'px';
+    }
+  });
+});
   
       function openModal(modalId) {
         const modal = document.getElementById(modalId);
@@ -176,5 +383,163 @@
         document.body.classList.remove('overflow-hidden');
       }
     </script>
+
+<script>
+  const escapeButton = document.querySelector('.bg-red-500');
+  escapeButton.addEventListener('click', () => {
+    window.location.href = 'http://www.google.com';
+  });
+</script>
+
+<script>
+  const mainContent = document.querySelector('.main-content');
+  const searchInput = document.getElementById('search-input');
+  const searchResults = document.getElementById('search-results');
+  const searchResultList = document.getElementById('search-result-list');
+
+  searchInput.addEventListener('input', () => {
+    const searchTerm = searchInput.value.trim().toLowerCase();
+    if (searchTerm.length > 0) {
+      const pageText = mainContent.innerText.toLowerCase();
+      const matches = findMatches(pageText, searchTerm);
+      displaySearchResults(matches);
+    } else {
+      searchResults.classList.add('hidden');
+      searchResultList.innerHTML = '';
+    }
+  });
+
+  const clearSearchButton = document.getElementById('clear-search');
+
+  clearSearchButton.addEventListener('click', () => {
+    searchInput.value = '';
+    searchResults.classList.add('hidden');
+    searchResultList.innerHTML = '';
+  });
+
+  function findMatches(text, searchTerm) {
+    const regex = new RegExp(searchTerm, 'gi');
+    const matches = text.matchAll(regex);
+    return Array.from(matches);
+  }
+
+  function displaySearchResults(matches) {
+    searchResultList.innerHTML = '';
+
+    if (matches.length > 0) {
+      searchResults.classList.remove('hidden');
+
+      for (const match of matches) {
+        const resultItem = document.createElement('div');
+        resultItem.classList.add('mb-2', 'bg-gray-800', 'rounded-full', 'p-4', 'flex', 'items-center', 'cursor-pointer');
+
+        if (match.index === 0) {
+          resultItem.classList.add('bg-gray-700');
+        }
+
+        resultItem.onmouseenter = () => {
+          resultItem.classList.add('cursor-pointer');
+        };
+
+        const start = Math.max(0, match.index - 10);
+        const end = Math.min(match.input.length, match.index + match[0].length + 10);
+        const excerpt = `${match.input.slice(start, match.index)}<span class="text-white">${match[0]}</span>${match.input.slice(match.index + match[0].length, end)}`;
+        resultItem.innerHTML = excerpt;
+
+        resultItem.addEventListener('click', () => {
+          displayPopup(match, excerpt);
+        });
+
+        searchResultList.appendChild(resultItem);
+      }
+    } else {
+      searchResultList.innerHTML = 'No Search Results, click the x icon to clear';
+    }
+  }
+
+  function displayPopup(match, excerpt) {
+    const popup = document.createElement('div');
+    popup.classList.add('fixed', 'top-0', 'left-0', 'w-full', 'h-full', 'bg-gray-900', 'bg-opacity-75', 'flex', 'justify-center', 'items-center', 'z-50');
+
+    const popupContent = document.createElement('div');
+    popupContent.classList.add('bg-white', 'p-8', 'rounded-md', 'w-full', 'max-w-2xl', 'max-h-[80vh]', 'overflow-y-auto');
+
+    const popupText = document.createElement('div');
+    popupText.classList.add('text-gray-900', 'whitespace-pre-wrap');
+
+    const matchStart = Math.max(0, match.index - 100);
+    const matchEnd = Math.min(match.input.length, match.index + match[0].length + 125);
+    const beforeMatch = match.input.slice(matchStart, match.index);
+    const afterMatch = match.input.slice(match.index + match[0].length, matchEnd);
+    const highlightedText = `...${beforeMatch}<span class="bg-orange-500 text-white">${match[0]}</span>${afterMatch}...`;
+    popupText.innerHTML = highlightedText;
+
+    const closeButton = document.createElement('button');
+    closeButton.classList.add('bg-orange-500', 'hover:bg-orange-600', 'text-white', 'font-bold', 'py-2', 'px-4', 'rounded-full', 'shadow-md', 'mt-4');
+    closeButton.textContent = 'Close';
+    closeButton.addEventListener('click', () => {
+      popup.remove();
+    });
+
+    popupContent.appendChild(popupText);
+    popupContent.appendChild(closeButton);
+    popup.appendChild(popupContent);
+    document.body.appendChild(popup);
+
+    // Add custom scrollbar styles
+    const scrollbar = popupContent.querySelector('::-webkit-scrollbar');
+    scrollbar.style.width = '8px';
+    scrollbar.style.backgroundColor = '#718096';
+
+    const scrollbarThumb = popupContent.querySelector('::-webkit-scrollbar-thumb');
+    scrollbarThumb.style.backgroundColor = '#4a5568';
+    scrollbarThumb.style.borderRadius = '4px';
+  }
+</script>
+
+<script type="text/javascript">
+  const button = document.getElementById('mobile-menu-button');
+  const menu = document.getElementById('mobile-menu');
+  const navbar = document.querySelector('.navbar');
+
+  let lastScrollY = 0;
+
+  window.addEventListener('scroll', () => {
+    const currentScrollY = window.pageYOffset;
+
+    if (currentScrollY > lastScrollY) {
+      // Scroll down
+      navbar.classList.remove('show');
+    } else {
+      // Scroll up
+      navbar.classList.add('show');
+    }
+
+    lastScrollY = currentScrollY;
+  });
+
+  button.addEventListener('click', () => {
+    menu.classList.toggle('open');
+    menu.classList.toggle('closed');
+  });
+
+  // Get the theme toggler button and the body element
+  const themeToggler = document.getElementById('theme-toggler');
+  const body = document.body;
+
+  // Check for the user's preferred theme on page load
+  let prefersDarkMode = window.localStorage.getItem('prefersDarkMode') === 'true';
+  body.classList.toggle('dark', prefersDarkMode);
+  themeToggler.innerHTML = `<i class="${prefersDarkMode ? 'fas fa-sun' : 'fas fa-moon'}"></i>`;
+
+  // Add event listener to the theme toggler button
+  themeToggler.addEventListener('click', () => {
+    body.classList.toggle('dark');
+    prefersDarkMode = body.classList.contains('dark');
+    window.localStorage.setItem('prefersDarkMode', prefersDarkMode);
+    themeToggler.innerHTML = `<i class="${prefersDarkMode ? 'fas fa-sun' : 'fas fa-moon'}"></i>`;
+  });
+</script>
+
   </body>
   </html>    

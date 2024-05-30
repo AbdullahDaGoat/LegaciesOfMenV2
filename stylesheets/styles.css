@@ -1050,6 +1050,7 @@ video {
 .ease-in-out {
   transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 }
+
 body {
   transition: background-color 0.3s, color 0.3s;
 }
@@ -1247,6 +1248,7 @@ body.dark #search-result-list li:hover {
   margin-top: 1rem;
   color: #f7fafc;
 }
+
 .navbar {
   transition: transform 0.3s ease-in-out;
   /* Add transition for smooth animation */
@@ -1257,6 +1259,7 @@ body.dark #search-result-list li:hover {
   transform: translateY(0);
   /* When the "show" class is added, slide down the navbar */
 }
+
 .mobile-menu {
   position: absolute;
   top: 64px;
@@ -1367,6 +1370,7 @@ body.dark #search-result-list li:hover {
 .aspect-video {
   aspect-ratio: 9/16;
 }
+
 .image-container {
   position: relative;
   overflow: hidden;
