@@ -1083,6 +1083,10 @@ body.dark .text-gray-700 {
     font-size: 1.5rem;
     /* 24px */
   }
+
+  .progress-bar-container{
+    display: none;
+  }
 }
 body.dark .bg-orange-500 {
   background-color: #ff8c00;
@@ -1264,7 +1268,6 @@ body.dark #search-result-list li:hover {
   max-height: 0;
   overflow: hidden;
   transition: max-height 0.3s ease-in-out;
-  z-index: 9999999999;
 }
 .mobile-menu.open {
   max-height: 500px;
@@ -1702,6 +1705,7 @@ body.modal-open {
   top: 50%;
   left: 20px;
   transform: translateY(-50%);
+  z-index: 50;
 }
 .progress-bar {
   background-color: transparent;
