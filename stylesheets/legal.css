@@ -1009,6 +1009,8 @@ body.dark .accordion-item .accordion-header.active {
   background-color: #eb5c09;
   /* Adjust the background color as needed */
 }
+
+
 html,
 body {
   height: 100%;
@@ -1022,6 +1024,8 @@ body {
 footer {
   flex-shrink: 0;
 }
+
+
 body.dark .bg-gray-50 {
   background-color: #545556;
 }
