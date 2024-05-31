@@ -143,8 +143,41 @@
     <link rel="stylesheet" type="text/css" href="./stylesheets/reusable.css" />
 
   </head>
+
   <body class="bg-white text-gray-800 font-sans dark:bg-gray-800 dark:text-gray-200">
-    <div class="main-content" id="mainContent">
+
+        <div id="accept-terms" class="fixed left-0 top-0 z-50 flex h-full w-full items-center justify-center bg-gray-900">
+          <div class="accept-terms-wrapper max-w-[90%] rounded-lg bg-white p-8 shadow-lg sm:max-w-[80%] md:max-w-[70%] lg:max-w-[60%] h-[80%] md:h-[70%] lg:h-[60%] overflow-y-auto">
+            <div class="accept-terms-content flex flex-col items-center">
+              <!-- Desktop banner image -->
+              <img src="./Logo_Files/sof.png" alt="Desktop Banner Image" class="mb-8 h-auto max-w-[300px] sm:max-w-[350px] md:max-w-[380px] md:block" />
+      
+              <h2 class="mb-4 text-2xl font-bold">Terms and Conditions</h2>
+              <div class="mb-8 text-gray-700">
+                <p>By pressing the "Load" button below, you agree to our <a href="legal.html" class="text-blue-500 hover:underline">Legal Policies</a>.</p>
+                <br />
+                <p>If this is an emergency, please don't wait and call the national suicide helpline at <strong>1-800-273-8255</strong>. Your call will be answered by a trained crisis counselor who can provide free and confidential support 24/7.</p>
+                <br />
+                <p>If this is a different type of emergency, please call <strong>911</strong> immediately.</p>
+              </div>
+              <button id="loadButton" class="rounded-full bg-orange-500 px-6 py-3 text-white transition-colors duration-300 hover:bg-orange-600">Load</button>
+            </div>
+          </div>
+        </div>
+
+    <script type="text/javascript">
+        document.querySelector('#loadButton').addEventListener('click', function() {
+          const acceptTerms = document.getElementById('accept-terms');
+          acceptTerms.style.display = 'none';
+      
+          const mainContent = document.getElementById('mainContent');
+          mainContent.classList.remove('hidden');
+          mainContent.classList.add('visible');
+        });
+      </script>
+
+
+    <div class="main-content animate__animated animate__fadeIn" id="mainContent">
       <nav class="navbar fixed left-0 right-0 top-0 z-50 bg-white shadow-lg">
         <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div class="flex h-16 justify-between">
@@ -226,7 +259,9 @@
           </div>
         </div>
       </nav>
-      <div class="container mx-auto px-4 py-20 animate__animated animate__fadeIn">
+
+
+      <div class="container mx-auto px-4 py-20 animate__animated animate__fadeIn ">
         <div class="flex flex-col md:flex-row items-center justify-between">
           <div class="md:w-1/2 pr-8 animate__animated animate__fadeInLeft">
             <h1 class="text-3xl font-bold mb-4">About Joe</h1>
@@ -348,6 +383,53 @@
               </script>
               
 
+              <div class="container mx-auto px-4 py-20 animate__animated animate__fadeIn">
+                <h2 class="text-3xl font-bold mb-8">Featured Projects</h2>
+                <div class="flex flex-col md:flex-row items-center justify-center -mx-4">
+                  <div class="md:w-1/2 px-4 mb-8 md:mb-0 animate__animated animate__fadeInLeft">
+                    <div class="relative w-full h-64 md:h-80 rounded-lg overflow-hidden shadow-lg">
+                      <div class="absolute inset-0 bg-gradient-to-t from-gray-900 to-transparent"></div>
+                      <img src="https://via.placeholder.com/800x600" alt="Project 1" class="w-full h-full object-cover">
+                      <div class="absolute bottom-0 left-0 right-0 p-4 text-white">
+                        <h3 class="text-2xl font-bold mb-2">Project 1</h3>
+                        <p class="text-sm">Description of Project 1</p>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="md:w-1/2 px-4 animate__animated animate__fadeInRight">
+                    <div class="relative w-full h-64 md:h-80 rounded-lg overflow-hidden shadow-lg">
+                      <div class="absolute inset-0 bg-gradient-to-t from-gray-900 to-transparent"></div>
+                      <img src="https://via.placeholder.com/800x600" alt="Project 2" class="w-full h-full object-cover">
+                      <div class="absolute bottom-0 left-0 right-0 p-4 text-white">
+                        <h3 class="text-2xl font-bold mb-2">Project 2</h3>
+                        <p class="text-sm">Description of Project 2</p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="flex flex-col md:flex-row items-center justify-center -mx-4 mt-8">
+                  <div class="md:w-1/2 px-4 mb-8 md:mb-0 animate__animated animate__fadeInLeft">
+                    <div class="relative w-full h-64 md:h-80 rounded-lg overflow-hidden shadow-lg">
+                      <div class="absolute inset-0 bg-gradient-to-t from-gray-900 to-transparent"></div>
+                      <img src="https://via.placeholder.com/800x600" alt="Project 3" class="w-full h-full object-cover">
+                      <div class="absolute bottom-0 left-0 right-0 p-4 text-white">
+                        <h3 class="text-2xl font-bold mb-2">Project 3</h3>
+                        <p class="text-sm">Description of Project 3</p>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="md:w-1/2 px-4 animate__animated animate__fadeInRight">
+                    <div class="relative w-full h-64 md:h-80 rounded-lg overflow-hidden shadow-lg">
+                      <div class="absolute inset-0 bg-gradient-to-t from-gray-900 to-transparent"></div>
+                      <img src="https://via.placeholder.com/800x600" alt="Project 4" class="w-full h-full object-cover">
+                      <div class="absolute bottom-0 left-0 right-0 p-4 text-white">
+                        <h3 class="text-2xl font-bold mb-2">Project 4</h3>
+                        <p class="text-sm">Description of Project 4</p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
 
       <footer id="bottom" class="bg-gray-900 px-4 py-12 text-white sm:px-0">
         <div class="container mx-auto">
