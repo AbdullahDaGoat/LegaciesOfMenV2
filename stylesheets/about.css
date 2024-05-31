@@ -1,3 +1,57 @@
-.main-content{
-    padding-top: 329px;
+@import 'tailwindcss/base';
+@import 'tailwindcss/components';
+@import 'tailwindcss/utilities';
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
 }
+
+.animate__animated.animate__fadeIn {
+  animation-name: fadeIn;
+  animation-duration: 1s;
+  animation-fill-mode: both;
+}
+
+a.hover\:bg-orange-500:hover {
+  background-color: #f97316;
+  color: #fff;
+}
+
+.dark body {
+    background-color: #1f2937;
+    color: #e5e7eb;
+  }
+
+  .dark .bg-orange-100 {
+    background-color: #1e3a8a;
+    color: #fcd34d;
+  }
+
+  .dark .text-orange-500 {
+    color: #fcd34d;
+  }
+
+  .dark .border-orange-500 {
+    border-color: #fcd34d;
+  }
+
+  .dark .text-gray-500 {
+    color: #9ca3af;
+  }
+
+  .dark .bg-gray-700 {
+    background-color: #374151;
+    color: #e5e7eb;
+  }
+
+  @media (max-width: 340px) {
+    #modal .inline-block {
+      max-height: 80vh;
+      overflow-y: auto;
+    }
+  }
