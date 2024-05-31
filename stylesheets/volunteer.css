@@ -1073,3 +1073,14 @@ body.dark {
   body.dark .text-gray-900 {
     color: #f3f4f6;
   }
+
+
+  /* CSS */
+.filter-pill .close-icon {
+  margin-left: 0.5rem;
+  cursor: pointer;
+}
+
+.main-content{
+  padding-top: 50px;
+}
