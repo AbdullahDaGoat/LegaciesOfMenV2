@@ -144,7 +144,7 @@
 
   </head>
 
-  <body class="bg-white text-gray-800 font-sans dark:bg-gray-800 dark:text-gray-200">
+  <body class="bg-white text-gray-800 font-sans dark:bg-gray-800 dark:text-gray-200 bg-gray-100 dark:bg-gray-800">
 
         <div id="accept-terms" class="fixed left-0 top-0 z-50 flex h-full w-full items-center justify-center bg-gray-900">
           <div class="accept-terms-wrapper max-w-[90%] rounded-lg bg-white p-8 shadow-lg sm:max-w-[80%] md:max-w-[70%] lg:max-w-[60%] h-[80%] md:h-[70%] lg:h-[60%] overflow-y-auto">
@@ -360,9 +360,9 @@
               
               <script>
                 // Get the modal and buttons
-                var modal = document.getElementById("modal");
-                var openModalBtn = document.getElementById("openModal");
-                var closeModalBtn = document.getElementById("closeModal");
+                const modal = document.getElementById("modal");
+                const openModalBtn = document.getElementById("openModal");
+                const closeModalBtn = document.getElementById("closeModal");
               
                 // Open the modal when the button is clicked
                 openModalBtn.addEventListener("click", function() {
@@ -381,55 +381,102 @@
                   }
                 });
               </script>
-              
 
-              <div class="container mx-auto px-4 py-20 animate__animated animate__fadeIn">
-                <h2 class="text-3xl font-bold mb-8">Featured Projects</h2>
-                <div class="flex flex-col md:flex-row items-center justify-center -mx-4">
-                  <div class="md:w-1/2 px-4 mb-8 md:mb-0 animate__animated animate__fadeInLeft">
-                    <div class="relative w-full h-64 md:h-80 rounded-lg overflow-hidden shadow-lg">
-                      <div class="absolute inset-0 bg-gradient-to-t from-gray-900 to-transparent"></div>
-                      <img src="https://via.placeholder.com/800x600" alt="Project 1" class="w-full h-full object-cover">
-                      <div class="absolute bottom-0 left-0 right-0 p-4 text-white">
-                        <h3 class="text-2xl font-bold mb-2">Project 1</h3>
-                        <p class="text-sm">Description of Project 1</p>
-                      </div>
+<div class="flex">
+    <div class="bg-white dark:bg-gray-700 p-8">
+      <h1 class="text-3xl font-bold text-orange-500 dark:text-orange-400 ">About Website</h1>
+      <p class="text-gray-700 dark:text-gray-300">This is a clean and minimalistic design that conveys the organization's message effectively. The color scheme uses shades of orange and white to maintain brand consistency.</p>
+    </div>
+  </div>
+
+  <div class="container-wow">
+    <div class="flex justify-center items-center ">
+      <div class="slideshow-container">
+        <div class="slideshow-item cursor-pointer">
+          <img src="https://lh3.googleusercontent.com/chat_attachment/AP1Ws4tiAI2820li0AcYS2kXlygR56DF-xneyUX8EaIyTsoHebO7djO-04p3LnozE6a95AJL93EaCsgVBCxkhAV0oM-INFOUq6d71qcyxa9GabjIXX2bCY3J0sfOWq9NLNDXrepnMmRR9UUy7pDddV0wE3pplhyzffv3GgiWvjQ3JwcckT3TTYmQP_wftq44eLji9X6ag8SJvEN-hYRwBwH14ZedRQrxqMhM4YVS0u0LhFAb3ENu_qu_k10QZjYVdcIBMwxQtPacBavIHkDwo1aRBbXbQiK-yQp5tl05-afTgZG0rgIdjEOnnEzTtE7-gKCV7FE=w512" alt="Image 1" class="slideshow-image rounded-lg shadow-md">
+        </div>
+      </div>
+    </div>
+              
+    <div class="slideshow-popup fixed top-0 left-0 w-full h-full bg-black/80 z-50 opacity-0 invisible transition-all duration-300">
+                          <div class="slideshow-popup-content bg-white rounded-lg w-11/12 max-w-[1400px] max-h-[90%] overflow-y-auto grid grid-cols-1 md:grid-cols-2 gap-4 p-4 md:p-6 mx-auto">
+                    <div class="slideshow-popup-image-container flex justify-center items-center relative">
+                      <img src="https://lh3.googleusercontent.com/chat_attachment/AP1Ws4tiAI2820li0AcYS2kXlygR56DF-xneyUX8EaIyTsoHebO7djO-04p3LnozE6a95AJL93EaCsgVBCxkhAV0oM-INFOUq6d71qcyxa9GabjIXX2bCY3J0sfOWq9NLNDXrepnMmRR9UUy7pDddV0wE3pplhyzffv3GgiWvjQ3JwcckT3TTYmQP_wftq44eLji9X6ag8SJvEN-hYRwBwH14ZedRQrxqMhM4YVS0u0LhFAb3ENu_qu_k10QZjYVdcIBMwxQtPacBavIHkDwo1aRBbXbQiK-yQp5tl05-afTgZG0rgIdjEOnnEzTtE7-gKCV7FE=w512" alt="Image" class="slideshow-popup-image max-w-full max-h-[800px] object-contain rounded-lg shadow-md">
                     </div>
-                  </div>
-                  <div class="md:w-1/2 px-4 animate__animated animate__fadeInRight">
-                    <div class="relative w-full h-64 md:h-80 rounded-lg overflow-hidden shadow-lg">
-                      <div class="absolute inset-0 bg-gradient-to-t from-gray-900 to-transparent"></div>
-                      <img src="https://via.placeholder.com/800x600" alt="Project 2" class="w-full h-full object-cover">
-                      <div class="absolute bottom-0 left-0 right-0 p-4 text-white">
-                        <h3 class="text-2xl font-bold mb-2">Project 2</h3>
-                        <p class="text-sm">Description of Project 2</p>
+                    <div class="slideshow-popup-comments overflow-y-auto space-y-4">
+                      <div class="slideshow-popup-header flex items-center justify-between border-b border-gray-200 pb-4">
+                        <div class="flex items-center">
+                          <img src="https://via.placeholder.com/36x36" alt="Profile Picture 1" class="slideshow-popup-pfp rounded-full mr-2">
+                          <span class="slideshow-popup-comment-username font-bold"> Username 1</span>
+                          <span class="slideshow-popup-comment-text"> Great website!</span>
+                        </div>
+                        <button class="slideshow-popup-close-btn bg-transparent border-none cursor-pointer text-gray-500 text-xl">
+                          <i class="fas fa-times"></i>
+                        </button>
                       </div>
-                    </div>
-                  </div>
-                </div>
-                <div class="flex flex-col md:flex-row items-center justify-center -mx-4 mt-8">
-                  <div class="md:w-1/2 px-4 mb-8 md:mb-0 animate__animated animate__fadeInLeft">
-                    <div class="relative w-full h-64 md:h-80 rounded-lg overflow-hidden shadow-lg">
-                      <div class="absolute inset-0 bg-gradient-to-t from-gray-900 to-transparent"></div>
-                      <img src="https://via.placeholder.com/800x600" alt="Project 3" class="w-full h-full object-cover">
-                      <div class="absolute bottom-0 left-0 right-0 p-4 text-white">
-                        <h3 class="text-2xl font-bold mb-2">Project 3</h3>
-                        <p class="text-sm">Description of Project 3</p>
+                      <div class="slideshow-popup-comment flex items-start space-x-3">
+                        <img src="https://via.placeholder.com/28x28" alt="Profile Picture 2" class="slideshow-popup-comment-pfp rounded-full mt-1">
+                        <div>
+                          <span class="slideshow-popup-comment-username font-bold"> Username 2</span>
+                          <span class="slideshow-popup-comment-text"> Great website!</span>
+                        </div>
                       </div>
-                    </div>
-                  </div>
-                  <div class="md:w-1/2 px-4 animate__animated animate__fadeInRight">
-                    <div class="relative w-full h-64 md:h-80 rounded-lg overflow-hidden shadow-lg">
-                      <div class="absolute inset-0 bg-gradient-to-t from-gray-900 to-transparent"></div>
-                      <img src="https://via.placeholder.com/800x600" alt="Project 4" class="w-full h-full object-cover">
-                      <div class="absolute bottom-0 left-0 right-0 p-4 text-white">
-                        <h3 class="text-2xl font-bold mb-2">Project 4</h3>
-                        <p class="text-sm">Description of Project 4</p>
+              
+                      <!-- Add more comments here -->
+                      <div class="slideshow-popup-comment-input flex items-center border-t border-gray-200 pt-4">
+                        <img src="https://via.placeholder.com/28x28" alt="Profile Picture 6" class="slideshow-popup-comment-pfp rounded-full">
+                        <input type="text" placeholder="Add a comment..." class="slideshow-popup-comment-input-field flex-1 border-none outline-none p-2 rounded-full bg-gray-100 px-4" disabled>
+                        <div class="flex items-center space-x-2">
+                          <button class="bg-transparent text-red-500 rounded-full p-2">
+                            <i class="fas fa-heart"></i>
+                          </button>
+                          <button class="bg-blue-500 text-white rounded-full px-4 py-2 font-bold">Post</button>
+                        </div>
                       </div>
                     </div>
                   </div>
                 </div>
               </div>
+              
+              <script type="text/javascript">
+                // Get the slideshow container and all the slideshow items
+                const slideshowContainer = document.querySelector('.slideshow-container');
+                const slideshowItems = document.querySelectorAll('.slideshow-item');
+              
+                // Get the popup and its elements
+                const popup = document.querySelector('.slideshow-popup');
+                const popupContent = document.querySelector('.slideshow-popup-content');
+                const popupCloseBtn = document.querySelector('.slideshow-popup-close-btn');
+                const popupImage = document.querySelector('.slideshow-popup-image');
+              
+                // Add click event listener to each slideshow item
+                slideshowItems.forEach((item, index) => {
+                  item.addEventListener('click', () => {
+                    // Show the popup
+                    popup.style.opacity = '1';
+                    popup.style.visibility = 'visible';
+              
+                    // Set the popup content based on the clicked item
+                    popupImage.src = item.querySelector('.slideshow-image').src;
+                  });
+                });
+              
+                // Add click event listener to the popup close button
+                popupCloseBtn.addEventListener('click', () => {
+                  // Hide the popup
+                  popup.style.opacity = '0';
+                  popup.style.visibility = 'hidden';
+                });
+              
+                // Add click event listener to the popup to close it
+                popup.addEventListener('click', (event) => {
+                  if (event.target === popup || !event.target.closest('.slideshow-popup-content')) {
+                    // Hide the popup
+                    popup.style.opacity = '0';
+                    popup.style.visibility = 'hidden';
+                  }
+                });
+              </script>
 
       <footer id="bottom" class="bg-gray-900 px-4 py-12 text-white sm:px-0">
         <div class="container mx-auto">

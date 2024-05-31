@@ -1,7 +1,12 @@
 @import 'tailwindcss/base';
 @import 'tailwindcss/components';
 @import 'tailwindcss/utilities';
+body {
+    margin: 0;
+    padding: 0;
+  }
 
+  
 @keyframes fadeIn {
   0% {
     opacity: 0;
@@ -53,5 +58,132 @@ a.hover\:bg-orange-500:hover {
     #modal .inline-block {
       max-height: 80vh;
       overflow-y: auto;
+    }
+  }
+
+  
+  .slideshow-container {
+    position: relative;
+    width: 100%;
+    max-width: 800px;
+    height: 500px;
+    overflow-x: hidden;
+    overflow-y: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+  
+  .slideshow-container::-webkit-scrollbar {
+    display: none;
+  }
+  
+  .slideshow-item {
+    flex: 0 0 auto;
+    margin: 0 1rem;
+    cursor: pointer;
+    transition: transform 0.3s ease-in-out;
+  }
+  
+  .slideshow-item:hover {
+    transform: scale(1.05);
+  }
+  
+  .slideshow-image {
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain;
+  }
+  
+  .slideshow-popup {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.8);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 999;
+    transition: opacity 0.3s, visibility 0.3s;
+  }
+  
+  .slideshow-popup-content {
+    background-color: white;
+    border-radius: 8px;
+    width: 90%;
+    max-width: 1400px;
+    max-height: 90%;
+    overflow-y: auto;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-gap: 2rem;
+    animation: fadeIn 0.3s ease-in-out;
+  }
+  
+  @media (max-width: 768px) {
+    .slideshow-container {
+      height: auto;
+      padding: 1rem;
+    }
+  
+    .slideshow-item {
+      margin: 0.5rem;
+    }
+  
+    .slideshow-popup-content {
+      width: 95%;
+      max-height: 95%;
+      grid-template-columns: 1fr;
+    }
+  
+    .slideshow-popup-comments {
+      max-height: 300px;
+    }
+  }
+  
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
+  
+  .slideshow-popup-comment-input {
+    display: flex;
+    align-items: center;
+    border-top: 1px solid #dbdbdb;
+    padding-top: 1rem;
+  }
+  
+  .slideshow-popup-comment-input-field {
+    flex: 1;
+    border: none;
+    outline: none;
+    padding: 0.5rem 1rem;
+    border-radius: 9999px;
+    background-color: #efefef;
+  }
+  
+  .slideshow-popup-comment-input-field:focus {
+    background-color: #fff;
+  }
+  
+  .slideshow-popup-comment-input button {
+    margin-left: 0.5rem;
+  }
+  
+  .slideshow-popup-comment-input .fa-heart {
+    font-size: 1.25rem;
+  }
+  
+  @media (max-width: 768px) {
+    .slideshow-popup-content {
+      grid-template-columns: 1fr;
     }
   }
