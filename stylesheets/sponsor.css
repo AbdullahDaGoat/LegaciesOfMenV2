@@ -1,0 +1,31 @@
+body.dark .bg-white {
+    background-color: #1f2937;
+  }
+  
+  body.dark .text-gray-600 {
+    color: #9ca3af;
+  }
+  
+  body.dark .shadow-md {
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+  }
+  
+  body.dark .hover\:shadow-lg:hover {
+    box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+  }
+  
+  body.dark .bg-orange-500 {
+    background-color: #1f2937;
+  }
+  
+  body.dark .text-orange-500 {
+    color: #fcd34d;
+  }
+  
+  body.dark .text-orange-600 {
+    color: #fcd34d;
+  }
+
+  .main-content{
+    padding-top: 100px
+  }
