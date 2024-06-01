@@ -134,7 +134,7 @@
 
     <!-- Tailwind CSS Convert Code to generated CSS (https://play.tailwindcss.com/) -->
     <!-- Keep this on until code is finialized -->
-    <!-- <script src="https://cdn.tailwindcss.com" type="text/javascript"></script> -->
+    <script src="https://cdn.tailwindcss.com" type="text/javascript"></script>
 
     <!-- Font Awesome CDN -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
@@ -144,130 +144,113 @@
 
   </head>
 
-  <body class="bg-white text-gray-800 font-sans dark:bg-gray-800 dark:text-gray-200 bg-gray-100 dark:bg-gray-800">
-
-        <div id="accept-terms" class="fixed left-0 top-0 z-50 flex h-full w-full items-center justify-center bg-gray-900">
-          <div class="accept-terms-wrapper max-w-[90%] rounded-lg bg-white p-8 shadow-lg sm:max-w-[80%] md:max-w-[70%] lg:max-w-[60%] h-[80%] md:h-[70%] lg:h-[60%] overflow-y-auto">
-            <div class="accept-terms-content flex flex-col items-center">
-              <!-- Desktop banner image -->
-              <img src="./Logo_Files/sof.png" alt="Desktop Banner Image" class="mb-8 h-auto max-w-[300px] sm:max-w-[350px] md:max-w-[380px] md:block" />
-      
-              <h2 class="mb-4 text-2xl font-bold">Terms and Conditions</h2>
-              <div class="mb-8 text-gray-700">
-                <p>By pressing the "Load" button below, you agree to our <a href="legal.html" class="text-blue-500 hover:underline">Legal Policies</a>.</p>
-                <br />
-                <p>If this is an emergency, please don't wait and call the national suicide helpline at <strong>1-800-273-8255</strong>. Your call will be answered by a trained crisis counselor who can provide free and confidential support 24/7.</p>
-                <br />
-                <p>If this is a different type of emergency, please call <strong>911</strong> immediately.</p>
-              </div>
-              <button id="loadButton" class="rounded-full bg-orange-500 px-6 py-3 text-white transition-colors duration-300 hover:bg-orange-600">Load</button>
-            </div>
+  <body class="bg-white text-gray-800 font-sans dark:bg-gray-800 dark:text-gray-200">
+    <div id="accept-terms" class="fixed left-0 top-0 z-50 flex h-full w-full items-center justify-center bg-gray-900">
+      <div class="accept-terms-wrapper max-w-[90%] rounded-lg bg-white p-8 shadow-lg sm:max-w-[80%] md:max-w-[70%] lg:max-w-[60%] h-[80%] md:h-[70%] lg:h-[60%] overflow-y-auto dark:bg-gray-700 dark:text-gray-200">
+        <div class="accept-terms-content flex flex-col items-center">
+          <img src="./Logo_Files/sof.png" alt="Desktop Banner Image" class="mb-8 h-auto max-w-[300px] sm:max-w-[350px] md:max-w-[380px] md:block" />
+          <h2 class="mb-4 text-2xl font-bold">Terms and Conditions</h2>
+          <div class="mb-8 text-gray-700 dark:text-gray-300">
+            <p>By pressing the "Load" button below, you agree to our <a href="legal.html" class="text-blue-500 hover:underline dark:text-blue-400">Legal Policies</a>.</p>
+            <br />
+            <p>If this is an emergency, please don't wait and call the national suicide helpline at <strong>1-800-273-8255</strong>. Your call will be answered by a trained crisis counselor who can provide free and confidential support 24/7.</p>
+            <br />
+            <p>If this is a different type of emergency, please call <strong>911</strong> immediately.</p>
           </div>
+          <button id="loadButton" class="rounded-full bg-orange-500 px-6 py-3 text-white transition-colors duration-300 hover:bg-orange-600 dark:bg-orange-600 dark:hover:bg-orange-700">Load</button>
         </div>
-
-    <script type="text/javascript">
-        document.querySelector('#loadButton').addEventListener('click', function() {
-          const acceptTerms = document.getElementById('accept-terms');
-          acceptTerms.style.display = 'none';
-      
-          const mainContent = document.getElementById('mainContent');
-          mainContent.classList.remove('hidden');
-          mainContent.classList.add('visible');
-        });
-      </script>
-
-
+      </div>
+    </div>
+  
     <div class="main-content animate__animated animate__fadeIn" id="mainContent">
-      <nav class="navbar fixed left-0 right-0 top-0 z-50 bg-white shadow-lg">
+      <nav class="navbar fixed left-0 right-0 top-0 z-50 bg-white shadow-lg dark:bg-gray-800 dark:text-gray-200">
         <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div class="flex h-16 justify-between">
             <div class="flex items-center">
               <img src="./Logo_Files/Favicon.png" alt="Brand Logo" class="mr-2 h-8" />
-              <a href="index.html" class="text-2xl font-bold text-orange-500">Legacies Of Men</a>
+              <a href="index.html" class="text-2xl font-bold text-orange-500 dark:text-orange-400">Legacies Of Men</a>
             </div>
             <div class="hidden items-center space-x-8 sm:flex">
-              <a href="about.html" class="desktop-nav-link text-gray-500 transition duration-150 ease-in-out hover:text-orange-600">
+              <a href="about.html" class="desktop-nav-link text-gray-500 transition duration-150 ease-in-out hover:text-orange-600 dark:text-gray-400 dark:hover:text-orange-400">
                 <i class="fas fa-info-circle mr-2"></i>
-                About
+                <span>About</span>
               </a>
-              <a href="#" class="desktop-nav-link text-gray-500 transition duration-150 ease-in-out hover:text-orange-600">
+              <a href="#" class="desktop-nav-link text-gray-500 transition duration-150 ease-in-out hover:text-orange-600 dark:text-gray-400 dark:hover:text-orange-400">
                 <i class="fas fa-balance-scale mr-2"></i>
-                Tenets
+                <span>Tenets</span>
               </a>
-              <a href="#" class="desktop-nav-link text-gray-500 transition duration-150 ease-in-out hover:text-orange-600">
+              <a href="#" class="desktop-nav-link text-gray-500 transition duration-150 ease-in-out hover:text-orange-600 dark:text-gray-400 dark:hover:text-orange-400">
                 <i class="fas fa-newspaper mr-2"></i>
-                News
+                <span>News</span>
               </a>
-              <a href="#" class="desktop-nav-link text-gray-500 transition duration-150 ease-in-out hover:text-orange-600">
+              <a href="#" class="desktop-nav-link text-gray-500 transition duration-150 ease-in-out hover:text-orange-600 dark:text-gray-400 dark:hover:text-orange-400">
                 <i class="fas fa-user-plus mr-2"></i>
-                Join
+                <span>Join</span>
               </a>
-              <a href="#" class="desktop-nav-link text-gray-500 transition duration-150 ease-in-out hover:text-orange-600">
+              <a href="#" class="desktop-nav-link text-gray-500 transition duration-150 ease-in-out hover:text-orange-600 dark:text-gray-400 dark:hover:text-orange-400">
                 <i class="fas fa-hand-holding-usd mr-2"></i>
-                Sponsor
+                <span>Sponsor</span>
               </a>
-              <a href="#" class="desktop-nav-link text-gray-500 transition duration-150 ease-in-out hover:text-orange-600">
+              <a href="#" class="desktop-nav-link text-gray-500 transition duration-150 ease-in-out hover:text-orange-600 dark:text-gray-400 dark:hover:text-orange-400">
                 <i class="fas fa-book mr-2"></i>
-                Resource
+                <span>Resources</span>
               </a>
             </div>
             <div class="hidden items-center sm:flex">
-              <a href="http://www.google.com" class="rounded bg-red-500 px-4 py-2 font-bold text-white transition duration-150 ease-in-out hover:bg-red-600">
+              <a href="http://www.google.com" class="rounded bg-red-500 px-4 py-2 font-bold text-white transition duration-150 ease-in-out hover:bg-red-600 dark:bg-red-600 dark:hover:bg-red-700">
                 <i class="fas fa-sign-out-alt mr-2"></i>
                 <span>Escape</span>
               </a>
             </div>
             <div class="-mr-2 flex items-center sm:hidden">
-              <a href="http://www.google.com" class="mr-2 rounded bg-red-500 px-4 py-2 font-bold text-white transition duration-150 ease-in-out hover:bg-red-600">
+              <a href="http://www.google.com" class="mr-2 rounded bg-red-500 px-4 py-2 font-bold text-white transition duration-150 ease-in-out hover:bg-red-600 dark:bg-red-600 dark:hover:bg-red-700">
                 <i class="fas fa-sign-out-alt"></i>
               </a>
-              <button type="button" class="mobile-menu-button inline-flex items-center justify-center rounded-md p-3 text-gray-400 hover:bg-gray-100 hover:text-gray-500 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-orange-500" aria-expanded="false" id="mobile-menu-button">
+              <button type="button" class="mobile-menu-button inline-flex items-center justify-center rounded-md p-3 text-gray-400 hover:bg-gray-100 hover:text-gray-500 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-orange-500 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-gray-300" aria-expanded="false" id="mobile-menu-button">
                 <span class="sr-only">Open main menu</span>
                 <i class="fas fa-bars text-2xl"></i>
               </button>
             </div>
           </div>
         </div>
-
-
+  
         <div class="mobile-menu closed sm:hidden" id="mobile-menu">
           <div class="space-y-1 pb-3 pt-2">
-            <a href="about.html" class="block border-l-4 border-transparent py-2 pl-3 pr-4 text-base font-medium text-gray-500 hover:border-orange-500 hover:bg-gray-50 hover:text-orange-600 focus:border-orange-500 focus:bg-gray-50 focus:text-orange-600 focus:outline-none">
+            <a href="about.html" class="block border-l-4 border-transparent py-2 pl-3 pr-4 text-base font-medium text-gray-500 hover:border-orange-500 hover:bg-gray-50 hover:text-orange-600 focus:border-orange-500 focus:bg-gray-50 focus:text-orange-600 focus:outline-none dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-orange-400 dark:focus:bg-gray-700 dark:focus:text-orange-400">
               <i class="fas fa-info-circle mr-2"></i>
               About
             </a>
-            <a href="#" class="block border-l-4 border-transparent py-2 pl-3 pr-4 text-base font-medium text-gray-500 hover:border-orange-500 hover:bg-gray-50 hover:text-orange-600 focus:border-orange-500 focus:bg-gray-50 focus:text-orange-600 focus:outline-none">
+            <a href="#" class="block border-l-4 border-transparent py-2 pl-3 pr-4 text-base font-medium text-gray-500 hover:border-orange-500 hover:bg-gray-50 hover:text-orange-600 focus:border-orange-500 focus:bg-gray-50 focus:text-orange-600 focus:outline-none dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-orange-400 dark:focus:bg-gray-700 dark:focus:text-orange-400">
               <i class="fas fa-balance-scale mr-2"></i>
               Tenets
             </a>
-            <a href="#" class="block border-l-4 border-transparent py-2 pl-3 pr-4 text-base font-medium text-gray-500 hover:border-orange-500 hover:bg-gray-50 hover:text-orange-600 focus:border-orange-500 focus:bg-gray-50 focus:text-orange-600 focus:outline-none">
+            <a href="#" class="block border-l-4 border-transparent py-2 pl-3 pr-4 text-base font-medium text-gray-500 hover:border-orange-500 hover:bg-gray-50 hover:text-orange-600 focus:border-orange-500 focus:bg-gray-50 focus:text-orange-600 focus:outline-none dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-orange-400 dark:focus:bg-gray-700 dark:focus:text-orange-400">
               <i class="fas fa-newspaper mr-2"></i>
               News
             </a>
-            <a href="#" class="block border-l-4 border-transparent py-2 pl-3 pr-4 text-base font-medium text-gray-500 hover:border-orange-500 hover:bg-gray-50 hover:text-orange-600 focus:border-orange-500 focus:bg-gray-50 focus:text-orange-600 focus:outline-none">
+            <a href="#" class="block border-l-4 border-transparent py-2 pl-3 pr-4 text-base font-medium text-gray-500 hover:border-orange-500 hover:bg-gray-50 hover:text-orange-600 focus:border-orange-500 focus:bg-gray-50 focus:text-orange-600 focus:outline-none dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-orange-400 dark:focus:bg-gray-700 dark:focus:text-orange-400">
               <i class="fas fa-user-plus mr-2"></i>
               Join
             </a>
-            <a href="#" class="block border-l-4 border-transparent py-2 pl-3 pr-4 text-base font-medium text-gray-500 hover:border-orange-500 hover:bg-gray-50 hover:text-orange-600 focus:border-orange-500 focus:bg-gray-50 focus:text-orange-600 focus:outline-none">
+            <a href="#" class="block border-l-4 border-transparent py-2 pl-3 pr-4 text-base font-medium text-gray-500 hover:border-orange-500 hover:bg-gray-50 hover:text-orange-600 focus:border-orange-500 focus:bg-gray-50 focus:text-orange-600 focus:outline-none dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-orange-400 dark:focus:bg-gray-700 dark:focus:text-orange-400">
               <i class="fas fa-hand-holding-usd mr-2"></i>
               Sponsor
             </a>
-            <a href="#" class="block border-l-4 border-transparent py-2 pl-3 pr-4 text-base font-medium text-gray-500 hover:border-orange-500 hover:bg-gray-50 hover:text-orange-600 focus:border-orange-500 focus:bg-gray-50 focus:text-orange-600 focus:outline-none">
+            <a href="#" class="block border-l-4 border-transparent py-2 pl-3 pr-4 text-base font-medium text-gray-500 hover:border-orange-500 hover:bg-gray-50 hover:text-orange-600 focus:border-orange-500 focus:bg-gray-50 focus:text-orange-600 focus:outline-none dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-orange-400 dark:focus:bg-gray-700 dark:focus:text-orange-400">
               <i class="fas fa-book mr-2"></i>
               Resource
             </a>
           </div>
         </div>
       </nav>
-
-
-      <div class="container mx-auto px-4 py-20 animate__animated animate__fadeIn ">
+  
+      <div class="container mx-auto px-4 py-20 animate__animated animate__fadeIn">
         <div class="flex flex-col md:flex-row items-center justify-between">
           <div class="md:w-1/2 pr-8 animate__animated animate__fadeInLeft">
             <h1 class="text-3xl font-bold mb-4">About Joe</h1>
             <p class="mb-8">Joe was invited by Glen Dower to be a guest on "Abiding - The Trauma Recovery Podcast," which is part of the "What Heroes Do Podcast Network." Glen told Joe that he was just going to let Joe talk, and so Joe did :)</p>
             <p class="mb-8">He got a lot out of Joe, and this episode is a great introduction to who Joe is, his values, his drive, and his goals. Enjoy!</p>
-            <button id="openModal" class="inline-block px-4 py-2 rounded-full border-2 border-orange-500 text-orange-500 font-semibold hover:bg-orange-500 hover:text-white transition-colors duration-300 animate__animated animate__fadeInUp">Details of Podcast</button>
+            <button id="openModal" class="inline-block px-4 py-2 rounded-full border-2 border-orange-500 text-orange-500 font-semibold hover:bg-orange-500 hover:text-white transition-colors duration-300 animate__animated animate__fadeInUp dark:border-orange-400 dark:text-orange-400 dark:hover:bg-orange-500 dark:hover:text-white">Details of Podcast</button>
             <div class="mt-4 flex flex-wrap gap-2 animate__animated animate__fadeInUp">
               <span class="inline-block px-3 py-1 rounded-full bg-orange-100 text-orange-500 font-semibold dark:bg-orange-900 dark:text-orange-300">#mentalhealth</span>
               <span class="inline-block px-3 py-1 rounded-full bg-orange-100 text-orange-500 font-semibold dark:bg-orange-900 dark:text-orange-300">#mentalhealthawareness</span>
@@ -276,23 +259,23 @@
               <span class="inline-block px-3 py-1 rounded-full bg-orange-100 text-orange-500 font-semibold dark:bg-orange-900 dark:text-orange-300">#GuyCry</span>
             </div>
             <div class="mt-4 flex flex-wrap gap-2 animate__animated animate__fadeInUp">
-              <a href="mailto:thehumblelowlycompany@gmail.com" class="inline-flex items-center px-3 py-1 rounded-full border-2 border-orange-500 text-orange-500 font-semibold hover:bg-orange-500 hover:text-white transition-colors duration-300 dark:border-orange-300 dark:text-orange-300 dark:hover:bg-orange-900 dark:hover:text-white">
+              <a href="mailto:thehumblelowlycompany@gmail.com" class="inline-flex items-center px-3 py-1 rounded-full border-2 border-orange-500 text-orange-500 font-semibold hover:bg-orange-500 hover:text-white transition-colors duration-300 dark:border-orange-400 dark:text-orange-400 dark:hover:bg-orange-500 dark:hover:text-white">
                 <i class="fas fa-envelope mr-2"></i>
                 Gmail
               </a>
-              <a href="https://www.linkedin.com/in/joe-truax-a21a97b7" class="inline-flex items-center px-3 py-1 rounded-full border-2 border-orange-500 text-orange-500 font-semibold hover:bg-orange-500 hover:text-white transition-colors duration-300 dark:border-orange-300 dark:text-orange-300 dark:hover:bg-orange-900 dark:hover:text-white">
+              <a href="https://www.linkedin.com/in/joe-truax-a21a97b7" class="inline-flex items-center px-3 py-1 rounded-full border-2 border-orange-500 text-orange-500 font-semibold hover:bg-orange-500 hover:text-white transition-colors duration-300 dark:border-orange-400 dark:text-orange-400 dark:hover:bg-orange-500 dark:hover:text-white">
                 <i class="fab fa-linkedin mr-2"></i>
                 LinkedIn
               </a>
-              <a href="https://twitter.com/JoeTruax" class="inline-flex items-center px-3 py-1 rounded-full border-2 border-orange-500 text-orange-500 font-semibold hover:bg-orange-500 hover:text-white transition-colors duration-300 dark:border-orange-300 dark:text-orange-300 dark:hover:bg-orange-900 dark:hover:text-white">
+              <a href="https://twitter.com/JoeTruax" class="inline-flex items-center px-3 py-1 rounded-full border-2 border-orange-500 text-orange-500 font-semibold hover:bg-orange-500 hover:text-white transition-colors duration-300 dark:border-orange-400 dark:text-orange-400 dark:hover:bg-orange-500 dark:hover:text-white">
                 <i class="fab fa-twitter mr-2"></i>
                 Twitter
               </a>
-              <a href="https://www.facebook.com/JoeTruax" class="inline-flex items-center px-3 py-1 rounded-full border-2 border-orange-500 text-orange-500 font-semibold hover:bg-orange-500 hover:text-white transition-colors duration-300 dark:border-orange-300 dark:text-orange-300 dark:hover:bg-orange-900 dark:hover:text-white">
+              <a href="https://www.facebook.com/JoeTruax" class="inline-flex items-center px-3 py-1 rounded-full border-2 border-orange-500 text-orange-500 font-semibold hover:bg-orange-500 hover:text-white transition-colors duration-300 dark:border-orange-400 dark:text-orange-400 dark:hover:bg-orange-500 dark:hover:text-white">
                 <i class="fab fa-facebook mr-2"></i>
                 Facebook
               </a>
-              <a href="https://www.reddit.com/r/GuyCry/" class="inline-flex items-center px-3 py-1 rounded-full border-2 border-orange-500 text-orange-500 font-semibold hover:bg-orange-500 hover:text-white transition-colors duration-300 dark:border-orange-300 dark:text-orange-300 dark:hover:bg-orange-900 dark:hover:text-white">
+              <a href="https://www.reddit.com/r/GuyCry/" class="inline-flex items-center px-3 py-1 rounded-full border-2 border-orange-500 text-orange-500 font-semibold hover:bg-orange-500 hover:text-white transition-colors duration-300 dark:border-orange-400 dark:text-orange-400 dark:hover:bg-orange-500 dark:hover:text-white">
                 <i class="fab fa-reddit mr-2"></i>
                 Reddit
               </a>
@@ -306,224 +289,105 @@
           <iframe src="https://embed.acast.com/$/62e2966b07b186001275465f/abidingasaman?" frameborder="0" width="100%" height="110px" allow="autoplay"></iframe>
         </div>
       </div>
-      
+  
       <div id="modal" class="fixed z-10 inset-0 overflow-y-auto hidden">
         <div class="flex items-end justify-center min-h-screen pt-4 px-4 pb-20 text-center sm:block sm:p-0">
           <div class="fixed inset-0 bg-gray-500 bg-opacity-75 transition-opacity" aria-hidden="true"></div>
           <span class="hidden sm:inline-block sm:align-middle sm:h-screen" aria-hidden="true">&#8203;</span>
           <div class="inline-block align-bottom bg-white rounded-lg px-4 pt-5 pb-4 text-left overflow-hidden shadow-xl transform transition-all sm:my-8 sm:align-middle sm:max-w-lg sm:w-full dark:bg-gray-700 dark:text-gray-200">
             <div class="max-h-[80vh] overflow-y-auto sm:max-h-none">
-                <div class="flex flex-col items-center justify-center my-8">
-                  <div class="bg-orange-100 dark:bg-orange-900 rounded-full p-3">
-                    <i class="fas fa-podcast text-orange-500 dark:text-orange-300 text-2xl"></i>
-                  </div>
-                  <h3 class="text-lg font-medium text-gray-900 dark:text-gray-100 mt-4" id="modal-title">Podcast Details</h3>
+              <div class="flex flex-col items-center justify-center my-8">
+                <div class="bg-orange-100 dark:bg-orange-900 rounded-full p-3">
+                  <i class="fas fa-podcast text-orange-500 dark:text-orange-300 text-2xl"></i>
                 </div>
-                <div class="px-4 sm:px-8 text-sm text-gray-500 dark:text-gray-400">
-                  <p>
-                    WHAT HEROES DO...<br>
-                   <strong> ABIDING: </strong>The Positive and Practical Podcast<br>
-                    Season 1, Ep. 13<br>
-                    <i>Monday, September 4, 2023</i>
-                  </p>
-
-                  <p class="mt-4">
-                    It is a great pleasure to welcome <strong>JOE TRUAX</strong> to the <strong>What Heroes Do Podcast Network</strong>, and on this episode of <strong>ABIDING</strong>. He is putting himself out there to help and support males of all ages by helping them find their place in the ever-changing world. He is starting Stateside and doing his best through his organisation, <strong><i>GuyCry</i></strong> and has already established the amazing community actively using <a href="https://www.reddit.com/r/GuyCry" class="text-orange-500 hover:underline dark:text-orange-300">reddit.com/r/GuyCry</a> to help men grow and become more and more emotionally intelligent, and is currently working on organizing in-person AA-type group meetings as part of a nonprofit program. Men everywhere need all the assistance that Joe and his team can give them. You can check out his podcast here:
-                  </p>
-                </div>
+                <h3 class="text-lg font-medium text-gray-900 dark:text-gray-100 mt-4" id="modal-title">Podcast Details</h3>
+              </div>
+              <div class="px-4 sm:px-8 text-sm text-gray-500 dark:text-gray-400">
+                <p>
+                  WHAT HEROES DO...<br>
+                  <strong>ABIDING:</strong> The Positive and Practical Podcast<br>
+                  Season 1, Ep. 13<br>
+                  <i>Monday, September 4, 2023</i>
+                </p>
+                <p class="mt-4">
+                  It is a great pleasure to welcome <strong>JOE TRUAX</strong> to the <strong>What Heroes Do Podcast Network</strong>, and on this episode of <strong>ABIDING</strong>. He is putting himself out there to help and support males of all ages by helping them find their place in the ever-changing world. He is starting Stateside and doing his best through his organisation, <strong><i>GuyCry</i></strong> and has already established the amazing community actively using <a href="https://www.reddit.com/r/GuyCry" class="text-orange-500 hover:underline dark:text-orange-300">reddit.com/r/GuyCry</a> to help men grow and become more and more emotionally intelligent, and is currently working on organizing in-person AA-type group meetings as part of a nonprofit program. Men everywhere need all the assistance that Joe and his team can give them. You can check out his podcast here:
+                </p>
+              </div>
               <div class="mt-5 sm:mt-6 flex flex-wrap justify-center gap-2">
-                <a href="https://fountain.fm/show/xKNyXzkReLkc" class="inline-flex items-center px-4 py-2 rounded-full border-2 border-orange-500 text-orange-500 font-semibold hover:bg-orange-500 hover:text-white transition-colors duration-300 dark:border-orange-300 dark:text-orange-300 dark:hover:bg-orange-900 dark:hover:text-white">
+                <a href="https://fountain.fm/show/xKNyXzkReLkc" class="inline-flex items-center px-4 py-2 rounded-full border-2 border-orange-500 text-orange-500 font-semibold hover:bg-orange-500 hover:text-white transition-colors duration-300 dark:border-orange-400 dark:text-orange-400 dark:hover:bg-orange-900 dark:hover:text-white">
                   <i class="fab fa-font-awesome-flag mr-2"></i>
                   Fountain
                 </a>
-                <a href="https://podcasts.apple.com/us/podcast" class="inline-flex items-center px-4 py-2 rounded-full border-2 border-orange-500 text-orange-500 font-semibold hover:bg-orange-500 hover:text-white transition-colors duration-300 dark:border-orange-300 dark:text-orange-300 dark:hover:bg-orange-900 dark:hover:text-white">
+                <a href="https://podcasts.apple.com/us/podcast" class="inline-flex items-center px-4 py-2 rounded-full border-2 border-orange-500 text-orange-500 font-semibold hover:bg-orange-500 hover:text-white transition-colors duration-300 dark:border-orange-400 dark:text-orange-400 dark:hover:bg-orange-900 dark:hover:text-white">
                   <i class="fab fa-apple mr-2"></i>
                   Apple
                 </a>
-                <a href="https://anchor.fm/guycry" class="inline-flex items-center px-4 py-2 rounded-full border-2 border-orange-500 text-orange-500 font-semibold hover:bg-orange-500 hover:text-white transition-colors duration-300 dark:border-orange-300 dark:text-orange-300 dark:hover:bg-orange-900 dark:hover:text-white">
-                    <i class="fa-solid fa-anchor"></i>
-                    Anchor
+                <a href="https://anchor.fm/guycry" class="inline-flex items-center px-4 py-2 rounded-full border-2 border-orange-500 text-orange-500 font-semibold hover:bg-orange-500 hover:text-white transition-colors duration-300 dark:border-orange-400 dark:text-orange-400 dark:hover:bg-orange-900 dark:hover:text-white">
+                  <i class="fa-solid fa-anchor"></i>
+                  Anchor
                 </a>
-                <a href="https://open.spotify.com/show/0HVsmfM" class="inline-flex items-center px-4 py-2 rounded-full border-2 border-orange-500 text-orange-500 font-semibold hover:bg-orange-500 hover:text-white transition-colors duration-300 dark:border-orange-300 dark:text-orange-300 dark:hover:bg-orange-900 dark:hover:text-white">
+                <a href="https://open.spotify.com/show/0HVsmfM" class="inline-flex items-center px-4 py-2 rounded-full border-2 border-orange-500 text-orange-500 font-semibold hover:bg-orange-500 hover:text-white transition-colors duration-300 dark:border-orange-400 dark:text-orange-400 dark:hover:bg-orange-900 dark:hover:text-white">
                   <i class="fab fa-spotify mr-2"></i>
                   Spotify
                 </a>
               </div>
               <div class="mt-5 sm:mt-6 flex justify-end">
-                <button id="closeModal" class="inline-block px-4 py-2 rounded-full bg-orange-500 text-white font-semibold hover:bg-orange-600 transition-colors duration-300 mr-2">Close</button>
+                <button id="closeModal" class="inline-block px-4 py-2 rounded-full bg-orange-500 text-white font-semibold hover:bg-orange-600 transition-colors duration-300 mr-2 dark:bg-orange-600 dark:hover:bg-orange-700">Close</button>
               </div>
             </div>
           </div>
         </div>
       </div>
-
-              
-              <script>
-                // Get the modal and buttons
-                const modal = document.getElementById("modal");
-                const openModalBtn = document.getElementById("openModal");
-                const closeModalBtn = document.getElementById("closeModal");
-              
-                // Open the modal when the button is clicked
-                openModalBtn.addEventListener("click", function() {
-                  modal.style.display = "block";
-                });
-              
-                // Close the modal when the close button is clicked
-                closeModalBtn.addEventListener("click", function() {
-                  modal.style.display = "none";
-                });
-              
-                // Close the modal when the user clicks outside of it
-                window.addEventListener("click", function(event) {
-                  if (event.target == modal) {
-                    modal.style.display = "none";
-                  }
-                });
-              </script>
-
-<div class="flex justify-center items-center">
-  <div class="bg-white dark:bg-gray-700 p-8">
-    <h1 class="text-3xl font-bold text-orange-500 dark:text-orange-400">About Website</h1>
-    <p class="text-gray-700 dark:text-gray-300">This is a clean and minimalistic design that conveys the organization's message effectively. The color scheme uses shades of orange and white to maintain brand consistency.</p>
-  </div>
-</div>
-
-  <div class="container-wow">
-    <div class="flex justify-center items-center">
-      <div class="slideshow-container">
-        <div class="slideshow-item cursor-pointer">
-          <img src="https://www.apa.org/images/2019-07-cover-suicide_tcm7-258230.jpg" alt="Image 1" class="slideshow-image rounded-lg shadow-md">
-        </div>
-        <div class="slideshow-item cursor-pointer">
-          <img src="https://picsum.photos/500/300" alt="Image 2" class="slideshow-image rounded-lg shadow-md">
+  
+      <div class="flex justify-center items-center">
+        <div class="bg-white dark:bg-gray-700 p-8">
+          <h1 class="text-3xl font-bold text-orange-500 dark:text-orange-400">About Website</h1>
+          <p class="text-gray-700 dark:text-gray-300">This is a clean and minimalistic design that conveys the organization's message effectively. The color scheme uses shades of orange and white to maintain brand consistency.</p>
         </div>
       </div>
-    </div>
   
-    <div class="slideshow-popup fixed top-0 left-0 w-full h-full bg-black/80 z-50 opacity-0 invisible transition-all duration-300">
-      <div class="slideshow-popup-content bg-white rounded-lg w-11/12 max-w-[1400px] max-h-[90%] overflow-y-auto grid grid-cols-1 md:grid-cols-2 gap-4 p-4 md:p-6 mx-auto">
-        <div class="slideshow-popup-image-container flex justify-center items-center relative">
-          <img src="https://www.apa.org/images/2019-07-cover-suicide_tcm7-258230.jpg" alt="Image" class="slideshow-popup-image max-w-full max-h-[800px] object-contain rounded-lg shadow-md">
+      <div class="container-wow">
+        <div class="flex justify-center items-center">
+          <div class="slideshow-container">
+            <div class="slideshow-item cursor-pointer">
+              <img src="https://www.apa.org/images/2019-07-cover-suicide_tcm7-258230.jpg" alt="Image 1" class="slideshow-image rounded-lg shadow-md">
+            </div>
+            <div class="slideshow-item cursor-pointer">
+              <img src="https://picsum.photos/500/300" alt="Image 2" class="slideshow-image rounded-lg shadow-md">
+            </div>
+            <div class="slideshow-item cursor-pointer">
+              <img src="https://picsum.photos/500/300" alt="Image 2" class="slideshow-image rounded-lg shadow-md">
+            </div>
+            <div class="slideshow-item cursor-pointer">
+              <img src="https://picsum.photos/500/300" alt="Image 2" class="slideshow-image rounded-lg shadow-md">
+            </div>
+          </div>
         </div>
-        <div class="slideshow-popup-comments overflow-y-auto space-y-4">
-          <div class="slideshow-popup-header flex items-center justify-between border-b border-gray-200 pb-4">
-            <div class="flex items-center">
-              <img src="./Logo_Files/pfp.png" alt="Profile Picture 1" class="slideshow-popup-pfp rounded-full mr-2 w-8 h-8 object-cover">
-              <div>
-                <span class="slideshow-popup-comment-username font-bold">Joesph Truax</span>
-                <p class="slideshow-popup-comment-text">
-                  Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.
-                </p>
+        <div class="slideshow-popup fixed top-0 left-0 w-full h-full bg-black/80 z-50 opacity-0 invisible transition-all duration-300">
+          <div class="slideshow-popup-content bg-white rounded-lg w-11/12 max-w-[1400px] max-h-[90%] overflow-y-auto grid grid-cols-1 md:grid-cols-2 gap-4 p-4 md:p-6 mx-auto dark:bg-gray-700 dark:text-gray-200">
+            <div class="slideshow-popup-image-container flex justify-center items-center relative">
+              <img src="https://www.apa.org/images/2019-07-cover-suicide_tcm7-258230.jpg" alt="Image" class="slideshow-popup-image max-w-full max-h-[800px] object-contain rounded-lg shadow-md">
+            </div>
+            <div class="slideshow-popup-comments overflow-y-auto space-y-4">
+              <div class="slideshow-popup-header flex items-center justify-between border-b border-gray-200 pb-4 dark:border-gray-600">
+                <div class="flex items-center">
+                  <img src="./Logo_Files/pfp.png" alt="Profile Picture 1" class="slideshow-popup-pfp rounded-full mr-2 w-8 h-8 object-cover">
+                  <div>
+                    <span class="slideshow-popup-comment-username font-bold">Joesph Truax</span>
+                    <p class="slideshow-popup-comment-text">
+                      Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.
+                    </p>
+                  </div>
+                </div>
               </div>
+              <button class="hidden slideshow-popup-close-btn bg-transparent border-none cursor-pointer text-gray-500 text-xl">
+                <i class="fas fa-times"></i>
+              </button>
             </div>
           </div>
-          <button class="hidden slideshow-popup-close-btn bg-transparent border-none cursor-pointer text-gray-500 text-xl">
-            <i class="fas fa-times"></i>
-          </button>
-          <!-- Add more comments here -->
         </div>
       </div>
-    </div>
   
-    <div class="slideshow-popup fixed top-0 left-0 w-full h-full bg-black/80 z-50 opacity-0 invisible transition-all duration-300">
-      <div class="slideshow-popup-content bg-white rounded-lg w-11/12 max-w-[1400px] max-h-[90%] overflow-y-auto grid grid-cols-1 md:grid-cols-2 gap-4 p-4 md:p-6 mx-auto">
-        <div class="slideshow-popup-image-container flex justify-center items-center relative">
-          <img src="https://picsum.photos/500/300" alt="Image" class="slideshow-popup-image max-w-full max-h-[800px] object-contain rounded-lg shadow-md">
-        </div>
-        <div class="slideshow-popup-comments overflow-y-auto space-y-4">
-          <div class="slideshow-popup-comment flex items-start space-x-3">
-            <img src="https://via.placeholder.com/28x28" alt="Profile Picture 2" class="slideshow-popup-comment-pfp rounded-full w-7 h-7 object-cover">
-            <div>
-              <span class="slideshow-popup-comment-username font-bold">Username 2</span>
-              <span class="slideshow-popup-comment-text">Great website!</span>
-            </div>
-          </div>
-        </div>
-
-        <button class="hidden slideshow-popup-close-btn bg-transparent border-none cursor-pointer text-gray-500 text-xl">
-          <i class="fas fa-times"></i>
-        </button>
-        <!-- Add more comments here -->
-      </div>
-    </div>
-  </div>
-              
-              <script type="text/javascript">
-     // Get the slideshow container and all the slideshow items
-const slideshowContainer = document.querySelector('.slideshow-container');
-const slideshowItems = document.querySelectorAll('.slideshow-item');
-
-// Get all the popups and their elements
-const popups = document.querySelectorAll('.slideshow-popup');
-const popupContents = document.querySelectorAll('.slideshow-popup-content');
-const popupCloseBtns = document.querySelectorAll('.slideshow-popup-close-btn');
-const popupImages = document.querySelectorAll('.slideshow-popup-image');
-const popupCommentTexts = document.querySelectorAll('.slideshow-popup-comment-text');
-const popupCommentUsernames = document.querySelectorAll('.slideshow-popup-comment-username');
-const popupPfps = document.querySelectorAll('.slideshow-popup-pfp');
-
-// Add click event listener to each slideshow item
-slideshowItems.forEach((item, index) => {
-  item.addEventListener('click', () => {
-    // Show the corresponding popup
-    popups[index].style.opacity = '1';
-    popups[index].style.visibility = 'visible';
-
-    // Set the popup content based on the clicked item
-    popupImages[index].src = item.querySelector('.slideshow-image').src;
-
-    // Ensure the username stays on one line
-    adjustUsernameWidth(popupCommentUsernames[index]);
-
-    // Adjust the size of the profile picture if needed
-    adjustPfpSize(popupPfps[index]);
-  });
-});
-
-// Add click event listener to the popup close buttons
-popupCloseBtns.forEach((btn, index) => {
-  btn.addEventListener('click', () => {
-    // Hide the corresponding popup
-    popups[index].style.opacity = '0';
-    popups[index].style.visibility = 'hidden';
-  });
-});
-
-// Add click event listener to the popups to close them
-popups.forEach((popup, index) => {
-  popup.addEventListener('click', (event) => {
-    if (event.target === popup || !event.target.closest('.slideshow-popup-content')) {
-      // Hide the corresponding popup
-      popup.style.opacity = '0';
-      popup.style.visibility = 'hidden';
-    }
-  });
-});
-
-// Function to ensure the username stays on one line
-function adjustUsernameWidth(element) {
-  const maxWidth = element.parentNode.offsetWidth * 0.8; // 80% of the parent container width
-  element.style.whiteSpace = 'nowrap';
-  element.style.overflow = 'hidden';
-  element.style.textOverflow = 'ellipsis';
-  element.style.maxWidth = `${maxWidth}px`;
-}
-
-// Function to adjust the size of the profile picture
-function adjustPfpSize(element) {
-  const maxSize = 28; // Maximum size of the profile picture
-  const currentWidth = element.offsetWidth;
-  const currentHeight = element.offsetHeight;
-
-  if (currentWidth > maxSize || currentHeight > maxSize) {
-    const ratio = Math.min(maxSize / currentWidth, maxSize / currentHeight);
-    element.style.width = `${currentWidth * ratio}px`;
-    element.style.height = `${currentHeight * ratio}px`;
-  }
-}
-              </script>
-
       <footer id="bottom" class="bg-gray-900 px-4 py-12 text-white sm:px-0">
         <div class="container mx-auto">
           <div class="grid grid-cols-1 gap-8 sm:grid-cols-2 md:grid-cols-3">
@@ -540,11 +404,11 @@ function adjustPfpSize(element) {
               <h3 class="mb-4 text-2xl font-bold">Community</h3>
               <p class="mb-4 text-gray-400" id="community-text">*Our meetings are open to all men and male-identified people, regardless of race, ethnicity, sexual orientation, and age.</p>
               <div class="flex flex-col items-center space-y-4 sm:flex-row sm:space-x-4 sm:space-y-0">
-                <a href="https://www.reddit.com/r/GuyCry/" class="flex items-center rounded-full bg-orange-500 px-4 py-2 font-bold text-white shadow-md hover:bg-orange-600">
+                <a href="https://www.reddit.com/r/GuyCry/" class="flex items-center rounded-full bg-orange-500 px-4 py-2 font-bold text-white shadow-md hover:bg-orange-600 dark:bg-orange-600 dark:hover:bg-orange-700">
                   <i class="fab fa-reddit mr-2"></i>
                   r/GuyCry
                 </a>
-                <a href="mailto:joe@legaciesofmen.org" class="flex items-center rounded-full bg-gray-500 px-4 py-2 font-bold text-white shadow-md hover:bg-gray-600">
+                <a href="mailto:joe@legaciesofmen.org" class="flex items-center rounded-full bg-gray-500 px-4 py-2 font-bold text-white shadow-md hover:bg-gray-600 dark:bg-gray-600 dark:hover:bg-gray-700">
                   <i class="fas fa-envelope mr-2"></i>
                   Contact
                 </a>
@@ -553,12 +417,12 @@ function adjustPfpSize(element) {
             <div>
               <h3 class="mb-4 text-2xl font-bold">Search</h3>
               <div class="flex items-center space-x-4">
-                <input type="text" placeholder="Search..." class="w-full rounded-full bg-gray-800 px-4 py-2 text-white focus:outline-none focus:ring focus:ring-orange-500" id="search-input" />
-                <button class="rounded-full bg-orange-500 px-4 py-2 font-bold text-white shadow-md hover:bg-orange-600" id="clear-search">
+                <input type="text" placeholder="Search..." class="w-full rounded-full bg-gray-800 px-4 py-2 text-white focus:outline-none focus:ring focus:ring-orange-500 dark:bg-gray-600 dark:text-gray-200" id="search-input" />
+                <button class="rounded-full bg-orange-500 px-4 py-2 font-bold text-white shadow-md hover:bg-orange-600 dark:bg-orange-600 dark:hover:bg-orange-700" id="clear-search">
                   <i class="fas fa-times"></i>
                 </button>
               </div>
-              <div id="search-results" class="mt-4 hidden rounded-md bg-gray-800 p-4">
+              <div id="search-results" class="mt-4 hidden rounded-md bg-gray-800 p-4 dark:bg-gray-600">
                 <h4 class="mb-2 text-lg font-bold">Search Results:</h4>
                 <ul id="search-result-list"></ul>
               </div>
@@ -569,18 +433,93 @@ function adjustPfpSize(element) {
             <p class="sm:inline">
               <span class="font-bold text-orange-500">Owned and Maintained by <a class="font-normal" href="https://www.linkedin.com/in/josephtruax">Joesph Traux</a></span>
             </p>
-            <p class="sm:inline"><span class="font-normal text-gray-400"> and Abdullah Khan</span><span class="ml-2 rounded-full bg-gray-800 px-2 py-1 text-xs font-bold text-gray-400">Dev</span></p>
+            <p class="sm:inline"><span class="font-normal text-gray-400"> and Abdullah Khan</span><span class="ml-2 rounded-full bg-gray-800 px-2 py-1 text-xs font-bold text-gray-400 dark:bg-gray-600">Dev</span></p>
           </div>
           <div class="mt-8 flex justify-center space-x-4">
-            <button id="theme-toggler" class="rounded-full border-2 border-orange-500 px-4 py-2 text-2xl text-gray-400 transition duration-300 ease-in-out hover:text-orange-500 focus:outline-none">
+            <button id="theme-toggler" class="rounded-full border-2 border-orange-500 px-4 py-2 text-2xl text-gray-400 transition duration-300 ease-in-out hover:text-orange-500 focus:outline-none dark:border-orange-400 dark:text-gray-400 dark:hover:text-orange-400">
               <i class="fas fa-moon"></i>
             </button>
-            <a href="/status" class="rounded-full border-2 border-orange-500 px-4 py-2 text-2xl text-gray-400 transition duration-300 ease-in-out hover:text-orange-500 focus:outline-none">
+            <a href="/status" class="rounded-full border-2 border-orange-500 px-4 py-2 text-2xl text-gray-400 transition duration-300 ease-in-out hover:text-orange-500 focus:outline-none dark:border-orange-400 dark:text-gray-400 dark:hover:text-orange-400">
               <i class="fas fa-chart-line"></i>
             </a>
           </div>
         </div>
       </footer>
+
+      <script type="text/javascript">
+        // Get the slideshow container and all the slideshow items
+   const slideshowContainer = document.querySelector('.slideshow-container');
+   const slideshowItems = document.querySelectorAll('.slideshow-item');
+   
+   // Get all the popups and their elements
+   const popups = document.querySelectorAll('.slideshow-popup');
+   const popupContents = document.querySelectorAll('.slideshow-popup-content');
+   const popupCloseBtns = document.querySelectorAll('.slideshow-popup-close-btn');
+   const popupImages = document.querySelectorAll('.slideshow-popup-image');
+   const popupCommentTexts = document.querySelectorAll('.slideshow-popup-comment-text');
+   const popupCommentUsernames = document.querySelectorAll('.slideshow-popup-comment-username');
+   const popupPfps = document.querySelectorAll('.slideshow-popup-pfp');
+   
+   // Add click event listener to each slideshow item
+   slideshowItems.forEach((item, index) => {
+     item.addEventListener('click', () => {
+       // Show the corresponding popup
+       popups[index].style.opacity = '1';
+       popups[index].style.visibility = 'visible';
+   
+       // Set the popup content based on the clicked item
+       popupImages[index].src = item.querySelector('.slideshow-image').src;
+   
+       // Ensure the username stays on one line
+       adjustUsernameWidth(popupCommentUsernames[index]);
+   
+       // Adjust the size of the profile picture if needed
+       adjustPfpSize(popupPfps[index]);
+     });
+   });
+   
+   // Add click event listener to the popup close buttons
+   popupCloseBtns.forEach((btn, index) => {
+     btn.addEventListener('click', () => {
+       // Hide the corresponding popup
+       popups[index].style.opacity = '0';
+       popups[index].style.visibility = 'hidden';
+     });
+   });
+   
+   // Add click event listener to the popups to close them
+   popups.forEach((popup, index) => {
+     popup.addEventListener('click', (event) => {
+       if (event.target === popup || !event.target.closest('.slideshow-popup-content')) {
+         // Hide the corresponding popup
+         popup.style.opacity = '0';
+         popup.style.visibility = 'hidden';
+       }
+     });
+   });
+   
+   // Function to ensure the username stays on one line
+   function adjustUsernameWidth(element) {
+     const maxWidth = element.parentNode.offsetWidth * 0.8; // 80% of the parent container width
+     element.style.whiteSpace = 'nowrap';
+     element.style.overflow = 'hidden';
+     element.style.textOverflow = 'ellipsis';
+     element.style.maxWidth = `${maxWidth}px`;
+   }
+   
+   // Function to adjust the size of the profile picture
+   function adjustPfpSize(element) {
+     const maxSize = 28; // Maximum size of the profile picture
+     const currentWidth = element.offsetWidth;
+     const currentHeight = element.offsetHeight;
+   
+     if (currentWidth > maxSize || currentHeight > maxSize) {
+       const ratio = Math.min(maxSize / currentWidth, maxSize / currentHeight);
+       element.style.width = `${currentWidth * ratio}px`;
+       element.style.height = `${currentHeight * ratio}px`;
+     }
+   }
+                 </script>
 
     <script>
       const escapeButton = document.querySelector('.bg-red-500');
@@ -738,6 +677,40 @@ function adjustPfpSize(element) {
         themeToggler.innerHTML = `<i class="${prefersDarkMode ? 'fas fa-sun' : 'fas fa-moon'}"></i>`;
       });
     </script>
-    </div>
+
+<script type="text/javascript">
+  document.querySelector('#loadButton').addEventListener('click', function() {
+    const acceptTerms = document.getElementById('accept-terms');
+    acceptTerms.style.display = 'none';
+
+    const mainContent = document.getElementById('mainContent');
+    mainContent.classList.remove('hidden');
+    mainContent.classList.add('visible');
+  });
+</script>
+
+<script>
+// Get the modal and buttons
+const modal = document.getElementById("modal");
+const openModalBtn = document.getElementById("openModal");
+const closeModalBtn = document.getElementById("closeModal");
+
+// Open the modal when the button is clicked
+openModalBtn.addEventListener("click", function() {
+modal.style.display = "block";
+});
+
+// Close the modal when the close button is clicked
+closeModalBtn.addEventListener("click", function() {
+modal.style.display = "none";
+});
+
+// Close the modal when the user clicks outside of it
+window.addEventListener("click", function(event) {
+if (event.target == modal) {
+modal.style.display = "none";
+}
+});
+</script>
   </body>
 </html>

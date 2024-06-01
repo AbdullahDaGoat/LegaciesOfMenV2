@@ -313,4 +313,17 @@ body.dark ::-webkit-scrollbar-track {
   background-color: #1a1a1a;
 }
 
+/* Base styles */
+@media (min-width: 857px) {
+  .escape-span {
+    display: inline;
+  }
+}
+
+@media(max-width: 709px){
+  .desktop-nav-link span{
+    display: none;
+  }
+}
+
 /* End of Reusable CSS */
