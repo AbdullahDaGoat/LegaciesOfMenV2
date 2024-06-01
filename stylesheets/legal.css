@@ -93,10 +93,6 @@ abbr:where([title]) {
   text-decoration: underline dotted;
 }
 
-.escape-span {
-  display: none;
-}
-
 /* Media query for larger screens */
 @media (min-width: 857px) {
   .escape-span {

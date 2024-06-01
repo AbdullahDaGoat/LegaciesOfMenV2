@@ -199,7 +199,7 @@
             <div class="hidden items-center sm:flex">
               <a href="http://www.google.com" class="rounded bg-red-500 px-4 py-2 font-bold text-white transition duration-150 ease-in-out hover:bg-red-600 dark:bg-red-600 dark:hover:bg-red-700">
                 <i class="fas fa-sign-out-alt mr-2"></i>
-                <span>Escape</span>
+                <span class="escape-span">Escape</span>
               </a>
             </div>
             <div class="-mr-2 flex items-center sm:hidden">
@@ -345,49 +345,292 @@
           <p class="text-gray-700 dark:text-gray-300">This is a clean and minimalistic design that conveys the organization's message effectively. The color scheme uses shades of orange and white to maintain brand consistency.</p>
         </div>
       </div>
-  
-      <div class="container-wow">
-        <div class="flex justify-center items-center">
-          <div class="slideshow-container">
-            <div class="slideshow-item cursor-pointer">
-              <img src="https://www.apa.org/images/2019-07-cover-suicide_tcm7-258230.jpg" alt="Image 1" class="slideshow-image rounded-lg shadow-md">
-            </div>
-            <div class="slideshow-item cursor-pointer">
-              <img src="https://picsum.photos/500/300" alt="Image 2" class="slideshow-image rounded-lg shadow-md">
-            </div>
-            <div class="slideshow-item cursor-pointer">
-              <img src="https://picsum.photos/500/300" alt="Image 2" class="slideshow-image rounded-lg shadow-md">
-            </div>
-            <div class="slideshow-item cursor-pointer">
-              <img src="https://picsum.photos/500/300" alt="Image 2" class="slideshow-image rounded-lg shadow-md">
+      <div class="container mx-auto my-10">
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+          <div class="image-container" id="popup-1">
+            <img src="https://via.placeholder.com/400x300" alt="Image 1">
+            <div class="image-overlay">
+              <div class="image-title">Image 1</div>
+              <div class="image-subtitle">This is the first image</div>
             </div>
           </div>
-        </div>
-        <div class="slideshow-popup fixed top-0 left-0 w-full h-full bg-black/80 z-50 opacity-0 invisible transition-all duration-300">
-          <div class="slideshow-popup-content bg-white rounded-lg w-11/12 max-w-[1400px] max-h-[90%] overflow-y-auto grid grid-cols-1 md:grid-cols-2 gap-4 p-4 md:p-6 mx-auto dark:bg-gray-700 dark:text-gray-200">
-            <div class="slideshow-popup-image-container flex justify-center items-center relative">
-              <img src="https://www.apa.org/images/2019-07-cover-suicide_tcm7-258230.jpg" alt="Image" class="slideshow-popup-image max-w-full max-h-[800px] object-contain rounded-lg shadow-md">
+          <div class="image-container" id="popup-2">
+            <img src="https://via.placeholder.com/400x300" alt="Image 2">
+            <div class="image-overlay">
+              <div class="image-title">Image 2</div>
+              <div class="image-subtitle">This is the second image</div>
             </div>
-            <div class="slideshow-popup-comments overflow-y-auto space-y-4">
-              <div class="slideshow-popup-header flex items-center justify-between border-b border-gray-200 pb-4 dark:border-gray-600">
-                <div class="flex items-center">
-                  <img src="./Logo_Files/pfp.png" alt="Profile Picture 1" class="slideshow-popup-pfp rounded-full mr-2 w-8 h-8 object-cover">
-                  <div>
-                    <span class="slideshow-popup-comment-username font-bold">Joesph Truax</span>
-                    <p class="slideshow-popup-comment-text">
-                      Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.
-                    </p>
-                  </div>
-                </div>
-              </div>
-              <button class="hidden slideshow-popup-close-btn bg-transparent border-none cursor-pointer text-gray-500 text-xl">
-                <i class="fas fa-times"></i>
-              </button>
+          </div>
+          <div class="image-container" id="popup-3">
+            <img src="https://via.placeholder.com/400x300" alt="Image 3">
+            <div class="image-overlay">
+              <div class="image-title">Image 3</div>
+              <div class="image-subtitle">This is the third image</div>
+            </div>
+          </div>
+          <div class="image-container" id="popup-4">
+            <img src="https://via.placeholder.com/400x300" alt="Image 4">
+            <div class="image-overlay">
+              <div class="image-title">Image 4</div>
+              <div class="image-subtitle">This is the fourth image</div>
             </div>
           </div>
         </div>
       </div>
-  
+    
+      <div class="fixed inset-0 bg-gray-900 bg-opacity-50 z-50 hidden" id="popup-container-1">
+        <div class="flex items-center justify-center h-full">
+          <div class="bg-white rounded-lg shadow-lg w-full md:max-w-5xl h-auto popup-content">
+            <div class="flex flex-col md:flex-row">
+              <div class="w-full md:w-1/2 relative">
+                <img src="https://via.placeholder.com/400x300" alt="Popup Image" class="w-full h-auto rounded-t-lg md:rounded-t-none md:rounded-l-lg">
+                <div class="popup-actions flex justify-center gap-6 mt-4">
+                  <i class="fas fa-comment"></i>
+                  <i class="fas fa-heart"></i>
+                  <i class="fas fa-thumbs-up"></i>
+                  <i class="fas fa-share-alt"></i>
+                </div>
+                <div class="popup-close">
+                  <i class="fas fa-times"></i>
+                </div>
+              </div>
+              <div class="w-full md:w-1/2 p-6">
+                <div class="flex items-center mb-4">
+                  <img src="https://via.placeholder.com/32x32" alt="Profile Picture" class="rounded-full mr-2">
+                  <span class="font-bold">John Doe</span>
+                </div>
+              <div class="comments-container" style="max-height: calc(75vh - 250px); overflow-y: auto;">
+                <p class="text-gray-700">
+                  Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
+                </p>
+                <div class="mt-4">
+                  <div class="flex items-center mb-4">
+                    <img src="https://via.placeholder.com/32x32" alt="Profile Picture" class="rounded-full mr-2">
+                    <span class="font-bold">Jane Doe</span>
+                  </div>
+                  <p class="text-gray-700">This is another comment. It can also be long or short.</p>
+                </div>
+                <div class="mt-4">
+                  <div class="flex items-center mb-4">
+                    <img src="https://via.placeholder.com/32x32" alt="Profile Picture" class="rounded-full mr-2">
+                    <span class="font-bold">John Doe</span>
+                  </div>
+                  <p class="text-gray-700">This is another comment. It can also be long or short.</p>
+                </div>
+                <div class="mt-4">
+                  <div class="flex items-center mb-4">
+                    <img src="https://via.placeholder.com/32x32" alt="Profile Picture" class="rounded-full mr-2">
+                    <span class="font-bold">Jane Doe</span>
+                  </div>
+                  <p class="text-gray-700">This is another comment. It can also be long or short.</p>
+                </div>
+                  <div>
+                    <div class="mt-4">
+                      <div class="flex items-center mb-4">
+                        <img src="https://via.placeholder.com/32x32" alt="Profile Picture" class="rounded-full mr-2">
+                        <span class="font-bold">John Doe</span>
+                      </div>
+                      <p class="text-gray-700">This is another comment. It can also be long or short.</p>
+                    </div>
+                    <div class="mt-4">
+                      <div class="flex items-center mb-4">
+                        <img src="https://via.placeholder.com/32x32" alt="Profile Picture" class="rounded-full mr-2">
+                        <span class="font-bold">Jane Doe</span>
+                      </div>
+                      <p class="text-gray-700">This is another comment. It can also be long or short.</p>
+                    </div>
+                    <div class="mt-4">
+                      <div class="flex items-center mb-4">
+                        <img src="https://via.placeholder.com/32x32" alt="Profile Picture" class="rounded-full mr-2">
+                        <span class="font-bold">John Doe</span>
+                      </div>
+                      <p class="text-gray-700">This is another comment. It can also be long or short.</p>
+                    </div>
+                    <div class="mt-4">
+                      <div class="flex items-center mb-4">
+                        <img src="https://via.placeholder.com/32x32" alt="Profile Picture" class="rounded-full mr-2">
+                        <span class="font-bold">Jane Doe</span>
+                      </div>
+                      <p class="text-gray-700">This is another comment. It can also be long or short.</p>
+                    </div>
+                  </div>
+                </div>
+                <div class="mt-6 flex items-center">
+                  <img src="https://via.placeholder.com/32x32" alt="Profile Picture" class="rounded-full mr-2">
+                  <div class="flex-1 relative">
+                    <input type="text" class="w-full px-4 py-2 border border-gray-300 rounded-lg pr-12" placeholder="This is a Fake Comment Bar, to replicate a real post" disabled>
+                    <button class="absolute top-1/2 transform -translate-y-1/2 right-3 text-primary-color">
+                      <i class="fas fa-paper-plane"></i>
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    
+      <div class="fixed inset-0 bg-gray-900 bg-opacity-50 z-50 hidden" id="popup-container-2">
+        <div class="flex items-center justify-center h-full">
+          <div class="bg-white rounded-lg shadow-lg w-full max-w-4xl h-auto popup-content">
+            <div class="flex flex-col md:flex-row">
+              <div class="w-full md:w-1/2 relative">
+                <img src="https://via.placeholder.com/400x300" alt="Popup Image" class="w-full h-auto rounded-t-lg md:rounded-t-none md:rounded-l-lg">
+                <div class="popup-actions flex justify-center gap-6 mt-4">
+                  <i class="fas fa-comment"></i>
+                  <i class="fas fa-heart"></i>
+                  <i class="fas fa-thumbs-up"></i>
+                  <i class="fas fa-share-alt"></i>
+                </div>
+                <div class="popup-close">
+                  <i class="fas fa-times"></i>
+                </div>
+              </div>
+              <div class="w-full md:w-1/2 p-6 overflow-y-auto">
+                <div class="flex items-center mb-4">
+                  <img src="https://via.placeholder.com/32x32" alt="Profile Picture" class="rounded-full mr-2">
+                  <span class="font-bold">Jane Doe</span>
+                </div>
+                <p class="text-gray-700">This is a sample comment. It can be long or short, and the text will be formatted accordingly.</p>
+                <div class="mt-4">
+                  <div class="flex items-center mb-4">
+                    <img src="https://via.placeholder.com/32x32" alt="Profile Picture" class="rounded-full mr-2">
+                    <span class="font-bold">John Smith</span>
+                  </div>
+                  <p class="text-gray-700">This is another comment. It can also be long or short.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="fixed inset-0 bg-gray-900 bg-opacity-50 z-50 hidden" id="popup-container-3">
+        <div class="flex items-center justify-center h-full">
+          <div class="bg-white rounded-lg shadow-lg w-full md:max-w-5xl h-auto popup-content">
+            <div class="flex flex-col md:flex-row">
+              <div class="w-full md:w-1/2 relative">
+                <img src="https://via.placeholder.com/400x300" alt="Popup Image" class="w-full h-auto rounded-t-lg md:rounded-t-none md:rounded-l-lg">
+                <div class="popup-actions flex justify-center gap-6 mt-4">
+                  <i class="fas fa-comment"></i>
+                  <i class="fas fa-heart"></i>
+                  <i class="fas fa-thumbs-up"></i>
+                  <i class="fas fa-share-alt"></i>
+                </div>
+                <div class="popup-close">
+                  <i class="fas fa-times"></i>
+                </div>
+              </div>
+              <div class="w-full md:w-1/2 p-6">
+                <div class="flex items-center mb-4">
+                  <img src="https://via.placeholder.com/32x32" alt="Profile Picture" class="rounded-full mr-2">
+                  <span class="font-bold">John Doe</span>
+                </div>
+              <div class="comments-container" style="max-height: calc(75vh - 250px); overflow-y: auto;">
+                <p class="text-gray-700">
+                  Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
+                </p>
+                <div class="mt-4">
+                  <div class="flex items-center mb-4">
+                    <img src="https://via.placeholder.com/32x32" alt="Profile Picture" class="rounded-full mr-2">
+                    <span class="font-bold">Jane Doe</span>
+                  </div>
+                  <p class="text-gray-700">This is another comment. It can also be long or short.</p>
+                </div>
+                <div class="mt-4">
+                  <div class="flex items-center mb-4">
+                    <img src="https://via.placeholder.com/32x32" alt="Profile Picture" class="rounded-full mr-2">
+                    <span class="font-bold">John Doe</span>
+                  </div>
+                  <p class="text-gray-700">This is another comment. It can also be long or short.</p>
+                </div>
+                <div class="mt-4">
+                  <div class="flex items-center mb-4">
+                    <img src="https://via.placeholder.com/32x32" alt="Profile Picture" class="rounded-full mr-2">
+                    <span class="font-bold">Jane Doe</span>
+                  </div>
+                  <p class="text-gray-700">This is another comment. It can also be long or short.</p>
+                </div>
+                  <div>
+                    <div class="mt-4">
+                      <div class="flex items-center mb-4">
+                        <img src="https://via.placeholder.com/32x32" alt="Profile Picture" class="rounded-full mr-2">
+                        <span class="font-bold">John Doe</span>
+                      </div>
+                      <p class="text-gray-700">This is another comment. It can also be long or short.</p>
+                    </div>
+                    <div class="mt-4">
+                      <div class="flex items-center mb-4">
+                        <img src="https://via.placeholder.com/32x32" alt="Profile Picture" class="rounded-full mr-2">
+                        <span class="font-bold">Jane Doe</span>
+                      </div>
+                      <p class="text-gray-700">This is another comment. It can also be long or short.</p>
+                    </div>
+                    <div class="mt-4">
+                      <div class="flex items-center mb-4">
+                        <img src="https://via.placeholder.com/32x32" alt="Profile Picture" class="rounded-full mr-2">
+                        <span class="font-bold">John Doe</span>
+                      </div>
+                      <p class="text-gray-700">This is another comment. It can also be long or short.</p>
+                    </div>
+                    <div class="mt-4">
+                      <div class="flex items-center mb-4">
+                        <img src="https://via.placeholder.com/32x32" alt="Profile Picture" class="rounded-full mr-2">
+                        <span class="font-bold">Jane Doe</span>
+                      </div>
+                      <p class="text-gray-700">This is another comment. It can also be long or short.</p>
+                    </div>
+                  </div>
+                </div>
+                <div class="mt-6 flex items-center">
+                  <img src="https://via.placeholder.com/32x32" alt="Profile Picture" class="rounded-full mr-2">
+                  <div class="flex-1 relative">
+                    <input type="text" class="w-full px-4 py-2 border border-gray-300 rounded-lg pr-12" placeholder="Add a comment..." disabled>
+                    <button class="absolute top-1/2 transform -translate-y-1/2 right-3 text-primary-color">
+                      <i class="fas fa-paper-plane"></i>
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    
+      <div class="fixed inset-0 bg-gray-900 bg-opacity-50 z-50 hidden" id="popup-container-4">
+        <div class="flex items-center justify-center h-full">
+          <div class="bg-white rounded-lg shadow-lg w-full max-w-4xl h-auto popup-content">
+            <div class="flex flex-col md:flex-row">
+              <div class="w-full md:w-1/2 relative">
+                <img src="https://via.placeholder.com/400x300" alt="Popup Image" class="w-full h-auto rounded-t-lg md:rounded-t-none md:rounded-l-lg">
+                <div class="popup-actions flex justify-center gap-6 mt-4">
+                  <i class="fas fa-comment"></i>
+                  <i class="fas fa-heart"></i>
+                  <i class="fas fa-thumbs-up"></i>
+                  <i class="fas fa-share-alt"></i>
+                </div>
+                <div class="popup-close">
+                  <i class="fas fa-times"></i>
+                </div>
+              </div>
+              <div class="w-full md:w-1/2 p-6 overflow-y-auto">
+                <div class="flex items-center mb-4">
+                  <img src="https://via.placeholder.com/32x32" alt="Profile Picture" class="rounded-full mr-2">
+                  <span class="font-bold">Emily Davis</span>
+                </div>
+                <p class="text-gray-700">This is a sample comment. It can be long or short, and the text will be formatted accordingly.</p>
+                <div class="mt-4">
+                  <div class="flex items-center mb-4">
+                    <img src="https://via.placeholder.com/32x32" alt="Profile Picture" class="rounded-full mr-2">
+                    <span class="font-bold">David Wilson</span>
+                  </div>
+                  <p class="text-gray-700">This is another comment. It can also be long or short.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
       <footer id="bottom" class="bg-gray-900 px-4 py-12 text-white sm:px-0">
         <div class="container mx-auto">
           <div class="grid grid-cols-1 gap-8 sm:grid-cols-2 md:grid-cols-3">
@@ -404,11 +647,11 @@
               <h3 class="mb-4 text-2xl font-bold">Community</h3>
               <p class="mb-4 text-gray-400" id="community-text">*Our meetings are open to all men and male-identified people, regardless of race, ethnicity, sexual orientation, and age.</p>
               <div class="flex flex-col items-center space-y-4 sm:flex-row sm:space-x-4 sm:space-y-0">
-                <a href="https://www.reddit.com/r/GuyCry/" class="flex items-center rounded-full bg-orange-500 px-4 py-2 font-bold text-white shadow-md hover:bg-orange-600 dark:bg-orange-600 dark:hover:bg-orange-700">
+                <a href="https://www.reddit.com/r/GuyCry/" class="flex items-center rounded-full bg-orange-500 px-4 py-2 font-bold text-white shadow-md hover:bg-orange-600">
                   <i class="fab fa-reddit mr-2"></i>
                   r/GuyCry
                 </a>
-                <a href="mailto:joe@legaciesofmen.org" class="flex items-center rounded-full bg-gray-500 px-4 py-2 font-bold text-white shadow-md hover:bg-gray-600 dark:bg-gray-600 dark:hover:bg-gray-700">
+                <a href="mailto:joe@legaciesofmen.org" class="flex items-center rounded-full bg-gray-500 px-4 py-2 font-bold text-white shadow-md hover:bg-gray-600">
                   <i class="fas fa-envelope mr-2"></i>
                   Contact
                 </a>
@@ -417,12 +660,12 @@
             <div>
               <h3 class="mb-4 text-2xl font-bold">Search</h3>
               <div class="flex items-center space-x-4">
-                <input type="text" placeholder="Search..." class="w-full rounded-full bg-gray-800 px-4 py-2 text-white focus:outline-none focus:ring focus:ring-orange-500 dark:bg-gray-600 dark:text-gray-200" id="search-input" />
-                <button class="rounded-full bg-orange-500 px-4 py-2 font-bold text-white shadow-md hover:bg-orange-600 dark:bg-orange-600 dark:hover:bg-orange-700" id="clear-search">
+                <input type="text" placeholder="Search..." class="w-full rounded-full bg-gray-800 px-4 py-2 text-white focus:outline-none focus:ring focus:ring-orange-500" id="search-input" />
+                <button class="rounded-full bg-orange-500 px-4 py-2 font-bold text-white shadow-md hover:bg-orange-600" id="clear-search">
                   <i class="fas fa-times"></i>
                 </button>
               </div>
-              <div id="search-results" class="mt-4 hidden rounded-md bg-gray-800 p-4 dark:bg-gray-600">
+              <div id="search-results" class="mt-4 hidden rounded-md bg-gray-800 p-4">
                 <h4 class="mb-2 text-lg font-bold">Search Results:</h4>
                 <ul id="search-result-list"></ul>
               </div>
@@ -433,100 +676,47 @@
             <p class="sm:inline">
               <span class="font-bold text-orange-500">Owned and Maintained by <a class="font-normal" href="https://www.linkedin.com/in/josephtruax">Joesph Traux</a></span>
             </p>
-            <p class="sm:inline"><span class="font-normal text-gray-400"> and Abdullah Khan</span><span class="ml-2 rounded-full bg-gray-800 px-2 py-1 text-xs font-bold text-gray-400 dark:bg-gray-600">Dev</span></p>
+            <p class="sm:inline"><span class="font-normal text-gray-400"> and Abdullah Khan</span><span class="ml-2 rounded-full bg-gray-800 px-2 py-1 text-xs font-bold text-gray-400">Dev</span></p>
           </div>
           <div class="mt-8 flex justify-center space-x-4">
-            <button id="theme-toggler" class="rounded-full border-2 border-orange-500 px-4 py-2 text-2xl text-gray-400 transition duration-300 ease-in-out hover:text-orange-500 focus:outline-none dark:border-orange-400 dark:text-gray-400 dark:hover:text-orange-400">
+            <button id="theme-toggler" class="rounded-full border-2 border-orange-500 px-4 py-2 text-2xl text-gray-400 transition duration-300 ease-in-out hover:text-orange-500 focus:outline-none">
               <i class="fas fa-moon"></i>
             </button>
-            <a href="/status" class="rounded-full border-2 border-orange-500 px-4 py-2 text-2xl text-gray-400 transition duration-300 ease-in-out hover:text-orange-500 focus:outline-none dark:border-orange-400 dark:text-gray-400 dark:hover:text-orange-400">
+            <a href="/status" class="rounded-full border-2 border-orange-500 px-4 py-2 text-2xl text-gray-400 transition duration-300 ease-in-out hover:text-orange-500 focus:outline-none">
               <i class="fas fa-chart-line"></i>
             </a>
           </div>
         </div>
       </footer>
+      
+      <script>
+        const popupContainers = document.querySelectorAll('.image-container');
+        popupContainers.forEach(container => {
+          container.addEventListener('click', () => {
+            const popupId = container.id.replace('popup-', 'popup-container-');
+            const popupContainer = document.getElementById(popupId);
+            popupContainer.classList.remove('hidden');
+          });
+        });
+      
+        const popupCloseButtons = document.querySelectorAll('.popup-close');
+        popupCloseButtons.forEach(button => {
+          button.addEventListener('click', () => {
+            const popupContainer = button.closest('.fixed');
+            popupContainer.classList.add('hidden');
+          });
+        });
+      
+        const popupContainers2 = document.querySelectorAll('.fixed');
+        popupContainers2.forEach(container => {
+          container.addEventListener('click', (event) => {
+            if (event.target === container) {
+              container.classList.add('hidden');
+            }
+          });
+        });
+      </script>
 
-      <script type="text/javascript">
-        // Get the slideshow container and all the slideshow items
-   const slideshowContainer = document.querySelector('.slideshow-container');
-   const slideshowItems = document.querySelectorAll('.slideshow-item');
-   
-   // Get all the popups and their elements
-   const popups = document.querySelectorAll('.slideshow-popup');
-   const popupContents = document.querySelectorAll('.slideshow-popup-content');
-   const popupCloseBtns = document.querySelectorAll('.slideshow-popup-close-btn');
-   const popupImages = document.querySelectorAll('.slideshow-popup-image');
-   const popupCommentTexts = document.querySelectorAll('.slideshow-popup-comment-text');
-   const popupCommentUsernames = document.querySelectorAll('.slideshow-popup-comment-username');
-   const popupPfps = document.querySelectorAll('.slideshow-popup-pfp');
-   
-   // Add click event listener to each slideshow item
-   slideshowItems.forEach((item, index) => {
-     item.addEventListener('click', () => {
-       // Show the corresponding popup
-       popups[index].style.opacity = '1';
-       popups[index].style.visibility = 'visible';
-   
-       // Set the popup content based on the clicked item
-       popupImages[index].src = item.querySelector('.slideshow-image').src;
-   
-       // Ensure the username stays on one line
-       adjustUsernameWidth(popupCommentUsernames[index]);
-   
-       // Adjust the size of the profile picture if needed
-       adjustPfpSize(popupPfps[index]);
-     });
-   });
-   
-   // Add click event listener to the popup close buttons
-   popupCloseBtns.forEach((btn, index) => {
-     btn.addEventListener('click', () => {
-       // Hide the corresponding popup
-       popups[index].style.opacity = '0';
-       popups[index].style.visibility = 'hidden';
-     });
-   });
-   
-   // Add click event listener to the popups to close them
-   popups.forEach((popup, index) => {
-     popup.addEventListener('click', (event) => {
-       if (event.target === popup || !event.target.closest('.slideshow-popup-content')) {
-         // Hide the corresponding popup
-         popup.style.opacity = '0';
-         popup.style.visibility = 'hidden';
-       }
-     });
-   });
-   
-   // Function to ensure the username stays on one line
-   function adjustUsernameWidth(element) {
-     const maxWidth = element.parentNode.offsetWidth * 0.8; // 80% of the parent container width
-     element.style.whiteSpace = 'nowrap';
-     element.style.overflow = 'hidden';
-     element.style.textOverflow = 'ellipsis';
-     element.style.maxWidth = `${maxWidth}px`;
-   }
-   
-   // Function to adjust the size of the profile picture
-   function adjustPfpSize(element) {
-     const maxSize = 28; // Maximum size of the profile picture
-     const currentWidth = element.offsetWidth;
-     const currentHeight = element.offsetHeight;
-   
-     if (currentWidth > maxSize || currentHeight > maxSize) {
-       const ratio = Math.min(maxSize / currentWidth, maxSize / currentHeight);
-       element.style.width = `${currentWidth * ratio}px`;
-       element.style.height = `${currentHeight * ratio}px`;
-     }
-   }
-                 </script>
-
-    <script>
-      const escapeButton = document.querySelector('.bg-red-500');
-      escapeButton.addEventListener('click', () => {
-        window.location.href = 'http://www.google.com';
-      });
-    </script>
 
     <script>
       const mainContent = document.querySelector('.main-content');
