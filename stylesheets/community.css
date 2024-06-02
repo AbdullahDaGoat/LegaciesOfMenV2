@@ -1,0 +1,61 @@
+.main-content {
+  padding-top: 100px;
+}
+
+
+body.dark .review-container {
+  background-color: #333333;
+  color: #f0f0f0;
+}
+
+.button-hover {
+  transition: transform 0.3s ease-in-out;
+}
+
+.button-hover:hover {
+  transform: scale(1.1);
+}
+
+#popup-container {
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 100;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  visibility: hidden;
+  transition: opacity 0.3s ease-in-out, visibility 0.3s ease-in-out;
+}
+
+#popup-container.show {
+  opacity: 1;
+  visibility: visible;
+}
+
+#close-popup,
+#prev-image,
+#next-image {
+  font-size: 1.5rem;
+}
+
+#close-popup:hover,
+#prev-image:hover,
+#next-image:hover {
+  color: #ff6b6b;
+}
+
+.popup-content {
+  background-color: #fff;
+  padding: 2rem;
+  border-radius: 0.5rem;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+  position: relative;
+  max-width: 90%;
+  width: 600px;
+}
+
+@media (max-width: 600px) {
+  .popup-content {
+    max-width: 100%;
+    padding: 1.5rem;
+  }
+}

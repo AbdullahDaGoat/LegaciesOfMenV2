@@ -82,7 +82,6 @@
     <meta name="twitter:site" content="@LegaciesOfMen" />
     <meta name="twitter:creator" content="@JoeTruax" />
 
-
     <!-- Schema.org Markup -->
     <script type="application/ld+json" defer>
       {
@@ -140,7 +139,6 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
     <!-- Link Stylesheet -->
     <link rel="stylesheet" type="text/css" href="./stylesheets/legal.css" />
-    
   </head>
   <body class="bg-white font-sans text-gray-800">
     <div class="main-content animate__animated animate__fadeIn" id="mainContent">
@@ -194,7 +192,7 @@
             </div>
           </div>
         </div>
-  
+
         <div class="mobile-menu closed sm:hidden" id="mobile-menu">
           <div class="space-y-1 pb-3 pt-2">
             <a href="about.html" class="block border-l-4 border-transparent py-2 pl-3 pr-4 text-base font-medium text-gray-500 hover:border-orange-500 hover:bg-gray-50 hover:text-orange-600 focus:border-orange-500 focus:bg-gray-50 focus:text-orange-600 focus:outline-none dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-orange-400 dark:focus:bg-gray-700 dark:focus:text-orange-400">
@@ -346,7 +344,7 @@
                     <button class="text-orange-600 hover:underline" onclick="openModal('safety')">Law Enforcement, Trust and Safety</button>
                   </li>
                   <li>
-                    <button class="text-orange-600 hover:underline" onclick="openModal('report-a-bug')">Report a Bug or Discrepency</button>
+                    <button class="text-orange-600 hover:underline" onclick="window.location.href='contact.html'">Report a Bug or Discrepency</button>
                   </li>
                 </ul>
               </div>
@@ -356,8 +354,8 @@
       </div>
 
       <div id="user-agreement-modal" class="fixed inset-0 z-10 hidden overflow-y-auto">
-        <div class="flex min-h-screen items-center justify-center bg-gray-500 bg-opacity-50 overflow-y-auto" onclick="closeModal('user-agreement-modal')">
-          <div class="w-full max-w-3xl rounded-lg bg-white shadow-lg overflow-y-auto" style="max-height: 100vh;">
+        <div class="flex min-h-screen items-center justify-center overflow-y-auto bg-gray-500 bg-opacity-50" onclick="closeModal('user-agreement-modal')">
+          <div class="w-full max-w-3xl overflow-y-auto rounded-lg bg-white shadow-lg" style="max-height: 100vh;">
             <div class="modal-content relative overflow-y-scroll p-6">
               <div class="mb-4 flex items-start justify-between">
                 <h3 class="text-2xl font-bold sm:text-3xl">User Agreement (EXAMPLE)</h3>
@@ -445,7 +443,6 @@
         </div>
       </div>
     </footer>
-      
 
     <script type="text/javascript">
             const accordionHeaders = document.querySelectorAll('.accordion-header');
@@ -604,59 +601,59 @@
     </script>
 
     <script type="text/javascript">
-      const button = document.getElementById('mobile-menu-button');
-      const menu = document.getElementById('mobile-menu');
-      const navbar = document.querySelector('.navbar');
+        const button = document.getElementById('mobile-menu-button');
+        const menu = document.getElementById('mobile-menu');
+        const navbar = document.querySelector('.navbar');
 
-      let lastScrollY = 0;
+        let lastScrollY = 0;
 
-      window.addEventListener('scroll', () => {
-        const currentScrollY = window.pageYOffset;
+        window.addEventListener('scroll', () => {
+          const currentScrollY = window.pageYOffset;
 
-        if (currentScrollY > lastScrollY) {
-          // Scroll down
-          navbar.classList.remove('show');
-        } else {
-          // Scroll up
-          navbar.classList.add('show');
-        }
+          if (currentScrollY > lastScrollY) {
+            // Scroll down
+            navbar.classList.remove('show');
+          } else {
+            // Scroll up
+            navbar.classList.add('show');
+          }
 
-        lastScrollY = currentScrollY;
-      });
+          lastScrollY = currentScrollY;
+        });
 
-      button.addEventListener('click', () => {
-        menu.classList.toggle('open');
-        menu.classList.toggle('closed');
-      });
+        button.addEventListener('click', () => {
+          menu.classList.toggle('open');
+          menu.classList.toggle('closed');
+        });
 
-      // Get the theme toggler button and the body element
-      const themeToggler = document.getElementById('theme-toggler');
-      const body = document.body;
+        // Get the theme toggler button and the body element
+        const themeToggler = document.getElementById('theme-toggler');
+        const body = document.body;
 
-      // Check for the user's preferred theme on page load
-      let prefersDarkMode = window.localStorage.getItem('prefersDarkMode') === 'true';
-      body.classList.toggle('dark', prefersDarkMode);
-      themeToggler.innerHTML = `<i class="${prefersDarkMode ? 'fas fa-sun' : 'fas fa-moon'}"></i>`;
-
-      // Add event listener to the theme toggler button
-      themeToggler.addEventListener('click', () => {
-        body.classList.toggle('dark');
-        prefersDarkMode = body.classList.contains('dark');
-        window.localStorage.setItem('prefersDarkMode', prefersDarkMode);
+        // Check for the user's preferred theme on page load
+        let prefersDarkMode = window.localStorage.getItem('prefersDarkMode') === 'true';
+        body.classList.toggle('dark', prefersDarkMode);
         themeToggler.innerHTML = `<i class="${prefersDarkMode ? 'fas fa-sun' : 'fas fa-moon'}"></i>`;
-      });
 
-      function openModal(modalId) {
-      const modal = document.getElementById(modalId);
-      modal.classList.remove('hidden');
-      document.body.classList.add('popup-open');
-    }
+        // Add event listener to the theme toggler button
+        themeToggler.addEventListener('click', () => {
+          body.classList.toggle('dark');
+          prefersDarkMode = body.classList.contains('dark');
+          window.localStorage.setItem('prefersDarkMode', prefersDarkMode);
+          themeToggler.innerHTML = `<i class="${prefersDarkMode ? 'fas fa-sun' : 'fas fa-moon'}"></i>`;
+        });
 
-    function closeModal(modalId) {
-      const modal = document.getElementById(modalId);
-      modal.classList.add('hidden');
-      document.body.classList.remove('popup-open');
-    }
+        function openModal(modalId) {
+        const modal = document.getElementById(modalId);
+        modal.classList.remove('hidden');
+        document.body.classList.add('popup-open');
+      }
+
+      function closeModal(modalId) {
+        const modal = document.getElementById(modalId);
+        modal.classList.add('hidden');
+        document.body.classList.remove('popup-open');
+      }
     </script>
   </body>
 </html>
