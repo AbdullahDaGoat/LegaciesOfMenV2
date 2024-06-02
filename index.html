@@ -851,14 +851,33 @@
     </script>
 
     <script type="text/javascript">
-      document.querySelector('#loadButton').addEventListener('click', function() {
-        const acceptTerms = document.getElementById('accept-terms');
-        acceptTerms.style.display = 'none';
+     document.addEventListener('DOMContentLoaded', function() {
+  const acceptTermsDiv = document.getElementById('accept-terms');
+  const loadButton = document.getElementById('loadButton');
 
-        const mainContent = document.getElementById('mainContent');
-        mainContent.classList.remove('hidden');
-        mainContent.classList.add('visible');
-      });
+  // Check if the user has already accepted the terms
+  if (localStorage.getItem('termsAccepted') === 'true') {
+    acceptTermsDiv.style.display = 'none';
+    const mainContent = document.getElementById('mainContent');
+    mainContent.classList.remove('hidden');
+    mainContent.classList.add('visible');
+  }
+
+  loadButton.addEventListener('click', function() {
+    // Store the user's acceptance of the terms in local storage
+    localStorage.setItem('termsAccepted', 'true');
+
+    acceptTermsDiv.style.display = 'none';
+    const mainContent = document.getElementById('mainContent');
+    mainContent.classList.remove('hidden');
+    mainContent.classList.add('visible');
+  });
+
+  // Remove the "termsAccepted" key from local storage when the user closes the site
+  window.addEventListener('beforeunload', function() {
+    localStorage.removeItem('termsAccepted');
+  });
+});
     </script>
 
     <script type="text/javascript">
