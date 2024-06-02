@@ -224,15 +224,15 @@
         </div>
       </nav>
 
-      <div class="flex flex-col items-center justify-center min-h-screen px-4 sm:px-0">
+      <div class="flex min-h-screen flex-col items-center justify-center px-4 sm:px-0">
         <div class="w-full max-w-3xl">
           <div class="mb-8">
             <h1 class="mb-4 text-3xl font-bold sm:text-4xl">r/GuyCry - Legacies of Men</h1>
             <p class="text-lg sm:text-xl">Things are changing, stigmas are being erased, and love is being spread through our very effective teaching methods. If you want to see our work in action, please check out our 38,000 member online community on Reddit. It's the safest ONLINE space ever designed for men.</p>
           </div>
-      
+
           <div class="mb-8">
-            <div class="review-container relative h-64 overflow-hidden cursor-pointer rounded-lg shadow-lg">
+            <div class="review-container relative h-64 cursor-pointer overflow-hidden rounded-lg shadow-lg">
               <!-- Reviews will be added here dynamically -->
             </div>
           </div>
@@ -243,26 +243,25 @@
             </a>
           </div>
         </div>
-      
-        <div id="popup-container" class="fixed inset-0 flex items-center justify-center hidden">
-          <div class="bg-white rounded-lg p-6 shadow-lg relative w-full max-w-md">
-            <button id="close-popup" class="absolute top-2 right-2 text-orange-500 hover:text-orange-700">
+
+        <div id="popup-container" class="fixed inset-0 flex hidden items-center justify-center">
+          <div class="relative w-full max-w-md rounded-lg bg-white p-6 shadow-lg">
+            <button id="close-popup" class="absolute right-2 top-2 text-orange-500 hover:text-orange-700">
               <i class="fas fa-times text-2xl"></i>
             </button>
             <div class="mb-4">
-              <img id="popup-image" src="" alt="Popup Image" class="max-w-full max-h-[80vh]">
+              <img id="popup-image" src="" alt="Popup Image" class="max-h-[80vh] max-w-full" />
             </div>
             <div class="flex justify-between">
-              <button id="prev-image" class="text-orange-500 hover:text-orange-700 bg-orange-100 rounded-full p-2 transition-colors duration-300 ease-in-out hover:bg-orange-200">
+              <button id="prev-image" class="rounded-full bg-orange-100 p-2 text-orange-500 transition-colors duration-300 ease-in-out hover:bg-orange-200 hover:text-orange-700">
                 <i class="fas fa-chevron-left text-2xl"></i>
               </button>
-              <button id="next-image" class="text-orange-500 hover:text-orange-700 bg-orange-100 rounded-full p-2 transition-colors duration-300 ease-in-out hover:bg-orange-200">
+              <button id="next-image" class="rounded-full bg-orange-100 p-2 text-orange-500 transition-colors duration-300 ease-in-out hover:bg-orange-200 hover:text-orange-700">
                 <i class="fas fa-chevron-right text-2xl"></i>
               </button>
             </div>
           </div>
         </div>
-
       </div>
 
       <script>
@@ -275,9 +274,9 @@
             'https://legaciesofmen.org/assets/images/gallery01/9a5465e4.jpg?v=9d70b9c2',
             'https://legaciesofmen.org/assets/images/gallery01/c6943b69.jpg?v=9d70b9c2',
           ];
-      
+
           let currentIndex = 0;
-      
+
           function displayReviews() {
             const reviewElements = reviewContainer.querySelectorAll('.review-container');
             reviewElements.forEach((element, index) => {
@@ -285,50 +284,49 @@
               element.style.opacity = index === currentIndex ? '1' : '0';
               element.addEventListener('click', () => showPopup(index));
             });
-      
+
             currentIndex = (currentIndex + 1) % reviews.length;
           }
-      
+
           function showPopup(index) {
             const popupContainer = document.getElementById('popup-container');
             const popupImage = document.getElementById('popup-image');
             const prevButton = document.getElementById('prev-image');
             const nextButton = document.getElementById('next-image');
             const closeButton = document.getElementById('close-popup');
-      
+
             popupImage.src = reviews[index];
             popupContainer.classList.remove('hidden');
             popupContainer.classList.add('show');
 
-      
+
             prevButton.addEventListener('click', () => {
               currentIndex = (currentIndex - 1 + reviews.length) % reviews.length;
               popupImage.src = reviews[currentIndex];
             });
-      
+
             nextButton.addEventListener('click', () => {
               currentIndex = (currentIndex + 1) % reviews.length;
               popupImage.src = reviews[currentIndex];
             });
-      
+
             closeButton.addEventListener('click', () => {
               popupContainer.classList.add('hidden');
               popupContainer.classList.remove('show');
 
             });
           }
-      
+
           reviews.forEach(review => {
             const reviewElement = document.createElement('div');
             reviewElement.classList.add('absolute', 'inset-0', 'bg-cover', 'bg-center', 'review-container');
             reviewElement.style.backgroundImage = `url(${review})`;
             reviewContainer.appendChild(reviewElement);
           });
-      
+
           setInterval(displayReviews, 5000);
         });
-        </script>
-
+      </script>
 
       <footer id="bottom" class="bg-gray-900 px-4 py-12 text-white sm:px-0">
         <div class="container mx-auto">
@@ -502,50 +500,50 @@
     </script>
 
     <script type="text/javascript">
-      const button = document.getElementById('mobile-menu-button');
-const menu = document.getElementById('mobile-menu');
-const navbar = document.querySelector('.navbar');
-const popupContainer = document.getElementById('popup-container');
+            const button = document.getElementById('mobile-menu-button');
+      const menu = document.getElementById('mobile-menu');
+      const navbar = document.querySelector('.navbar');
+      const popupContainer = document.getElementById('popup-container');
 
-let lastScrollY = 0;
+      let lastScrollY = 0;
 
-window.addEventListener('scroll', () => {
-  const currentScrollY = window.pageYOffset;
+      window.addEventListener('scroll', () => {
+        const currentScrollY = window.pageYOffset;
 
-  if (currentScrollY > lastScrollY && !popupContainer.classList.contains('hidden')) {
-    // Scroll down and popup is open
-    navbar.classList.remove('show');
-  } else if (currentScrollY <= lastScrollY) {
-    // Scroll up or popup is closed
-    navbar.classList.add('show');
-  }
+        if (currentScrollY > lastScrollY && !popupContainer.classList.contains('hidden')) {
+          // Scroll down and popup is open
+          navbar.classList.remove('show');
+        } else if (currentScrollY <= lastScrollY) {
+          // Scroll up or popup is closed
+          navbar.classList.add('show');
+        }
 
-  lastScrollY = currentScrollY;
-});
-
-button.addEventListener('click', () => {
-  menu.classList.toggle('open');
-  menu.classList.toggle('closed');
-});
-
-// Close the popup when the close button is clicked
-
-      // Get the theme toggler button and the body element
-      const themeToggler = document.getElementById('theme-toggler');
-      const body = document.body;
-
-      // Check for the user's preferred theme on page load
-      let prefersDarkMode = window.localStorage.getItem('prefersDarkMode') === 'true';
-      body.classList.toggle('dark', prefersDarkMode);
-      themeToggler.innerHTML = `<i class="${prefersDarkMode ? 'fas fa-sun' : 'fas fa-moon'}"></i>`;
-
-      // Add event listener to the theme toggler button
-      themeToggler.addEventListener('click', () => {
-        body.classList.toggle('dark');
-        prefersDarkMode = body.classList.contains('dark');
-        window.localStorage.setItem('prefersDarkMode', prefersDarkMode);
-        themeToggler.innerHTML = `<i class="${prefersDarkMode ? 'fas fa-sun' : 'fas fa-moon'}"></i>`;
+        lastScrollY = currentScrollY;
       });
+
+      button.addEventListener('click', () => {
+        menu.classList.toggle('open');
+        menu.classList.toggle('closed');
+      });
+
+      // Close the popup when the close button is clicked
+
+            // Get the theme toggler button and the body element
+            const themeToggler = document.getElementById('theme-toggler');
+            const body = document.body;
+
+            // Check for the user's preferred theme on page load
+            let prefersDarkMode = window.localStorage.getItem('prefersDarkMode') === 'true';
+            body.classList.toggle('dark', prefersDarkMode);
+            themeToggler.innerHTML = `<i class="${prefersDarkMode ? 'fas fa-sun' : 'fas fa-moon'}"></i>`;
+
+            // Add event listener to the theme toggler button
+            themeToggler.addEventListener('click', () => {
+              body.classList.toggle('dark');
+              prefersDarkMode = body.classList.contains('dark');
+              window.localStorage.setItem('prefersDarkMode', prefersDarkMode);
+              themeToggler.innerHTML = `<i class="${prefersDarkMode ? 'fas fa-sun' : 'fas fa-moon'}"></i>`;
+            });
     </script>
   </body>
 </html>
