@@ -1,686 +1,852 @@
-<!doctype html>
+<!DOCTYPE html>
+
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Legacies of Men - Contact Us</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <style>
-          .flip-animation {
-            animation: flip 1s ease-out forwards;
-          }
+<head>
+	<meta charset="UTF-8">
+	<meta content="width=device-width, initial-scale=1.0" name="viewport">
 
-          @keyframes flip {
-            0% {
-              transform: rotateX(0);
-            }
-            50% {
-              transform: rotateX(180deg);
-            }
-            100% {
-              transform: rotateX(360deg);
-            }
-          }
+	<title>Legacies of Men - Contact Us</title>
+	<script src="https://cdn.tailwindcss.com">
+	</script>
+	<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet"><!-- <script src="https://cdn.web3forms.com/web3forms.min.js"></script> -->
 
-      .form-group {
-        margin-bottom: 1rem;
-      }
+	<style>
+	            .flip-animation {
+	              animation: flip 1s ease-out forwards;
+	            }
 
-      label {
-        display: block;
-        font-weight: bold;
-        margin-bottom: 0.5rem;
-      }
+	            @keyframes flip {
+	              0% {
+	                transform: rotateX(0);
+	              }
+	              50% {
+	                transform: rotateX(180deg);
+	              }
+	              100% {
+	                transform: rotateX(360deg);
+	              }
+	            }
 
-      input[type="text"],
-      input[type="email"],
-      input[type="tel"],
-      input[type="number"],
-      select {
-        width: 100%;
-        padding: 0.5rem;
-        border: 1px solid #ccc;
-        border-radius: 4px;
-      }
-    </style>
-  </head>
-  <body class="bg-gray-100">
-    <div class="container mx-auto py-8">
-      <h1 class="mb-4 text-center text-4xl font-bold text-orange-500"><span class="mr-2">👋</span>Hey there, let's make this quick and easy</h1>
-      <p class="mb-8 text-center text-gray-600">Click the button below to begin and let's get in touch</p>
-      <div class="flex justify-center">
-        <button id="startButton" class="rounded bg-orange-500 px-4 py-2 font-bold text-white hover:bg-orange-600">Click Me to Begin</button>
-      </div>
-      <div id="formContainer" class="mt-8 hidden">
-        <form id="contactForm" class="mb-4 rounded bg-white px-8 pb-8 pt-6 shadow-md">
-          <div id="userInfo" class="mb-6"></div>
-          <div id="options" class="mb-6">
-            <div class="mb-4">
-              <label class="mb-2 block font-bold text-gray-700" for="option"> Select an option </label>
-              <select class="focus:shadow-outline w-full appearance-none rounded border px-3 py-2 leading-tight text-gray-700 shadow focus:outline-none" id="option" onchange="handleOptionChange(this.value)" required>
-                <option value="">Select an option</option>
-                <option value="manageDeleteData">Manage / Delete My Data</option>
-                <option value="pressReleasesAndBranding">Press Releases and Branding-related Queries</option>
-                <option value="trustSafetyAppealsLawEnforcement">Trust, Safety, Appeals and Law Enforcement Contact</option>
-                <option value="generalSupportInquiries">General Support Inquiries</option>
-              </select>
-            </div>
-            <div id="subOptions"></div>
-          </div>
-          <div class="personal-details">
-            <div class="form-group flex justify-between">
-              <div class="w-1/2 pr-2">
-                <label for="firstName">First Name</label>
-                <input type="text" id="firstName" name="firstName" required />
-              </div>
-              <div class="w-1/2 pl-2">
-                <label for="lastName">Last Name</label>
-                <input type="text" id="lastName" name="lastName" required />
-              </div>
-            </div>
-            <div class="form-group flex justify-between">
-              <div class="w-1/2 pr-2">
-                <label for="email">Email</label>
-                <input type="email" id="email" name="email" required />
-              </div>
-              <div class="w-1/2 pl-2">
-                <label for="phone">Phone</label>
-                <input type="tel" id="phone" name="phone" required />
-              </div>
-            </div>
-            <div class="form-group flex justify-between">
-              <div class="w-1/2 pr-2">
-                <label for="gender">Gender</label>
-                <select id="gender" name="gender" required>
-                  <option value="">Select Gender</option>
-                  <option value="male">Male</option>
-                  <option value="female">Female</option>
-                  <option value="other">Other</option>
-                </select>
-              </div>
-              <div class="w-1/2 pl-2">
-                <label for="age">Age</label>
-                <input type="number" id="age" name="age" min="18" required />
-              </div>
-            </div>
-            <div class="form-group">
-              <label for="username">Username (optional)</label>
-              <input type="text" id="username" name="username" />
-            </div>
-          </div>
+	        .form-group {
+	          margin-bottom: 1rem;
+	        }
 
-          <div class="mb-4">
-            <label class="mb-2 block font-bold text-gray-700" for="subject"> Subject </label>
-            <input class="focus:shadow-outline w-full appearance-none rounded border px-3 py-2 leading-tight text-gray-700 shadow focus:outline-none" id="subject" type="text" placeholder="Enter subject" required />
-          </div>
-          <div class="mb-6">
-            <label class="mb-2 block font-bold text-gray-700" for="message"> Message </label>
-            <textarea class="focus:shadow-outline w-full appearance-none rounded border px-3 py-2 leading-tight text-gray-700 shadow focus:outline-none" id="message" rows="6" placeholder="Enter your message" required></textarea>
-          </div>
-          <div class="flex items-center justify-between">
-            <button class="focus:shadow-outline rounded bg-orange-500 px-4 py-2 font-bold text-white hover:bg-orange-600 focus:outline-none" type="submit">Submit</button>
-            <p id="shareLink" class="hidden text-sm text-gray-500">Share this link: <span id="shareUrl" class="cursor-pointer text-orange-500"></span></p>
-            <button id="discardFormButton" class="focus:shadow-outline rounded bg-gray-300 px-4 py-2 font-bold text-gray-700 hover:bg-gray-400 focus:outline-none">Discard Form</button>
-          </div>
-        </form>
-        <div id="submissionResult" class="mt-8 flex hidden items-center justify-center">
-          <i class="fas fa-check-circle flip-animation mr-4 text-6xl text-green-500"></i>
-          <p class="text-xl text-gray-600">Your form has been submitted successfully....</p>
-        </div>
-      </div>
-    </div>
+	        label {
+	          display: block;
+	          font-weight: bold;
+	          margin-bottom: 0.5rem;
+	        }
 
-    <script>
-          const startButton = document.getElementById('startButton');
-          const formContainer = document.getElementById('formContainer');
-          const userInfo = document.getElementById('userInfo');
-          const options = document.getElementById('options');
-          const contactForm = document.getElementById('contactForm');
-          const submissionResult = document.getElementById('submissionResult');
-          const shareLink = document.getElementById('shareLink');
-          const shareUrl = document.getElementById('shareUrl');
+	        input[type="text"],
+	        input[type="email"],
+	        input[type="tel"],
+	        input[type="number"],
+	        select {
+	          width: 100%;
+	          padding: 0.5rem;
+	          border: 1px solid #ccc;
+	          border-radius: 4px;
+	        }
+	</style>
+</head>
 
-          let userInfoData = '';
-          let optionsHTML = '';
-          let formData = {};
+<body class="bg-gray-100">
+	<div class="container mx-auto py-8">
+		<h1 class="mb-4 text-center text-4xl font-bold text-orange-500"><span class="mr-2">👋</span>Hey there, let's make this quick and easy</h1>
 
 
-
-          // Function to get user information
-          function getUserInfo() {
-        const userAgent = navigator.userAgent;
-        const platform = navigator.platform;
-        const language = navigator.language;
-          userInfoData = `
-          <p><strong>IP Address:</strong> <span id="ipAddress"></span></p>
-          <p><strong>User Agent:</strong> ${userAgent}</p>
-          <p><strong>Platform:</strong> ${platform}</p>
-          <p><strong>Language:</strong> ${language}</p>
-          <p><strong>Screen Resolution:</strong> ${screen.width}x${screen.height}</p>
-          <p><strong>Color Depth:</strong> ${screen.colorDepth}</p>
-          <p><strong>Pixel Depth:</strong> ${screen.pixelDepth}</p>
-          <p><strong>Device Memory:</strong> ${navigator.deviceMemory}GB</p>
-          <p><strong>Hardware Concurrency:</strong> ${navigator.hardwareConcurrency}</p>
-          <p><strong>Cookie Enabled:</strong> ${navigator.cookieEnabled}</p>
-          <p><strong>Do Not Track:</strong> ${navigator.doNotTrack}</p>
-          <p><strong>Plugins:</strong> ${navigator.plugins.length}</p>
-          <p><strong>Java Enabled:</strong> ${navigator.javaEnabled()}</p>
-          <p><strong>Geolocation:</strong> ${navigator.geolocation ? 'Allowed' : 'Blocked'}</p>
-          <p><strong>Online:</strong> ${navigator.onLine}</p>
-          <p><strong>Timezone:</strong> ${Intl.DateTimeFormat().resolvedOptions().timeZone}</p>
-          <p><strong>Connection Type:</strong> ${navigator.connection ? navigator.connection.effectiveType : 'Unknown'}</p>
-          <p><strong>Connection Downlink:</strong> ${navigator.connection ? navigator.connection.downlink : 'Unknown'}</p>
-          <p><strong>Connection Rtt:</strong> ${navigator.connection ? navigator.connection.rtt : 'Unknown'}</p>
-          <p><strong>Connection Save Data:</strong> ${navigator.connection ? navigator.connection.saveData : 'Unknown'}</p>
-          <p><strong>Max Touch Points:</strong> ${navigator.maxTouchPoints}</p>
-        `;
-
-        fetch('https://api.ipify.org?format=json')
-          .then(response => response.json())
-          .then(data => {
-            const ipAddress = document.getElementById('ipAddress');
-            ipAddress.textContent = data.ip;
-          })
-          .catch(error => console.error('Error fetching IP address:', error));
-
-        userInfo.innerHTML = userInfoData;
-      }
-
-      startButton.addEventListener('click', () => {
-        getUserInfo();
-        formContainer.classList.remove('hidden');
-      });
+		<p class="mb-8 text-center text-gray-600">Click the button below to begin and let's get in touch</p>
 
 
-          // Function to handle option change
-          function handleOptionChange(option) {
-            const subOptions = document.getElementById('subOptions');
-            subOptions.innerHTML = '';
+		<div class="flex justify-center">
+			<button class="rounded bg-orange-500 px-4 py-2 font-bold text-white hover:bg-orange-600" id="startButton">Click Me to Begin</button>
+		</div>
 
-            switch (option) {
-              case 'manageDeleteData':
-                subOptions.innerHTML = `
-                  <div>
-                    <label class="block text-gray-700 font-bold mb-2" for="manageDeleteDataOption">
-                      Select an option
-                    </label>
-                    <select
-                      class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-                      id="manageDeleteDataOption"
-                      onchange="handleSubOptionChange(this.value)"
-                      required
-                    >
-                      <option value="">Select an option</option>
-                      <option value="fromSite">From Site</option>
-                      <option value="fromProgram">From Program</option>
-                    </select>
-                  </div>
-                `;
-                break;
-                case 'pressReleasesAndBranding':
-        subOptions.innerHTML = `
-          <div>
-            <label class="block text-gray-700 font-bold mb-2" for="pressReleasesAndBrandingOption">
-              Select an option
-            </label>
-            <select
-              class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-              id="pressReleasesAndBrandingOption"
-              onchange="handleSubOptionChange(this.value)"
-              required
-            >
-              <option value="">Select an option</option>
-              <option value="pressContact">Press Contact</option>
-              <option value="releasesInvolvingNameBrandingTrademarksEtc">Releases Involving the Use of Our Name, Branding, Trademarks, Copyright, Etc.</option>
-              <option value="contentWithRelations">Content That Has Our Relations to Legacies Of Men</option>
-              <option value="otherBrandingRelatedIssues">Other Branding Related Issues</option>
-            </select>
-          </div>
-        `;
-        break;
-      case 'trustSafetyAppealsLawEnforcement':
-        subOptions.innerHTML = `
-          <div>
-            <label class="block text-gray-700 font-bold mb-2" for="trustSafetyAppealsLawEnforcementOption">
-              Select an option
-            </label>
-            <select
-              class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-              id="trustSafetyAppealsLawEnforcementOption"
-              onchange="handleSubOptionChange(this.value)"
-              required
-            >
-              <option value="">Select an option</option>
-              <option value="trustAndSafety">Trust and Safety</option>
-              <option value="appeals">Appeals</option>
-              <option value="lawEnforcementContact">Law Enforcement Contact</option>
-            </select>
-          </div>
-        `;
-        break;
-      case 'generalSupportInquiries':
-        subOptions.innerHTML = `
-          <div>
-            <label class="block text-gray-700 font-bold mb-2" for="generalSupportInquiriesOption">
-              Select an option
-            </label>
-            <select
-              class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-              id="generalSupportInquiriesOption"
-              onchange="handleSubOptionChange(this.value)"
-              required
-            >
-              <option value="">Select an option</option>
-              <option value="programInquiries">Program Inquiries</option>
-              <option value="bugsOrWebsiteDiscrepancies">Bugs or Website Discrepancies</option>
-              <option value="feedback">Feedback</option>
-            </select>
-          </div>
-        `;
-        break;
-      }
-      }
 
-      function handleSubOptionChange(subOption) {
-      const subOptionsContainer = document.getElementById('subOptions');
+		<div class="mt-8 hidden" id="formContainer">
+			<form action="https://api.web3forms.com/submit" autocomplete="" class="mb-4 rounded bg-white px-8 pb-8 pt-6 shadow-md" id="contactForm" method="post" name="contactForm">
+				<input name="access_key" type="hidden" value="6af27dfd-1619-4b1d-af12-b072afe4b21c"> <!-- <input type="hidden" name="subject" value="A Client from Legacies Of Men has a Question"> -->
+				 <input name="from_name" type="hidden" value="Legacies Of Men "> <!-- <input type="hidden" name="ccemail" value="thehumblelowlycompany@gmail.com" /> -->
+				 <input name="replyto" type="hidden" value="no-reply@LegaciesOfMenWebsiteForm.org"> <!-- <input type="hidden" name="replyto" value="customer@example.com"> -->
+				 <!-- <input type="hidden" name="redirect" value="https://web3forms.com/success"> -->
+				 <input class="hidden" name="botcheck" style="display: none;" type="checkbox">
 
-      switch (subOption) {
-      case 'fromSite':
-      subOptionsContainer.innerHTML = `
-      <div class="bg-orange-100 border-l-4 border-orange-500 text-orange-700 p-4 rounded mb-4">
-      <p class="font-bold">Our Website uses only essential cookies, we don't store anything else besides your cookies and data which can be viewed at our <a href="#" class="text-orange-500 underline">Legal Policies</a>. Nonetheless if you have a General Question related to our Privacy Policies you can still ask us</p>
-      <p>You can clear your cache and cookies by following these steps:</p>
-      <ul class="list-disc list-inside">
-      <li><a href="#" class="text-orange-500 underline">Find site for clearing cache on mobile (Android)</a></li>
-      <li><a href="#" class="text-orange-500 underline">Find site for clearing cache on mobile (iPhone)</a></li>
-      <li><a href="#" class="text-orange-500 underline">Find site for clearing cache on desktop (Windows)</a></li>
-      </ul>
-      </div>
-      `;
-      break;
-      case 'fromProgram':
-            subOptionsContainer.innerHTML = `
-              <div class="mb-4">
-                <label class="block text-gray-700 font-bold mb-2">Are you leaving the program?</label>
-                <div class="flex items-center mb-4">
-                  <input id="leavingProgramYes" type="radio" value="yes" name="leavingProgram" class="h-4 w-4 border-gray-300 focus:ring-orange-500" required>
-                  <label for="leavingProgramYes" class="ml-2 block text-gray-700 font-bold">Yes</label>
-                </div>
-                <div class="flex items-center mb-4">
-                  <input id="leavingProgramNo" type="radio" value="no" name="leavingProgram" class="h-4 w-4 border-gray-300 focus:ring-orange-500" required>
-                  <label for="leavingProgramNo" class="ml-2 block text-gray-700 font-bold">No</label>
-                </div>
-                <div class="bg-orange-100 border-l-4 border-orange-500 text-orange-700 p-4 rounded mb-4 hidden" id="leavingProgramNoMessage">
-                  <p class="font-bold">
-                    If you're not leaving the program, then we cannot process a request to delete your data. 
-                  </p>
-                </div>
-              </div>
-            `;
+				<div class="mb-6" id="userInfo">
+				</div>
 
-            const leavingProgramNoInput = document.getElementById('leavingProgramNo');
-            const leavingProgramNoMessage = document.getElementById('leavingProgramNoMessage');
 
-            leavingProgramNoInput.addEventListener('change', (event) => {
-              if (event.target.value === 'no') {
-                leavingProgramNoMessage.classList.remove('hidden');
-              } else {
-                leavingProgramNoMessage.classList.add('hidden');
-              }
-            });
-            break;
-      case 'pressContact':
-      subOptionsContainer.innerHTML = `
-      <div class="mb-4">
-      <label class="block text-gray-700 font-bold mb-2" for="nameOfPress">Name of Press</label>
-      <input
-      class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-      id="nameOfPress"
-      type="text"
-      placeholder="Enter name of press"
-      required
-      >
-      </div>
-      <div class="mb-4">
-      <label class="block text-gray-700 font-bold mb-2" for="nameOfIndividual">Name of Individual Contacting</label>
-      <input
-      class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-      id="nameOfIndividual"
-      type="text"
-      placeholder="Enter name of individual"
-      required
-      >
-      </div>
-      <div class="flex items-center mb-4">
-      <input
-      id="certifyRepresentation"
-      type="checkbox"
-      value=""
-      class="h-4 w-4 border-gray-300 rounded focus:ring-orange-500"
-      required
-      >
-      <label for="certifyRepresentation" class="ml-2 block text-gray-700 font-bold">
-      I certify I can act on behalf of this company
-      </label>
-      </div>
-      `;
-      break;
-      case 'releasesInvolvingNameBrandingTrademarksEtc':
-        subOptionsContainer.innerHTML = `
-          <div class="mb-4">
-            <label class="block text-gray-700 font-bold mb-2" for="nameOfPress">Name of Press</label>
-            <input
-              class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-              id="nameOfPress"
-              type="text"
-              placeholder="Enter name of press"
-              required
-            >
-          </div>
-          <div class="mb-4">
-            <label class="block text-gray-700 font-bold mb-2" for="nameOfIndividual">Name of Individual Contacting</label>
-            <input
-              class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-              id="nameOfIndividual"
-              type="text"
-              placeholder="Enter name of individual"
-              required
-            >
-          </div>
-          <div class="flex items-center mb-4">
-            <input
-              id="certifyRepresentation"
-              type="checkbox"
-              value=""
-              class="h-4 w-4 border-gray-300 rounded focus:ring-orange-500"
-              required
-            >
-            <label for="certifyRepresentation" class="ml-2 block text-gray-700 font-bold">
-              I certify I can act on behalf of this company
-            </label>
-          </div>
-        `;
-        break;
-      case 'contentWithRelations':
-        subOptionsContainer.innerHTML = `
-          <div class="mb-4">
-            <label class="block text-gray-700 font-bold mb-2" for="nameOfPress">Name of Press</label>
-            <input
-              class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-              id="nameOfPress"
-              type="text"
-              placeholder="Enter name of press"
-              required
-            >
-          </div>
-          <div class="mb-4">
-            <label class="block text-gray-700 font-bold mb-2" for="nameOfIndividual">Name of Individual Contacting</label>
-            <input
-              class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-              id="nameOfIndividual"
-              type="text"
-              placeholder="Enter name of individual"
-              required
-            >
-          </div>
-          <div class="flex items-center mb-4">
-            <input
-              id="certifyRepresentation"
-              type="checkbox"
-              value=""
-              class="h-4 w-4 border-gray-300 rounded focus:ring-orange-500"
-              required
-            >
-            <label for="certifyRepresentation" class="ml-2 block text-gray-700 font-bold">
-              I certify I can act on behalf of this company
-            </label>
-          </div>
-        `;
-        break;
-      case 'otherBrandingRelatedIssues':
-        subOptionsContainer.innerHTML = `
-          <div class="mb-4">
-            <label class="block text-gray-700 font-bold mb-2" for="nameOfPress">Name of Press</label>
-            <input
-              class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-              id="nameOfPress"
-              type="text"
-              placeholder="Enter name of press"
-              required
-            >
-          </div>
-          <div class="mb-4">
-            <label class="block text-gray-700 font-bold mb-2" for="nameOfIndividual">Name of Individual Contacting</label>
-            <input
-              class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-              id="nameOfIndividual"
-              type="text"
-              placeholder="Enter name of individual"
-              required
-            >
-          </div>
-          <div class="flex items-center mb-4">
-            <input
-              id="certifyRepresentation"
-              type="checkbox"
-              value=""
-              class="h-4 w-4 border-gray-300 rounded focus:ring-orange-500"
-              required
-            >
-            <label for="certifyRepresentation" class="ml-2 block text-gray-700 font-bold">
-              I certify I can act on behalf of this company
-            </label>
-          </div>
-        `;
-        break;
-      case 'trustAndSafety':
-        subOptionsContainer.innerHTML = `
-          <div class="bg-orange-100 border-l-4 border-orange-500 text-orange-700 p-4 rounded mb-4">
-            <p class="font-bold">
-              Please be as detailed as possible when reporting trust and safety issues.
-            </p>
-            <p>
-              Provide the following information:
-            </p>
-            <ul class="list-disc list-inside">
-              <li>Content URL(s) if applicable</li>
-              <li>Description of the issue</li>
-              <li>Additional context or details</li>
-            </ul>
-          </div>
-          <div class="mb-4">
-            <label class="block text-gray-700 font-bold mb-2" for="trustAndSafetyDescription">
-              Description of Trust and Safety Issue
-            </label>
-            <textarea
-              class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-              id="trustAndSafetyDescription"
-              rows="3"
-              placeholder="Enter a detailed description of the trust and safety issue"
-              required
-            ></textarea>
-          </div>
-        `;
-        break;
-      case 'appeals':
-        subOptionsContainer.innerHTML = `
-          <div class="bg-orange-100 border-l-4 border-orange-500 text-orange-700 p-4 rounded mb-4">
-            <p class="font-bold">
-              Please provide the following information for your appeal:
-            </p>
-            <ul class="list-disc list-inside">
-              <li>The specific content or decision being appealed</li>
-              <li>Reason for the appeal</li>
-              <li>Any additional context or details</li>
-            </ul>
-          </div>
-          <div class="mb-4">
-            <label class="block text-gray-700 font-bold mb-2" for="appealsDescription">
-              Description of Appeal
-            </label>
-            <textarea
-              class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-              id="appealsDescription"
-              rows="3"
-              placeholder="Enter a detailed description of your appeal"
-              required
-            ></textarea>
-          </div>
-        `;
-        break;
-        case 'lawEnforcementContact':
-        subOptionsContainer.innerHTML = `
-          <div class="bg-orange-100 border-l-4 border-orange-500 text-orange-700 p-4 rounded mb-4">
-            <p class="font-bold">
-              For law enforcement inquiries, please provide the following information:
-            </p>
-            <ul class="list-disc list-inside">
-              <li>Your name and badge number</li>
-              <li>Agency and jurisdiction</li>
-              <li>Nature of the inquiry</li>
-              <li>Any additional context or details</li>
-            </ul>
-          </div>
-          <div class="mb-4">
-            <label class="block text-gray-700 font-bold mb-2" for="lawEnforcementName">
-              Your Name and Badge Number
-            </label>
-            <input
-              class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-              id="lawEnforcementName"
-              type="text"
-              placeholder="Enter your name and badge number"
-              required
-            >
-          </div>
-          <div class="mb-4">
-            <label class="block text-gray-700 font-bold mb-2" for="lawEnforcementAgency">
-              Agency and Jurisdiction
-            </label>
-            <input
-              class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-              id="lawEnforcementAgency"
-              type="text"
-              placeholder="Enter your agency and jurisdiction"
-              required
-            >
-          </div>
-          <div class="mb-4">
-            <label class="block text-gray-700 font-bold mb-2" for="lawEnforcementInquiry">
-              Nature of the Inquiry
-            </label>
-            <textarea
-              class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-              id="lawEnforcementInquiry"
-              rows="3"
-              placeholder="Enter a detailed description of the nature of your inquiry"
-              required
-            ></textarea>
-          </div>
-        `;
-        break;
-      case 'programInquiries':
-        subOptionsContainer.innerHTML = `
-          <div class="mb-4">
-            <label class="block text-gray-700 font-bold mb-2" for="programInquiryDescription">
-              Program Inquiry Description
-            </label>
-            <textarea
-              class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-              id="programInquiryDescription"
-              rows="3"
-              placeholder="Enter a detailed description of your program inquiry"
-              required
-            ></textarea>
-          </div>
-        `;
-        break;
-      case 'bugsOrWebsiteDiscrepancies':
-        subOptionsContainer.innerHTML = `
-          <div class="bg-orange-100 border-l-4 border-orange-500 text-orange-700 p-4 rounded mb-4">
-            <p class="font-bold">
-              When reporting bugs or website discrepancies, please provide the following information:
-            </p>
-            <ul class="list-disc list-inside">
-              <li>URL where the issue was encountered</li>
-              <li>Description of the issue</li>
-              <li>Steps to reproduce the issue</li>
-              <li>Screenshots or screen recordings (if applicable)</li>
-            </ul>
-          </div>
-          <div class="mb-4">
-            <label class="block text-gray-700 font-bold mb-2" for="bugOrDiscrepancyDescription">
-              Bug or Website Discrepancy Description
-            </label>
-            <textarea
-              class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-              id="bugOrDiscrepancyDescription"
-              rows="3"
-              placeholder="Enter a detailed description of the bug or website discrepancy"
-              required
-            ></textarea>
-          </div>
-        `;
-        break;
-      case 'feedback':
-        subOptionsContainer.innerHTML = `
-          <div class="mb-4">
-            <label class="block text-gray-700 font-bold mb-2" for="feedbackDescription">
-              Feedback Description
-            </label>
-            <textarea
-              class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-              id="feedbackDescription"
-              rows="3"
-              placeholder="Enter your feedback or suggestions"
-              required
-            ></textarea>
-          </div>
-        `;
-        break;
-      }
-      }
-      const formInputs = contactForm.querySelectorAll('input, textarea, select');
+				<div class="mb-6" id="options">
+					<div class="mb-4">
+						<label class="mb-2 block font-bold text-gray-700" for="option">Select an option</label> 
+                        <select class="focus:shadow-outline w-full appearance-none rounded border px-3 py-2 leading-tight text-gray-700 shadow focus:outline-none" id="option" onchange="handleOptionChange(this.value)" required>
+							<option value="">
+								Select an option
+							</option>
 
-      formInputs.forEach(input => {
-        input.addEventListener('input', () => {
-          storeFormData();
-        });
-      });
+							<option value="manageDeleteData">
+								Manage / Delete My Data
+							</option>
 
-      function storeFormData() {
-        const formData = {
-          option: document.getElementById('option').value,
-          subject: document.getElementById('subject').value,
-          message: document.getElementById('message').value,
-          // Add other form field values as needed
-        };
-        localStorage.setItem('formData', JSON.stringify(formData));
-      }
+							<option value="pressReleasesAndBranding">
+								Press Releases and Branding-related Queries
+							</option>
 
-      window.addEventListener('load', () => {
-        const savedFormData = localStorage.getItem('formData');
-        if (savedFormData) {
-          const formData = JSON.parse(savedFormData);
-          document.getElementById('option').value = formData.option;
-          document.getElementById('subject').value = formData.subject;
-          document.getElementById('message').value = formData.message;
-          // Populate other form fields as needed
+							<option value="trustSafetyAppealsLawEnforcement">
+								Trust, Safety, Appeals and Law Enforcement Contact
+							</option>
+
+							<option value="generalSupportInquiries">
+								General Support Inquiries
+							</option>
+						</select>
+					</div>
+
+
+					<div id="subOptions">
+					</div>
+				</div>
+
+
+				<div class="personal-details">
+					<div class="form-group flex justify-between">
+						<div class="w-1/2 pr-2">
+							<label for="firstName">First Name</label> <input id="firstName" name="firstName" required="" type="text">
+						</div>
+
+
+						<div class="w-1/2 pl-2">
+							<label for="lastName">Last Name</label> <input id="lastName" name="lastName" required="" type="text">
+						</div>
+					</div>
+
+
+					<div class="form-group flex justify-between">
+						<div class="w-1/2 pr-2">
+							<label for="email">Email</label> <input id="email" name="email" required="" type="email">
+						</div>
+
+
+						<div class="w-1/2 pl-2">
+							<label for="phone">Phone</label> <input id="phone" name="phone" required="" type="tel">
+						</div>
+					</div>
+
+
+					<div class="form-group flex justify-between">
+						<div class="w-1/2 pr-2">
+							<label for="gender">Gender</label> <select id="gender" name="gender">
+								<option value="">
+									Select Gender
+								</option>
+
+								<option value="male">
+									Male
+								</option>
+
+								<option value="female">
+									Female
+								</option>
+
+								<option value="other">
+									Other
+								</option>
+							</select>
+						</div>
+
+
+						<div class="w-1/2 pl-2">
+							<label for="age">Age</label> <input id="age" name="age" required="" type="number">
+						</div>
+					</div>
+
+
+					<div class="form-group">
+						<label for="username">Username (optional)</label> <input id="username" name="username" type="text">
+					</div>
+				</div>
+
+
+				<div class="mb-4">
+					<label class="mb-2 block font-bold text-gray-700" for="subject">Subject</label> <input class="focus:shadow-outline w-full appearance-none rounded border px-3 py-2 leading-tight text-gray-700 shadow focus:outline-none" id="subject" name="subject" placeholder="Enter subject" required="" type="text">
+				</div>
+
+
+				<div class="mb-4">
+					<label class="mb-2 block font-bold text-gray-700" for="message">Message</label> 
+
+					<textarea class="focus:shadow-outline w-full appearance-none rounded border px-3 py-2 leading-tight text-gray-700 shadow focus:outline-none" id="message" name="message" placeholder="Enter your message" required="" rows="6"></textarea>
+				</div>
+
+
+				<div class="flex items-center justify-between">
+					<button class="focus:shadow-outline rounded bg-orange-500 px-4 py-2 font-bold text-white hover:bg-orange-600 focus:outline-none" type="submit">Submit</button>
+
+					<p class="hidden text-sm text-gray-500" id="shareLink">Share this link: <span class="cursor-pointer text-orange-500" id="shareUrl"></span></p>
+					<button class="focus:shadow-outline rounded bg-gray-300 px-4 py-2 font-bold text-gray-700 hover:bg-gray-400 focus:outline-none" id="discardFormButton">Discard Form</button>
+				</div>
+			</form>
+
+
+			<div class="mt-8 flex hidden items-center justify-center" id="submissionResult">
+				<i class="fas fa-check-circle flip-animation mr-4 text-6xl text-green-500"></i>
+
+				<p class="text-xl text-gray-600" id="success">Your form has been submitted successfully....</p>
+			</div>
+		</div>
+	</div>
+	<script>
+	                const startButton = document.getElementById('startButton');
+	                        const formContainer = document.getElementById('formContainer');
+	                        const userInfo = document.getElementById('userInfo');
+	                        const options = document.getElementById('options');
+	                        const contactForm = document.getElementById('contactForm');
+	                        const submissionResult = document.getElementById('submissionResult');
+	                        const shareLink = document.getElementById('shareLink');
+	                        const shareUrl = document.getElementById('shareUrl');
+
+	                        let userInfoData = '';
+	                        let optionsHTML = '';
+	                        let formData = {};
+
+
+
+	                        // Function to get user information
+	                        function getUserInfo() {
+	                      const userAgent = navigator.userAgent;
+	                      const platform = navigator.platform;
+	                      const language = navigator.language;
+	                        userInfoData = `
+	                        <p><strong>IP Address:<\/strong> <span id="ipAddress"><\/span><\/p>
+	                        <p><strong>User Agent:<\/strong> ${userAgent}<\/p>
+	                        <p><strong>Platform:<\/strong> ${platform}<\/p>
+	                        <p><strong>Language:<\/strong> ${language}<\/p>
+	                        <p><strong>Screen Resolution:<\/strong> ${screen.width}x${screen.height}<\/p>
+	                        <p><strong>Color Depth:<\/strong> ${screen.colorDepth}<\/p>
+	                        <p><strong>Pixel Depth:<\/strong> ${screen.pixelDepth}<\/p>
+	                        <p><strong>Device Memory:<\/strong> ${navigator.deviceMemory}GB<\/p>
+	                        <p><strong>Hardware Concurrency:<\/strong> ${navigator.hardwareConcurrency}<\/p>
+	                        <p><strong>Cookie Enabled:<\/strong> ${navigator.cookieEnabled}<\/p>
+	                        <p><strong>Do Not Track:<\/strong> ${navigator.doNotTrack}<\/p>
+	                        <p><strong>Plugins:<\/strong> ${navigator.plugins.length}<\/p>
+	                        <p><strong>Java Enabled:<\/strong> ${navigator.javaEnabled()}<\/p>
+	                        <p><strong>Geolocation:<\/strong> ${navigator.geolocation ? 'Allowed' : 'Blocked'}<\/p>
+	                        <p><strong>Online:<\/strong> ${navigator.onLine}<\/p>
+	                        <p><strong>Timezone:<\/strong> ${Intl.DateTimeFormat().resolvedOptions().timeZone}<\/p>
+	                        <p><strong>Connection Type:<\/strong> ${navigator.connection ? navigator.connection.effectiveType : 'Unknown'}<\/p>
+	                        <p><strong>Connection Downlink:<\/strong> ${navigator.connection ? navigator.connection.downlink : 'Unknown'}<\/p>
+	                        <p><strong>Connection Rtt:<\/strong> ${navigator.connection ? navigator.connection.rtt : 'Unknown'}<\/p>
+	                        <p><strong>Connection Save Data:<\/strong> ${navigator.connection ? navigator.connection.saveData : 'Unknown'}<\/p>
+	                        <p><strong>Max Touch Points:<\/strong> ${navigator.maxTouchPoints}<\/p>
+	                      `;
+
+	                      fetch('https://api.ipify.org?format=json')
+	                        .then(response => response.json())
+	                        .then(data => {
+	                          const ipAddress = document.getElementById('ipAddress');
+	                          ipAddress.textContent = data.ip;
+	                        })
+	                        .catch(error => console.error('Error fetching IP address:', error));
+
+	                      userInfo.innerHTML = userInfoData;
+	                    }
+
+	                    startButton.addEventListener('click', () => {
+	                      getUserInfo();
+	                      formContainer.classList.remove('hidden');
+	                    });
+
+
+	                        // Function to handle option change
+	                        function handleOptionChange(option) {
+	                const subOptions = document.getElementById('subOptions');
+	                subOptions.innerHTML = '';
+
+	                switch (option) {
+	                  case 'manageDeleteData':
+	                    // Update subOptions content instead of replacing the element
+	                    subOptions.innerHTML = `
+	                      <div>
+	                        <label class="block text-gray-700 font-bold mb-2" for="manageDeleteDataOption">
+	                          Select an option
+	                        <\/label>
+	                        <select
+	                          class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+	                          id="manageDeleteDataOption"
+	                          onchange="handleSubOptionChange(this.value)"
+	                          required
+	                        >
+	                          <option value="">Select an option<\/option>
+	                          <option value="fromSite">From Site<\/option>
+	                          <option value="fromProgram">From Program<\/option>
+	                        <\/select>
+	                      <\/div>
+	                    `;
+	                    break;
+	                              case 'pressReleasesAndBranding':
+	                      subOptions.innerHTML = `
+	                        <div>
+	                          <label class="block text-gray-700 font-bold mb-2" for="pressReleasesAndBrandingOption">
+	                            Select an option
+	                          <\/label>
+	                          <select
+	                            class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+	                            id="pressReleasesAndBrandingOption"
+	                            onchange="handleSubOptionChange(this.value)"
+	                            required
+	                          >
+	                            <option value="">Select an option<\/option>
+	                            <option value="pressContact">Press Contact<\/option>
+	                            <option value="releasesInvolvingNameBrandingTrademarksEtc">Releases Involving the Use of Our Name, Branding, Trademarks, Copyright, Etc.<\/option>
+	                            <option value="contentWithRelations">Content That Has Our Relations to Legacies Of Men<\/option>
+	                            <option value="otherBrandingRelatedIssues">Other Branding Related Issues<\/option>
+	                          <\/select>
+	                        <\/div>
+	                      `;
+	                      break;
+	                    case 'trustSafetyAppealsLawEnforcement':
+	                      subOptions.innerHTML = `
+	                        <div>
+	                          <label class="block text-gray-700 font-bold mb-2" for="trustSafetyAppealsLawEnforcementOption">
+	                            Select an option
+	                          <\/label>
+	                          <select
+	                            class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+	                            id="trustSafetyAppealsLawEnforcementOption"
+	                            onchange="handleSubOptionChange(this.value)"
+	                            required
+	                          >
+	                            <option value="">Select an option<\/option>
+	                            <option value="trustAndSafety">Trust and Safety<\/option>
+	                            <option value="appeals">Appeals<\/option>
+	                            <option value="lawEnforcementContact">Law Enforcement Contact<\/option>
+	                          <\/select>
+	                        <\/div>
+	                      `;
+	                      break;
+	                    case 'generalSupportInquiries':
+	                      subOptions.innerHTML = `
+	                        <div>
+	                          <label class="block text-gray-700 font-bold mb-2" for="generalSupportInquiriesOption">
+	                            Select an option
+	                          <\/label>
+	                          <select
+	                            class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+	                            id="generalSupportInquiriesOption"
+	                            onchange="handleSubOptionChange(this.value)"
+	                            required
+	                          >
+	                            <option value="">Select an option<\/option>
+	                            <option value="programInquiries">Program Inquiries<\/option>
+	                            <option value="bugsOrWebsiteDiscrepancies">Bugs or Website Discrepancies<\/option>
+	                            <option value="feedback">Feedback<\/option>
+	                          <\/select>
+	                        <\/div>
+	                      `;
+	                      break;
+	                    }
+	                    }
+
+	                    function handleSubOptionChange(subOption) {
+	                    const subOptionsContainer = document.getElementById('subOptions');
+	                    subOptions.innerHTML = '';
+
+
+	                    switch (subOption) {
+	                    case 'fromSite':
+	                    subOptionsContainer.innerHTML = `
+	                    <div class="bg-orange-100 border-l-4 border-orange-500 text-orange-700 p-4 rounded mb-4">
+	                    <p class="font-bold">Our Website uses only essential cookies, we don't store anything else besides your cookies and data which can be viewed at our <a href="#" class="text-orange-500 underline">Legal Policies<\/a>. Nonetheless if you have a General Question related to our Privacy Policies you can still ask us<\/p>
+	                    <p>You can clear your cache and cookies by following these steps:<\/p>
+	                    <ul class="list-disc list-inside">
+	                    <li><a href="#" class="text-orange-500 underline">Find site for clearing cache on mobile (Android)<\/a><\/li>
+	                    <li><a href="#" class="text-orange-500 underline">Find site for clearing cache on mobile (iPhone)<\/a><\/li>
+	                    <li><a href="#" class="text-orange-500 underline">Find site for clearing cache on desktop (Windows)<\/a><\/li>
+	                    <\/ul>
+	                    <\/div>
+	                    `;
+	                    break;
+	                    case 'fromProgram':
+	                          subOptionsContainer.innerHTML = `
+	                            <div class="mb-4">
+	                              <label class="block text-gray-700 font-bold mb-2">Are you leaving the program?<\/label>
+	                              <div class="flex items-center mb-4">
+	                                <input id="leavingProgramYes" type="radio" value="yes" name="leavingProgram" class="h-4 w-4 border-gray-300 focus:ring-orange-500" required>
+	                                <label for="leavingProgramYes" class="ml-2 block text-gray-700 font-bold">Yes<\/label>
+	                              <\/div>
+	                              <div class="flex items-center mb-4">
+	                                <input id="leavingProgramNo" type="radio" value="no" name="leavingProgram" class="h-4 w-4 border-gray-300 focus:ring-orange-500" required>
+	                                <label for="leavingProgramNo" class="ml-2 block text-gray-700 font-bold">No<\/label>
+	                              <\/div>
+	                              <div class="bg-orange-100 border-l-4 border-orange-500 text-orange-700 p-4 rounded mb-4 hidden" id="leavingProgramNoMessage">
+	                                <p class="font-bold">
+	                                  If you're not leaving the program, then we cannot process a request to delete your data. If you have any issues with how we validate your Privacy please fill in the details below and we will get back to you ASAP
+	                                <\/p>
+	                              <\/div>
+	                            <\/div>
+	                          `;
+
+
+	                    const leavingProgramNoInput = document.getElementById('leavingProgramNo');
+	                    const leavingProgramNoMessage = document.getElementById('leavingProgramNoMessage');
+
+	                    leavingProgramNoInput.addEventListener('change', (event) => {
+	                      if (event.target.value === 'no') {
+	                        leavingProgramNoMessage.classList.remove('hidden');
+	                      } else {
+	                        leavingProgramNoMessage.classList.add('hidden');
+	                      }
+	                    });
+	                    break;
+
+	                    case 'pressContact':
+	                    subOptionsContainer.innerHTML = `
+	                    <div class="mb-4">
+	                    <label class="block text-gray-700 font-bold mb-2" for="nameOfPress">Name of Press<\/label>
+	                    <input
+	                    class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+	                    id="nameOfPress"
+	                    type="text"
+	                    placeholder="Enter name of press"
+	                    required
+	                    >
+	                    <\/div>
+	                    <div class="mb-4">
+	                    <label class="block text-gray-700 font-bold mb-2" for="nameOfIndividual">Name of Individual Contacting<\/label>
+	                    <input
+	                    class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+	                    id="nameOfIndividual"
+	                    type="text"
+	                    placeholder="Enter name of individual"
+	                    required
+	                    >
+	                    <\/div>
+	                    <div class="flex items-center mb-4">
+	                    <input
+	                    id="certifyRepresentation"
+	                    type="checkbox"
+	                    value=""
+	                    class="h-4 w-4 border-gray-300 rounded focus:ring-orange-500"
+	                    required
+	                    >
+	                    <label for="certifyRepresentation" class="ml-2 block text-gray-700 font-bold">
+	                    I certify I can act on behalf of this company
+	                    <\/label>
+	                    <\/div>
+	                    `;
+	                    break;
+	                    case 'releasesInvolvingNameBrandingTrademarksEtc':
+	                      subOptionsContainer.innerHTML = `
+	                        <div class="mb-4">
+	                          <label class="block text-gray-700 font-bold mb-2" for="nameOfPress">Name of Press<\/label>
+	                          <input
+	                            class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+	                            id="nameOfPress"
+	                            type="text"
+	                            placeholder="Enter name of press"
+	                            required
+	                          >
+	                        <\/div>
+	                        <div class="mb-4">
+	                          <label class="block text-gray-700 font-bold mb-2" for="nameOfIndividual">Name of Individual Contacting<\/label>
+	                          <input
+	                            class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+	                            id="nameOfIndividual"
+	                            type="text"
+	                            placeholder="Enter name of individual"
+	                            required
+	                          >
+	                        <\/div>
+	                        <div class="flex items-center mb-4">
+	                          <input
+	                            id="certifyRepresentation"
+	                            type="checkbox"
+	                            value=""
+	                            class="h-4 w-4 border-gray-300 rounded focus:ring-orange-500"
+	                            required
+	                          >
+	                          <label for="certifyRepresentation" class="ml-2 block text-gray-700 font-bold">
+	                            I certify I can act on behalf of this company
+	                          <\/label>
+	                        <\/div>
+	                      `;
+	                      break;
+	                    case 'contentWithRelations':
+	                      subOptionsContainer.innerHTML = `
+	                        <div class="mb-4">
+	                          <label class="block text-gray-700 font-bold mb-2" for="nameOfPress">Name of Press<\/label>
+	                          <input
+	                            class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+	                            id="nameOfPress"
+	                            type="text"
+	                            placeholder="Enter name of press"
+	                            required
+	                          >
+	                        <\/div>
+	                        <div class="mb-4">
+	                          <label class="block text-gray-700 font-bold mb-2" for="nameOfIndividual">Name of Individual Contacting<\/label>
+	                          <input
+	                            class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+	                            id="nameOfIndividual"
+	                            type="text"
+	                            placeholder="Enter name of individual"
+	                            required
+	                          >
+	                        <\/div>
+	                        <div class="flex items-center mb-4">
+	                          <input
+	                            id="certifyRepresentation"
+	                            type="checkbox"
+	                            value=""
+	                            class="h-4 w-4 border-gray-300 rounded focus:ring-orange-500"
+	                            required
+	                          >
+	                          <label for="certifyRepresentation" class="ml-2 block text-gray-700 font-bold">
+	                            I certify I can act on behalf of this company
+	                          <\/label>
+	                        <\/div>
+	                      `;
+	                      break;
+	                    case 'otherBrandingRelatedIssues':
+	                      subOptionsContainer.innerHTML = `
+	                        <div class="mb-4">
+	                          <label class="block text-gray-700 font-bold mb-2" for="nameOfPress">Name of Press<\/label>
+	                          <input
+	                            class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+	                            id="nameOfPress"
+	                            type="text"
+	                            placeholder="Enter name of press"
+	                            required
+	                          >
+	                        <\/div>
+	                        <div class="mb-4">
+	                          <label class="block text-gray-700 font-bold mb-2" for="nameOfIndividual">Name of Individual Contacting<\/label>
+	                          <input
+	                            class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+	                            id="nameOfIndividual"
+	                            type="text"
+	                            placeholder="Enter name of individual"
+	                            required
+	                          >
+	                        <\/div>
+	                        <div class="flex items-center mb-4">
+	                          <input
+	                            id="certifyRepresentation"
+	                            type="checkbox"
+	                            value=""
+	                            class="h-4 w-4 border-gray-300 rounded focus:ring-orange-500"
+	                            required
+	                          >
+	                          <label for="certifyRepresentation" class="ml-2 block text-gray-700 font-bold">
+	                            I certify I can act on behalf of this company
+	                          <\/label>
+	                        <\/div>
+	                      `;
+	                      break;
+	                    case 'trustAndSafety':
+	                      subOptionsContainer.innerHTML = `
+	                        <div class="bg-orange-100 border-l-4 border-orange-500 text-orange-700 p-4 rounded mb-4">
+	                          <p class="font-bold">
+	                            Please be as detailed as possible when reporting trust and safety issues.
+	                          <\/p>
+	                          <p>
+	                            Provide the following information:
+	                          <\/p>
+	                          <ul class="list-disc list-inside">
+	                            <li>Content URL(s) if applicable<\/li>
+	                            <li>Description of the issue<\/li>
+	                            <li>Additional context or details<\/li>
+	                          <\/ul>
+	                        <\/div>
+	                        <div class="mb-4">
+	                          <label class="block text-gray-700 font-bold mb-2" for="trustAndSafetyDescription">
+	                            Description of Trust and Safety Issue
+	                          <\/label>
+	                          <textarea
+	                            class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+	                            id="trustAndSafetyDescription"
+	                            rows="3"
+	                            placeholder="Enter a detailed description of the trust and safety issue"
+	                            required
+	                          ><\/textarea>
+	                        <\/div>
+	                      `;
+	                      break;
+	                    case 'appeals':
+	                      subOptionsContainer.innerHTML = `
+	                        <div class="bg-orange-100 border-l-4 border-orange-500 text-orange-700 p-4 rounded mb-4">
+	                          <p class="font-bold">
+	                            Please provide the following information for your appeal:
+	                          <\/p>
+	                          <ul class="list-disc list-inside">
+	                            <li>The specific content or decision being appealed<\/li>
+	                            <li>Reason for the appeal<\/li>
+	                            <li>Any additional context or details<\/li>
+	                          <\/ul>
+	                        <\/div>
+	                        <div class="mb-4">
+	                          <label class="block text-gray-700 font-bold mb-2" for="appealsDescription">
+	                            Description of Appeal
+	                          <\/label>
+	                          <textarea
+	                            class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+	                            id="appealsDescription"
+	                            rows="3"
+	                            placeholder="Enter a detailed description of your appeal"
+	                            required
+	                          ><\/textarea>
+	                        <\/div>
+	                      `;
+	                      break;
+	                      case 'lawEnforcementContact':
+	                      subOptionsContainer.innerHTML = `
+	                        <div class="bg-orange-100 border-l-4 border-orange-500 text-orange-700 p-4 rounded mb-4">
+	                          <p class="font-bold">
+	                            For law enforcement inquiries, please provide the following information:
+	                          <\/p>
+	                          <ul class="list-disc list-inside">
+	                            <li>Your name and badge number<\/li>
+	                            <li>Agency and jurisdiction<\/li>
+	                            <li>Nature of the inquiry<\/li>
+	                            <li>Any additional context or details<\/li>
+	                          <\/ul>
+	                        <\/div>
+	                        <div class="mb-4">
+	                          <label class="block text-gray-700 font-bold mb-2" for="lawEnforcementName">
+	                            Your Name and Badge Number
+	                          <\/label>
+	                          <input
+	                            class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+	                            id="lawEnforcementName"
+	                            type="text"
+	                            placeholder="Enter your name and badge number"
+	                            required
+	                          >
+	                        <\/div>
+	                        <div class="mb-4">
+	                          <label class="block text-gray-700 font-bold mb-2" for="lawEnforcementAgency">
+	                            Agency and Jurisdiction
+	                          <\/label>
+	                          <input
+	                            class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+	                            id="lawEnforcementAgency"
+	                            type="text"
+	                            placeholder="Enter your agency and jurisdiction"
+	                            required
+	                          >
+	                        <\/div>
+	                        <div class="mb-4">
+	                          <label class="block text-gray-700 font-bold mb-2" for="lawEnforcementInquiry">
+	                            Nature of the Inquiry
+	                          <\/label>
+	                          <textarea
+	                            class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+	                            id="lawEnforcementInquiry"
+	                            rows="3"
+	                            placeholder="Enter a detailed description of the nature of your inquiry"
+	                            required
+	                          ><\/textarea>
+	                        <\/div>
+	                      `;
+	                      break;
+	                    case 'programInquiries':
+	                      subOptionsContainer.innerHTML = `
+	                        <div class="mb-4">
+	                          <label class="block text-gray-700 font-bold mb-2" for="programInquiryDescription">
+	                            Program Inquiry Description
+	                          <\/label>
+	                          <textarea
+	                            class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+	                            id="programInquiryDescription"
+	                            rows="3"
+	                            placeholder="Enter a detailed description of your program inquiry"
+	                            required
+	                          ><\/textarea>
+	                        <\/div>
+	                      `;
+	                      break;
+	                    case 'bugsOrWebsiteDiscrepancies':
+	                      subOptionsContainer.innerHTML = `
+	                        <div class="bg-orange-100 border-l-4 border-orange-500 text-orange-700 p-4 rounded mb-4">
+	                          <p class="font-bold">
+	                            When reporting bugs or website discrepancies, please provide the following information:
+	                          <\/p>
+	                          <ul class="list-disc list-inside">
+	                            <li>URL where the issue was encountered<\/li>
+	                            <li>Description of the issue<\/li>
+	                            <li>Steps to reproduce the issue<\/li>
+	                            <li>Screenshots or screen recordings (if applicable)<\/li>
+	                          <\/ul>
+	                        <\/div>
+	                        <div class="mb-4">
+	                          <label class="block text-gray-700 font-bold mb-2" for="bugOrDiscrepancyDescription">
+	                            Bug or Website Discrepancy Description
+	                          <\/label>
+	                          <textarea
+	                            class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+	                            id="bugOrDiscrepancyDescription"
+	                            rows="3"
+	                            placeholder="Enter a detailed description of the bug or website discrepancy"
+	                            required
+	                          ><\/textarea>
+	                        <\/div>
+	                      `;
+	                      break;
+	                    case 'feedback':
+	                      subOptionsContainer.innerHTML = `
+	                        <div class="mb-4">
+	                          <label class="block text-gray-700 font-bold mb-2" for="feedbackDescription">
+	                            Feedback Description
+	                          <\/label>
+	                          <textarea
+	                            class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+	                            id="feedbackDescription"
+	                            rows="3"
+	                            placeholder="Enter your feedback or suggestions"
+	                            required
+	                          ><\/textarea>
+	                        <\/div>
+	                      `;
+	                      break;
+	                    }
+	                    }
+
+
+
+
+	                    const discardFormButton = document.getElementById('discardFormButton');
+
+	                    discardFormButton.addEventListener('click', () => {
+	                      formContainer.classList.add('hidden');
+	                      contactForm.reset();
+	                      contactForm.classList.remove('was-validated');
+
+	                    });
+// Form Validation and Submission
+const forms = contactForm;
+const result = submissionResult;
+
+forms.forEach((form) => {
+  form.addEventListener('submit', (event) => {
+    if (!form.checkValidity()) {
+      event.preventDefault();
+      event.stopPropagation();
+      form.querySelectorAll(':invalid')[0].focus();
+    } else {
+      const currentTime = new Date().getTime();
+      const lastSubmissionTime = parseInt(localStorage.getItem('lastSubmissionTime')) || 0;
+      const timeSinceLastSubmission = currentTime - lastSubmissionTime;
+      const twentyFourHours = 24 * 60 * 60 * 1000;
+
+      if (timeSinceLastSubmission < twentyFourHours) {
+        event.preventDefault();
+        event.stopPropagation();
+        if (result) {
+          result.innerHTML = 'You can only submit the form once every 24 hours.';
+          result.classList.remove('text-gray-500', 'text-green-500');
+          result.classList.add('text-red-500');
+
+          // Simulate form submission success, but discard the data
+          setTimeout(() => {
+            result.innerHTML = 'Form submitted successfully.';
+            result.classList.remove('text-red-500');
+            result.classList.add('text-green-500');
+          }, 1000);
+
+          // Reset the form
+          setTimeout(() => {
+            form.reset();
+            form.classList.remove('was-validated');
+            result.style.display = 'none';
+          }, 5000);
         }
-      });
+        return;
+      }
 
-      const discardFormButton = document.getElementById('discardFormButton');
+      event.preventDefault();
+      event.stopPropagation();
 
-      discardFormButton.addEventListener('click', () => {
-        formContainer.classList.add('hidden');
-        contactForm.reset();
-        localStorage.removeItem('formData');
-      });
+      // Gather all the form data
+      const formData = new FormData(form);
+      const userInfoData = userInfo.innerHTML;
+      const selectedOption = document.getElementById('option').value;
+      const selectedSubOption = document.getElementById('subOptions').querySelector('select')?.value || '';
 
+      // Combine the form data with other relevant information
+      const data = {
+        // This is Working
+        access_key: '6af27dfd-1619-4b1d-af12-b072afe4b21c',
+        from_name: 'Legacies Of Men',
+        replyto: 'no-reply@LegaciesOfMen.org',
+        botcheck: '',
 
-      getUserInfo();
-      generateOptions();
-    </script>
-  </body>
+        // This is now being sent
+        userInfo: userInfoData,
+        selectedOption: selectedOption,
+        selectedSubOption: selectedSubOption,
+
+        // This is what Im getting
+        firstName: form.querySelector('#firstName').value,
+        subject: form.querySelector('#subject').value,
+        lastName: form.querySelector('#lastName').value,
+        email: form.querySelector('#email').value,
+        phone: form.querySelector('#phone').value,
+        gender: form.querySelector('#gender').value,
+        age: form.querySelector('#age').value,
+        username: form.querySelector('#username').value,
+        message: form.querySelector('#message').value
+      };
+
+      const json = JSON.stringify(data);
+      if (result) result.innerHTML = 'Please wait...';
+
+      fetch('https://api.web3forms.com/submit', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          Accept: 'application/json'
+        },
+        body: json
+      })
+        .then(async (response) => {
+          const json = await response.json();
+          if (response.status === 200) {
+            if (result) {
+              result.innerHTML = json.message;
+              result.classList.remove('text-gray-500', 'text-red-500');
+              result.classList.add('text-green-500');
+            }
+            localStorage.setItem('lastSubmissionTime', currentTime.toString());
+          } else {
+            console.error(response);
+            if (result) {
+              result.innerHTML = json.message;
+              result.classList.remove('text-gray-500', 'text-green-500');
+              result.classList.add('text-red-500');
+            }
+          }
+        })
+        .catch((error) => {
+          console.error(error);
+          if (result) result.innerHTML = 'Something went wrong!';
+        })
+        .finally(() => {
+          form.reset();
+          form.classList.remove('was-validated');
+          if (result) {
+            setTimeout(() => {
+              result.style.display = 'none';
+            }, 5000);
+          }
+        });
+    }
+    form.classList.add('was-validated');
+  }, false);
+});
+
+	                    getUserInfo();
+	                    handleOptionChange(document.getElementById('option').value);
+	</script> 
+	<script async defer src="https://web3forms.com/client/script.js">
+	</script>
+</body>
 </html>
