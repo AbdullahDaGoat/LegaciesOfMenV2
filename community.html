@@ -389,14 +389,14 @@
     </script>
 
     
-    <script>
+    <script type="text/javascript">
       const escapeButton = document.querySelector('.bg-red-500');
       escapeButton.addEventListener('click', () => {
         window.location.href = 'http://www.google.com';
       });
     </script>
 
-    <script>
+    <script type="text/javascript">
       const mainContent = document.querySelector('.main-content');
       const searchInput = document.getElementById('search-input');
       const searchResults = document.getElementById('search-results');
@@ -529,24 +529,22 @@
         menu.classList.toggle('closed');
       });
 
-      // Close the popup when the close button is clicked
 
-            // Get the theme toggler button and the body element
-            const themeToggler = document.getElementById('theme-toggler');
-            const body = document.body;
+    const themeToggler = document.getElementById('theme-toggler');
+    const body = document.body;
 
-            // Check for the user's preferred theme on page load
-            let prefersDarkMode = window.localStorage.getItem('prefersDarkMode') === 'true';
-            body.classList.toggle('dark', prefersDarkMode);
-            themeToggler.innerHTML = `<i class="${prefersDarkMode ? 'fas fa-sun' : 'fas fa-moon'}"></i>`;
+    // Check for the user's preferred theme on page load
+    let prefersDarkMode = window.localStorage.getItem('prefersDarkMode') === 'true';
+    body.classList.toggle('dark', prefersDarkMode);
+    themeToggler.innerHTML = `<i class="${prefersDarkMode ? 'fas fa-sun' : 'fas fa-moon'}"></i>`;
 
-            // Add event listener to the theme toggler button
-            themeToggler.addEventListener('click', () => {
-              body.classList.toggle('dark');
-              prefersDarkMode = body.classList.contains('dark');
-              window.localStorage.setItem('prefersDarkMode', prefersDarkMode);
-              themeToggler.innerHTML = `<i class="${prefersDarkMode ? 'fas fa-sun' : 'fas fa-moon'}"></i>`;
-            });
+    // Add event listener to the theme toggler button
+    themeToggler.addEventListener('click', () => {
+      body.classList.toggle('dark');
+      prefersDarkMode = body.classList.contains('dark');
+      window.localStorage.setItem('prefersDarkMode', prefersDarkMode);
+      themeToggler.innerHTML = `<i class="${prefersDarkMode ? 'fas fa-sun' : 'fas fa-moon'}"></i>`;
+    });
     </script>
   </body>
 </html>
