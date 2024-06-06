@@ -264,70 +264,6 @@
         </div>
       </div>
 
-      <script>
-        document.addEventListener('DOMContentLoaded', function() {
-          const reviewContainer = document.querySelector('.review-container');
-          const reviews = [
-            'https://legaciesofmen.org/assets/images/gallery01/b26f1f31.jpg?v=9d70b9c2',
-            'https://legaciesofmen.org/assets/images/gallery01/8c9b2b1f.jpg?v=9d70b9c2',
-            'https://legaciesofmen.org/assets/images/gallery01/1fbb57bb.jpg?v=9d70b9c2',
-            'https://legaciesofmen.org/assets/images/gallery01/9a5465e4.jpg?v=9d70b9c2',
-            'https://legaciesofmen.org/assets/images/gallery01/c6943b69.jpg?v=9d70b9c2',
-          ];
-
-          let currentIndex = 0;
-
-          function displayReviews() {
-            const reviewElements = reviewContainer.querySelectorAll('.review-container');
-            reviewElements.forEach((element, index) => {
-              element.style.backgroundImage = `url(${reviews[index]})`;
-              element.style.opacity = index === currentIndex ? '1' : '0';
-              element.addEventListener('click', () => showPopup(index));
-            });
-
-            currentIndex = (currentIndex + 1) % reviews.length;
-          }
-
-          function showPopup(index) {
-            const popupContainer = document.getElementById('popup-container');
-            const popupImage = document.getElementById('popup-image');
-            const prevButton = document.getElementById('prev-image');
-            const nextButton = document.getElementById('next-image');
-            const closeButton = document.getElementById('close-popup');
-
-            popupImage.src = reviews[index];
-            popupContainer.classList.remove('hidden');
-            popupContainer.classList.add('show');
-
-
-            prevButton.addEventListener('click', () => {
-              currentIndex = (currentIndex - 1 + reviews.length) % reviews.length;
-              popupImage.src = reviews[currentIndex];
-            });
-
-            nextButton.addEventListener('click', () => {
-              currentIndex = (currentIndex + 1) % reviews.length;
-              popupImage.src = reviews[currentIndex];
-            });
-
-            closeButton.addEventListener('click', () => {
-              popupContainer.classList.add('hidden');
-              popupContainer.classList.remove('show');
-
-            });
-          }
-
-          reviews.forEach(review => {
-            const reviewElement = document.createElement('div');
-            reviewElement.classList.add('absolute', 'inset-0', 'bg-cover', 'bg-center', 'review-container');
-            reviewElement.style.backgroundImage = `url(${review})`;
-            reviewContainer.appendChild(reviewElement);
-          });
-
-          setInterval(displayReviews, 5000);
-        });
-      </script>
-
       <footer id="bottom" class="bg-gray-900 px-4 py-12 text-white sm:px-0">
         <div class="container mx-auto">
           <div class="grid grid-cols-1 gap-8 sm:grid-cols-2 md:grid-cols-3">
@@ -386,6 +322,73 @@
         </div>
       </footer>
     </div>
+
+
+    <script type="text/javascript">
+      document.addEventListener('DOMContentLoaded', (event) => {
+        const reviewContainer = document.querySelector('.review-container');
+        const reviews = [
+          'https://legaciesofmen.org/assets/images/gallery01/b26f1f31.jpg?v=9d70b9c2',
+          'https://legaciesofmen.org/assets/images/gallery01/8c9b2b1f.jpg?v=9d70b9c2',
+          'https://legaciesofmen.org/assets/images/gallery01/1fbb57bb.jpg?v=9d70b9c2',
+          'https://legaciesofmen.org/assets/images/gallery01/9a5465e4.jpg?v=9d70b9c2',
+          'https://legaciesofmen.org/assets/images/gallery01/c6943b69.jpg?v=9d70b9c2',
+        ];
+
+        let currentIndex = 0;
+
+        function displayReviews() {
+          const reviewElements = reviewContainer.querySelectorAll('.review-container');
+          reviewElements.forEach((element, index) => {
+            element.style.backgroundImage = `url(${reviews[index]})`;
+            element.style.opacity = index === currentIndex ? '1' : '0';
+            element.addEventListener('click', () => showPopup(index));
+          });
+
+          currentIndex = (currentIndex + 1) % reviews.length;
+        }
+
+        function showPopup(index) {
+          const popupContainer = document.getElementById('popup-container');
+          const popupImage = document.getElementById('popup-image');
+          const prevButton = document.getElementById('prev-image');
+          const nextButton = document.getElementById('next-image');
+          const closeButton = document.getElementById('close-popup');
+
+          popupImage.src = reviews[index];
+          popupContainer.classList.remove('hidden');
+          popupContainer.classList.add('show');
+
+
+          prevButton.addEventListener('click', () => {
+            currentIndex = (currentIndex - 1 + reviews.length) % reviews.length;
+            popupImage.src = reviews[currentIndex];
+          });
+
+          nextButton.addEventListener('click', () => {
+            currentIndex = (currentIndex + 1) % reviews.length;
+            popupImage.src = reviews[currentIndex];
+          });
+
+          closeButton.addEventListener('click', () => {
+            popupContainer.classList.add('hidden');
+            popupContainer.classList.remove('show');
+
+          });
+        }
+
+        reviews.forEach(review => {
+          const reviewElement = document.createElement('div');
+          reviewElement.classList.add('absolute', 'inset-0', 'bg-cover', 'bg-center', 'review-container');
+          reviewElement.style.backgroundImage = `url(${review})`;
+          reviewContainer.appendChild(reviewElement);
+        });
+
+        setInterval(displayReviews, 5000);
+      });
+    </script>
+
+    
     <script>
       const escapeButton = document.querySelector('.bg-red-500');
       escapeButton.addEventListener('click', () => {

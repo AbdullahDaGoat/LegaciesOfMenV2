@@ -707,7 +707,7 @@
 
     <!-- JavaScript for counter animation -->
     <script type="text/javascript">
-      document.addEventListener('DOMContentLoaded', function() {
+      document.addEventListener('DOMContentLoaded', () => {
         const counterContainers = document.querySelectorAll('.counter-container');
         const learnMoreButtons = document.querySelectorAll('.learn-more-btn');
         const modals = document.querySelectorAll('.modal');
@@ -851,39 +851,39 @@
     </script>
 
     <script type="text/javascript">
-     document.addEventListener('DOMContentLoaded', function() {
-  const acceptTermsDiv = document.getElementById('accept-terms');
-  const loadButton = document.getElementById('loadButton');
+     document.addEventListener('DOMContentLoaded', () => {
+      const acceptTermsDiv = document.getElementById('accept-terms');
+      const loadButton = document.getElementById('loadButton');
 
-  // Check if the user has already accepted the terms
-  if (localStorage.getItem('termsAccepted') === 'true') {
-    acceptTermsDiv.style.display = 'none';
-    const mainContent = document.getElementById('mainContent');
-    mainContent.classList.remove('hidden');
-    mainContent.classList.add('visible');
-  }
+      // Check if the user has already accepted the terms
+      if (localStorage.getItem('termsAccepted') === 'true') {
+        acceptTermsDiv.style.display = 'none';
+        const mainContent = document.getElementById('mainContent');
+        mainContent.classList.remove('hidden');
+        mainContent.classList.add('visible');
+      }
 
-  loadButton.addEventListener('click', function() {
-    // Store the user's acceptance of the terms in local storage
-    localStorage.setItem('termsAccepted', 'true');
+      loadButton.addEventListener('click', function() {
+        // Store the user's acceptance of the terms in local storage
+        localStorage.setItem('termsAccepted', 'true');
 
-    acceptTermsDiv.style.display = 'none';
-    const mainContent = document.getElementById('mainContent');
-    mainContent.classList.remove('hidden');
-    mainContent.classList.add('visible');
-  });
+        acceptTermsDiv.style.display = 'none';
+        const mainContent = document.getElementById('mainContent');
+        mainContent.classList.remove('hidden');
+        mainContent.classList.add('visible');
+      });
 
-  // Remove the "termsAccepted" key from local storage when the user closes the site
-  window.addEventListener('beforeunload', function() {
-    localStorage.removeItem('termsAccepted');
-  });
-});
+      // Remove the "termsAccepted" key from local storage when the user closes the site
+      window.addEventListener('beforeunload', function() {
+        localStorage.removeItem('termsAccepted');
+      });
+    });
     </script>
 
     <script type="text/javascript">
       let internetConnectionAlertShown = false;
 
-        window.addEventListener('load', function() {
+        window.addEventListener('load', () => {
         // Check if the browser can reach an external resource, like Google's DNS server
         const img = new Image();
         img.onerror = function() {
@@ -913,7 +913,7 @@
     </script>
 
     <script type="text/javascript">
-        const btnPlus = document.querySelector('.btn-plus');
+      const btnPlus = document.querySelector('.btn-plus');
       const bubbleContainer = document.querySelector('.bubble-container');
       const returnToTopBtn = document.querySelectorAll('.bubble');
 

@@ -299,505 +299,492 @@
 									
 	
     <script>
-      	                const startButton = document.getElementById('startButton');
-      	                        const formContainer = document.getElementById('formContainer');
-      	                        const userInfo = document.getElementById('userInfo');
-      	                        const options = document.getElementById('options');
-      	                        const contactForm = document.getElementById('contactForm');
-      	                        const submissionResult = document.getElementById('submissionResult');
-      	                        const shareUrl = document.getElementById('shareUrl');
+		const startButton = document.getElementById('startButton');
+		const formContainer = document.getElementById('formContainer');
+		const userInfo = document.getElementById('userInfo');
+		const options = document.getElementById('options');
+		const contactForm = document.getElementById('contactForm');
+		const submissionResult = document.getElementById('submissionResult');
+		const shareUrl = document.getElementById('shareUrl');
 
-      	                        let userInfoData = '';
-      	                        let optionsHTML = '';
-      	                        let formData = {};
-
-
+		let userInfoData = '';
+		let optionsHTML = '';
+		let formData = {};
 
       	                        // Function to get user information
-      							function getUserInfo() {
-        fetch('https://api.ipify.org?format=json')
-          .then(response => response.json())
-          .then(data => {
-            const ipAddress = data.ip;
-            const userAgent = navigator.userAgent;
-            const platform = navigator.platform;
-            const language = navigator.language;
-            userInfoData = `
-              IP Address: ${ipAddress};
-              User Agent: ${userAgent};
-              Platform: ${platform};
-              Language: ${language};
-              Screen Resolution: ${screen.width}x${screen.height};
-              Color Depth: ${screen.colorDepth};
-              Pixel Depth: ${screen.pixelDepth};
-              Device Memory: ${navigator.deviceMemory}GB;
-              Hardware Concurrency: ${navigator.hardwareConcurrency};
-              Cookie Enabled: ${navigator.cookieEnabled};
-              Do Not Track: ${navigator.doNotTrack};
-              Plugins: ${navigator.plugins.length};
-              Java Enabled: ${navigator.javaEnabled()};
-              Geolocation: ${navigator.geolocation ? 'Allowed' : 'Blocked'};
-              Online: ${navigator.onLine};
-              Timezone: ${Intl.DateTimeFormat().resolvedOptions().timeZone};
-              Connection Type: ${navigator.connection ? navigator.connection.effectiveType : 'Unknown'};
-              Connection Downlink: ${navigator.connection ? navigator.connection.downlink : 'Unknown'};
-              Connection Rtt: ${navigator.connection ? navigator.connection.rtt : 'Unknown'};
-              Connection Save Data: ${navigator.connection ? navigator.connection.saveData : 'Unknown'};
-              Max Touch Points: ${navigator.maxTouchPoints}
-            `;
-            document.getElementById('userInfo').value = userInfoData;
-          })
-          .catch(error => console.error('Error fetching IP address:', error));
-      }
+    	function getUserInfo() {
+			fetch('https://api.ipify.org?format=json')
+			.then(response => response.json())
+			.then(data => {
+				const ipAddress = data.ip;
+				const userAgent = navigator.userAgent;
+				const platform = navigator.platform;
+				const language = navigator.language;
+				userInfoData = `
+				IP Address: ${ipAddress};
+				User Agent: ${userAgent};
+				Platform: ${platform};
+				Language: ${language};
+				Screen Resolution: ${screen.width}x${screen.height};
+				Color Depth: ${screen.colorDepth};
+				Pixel Depth: ${screen.pixelDepth};
+				Device Memory: ${navigator.deviceMemory}GB;
+				Hardware Concurrency: ${navigator.hardwareConcurrency};
+				Cookie Enabled: ${navigator.cookieEnabled};
+				Do Not Track: ${navigator.doNotTrack};
+				Plugins: ${navigator.plugins.length};
+				Java Enabled: ${navigator.javaEnabled()};
+				Geolocation: ${navigator.geolocation ? 'Allowed' : 'Blocked'};
+				Online: ${navigator.onLine};
+				Timezone: ${Intl.DateTimeFormat().resolvedOptions().timeZone};
+				Connection Type: ${navigator.connection ? navigator.connection.effectiveType : 'Unknown'};
+				Connection Downlink: ${navigator.connection ? navigator.connection.downlink : 'Unknown'};
+				Connection Rtt: ${navigator.connection ? navigator.connection.rtt : 'Unknown'};
+				Connection Save Data: ${navigator.connection ? navigator.connection.saveData : 'Unknown'};
+				Max Touch Points: ${navigator.maxTouchPoints}
+				`;
+				document.getElementById('userInfo').value = userInfoData;
+			})
+			.catch(error => console.error('Error fetching IP address:', error));
+      	}
 
-      	                    startButton.addEventListener('click', () => {
-      	                      getUserInfo();
-      	                      formContainer.classList.remove('hidden');
-      	                    });
+		startButton.addEventListener('click', () => {
+			getUserInfo();
+			formContainer.classList.remove('hidden');
+		});
 
 
       	                        // Function to handle option change
-      	                        function handleOptionChange(option) {
-      	                		const subOptions = document.getElementById('subOptions');
-      	                		subOptions.innerHTML = '';
+			function handleOptionChange(option) {
+			const subOptions = document.getElementById('subOptions');
+			subOptions.innerHTML = '';
 
-      	                switch (option) {
-      	                  case 'manageDeleteData':
-      	                    // Update subOptions content instead of replacing the element
-      	                    subOptions.innerHTML = `
-      	                      <div>
-      	                        <label class="block text-gray-700 font-bold mb-2" for="manageDeleteDataOption">
-      	                          Select an option
-      	                        <\/label>
-      	                        <select
-      	                          class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-      	                          id="manageDeleteDataOption"
-      	                          onchange="handleSubOptionChange(this.value)"
-      	                          required
-      	                        >
-      	                          <option value="">Select an option<\/option>
-      	                          <option value="fromSite">From Site<\/option>
-      	                          <option value="fromProgram">From Program<\/option>
-      	                        <\/select>
-      	                      <\/div>
-      	                    `;
-      	                    break;
-      	                              case 'pressReleasesAndBranding':
-      	                      subOptions.innerHTML = `
-      	                        <div>
-      	                          <label class="block text-gray-700 font-bold mb-2" for="pressReleasesAndBrandingOption">
-      	                            Select an option
-      	                          <\/label>
-      	                          <select
-      	                            class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-      	                            id="pressReleasesAndBrandingOption"
-      	                            onchange="handleSubOptionChange(this.value)"
-      	                            required
-      	                          >
-      	                            <option value="">Select an option<\/option>
-      	                            <option value="pressContact">Press Contact<\/option>
-      	                            <option value="releasesInvolvingNameBrandingTrademarksEtc">Releases Involving the Use of Our Name, Branding, Trademarks, Copyright, Etc.<\/option>
-      	                            <option value="contentWithRelations">Content That Has Our Relations to Legacies Of Men<\/option>
-      	                            <option value="otherBrandingRelatedIssues">Other Branding Related Issues<\/option>
-      	                          <\/select>
-      	                        <\/div>
-      	                      `;
-      	                      break;
-      	                    case 'trustSafetyAppealsLawEnforcement':
-      	                      subOptions.innerHTML = `
-      	                        <div>
-      	                          <label class="block text-gray-700 font-bold mb-2" for="trustSafetyAppealsLawEnforcementOption">
-      	                            Select an option
-      	                          <\/label>
-      	                          <select
-      	                            class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-      	                            id="trustSafetyAppealsLawEnforcementOption"
-      	                            onchange="handleSubOptionChange(this.value)"
-      	                            required
-      	                          >
-      	                            <option value="">Select an option<\/option>
-      	                            <option value="trustAndSafety">Trust and Safety<\/option>
-      	                            <option value="appeals">Appeals<\/option>
-      	                            <option value="lawEnforcementContact">Law Enforcement Contact<\/option>
-      	                          <\/select>
-      	                        <\/div>
-      	                      `;
-      	                      break;
-      	                    case 'generalSupportInquiries':
-      	                      subOptions.innerHTML = `
-      	                        <div>
-      	                          <label class="block text-gray-700 font-bold mb-2" for="generalSupportInquiriesOption">
-      	                            Select an option
-      	                          <\/label>
-      	                          <select
-      	                            class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-      	                            id="generalSupportInquiriesOption"
-      	                            onchange="handleSubOptionChange(this.value)"
-      	                            required
-      	                          >
-      	                            <option value="">Select an option<\/option>
-      	                            <option value="bugsOrWebsiteDiscrepancies">Bugs or Website Discrepancies<\/option>
-      	                            <option value="feedback">Feedback / Program Inquiries / Other<\/option>
-      	                          <\/select>
-      	                        <\/div>
-      	                      `;
-      	                      break;
-      	                    }
-      						document.getElementById('selectedOption').value = option;
-      	                    }
+	switch (option) {
+		case 'manageDeleteData':
+		// Update subOptions content instead of replacing the element
+		subOptions.innerHTML = `
+			<div>
+			<label class="block text-gray-700 font-bold mb-2" for="manageDeleteDataOption">
+				Select an option
+			<\/label>
+			<select
+				class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+				id="manageDeleteDataOption"
+				onchange="handleSubOptionChange(this.value)"
+				required
+			>
+				<option value="">Select an option<\/option>
+				<option value="fromSite">From Site<\/option>
+				<option value="fromProgram">From Program<\/option>
+			<\/select>
+			<\/div>
+		`;
+		break;
+					case 'pressReleasesAndBranding':
+			subOptions.innerHTML = `
+			<div>
+				<label class="block text-gray-700 font-bold mb-2" for="pressReleasesAndBrandingOption">
+				Select an option
+				<\/label>
+				<select
+				class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+				id="pressReleasesAndBrandingOption"
+				onchange="handleSubOptionChange(this.value)"
+				required
+				>
+				<option value="">Select an option<\/option>
+				<option value="pressContact">Press Contact<\/option>
+				<option value="releasesInvolvingNameBrandingTrademarksEtc">Releases Involving the Use of Our Name, Branding, Trademarks, Copyright, Etc.<\/option>
+				<option value="contentWithRelations">Content That Has Our Relations to Legacies Of Men<\/option>
+				<option value="otherBrandingRelatedIssues">Other Branding Related Issues<\/option>
+				<\/select>
+			<\/div>
+			`;
+			break;
+		case 'trustSafetyAppealsLawEnforcement':
+			subOptions.innerHTML = `
+			<div>
+				<label class="block text-gray-700 font-bold mb-2" for="trustSafetyAppealsLawEnforcementOption">
+				Select an option
+				<\/label>
+				<select
+				class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+				id="trustSafetyAppealsLawEnforcementOption"
+				onchange="handleSubOptionChange(this.value)"
+				required
+				>
+				<option value="">Select an option<\/option>
+				<option value="trustAndSafety">Trust and Safety<\/option>
+				<option value="appeals">Appeals<\/option>
+				<option value="lawEnforcementContact">Law Enforcement Contact<\/option>
+				<\/select>
+			<\/div>
+			`;
+			break;
+		case 'generalSupportInquiries':
+			subOptions.innerHTML = `
+			<div>
+				<label class="block text-gray-700 font-bold mb-2" for="generalSupportInquiriesOption">
+				Select an option
+				<\/label>
+				<select
+				class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+				id="generalSupportInquiriesOption"
+				onchange="handleSubOptionChange(this.value)"
+				required
+				>
+				<option value="">Select an option<\/option>
+				<option value="bugsOrWebsiteDiscrepancies">Bugs or Website Discrepancies<\/option>
+				<option value="feedback">Feedback / Program Inquiries / Other<\/option>
+				<\/select>
+			<\/div>
+			`;
+			break;
+		}
+		document.getElementById('selectedOption').value = option;
+		}
 
-      	                    function handleSubOptionChange(subOption) {
-      	                    const subOptionsContainer = document.getElementById('subOptions');
-      	                    subOptions.innerHTML = '';
-
-
-      	                    switch (subOption) {
-      	                    case 'fromSite':
-      	                    subOptionsContainer.innerHTML = `
-      	                    <div class="bg-orange-100 border-l-4 border-orange-500 text-orange-700 p-4 rounded mb-4">
-      	                    <p class="font-bold">Our Website uses only essential cookies, we don't store anything else besides your cookies and data which can be viewed at our <a href="#" class="text-orange-500 underline">Legal Policies<\/a>. Nonetheless if you have a General Question related to our Privacy Policies you can still ask us<\/p>
-      	                    <p>You can clear your cache and cookies by following these steps:<\/p>
-      	                    <ul class="list-disc list-inside">
-      	                    <li><a href="https://help.overdrive.com/en-us/0518.html" rel="nofollow" class="text-orange-500 underline"> How To Clear Cache (Android)<\/a><\/li>
-      	                    <li><a href="https://support.apple.com/en-ca/guide/iphone/iphacc5f0202/ios" rel="nofollow" class="text-orange-500 underline"> How To Clear Cache (iPhone)<\/a><\/li>
-      	                    <li><a href="https://help.overdrive.com/en-us/0403.html" rel="nofollow" class="text-orange-500 underline"> How To Clear Cache on a Personal Computer (PC) <\/a><\/li>
-      	                    <\/ul>
-      	                    <\/div>
-      	                    `;
-      	                    break;
-      	                    case 'fromProgram':
-      	                          subOptionsContainer.innerHTML = `
-      	                            <div class="mb-4">
-      	                              <label class="block text-gray-700 font-bold mb-2">Are you leaving the program?<\/label>
-      	                              <div class="flex items-center mb-4">
-      	                                <input id="leavingProgramYes" type="radio" value="yes" name="leavingProgram" class="h-4 w-4 border-gray-300 focus:ring-orange-500" required>
-      	                                <label for="leavingProgramYes" class="ml-2 block text-gray-700 font-bold">Yes<\/label>
-      	                              <\/div>
-      	                              <div class="flex items-center mb-4">
-      	                                <input id="leavingProgramNo" type="radio" value="no" name="leavingProgram" class="h-4 w-4 border-gray-300 focus:ring-orange-500" required>
-      	                                <label for="leavingProgramNo" class="ml-2 block text-gray-700 font-bold">No<\/label>
-      	                              <\/div>
-      	                              <div class="bg-orange-100 border-l-4 border-orange-500 text-orange-700 p-4 rounded mb-4 hidden" id="leavingProgramNoMessage">
-      	                                <p class="font-bold">
-      	                                  If you're not leaving the program, then we cannot process a request to delete your data. If you have any issues with how we validate your Privacy please fill in the details below and we will get back to you ASAP
-      	                                <\/p>
-      	                              <\/div>
-      	                            <\/div>
-      	                          `;
+		function handleSubOptionChange(subOption) {
+		const subOptionsContainer = document.getElementById('subOptions');
+		subOptions.innerHTML = '';
 
 
-      	                    const leavingProgramNoInput = document.getElementById('leavingProgramNo');
-      	                    const leavingProgramNoMessage = document.getElementById('leavingProgramNoMessage');
-
-      	                    leavingProgramNoInput.addEventListener('change', (event) => {
-      	                      if (event.target.value === 'no') {
-      	                        leavingProgramNoMessage.classList.remove('hidden');
-      	                      } else {
-      	                        leavingProgramNoMessage.classList.add('hidden');
-      	                      }
-      	                    });
-      	                    break;
-
-      	                    case 'pressContact':
-      	                    subOptionsContainer.innerHTML = `
-      	                    <div class="mb-4">
-      	                    <label class="block text-gray-700 font-bold mb-2" for="nameOfPress">Name of Press<\/label>
-      	                    <input
-      	                    class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-      	                    id="nameOfPress"
-      	                    type="text"
-      	                    placeholder="Enter name of press"
-      	                    required
-      	                    >
-      	                    <\/div>
-      	                    <div class="mb-4">
-      	                    <label class="block text-gray-700 font-bold mb-2" for="nameOfIndividual">Name of Individual Contacting<\/label>
-      	                    <input
-      	                    class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-      	                    id="nameOfIndividual"
-      	                    type="text"
-      	                    placeholder="Enter name of individual"
-      	                    required
-      	                    >
-      	                    <\/div>
-      	                    <div class="flex items-center mb-4">
-      	                    <input
-      	                    id="certifyRepresentation"
-      	                    type="checkbox"
-      	                    value=""
-      	                    class="h-4 w-4 border-gray-300 rounded focus:ring-orange-500"
-      	                    required
-      	                    >
-      	                    <label for="certifyRepresentation" class="ml-2 block text-gray-700 font-bold">
-      	                    I certify I can act on behalf of this company
-      	                    <\/label>
-      	                    <\/div>
-      	                    `;
-      	                    break;
-      	                    case 'releasesInvolvingNameBrandingTrademarksEtc':
-      	                      subOptionsContainer.innerHTML = `
-      	                        <div class="mb-4">
-      	                          <label class="block text-gray-700 font-bold mb-2" for="nameOfPress">Name of Press<\/label>
-      	                          <input
-      	                            class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-      	                            id="nameOfPress"
-      	                            type="text"
-      	                            placeholder="Enter name of press"
-      	                            required
-      	                          >
-      	                        <\/div>
-      	                        <div class="mb-4">
-      	                          <label class="block text-gray-700 font-bold mb-2" for="nameOfIndividual">Name of Individual Contacting<\/label>
-      	                          <input
-      	                            class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-      	                            id="nameOfIndividual"
-      	                            type="text"
-      	                            placeholder="Enter name of individual"
-      	                            required
-      	                          >
-      	                        <\/div>
-      	                        <div class="flex items-center mb-4">
-      	                          <input
-      	                            id="certifyRepresentation"
-      	                            type="checkbox"
-      	                            value=""
-      	                            class="h-4 w-4 border-gray-300 rounded focus:ring-orange-500"
-      	                            required
-      	                          >
-      	                          <label for="certifyRepresentation" class="ml-2 block text-gray-700 font-bold">
-      	                            I certify I can act on behalf of this company
-      	                          <\/label>
-      	                        <\/div>
-      	                      `;
-      	                      break;
-      	                    case 'contentWithRelations':
-      	                      subOptionsContainer.innerHTML = `
-      	                        <div class="mb-4">
-      	                          <label class="block text-gray-700 font-bold mb-2" for="nameOfPress">Name of Press<\/label>
-      	                          <input
-      	                            class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-      	                            id="nameOfPress"
-      	                            type="text"
-      	                            placeholder="Enter name of press"
-      	                            required
-      	                          >
-      	                        <\/div>
-      	                        <div class="mb-4">
-      	                          <label class="block text-gray-700 font-bold mb-2" for="nameOfIndividual">Name of Individual Contacting<\/label>
-      	                          <input
-      	                            class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-      	                            id="nameOfIndividual"
-      	                            type="text"
-      	                            placeholder="Enter name of individual"
-      	                            required
-      	                          >
-      	                        <\/div>
-      	                        <div class="flex items-center mb-4">
-      	                          <input
-      	                            id="certifyRepresentation"
-      	                            type="checkbox"
-      	                            value=""
-      	                            class="h-4 w-4 border-gray-300 rounded focus:ring-orange-500"
-      	                            required
-      	                          >
-      	                          <label for="certifyRepresentation" class="ml-2 block text-gray-700 font-bold">
-      	                            I certify I can act on behalf of this company
-      	                          <\/label>
-      	                        <\/div>
-      	                      `;
-      	                      break;
-      	                    case 'otherBrandingRelatedIssues':
-      	                      subOptionsContainer.innerHTML = `
-      	                        <div class="mb-4">
-      	                          <label class="block text-gray-700 font-bold mb-2" for="nameOfPress">Name of Press<\/label>
-      	                          <input
-      	                            class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-      	                            id="nameOfPress"
-      	                            type="text"
-      	                            placeholder="Enter name of press"
-      	                            required
-      	                          >
-      	                        <\/div>
-      	                        <div class="mb-4">
-      	                          <label class="block text-gray-700 font-bold mb-2" for="nameOfIndividual">Name of Individual Contacting<\/label>
-      	                          <input
-      	                            class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-      	                            id="nameOfIndividual"
-      	                            type="text"
-      	                            placeholder="Enter name of individual"
-      	                            required
-      	                          >
-      	                        <\/div>
-      	                        <div class="flex items-center mb-4">
-      	                          <input
-      	                            id="certifyRepresentation"
-      	                            type="checkbox"
-      	                            value=""
-      	                            class="h-4 w-4 border-gray-300 rounded focus:ring-orange-500"
-      	                            required
-      	                          >
-      	                          <label for="certifyRepresentation" class="ml-2 block text-gray-700 font-bold">
-      	                            I certify I can act on behalf of this company
-      	                          <\/label>
-      	                        <\/div>
-      	                      `;
-      	                      break;
-      	                    case 'trustAndSafety':
-      	                      subOptionsContainer.innerHTML = `
-      	                        <div class="bg-orange-100 border-l-4 border-orange-500 text-orange-700 p-4 rounded mb-4">
-      	                          <p class="font-bold">
-      	                            Please be as detailed as possible when reporting trust and safety issues.
-      	                          <\/p>
-      	                          <p>
-      	                            Provide the following information in the description:
-      	                          <\/p>
-      	                          <ul class="list-disc list-inside">
-      	                            <li>Content URL(s) if applicable<\/li>
-      	                            <li>Description of the issue<\/li>
-      	                            <li>Additional context or details<\/li>
-      	                          <\/ul>
-      	                        <\/div>
-      	                      
-      	                      `;
-      	                      break;
-      	                    case 'appeals':
-      	                      subOptionsContainer.innerHTML = `
-      	                        <div class="bg-orange-100 border-l-4 border-orange-500 text-orange-700 p-4 rounded mb-4">
-      	                          <p class="font-bold">
-      	                            Please provide the following information for your appeal:
-      	                          <\/p>
-      	                          <ul class="list-disc list-inside">
-      	                            <li>The specific content or decision being appealed<\/li>
-      	                            <li>Reason for the appeal<\/li>
-      	                            <li>Any additional context or details<\/li>
-      	                          <\/ul>
-      	                        <\/div>
-      	                      `;
-      	                      break;
-      	                      case 'lawEnforcementContact':
-      	                      subOptionsContainer.innerHTML = `
-      	                        <div class="bg-orange-100 border-l-4 border-orange-500 text-orange-700 p-4 rounded mb-4">
-      	                          <p class="font-bold">
-      	                            For law enforcement inquiries, please provide the following information:
-      	                          <\/p>
-      	                          <ul class="list-disc list-inside">
-      	                            <li>Your name and badge number<\/li>
-      	                            <li>Agency and jurisdiction<\/li>
-      	                            <li>Nature of the inquiry<\/li>
-      	                            <li>Any additional context or details<\/li>
-      	                          <\/ul>
-      	                        <\/div>
-      	                        <div class="mb-4">
-      	                          <label class="block text-gray-700 font-bold mb-2" for="lawEnforcementName">
-      	                            Your Name and Badge Number
-      	                          <\/label>
-      	                          <input
-      	                            class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-      	                            id="lawEnforcementName"
-      	                            type="text"
-      	                            placeholder="Enter your name and badge number"
-      	                            required
-      	                          >
-      	                        <\/div>
-      	                        <div class="mb-4">
-      	                          <label class="block text-gray-700 font-bold mb-2" for="lawEnforcementAgency">
-      	                            Agency and Jurisdiction
-      	                          <\/label>
-      	                          <input
-      	                            class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-      	                            id="lawEnforcementAgency"
-      	                            type="text"
-      	                            placeholder="Enter your agency and jurisdiction"
-      	                            required
-      	                          >
-      	                        <\/div>
-      	                      `;
-      	                      break;
-      	                    case 'bugsOrWebsiteDiscrepancies':
-      	                      subOptionsContainer.innerHTML = `
-      	                        <div class="bg-orange-100 border-l-4 border-orange-500 text-orange-700 p-4 rounded mb-4">
-      	                          <p class="font-bold">
-      	                            When reporting bugs or website discrepancies, please provide the following information:
-      	                          <\/p>
-      	                          <ul class="list-disc list-inside">
-      	                            <li>URL where the issue was encountered<\/li>
-      	                            <li>Description of the issue<\/li>
-      	                            <li>Steps to reproduce the issue<\/li>
-      	                            <li>Screenshots or screen recordings (if applicable)<\/li>
-      	                          <\/ul>
-      	                        <\/div>
-      	                      `;
-      	                      break;
-      	                    }
-      	                    // Update the selected sub-option
-      						document.getElementById('selectedSubOption').value = subOption;
-      	                    }
+		switch (subOption) {
+		case 'fromSite':
+		subOptionsContainer.innerHTML = `
+		<div class="bg-orange-100 border-l-4 border-orange-500 text-orange-700 p-4 rounded mb-4">
+		<p class="font-bold">Our Website uses only essential cookies, we don't store anything else besides your cookies and data which can be viewed at our <a href="#" class="text-orange-500 underline">Legal Policies<\/a>. Nonetheless if you have a General Question related to our Privacy Policies you can still ask us<\/p>
+		<p>You can clear your cache and cookies by following these steps:<\/p>
+		<ul class="list-disc list-inside">
+		<li><a href="https://help.overdrive.com/en-us/0518.html" rel="nofollow" class="text-orange-500 underline"> How To Clear Cache (Android)<\/a><\/li>
+		<li><a href="https://support.apple.com/en-ca/guide/iphone/iphacc5f0202/ios" rel="nofollow" class="text-orange-500 underline"> How To Clear Cache (iPhone)<\/a><\/li>
+		<li><a href="https://help.overdrive.com/en-us/0403.html" rel="nofollow" class="text-orange-500 underline"> How To Clear Cache on a Personal Computer (PC) <\/a><\/li>
+		<\/ul>
+		<\/div>
+		`;
+		break;
+		case 'fromProgram':
+				subOptionsContainer.innerHTML = `
+				<div class="mb-4">
+					<label class="block text-gray-700 font-bold mb-2">Are you leaving the program?<\/label>
+					<div class="flex items-center mb-4">
+					<input id="leavingProgramYes" type="radio" value="yes" name="leavingProgram" class="h-4 w-4 border-gray-300 focus:ring-orange-500" required>
+					<label for="leavingProgramYes" class="ml-2 block text-gray-700 font-bold">Yes<\/label>
+					<\/div>
+					<div class="flex items-center mb-4">
+					<input id="leavingProgramNo" type="radio" value="no" name="leavingProgram" class="h-4 w-4 border-gray-300 focus:ring-orange-500" required>
+					<label for="leavingProgramNo" class="ml-2 block text-gray-700 font-bold">No<\/label>
+					<\/div>
+					<div class="bg-orange-100 border-l-4 border-orange-500 text-orange-700 p-4 rounded mb-4 hidden" id="leavingProgramNoMessage">
+					<p class="font-bold">
+						If you're not leaving the program, then we cannot process a request to delete your data. If you have any issues with how we validate your Privacy please fill in the details below and we will get back to you ASAP
+					<\/p>
+					<\/div>
+				<\/div>
+				`;
 
 
+		const leavingProgramNoInput = document.getElementById('leavingProgramNo');
+		const leavingProgramNoMessage = document.getElementById('leavingProgramNoMessage');
 
+		leavingProgramNoInput.addEventListener('change', (event) => {
+			if (event.target.value === 'no') {
+			leavingProgramNoMessage.classList.remove('hidden');
+			} else {
+			leavingProgramNoMessage.classList.add('hidden');
+			}
+		});
+		break;
 
-      	                    const discardFormButton = document.getElementById('discardFormButton');
+		case 'pressContact':
+		subOptionsContainer.innerHTML = `
+		<div class="mb-4">
+		<label class="block text-gray-700 font-bold mb-2" for="nameOfPress">Name of Press<\/label>
+		<input
+		class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+		id="nameOfPress"
+		type="text"
+		placeholder="Enter name of press"
+		required
+		>
+		<\/div>
+		<div class="mb-4">
+		<label class="block text-gray-700 font-bold mb-2" for="nameOfIndividual">Name of Individual Contacting<\/label>
+		<input
+		class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+		id="nameOfIndividual"
+		type="text"
+		placeholder="Enter name of individual"
+		required
+		>
+		<\/div>
+		<div class="flex items-center mb-4">
+		<input
+		id="certifyRepresentation"
+		type="checkbox"
+		value=""
+		class="h-4 w-4 border-gray-300 rounded focus:ring-orange-500"
+		required
+		>
+		<label for="certifyRepresentation" class="ml-2 block text-gray-700 font-bold">
+		I certify I can act on behalf of this company
+		<\/label>
+		<\/div>
+		`;
+		break;
+		case 'releasesInvolvingNameBrandingTrademarksEtc':
+			subOptionsContainer.innerHTML = `
+			<div class="mb-4">
+				<label class="block text-gray-700 font-bold mb-2" for="nameOfPress">Name of Press<\/label>
+				<input
+				class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+				id="nameOfPress"
+				type="text"
+				placeholder="Enter name of press"
+				required
+				>
+			<\/div>
+			<div class="mb-4">
+				<label class="block text-gray-700 font-bold mb-2" for="nameOfIndividual">Name of Individual Contacting<\/label>
+				<input
+				class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+				id="nameOfIndividual"
+				type="text"
+				placeholder="Enter name of individual"
+				required
+				>
+			<\/div>
+			<div class="flex items-center mb-4">
+				<input
+				id="certifyRepresentation"
+				type="checkbox"
+				value=""
+				class="h-4 w-4 border-gray-300 rounded focus:ring-orange-500"
+				required
+				>
+				<label for="certifyRepresentation" class="ml-2 block text-gray-700 font-bold">
+				I certify I can act on behalf of this company
+				<\/label>
+			<\/div>
+			`;
+			break;
+		case 'contentWithRelations':
+			subOptionsContainer.innerHTML = `
+			<div class="mb-4">
+				<label class="block text-gray-700 font-bold mb-2" for="nameOfPress">Name of Press<\/label>
+				<input
+				class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+				id="nameOfPress"
+				type="text"
+				placeholder="Enter name of press"
+				required
+				>
+			<\/div>
+			<div class="mb-4">
+				<label class="block text-gray-700 font-bold mb-2" for="nameOfIndividual">Name of Individual Contacting<\/label>
+				<input
+				class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+				id="nameOfIndividual"
+				type="text"
+				placeholder="Enter name of individual"
+				required
+				>
+			<\/div>
+			<div class="flex items-center mb-4">
+				<input
+				id="certifyRepresentation"
+				type="checkbox"
+				value=""
+				class="h-4 w-4 border-gray-300 rounded focus:ring-orange-500"
+				required
+				>
+				<label for="certifyRepresentation" class="ml-2 block text-gray-700 font-bold">
+				I certify I can act on behalf of this company
+				<\/label>
+			<\/div>
+			`;
+			break;
+		case 'otherBrandingRelatedIssues':
+			subOptionsContainer.innerHTML = `
+			<div class="mb-4">
+				<label class="block text-gray-700 font-bold mb-2" for="nameOfPress">Name of Press<\/label>
+				<input
+				class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+				id="nameOfPress"
+				type="text"
+				placeholder="Enter name of press"
+				required
+				>
+			<\/div>
+			<div class="mb-4">
+				<label class="block text-gray-700 font-bold mb-2" for="nameOfIndividual">Name of Individual Contacting<\/label>
+				<input
+				class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+				id="nameOfIndividual"
+				type="text"
+				placeholder="Enter name of individual"
+				required
+				>
+			<\/div>
+			<div class="flex items-center mb-4">
+				<input
+				id="certifyRepresentation"
+				type="checkbox"
+				value=""
+				class="h-4 w-4 border-gray-300 rounded focus:ring-orange-500"
+				required
+				>
+				<label for="certifyRepresentation" class="ml-2 block text-gray-700 font-bold">
+				I certify I can act on behalf of this company
+				<\/label>
+			<\/div>
+			`;
+			break;
+		case 'trustAndSafety':
+			subOptionsContainer.innerHTML = `
+			<div class="bg-orange-100 border-l-4 border-orange-500 text-orange-700 p-4 rounded mb-4">
+				<p class="font-bold">
+				Please be as detailed as possible when reporting trust and safety issues.
+				<\/p>
+				<p>
+				Provide the following information in the description:
+				<\/p>
+				<ul class="list-disc list-inside">
+				<li>Content URL(s) if applicable<\/li>
+				<li>Description of the issue<\/li>
+				<li>Additional context or details<\/li>
+				<\/ul>
+			<\/div>
+			
+			`;
+			break;
+		case 'appeals':
+			subOptionsContainer.innerHTML = `
+			<div class="bg-orange-100 border-l-4 border-orange-500 text-orange-700 p-4 rounded mb-4">
+				<p class="font-bold">
+				Please provide the following information for your appeal:
+				<\/p>
+				<ul class="list-disc list-inside">
+				<li>The specific content or decision being appealed<\/li>
+				<li>Reason for the appeal<\/li>
+				<li>Any additional context or details<\/li>
+				<\/ul>
+			<\/div>
+			`;
+			break;
+			case 'lawEnforcementContact':
+			subOptionsContainer.innerHTML = `
+			<div class="bg-orange-100 border-l-4 border-orange-500 text-orange-700 p-4 rounded mb-4">
+				<p class="font-bold">
+				For law enforcement inquiries, please provide the following information:
+				<\/p>
+				<ul class="list-disc list-inside">
+				<li>Your name and badge number<\/li>
+				<li>Agency and jurisdiction<\/li>
+				<li>Nature of the inquiry<\/li>
+				<li>Any additional context or details<\/li>
+				<\/ul>
+			<\/div>
+			<div class="mb-4">
+				<label class="block text-gray-700 font-bold mb-2" for="lawEnforcementName">
+				Your Name and Badge Number
+				<\/label>
+				<input
+				class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+				id="lawEnforcementName"
+				type="text"
+				placeholder="Enter your name and badge number"
+				required
+				>
+			<\/div>
+			<div class="mb-4">
+				<label class="block text-gray-700 font-bold mb-2" for="lawEnforcementAgency">
+				Agency and Jurisdiction
+				<\/label>
+				<input
+				class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+				id="lawEnforcementAgency"
+				type="text"
+				placeholder="Enter your agency and jurisdiction"
+				required
+				>
+			<\/div>
+			`;
+			break;
+		case 'bugsOrWebsiteDiscrepancies':
+			subOptionsContainer.innerHTML = `
+			<div class="bg-orange-100 border-l-4 border-orange-500 text-orange-700 p-4 rounded mb-4">
+				<p class="font-bold">
+				When reporting bugs or website discrepancies, please provide the following information:
+				<\/p>
+				<ul class="list-disc list-inside">
+				<li>URL where the issue was encountered<\/li>
+				<li>Description of the issue<\/li>
+				<li>Steps to reproduce the issue<\/li>
+				<li>Screenshots or screen recordings (if applicable)<\/li>
+				<\/ul>
+			<\/div>
+			`;
+			break;
+		}
+		// Update the selected sub-option
+		document.getElementById('selectedSubOption').value = subOption;
+		}
 
-      	                    discardFormButton.addEventListener('click', () => {
-      	                      formContainer.classList.add('hidden');
-      	                      contactForm.reset();
-      	                      contactForm.classList.remove('was-validated');
-						});
+		const discardFormButton = document.getElementById('discardFormButton');
+
+		discardFormButton.addEventListener('click', () => {
+			formContainer.classList.add('hidden');
+			contactForm.reset();
+			contactForm.classList.remove('was-validated');
+		});
 		// Form Validation and Submission
-const forms = [contactForm];
-const result = submissionResult;
+	const forms = [contactForm];
+	const result = submissionResult;
 
-forms.forEach((form) => {
-  form.addEventListener('submit', (event) => {
-    if (!form.checkValidity()) {
-      event.preventDefault();
-      event.stopPropagation();
-      form.querySelectorAll(':invalid')[0].focus();
-    } else {
-      event.preventDefault();
-      event.stopPropagation();
+	forms.forEach((form) => {
+	form.addEventListener('submit', (event) => {
+		if (!form.checkValidity()) {
+		event.preventDefault();
+		event.stopPropagation();
+		form.querySelectorAll(':invalid')[0].focus();
+		} else {
+		event.preventDefault();
+		event.stopPropagation();
 
-      // Gather all the form data
-      const formData = new FormData(form);
-      const userInfoData = document.getElementById('userInfo').value;
-      const selectedOption = document.getElementById('option').value;
-      const selectedSubOption = document.getElementById('subOptions').querySelector('select')?.value || '';
-	  // get law enfrocement or brand releases or stuff where there is a textarea specifically for that option and call it in the data area if relevabt
-	  const lawEnforcementName = document.getElementById('lawEnforcementName')?.value || '';
-	  const lawEnforcementAgency = document.getElementById('lawEnforcementAgency')?.value || '';
-	  const nameOfPress = document.getElementById('nameOfPress')?.value || '';
-	  const nameOfIndividual = document.getElementById('nameOfIndividual')?.value || '';
-	  const certifyRepresentation = document.getElementById('certifyRepresentation')?.value || '';
+		// Gather all the form data
+		const formData = new FormData(form);
+		const userInfoData = document.getElementById('userInfo').value;
+		const selectedOption = document.getElementById('option').value;
+		const selectedSubOption = document.getElementById('subOptions').querySelector('select')?.value || '';
+		// get law enfrocement or brand releases or stuff where there is a textarea specifically for that option and call it in the data area if relevabt
+		const lawEnforcementName = document.getElementById('lawEnforcementName')?.value || '';
+		const lawEnforcementAgency = document.getElementById('lawEnforcementAgency')?.value || '';
+		const nameOfPress = document.getElementById('nameOfPress')?.value || '';
+		const nameOfIndividual = document.getElementById('nameOfIndividual')?.value || '';
+		const certifyRepresentation = document.getElementById('certifyRepresentation')?.value || '';
+	 	const data = {
+			access_key: '6af27dfd-1619-4b1d-af12-b072afe4b21c',
+			from_name: 'Legacies Of Men',
+			replyto: 'no-reply@LegaciesOfMen.org',
+			botcheck: '',
+			selectedOption: selectedOption,
+			selectedSubOption: selectedSubOption,
 
-
-
-
-
-
-
-      // Combine the form data with other relevant information
-	  const data = {
-		access_key: '6af27dfd-1619-4b1d-af12-b072afe4b21c',
-		from_name: 'Legacies Of Men',
-		replyto: 'no-reply@LegaciesOfMen.org',
-		botcheck: '',
-		selectedOption: selectedOption,
-		selectedSubOption: selectedSubOption,
-
-		lawEnforcementName: lawEnforcementName,
-		lawEnforcementAgency: lawEnforcementAgency,
-		nameOfPress: nameOfPress,
-		nameOfIndividual: nameOfIndividual,
-		certifyRepresentation: certifyRepresentation,
+			lawEnforcementName: lawEnforcementName,
+			lawEnforcementAgency: lawEnforcementAgency,
+			nameOfPress: nameOfPress,
+			nameOfIndividual: nameOfIndividual,
+			certifyRepresentation: certifyRepresentation,
 
 
-		userInfo: userInfoData,
-		goodIntent: form.querySelector('#goodIntent').checked,
-		legalPolicies: form.querySelector('#legalPolicies').checked,
-		dataAgreement: form.querySelector('#dataAgreement').checked,
-		...Object.fromEntries(formData),
-		"redirect": "none"
-};
+			userInfo: userInfoData,
+			goodIntent: form.querySelector('#goodIntent').checked,
+			legalPolicies: form.querySelector('#legalPolicies').checked,
+			dataAgreement: form.querySelector('#dataAgreement').checked,
+			...Object.fromEntries(formData),
+			"redirect": "none"
+		};
 
       const json = JSON.stringify(data);
       if (result) result.innerHTML = 'Please wait...';
@@ -843,8 +830,8 @@ forms.forEach((form) => {
         });
     }
     form.classList.add('was-validated');
-  }, false);
-});
+		}, false);
+	});
       	    getUserInfo();
       	    handleOptionChange(document.getElementById('option').value);
     </script>
