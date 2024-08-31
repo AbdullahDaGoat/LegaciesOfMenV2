@@ -874,11 +874,11 @@
       	    getUserInfo();
       	    handleOptionChange(document.getElementById('option').value);
 			  document.addEventListener("DOMContentLoaded", function() {
-				window.onloadTurnstileCallback = function(token) {
-					// Once the challenge is completed, unhide the main content
-					document.getElementById('main-content').style.display = 'block';
-				};
-			});
+        window.onloadTurnstileCallback = function(token) {
+            // Once the challenge is completed, unhide the main content
+            document.querySelector('.main-content').style.display = 'block'; // Change this line
+        };
+    });
 
     </script>
 	
