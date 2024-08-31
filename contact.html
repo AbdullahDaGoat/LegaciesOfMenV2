@@ -160,6 +160,13 @@
 		<div class="flex justify-center">
 		  <button class="rounded bg-orange-500 px-4 py-2 font-bold text-white hover:bg-orange-600" id="startButton">Click Me to Begin</button>
 		</div>
+
+		<div class="flex justify-center space-y-4 mt-8">
+			<button class="rounded bg-orange-500 px-4 py-2 font-bold text-white hover:bg-orange-600 flex items-center space-x-4" onclick="window.location.href='publicSpeaking.html';">
+			  <i class="fas fa-home"></i>
+			  <span>Or are you looking for Event Co-ordination?</span>
+			</button>
+		  </div>
 	  
 		<div class="flex justify-center space-y-4 mt-8">
 		  <button class="rounded bg-orange-500 px-4 py-2 font-bold text-white hover:bg-orange-600 flex items-center space-x-4" onclick="window.location.href='index.html';">
@@ -250,15 +257,17 @@
 
 		  <div class="flex items-start mb-4">
 			<input type="checkbox" id="goodIntent" name="goodIntent" class="mt-1 mr-2 h-4 w-4 border-gray-300 rounded focus:ring-orange-500" required>
-			<label for="goodIntent" class="block text-gray-700 font-bold">I confirm that this form is being submitted in good intent.</label>
+			<label for="goodIntent" class="block text-gray-700 font-bold">I confirm that this form is being submitted in good intent, and if not can be used legally against me in a court of law.</label>
 		  </div>
 		  <div class="flex items-start mb-4">
 			<input type="checkbox" id="legalPolicies" name="legalPolicies" class="mt-1 mr-2 h-4 w-4 border-gray-300 rounded focus:ring-orange-500" required>
-			<label for="legalPolicies" class="block text-gray-700 font-bold">I agree to the <a href="#" class="text-orange-500 underline">legal policies</a>.</label>
+			<label for="legalPolicies" class="block text-gray-700 font-bold">I agree to the <a href="#" class="text-orange-500 underline">all Legal Policies and data retention</a>.</label>
 		  </div>
 		  <div class="flex items-start mb-4">
 			<input type="checkbox" id="dataAgreement" name="dataAgreement" class="mt-1 mr-2 h-4 w-4 border-gray-300 rounded focus:ring-orange-500" required>
-			<label for="dataAgreement" class="block text-gray-700 font-bold">I agree that I will be sending my data and device specifications over, regardless of the contact form type I choose, which can be used to help assist (and not released) in your query and will be deleted right after.</label>
+			<label for="dataAgreement" class="block text-gray-700 font-bold">I agree to send my data and device specifications, regardless of the contact form type I choose. This information will be used solely to assist with my inquiry and will be deleted immediately afterward; unless otherwise prohibited by law (see Legal Policies of how we handle your data and retention)		
+
+			</label>
 		  </div>
 
 		  <div class="h-captcha" data-captcha="true"></div>
