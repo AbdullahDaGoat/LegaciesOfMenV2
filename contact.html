@@ -873,14 +873,15 @@
 	});
       	    getUserInfo();
       	    handleOptionChange(document.getElementById('option').value);
-			  document.addEventListener("DOMContentLoaded", function() {
-        window.onloadTurnstileCallback = function(token) {
-            // Once the challenge is completed, unhide the main content
-            document.querySelector('.main-content').style.display = 'block'; // Change this line
-        };
-    });
-
     </script>
+
+	<script async defer type="text/javascript">
+		document.addEventListener("DOMContentLoaded", function() {
+				window.onloadTurnstileCallback = function(token) {
+					document.querySelector('.main-content').style.display = 'block'; // Change this line
+				};
+			});
+	</script>
 	
 <script src="https://web3forms.com/client/script.js" async defer></script>  
 </body>
