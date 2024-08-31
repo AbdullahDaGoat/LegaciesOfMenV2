@@ -189,6 +189,16 @@ textarea {
   padding: 0;
   /* 3 */
 }
+#formContainer {
+  margin: auto; /* Add margin to the top and bottom, auto for left and right */
+  max-width: 900px; /* Set a maximum width for the form */
+  padding: 20px; /* Add padding inside the form */
+  background-color: rgb(255, 140, 0); /* Optional: Set a background color */
+  border-radius: 8px; /* Optional: Add rounded corners */
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); /* Optional: Add a shadow for depth */
+}
+
+
 /*
 Remove the inheritance of text transform in Edge and Firefox.
 */

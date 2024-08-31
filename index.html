@@ -141,12 +141,10 @@
     <link rel="stylesheet" type="text/css" href="./stylesheets/styles.css" />
   </head>
   <body>
-    <div id="accept-terms" class="fixed left-0 top-0 z-50 flex h-full w-full items-center justify-center bg-gray-900">
+    <div id="accept-terms" class="fixed left-0 top-0 z-50 flex h-full w-full items-center justify-center bg-gray-900" style="display: none;">
       <div class="accept-terms-wrapper h-[80%] max-w-[90%] overflow-y-auto rounded-lg bg-white p-8 shadow-lg sm:max-w-[80%] md:h-[70%] md:max-w-[70%] lg:h-[60%] lg:max-w-[60%]">
         <div class="accept-terms-content flex flex-col items-center">
-          <!-- Desktop banner image -->
-          <img src="./Logo_Files/sof.png" alt="Desktop Banner Image" class="mb-8 h-auto max-w-[300px] sm:max-w-[350px] md:block md:max-w-[380px]" />
-
+          <img src="./Logo_Files/sof.png" alt="Desktop Banner Image" class="mb-8 h-auto max-w-[300px] sm:max-w-[350px] md:block md:max-w-[380px]" loading="lazy" />
           <h2 class="mb-4 text-2xl font-bold">Terms and Conditions</h2>
           <div class="mb-8 text-gray-700">
             <p>By pressing the "Load" button below, you agree to our <a href="legal.html" class="text-blue-500 hover:underline">Legal Policies</a>.</p>
@@ -160,7 +158,7 @@
       </div>
     </div>
 
-    <div class="main-content animate__animated animate__fadeIn hidden" id="mainContent">
+    <div class="main-content hidden" id="mainContent">
       <nav class="navbar fixed left-0 right-0 top-0 z-50 bg-white shadow-lg dark:bg-gray-800 dark:text-gray-200">
         <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div class="flex h-16 justify-between">
@@ -252,36 +250,6 @@
         </div>
         <div class="bubble bg-green-500 hover:bg-green-600">
           <i class="fas fa-arrow-down"></i>
-        </div>
-      </div>
-      <div class="progress-bar-container">
-        <div class="progress-bar">
-          <div class="progress-bar-circles">
-            <div class="progress-bar-circle" data-section="top">
-              <div class="progress-bar-tooltip">Top Section</div>
-            </div>
-            <div class="progress-bar-circle" data-section="introduction">
-              <div class="progress-bar-tooltip">Introduction</div>
-            </div>
-            <div class="progress-bar-circle" data-section="As-seen-from">
-              <div class="progress-bar-tooltip">As Seen From</div>
-            </div>
-            <div class="progress-bar-circle" data-section="numbers">
-              <div class="progress-bar-tooltip">By the Numbers</div>
-            </div>
-            <div class="progress-bar-circle" data-section="join">
-              <div class="progress-bar-tooltip">Join the Movement</div>
-            </div>
-            <div class="progress-bar-circle" data-section="poster">
-              <div class="progress-bar-tooltip">Cry Once a Week</div>
-            </div>
-            <div class="progress-bar-circle" data-section="other">
-              <div class="progress-bar-tooltip">Join the Community</div>
-            </div>
-            <div class="progress-bar-circle" data-section="bottom">
-              <div class="progress-bar-tooltip">Footer</div>
-            </div>
-          </div>
         </div>
       </div>
 
@@ -830,7 +798,6 @@
         window.localStorage.setItem('prefersDarkMode', prefersDarkMode);
         themeToggler.innerHTML = `<i class="${prefersDarkMode ? 'fas fa-sun' : 'fas fa-moon'}"></i>`;
       });
-      const circles = document.querySelectorAll('.progress-bar-circle');
       const sections = document.querySelectorAll('section');
 
       function handleScroll() {
@@ -850,35 +817,37 @@
       window.addEventListener('scroll', handleScroll);
     </script>
 
-    <script type="text/javascript">
-     document.addEventListener('DOMContentLoaded', () => {
-      const acceptTermsDiv = document.getElementById('accept-terms');
-      const loadButton = document.getElementById('loadButton');
-
-      // Check if the user has already accepted the terms
-      if (localStorage.getItem('termsAccepted') === 'true') {
-        acceptTermsDiv.style.display = 'none';
-        const mainContent = document.getElementById('mainContent');
-        mainContent.classList.remove('hidden');
-        mainContent.classList.add('visible');
-      }
-
-      loadButton.addEventListener('click', function() {
-        // Store the user's acceptance of the terms in local storage
-        localStorage.setItem('termsAccepted', 'true');
-
-        acceptTermsDiv.style.display = 'none';
-        const mainContent = document.getElementById('mainContent');
-        mainContent.classList.remove('hidden');
-        mainContent.classList.add('visible');
-      });
-
-      // Remove the "termsAccepted" key from local storage when the user closes the site
-      window.addEventListener('beforeunload', function() {
-        localStorage.removeItem('termsAccepted');
-      });
+<script type="text/javascript">
+  document.addEventListener('DOMContentLoaded', () => {
+    const acceptTermsDiv = document.getElementById('accept-terms');
+    const loadButton = document.getElementById('loadButton');
+    const mainContent = document.getElementById('mainContent');
+  
+    function showMainContent() {
+      acceptTermsDiv.style.display = 'none';
+      mainContent.classList.remove('hidden');
+      mainContent.classList.add('visible');
+    }
+  
+    // Check if the user has already accepted the terms
+    if (localStorage.getItem('termsAccepted') === 'true') {
+      showMainContent();
+    } else {
+      acceptTermsDiv.style.display = 'flex';
+    }
+  
+    loadButton.addEventListener('click', function() {
+      // Store the user's acceptance of the terms in local storage
+      localStorage.setItem('termsAccepted', 'true');
+      showMainContent();
     });
-    </script>
+  
+    // Check for terms acceptance on page load
+    if (localStorage.getItem('termsAccepted') === 'true') {
+      showMainContent();
+    }
+  });
+  </script>
 
     <script type="text/javascript">
       let internetConnectionAlertShown = false;

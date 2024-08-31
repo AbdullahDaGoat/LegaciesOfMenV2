@@ -82,6 +82,8 @@
     <meta name="twitter:site" content="@LegaciesOfMen" />
     <meta name="twitter:creator" content="@JoeTruax" />
 
+	<script src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script>
+
     <!-- Schema.org Markup -->
     <script type="application/ld+json">
       {
@@ -145,6 +147,13 @@
 
   <body class="bg-gray-100">
 
+	<div class="container mx-auto py-8">
+		<div id="turnstile-container" class="flex justify-center mt-8">
+			<div class="cf-turnstile" data-sitekey="0x4AAAAAAAicU9_iupQh9JJ2"></div>
+		</div>
+	</div>
+
+<div class="main-content hidden">
     <div class="container mx-auto py-8">
 		<h1 class="mb-4 text-center text-4xl font-bold text-orange-500"><span class="mr-2">👋</span>Hey there, let's make this quick and easy</h1>
 		<p class="mb-8 text-center text-gray-600">Click the button below to begin and let's get in touch</p>
@@ -168,8 +177,8 @@
         <form action="https://api.web3forms.com/submit" autocomplete="" class="mb-4 rounded bg-white px-8 pb-8 pt-6 shadow-md" id="contactForm" method="post" name="contactForm">
           <input name="access_key" type="hidden" value="6af27dfd-1619-4b1d-af12-b072afe4b21c" />
           <input name="from_name" type="hidden" value="Legacies Of Men " />
-          <input name="replyto" type="hidden" value="no-reply@LegaciesOfMenWebsiteForm.org" />
-          <input class="hidden" name="botcheck" style="display: none;" type="checkbox" />
+          <input name="replyto" type="hidden" value="no-reply@LegaciesOfMen.ContactPage.Website.org" />
+		  <input name="botcheck" type="checkbox" class="hidden" style="display:none !important;" tabindex="-1" autocomplete="off" />
 
           <input type="hidden" name="selectedOption" id="selectedOption" value="" />
           <input type="hidden" name="selectedSubOption" id="selectedSubOption" value="" />
@@ -253,18 +262,22 @@
 			<label for="dataAgreement" class="block text-gray-700 font-bold">I agree that I will be sending my data and device specifications over, regardless of the contact form type I choose, which can be used to help assist (and not released) in your query and will be deleted right after.</label>
 		  </div>
 
+		  <div class="h-captcha" data-captcha="true"></div>
+
+
 		  <div class="flex items-center justify-between">
             <button class="focus:shadow-outline rounded bg-orange-500 px-4 py-2 font-bold text-white hover:bg-orange-600 focus:outline-none" type="submit">Submit</button>
             <button class="focus:shadow-outline rounded bg-gray-300 px-4 py-2 font-bold text-gray-700 hover:bg-gray-400 focus:outline-none" id="discardFormButton">Discard Form</button>
           </div>
+		  
         </form>
 
         <div class="mt-8 flex hidden items-center justify-center" id="submissionResult">
 			<i class="fas fa-check-circle flip-animation mr-4 text-6xl text-green-500"></i>
 			<p class="text-xl text-gray-600" id="success">Your form has been submitted successfully.</p>
 		  </div>
+		  
       </div>
-    </div>
 
 	<ul class="social-menu">
 		<li class="social-btn facebook" tooltip="Facebook">
@@ -295,10 +308,33 @@
 		  <a href="#"><i class="fas fa-code"></i></a>
 		</li>
 	  </ul>
+	</div>
+
+	  <script>
+		const form = document.getElementById('contactForm');
 		
-									
+		form.addEventListener('submit', function(e) {
+		
+			const hCaptcha = form.querySelector('textarea[name=h-captcha-response]').value;
+		
+			if (!hCaptcha) {
+				e.preventDefault();
+				alert("Please fill out captcha field")
+				return
+			}
+		});
+		</script>						
 	
     <script type="text/javascript">
+		 let formLoadTime = new Date().getTime();
+
+			document.getElementById('contactForm').addEventListener('submit', function(event) {
+			let currentTime = new Date().getTime();
+			if (currentTime - formLoadTime < 3000) { // Less than 3 seconds
+				event.preventDefault();
+				alert('Please wait a bit before submitting the form.');
+			}
+			});
 		const startButton = document.getElementById('startButton');
 		const formContainer = document.getElementById('formContainer');
 		const userInfo = document.getElementById('userInfo');
@@ -464,36 +500,39 @@
 		`;
 		break;
 		case 'fromProgram':
-				subOptionsContainer.innerHTML = `
-				<div class="mb-4">
-					<label class="block text-gray-700 font-bold mb-2">Are you leaving the program?<\/label>
-					<div class="flex items-center mb-4">
-					<input id="leavingProgramYes" type="radio" value="yes" name="leavingProgram" class="h-4 w-4 border-gray-300 focus:ring-orange-500" required>
-					<label for="leavingProgramYes" class="ml-2 block text-gray-700 font-bold">Yes<\/label>
-					<\/div>
-					<div class="flex items-center mb-4">
-					<input id="leavingProgramNo" type="radio" value="no" name="leavingProgram" class="h-4 w-4 border-gray-300 focus:ring-orange-500" required>
-					<label for="leavingProgramNo" class="ml-2 block text-gray-700 font-bold">No<\/label>
-					<\/div>
-					<div class="bg-orange-100 border-l-4 border-orange-500 text-orange-700 p-4 rounded mb-4 hidden" id="leavingProgramNoMessage">
-					<p class="font-bold">
-						If you're not leaving the program, then we cannot process a request to delete your data. If you have any issues with how we validate your Privacy please fill in the details below and we will get back to you ASAP
-					<\/p>
-					<\/div>
-				<\/div>
-				`;
+    subOptionsContainer.innerHTML = `
+    <div class="mb-4">
+        <label class="block text-gray-700 font-bold mb-2">Are you leaving the program?</label>
+        <div class="flex items-center mb-4">
+            <input id="leavingProgramYes" type="radio" value="yes" name="leavingProgram" class="h-4 w-4 border-gray-300 focus:ring-orange-500" required>
+            <label for="leavingProgramYes" class="ml-2 block text-gray-700 font-bold">Yes</label>
+        </div>
+        <div class="flex items-center mb-4">
+            <input id="leavingProgramNo" type="radio" value="no" name="leavingProgram" class="h-4 w-4 border-gray-300 focus:ring-orange-500" required>
+            <label for="leavingProgramNo" class="ml-2 block text-gray-700 font-bold">No</label>
+        </div>
+        <div class="bg-orange-100 border-l-4 border-orange-500 text-orange-700 p-4 rounded mb-4 hidden" id="leavingProgramNoMessage">
+            <p class="font-bold">
+                If you're not leaving the program, then we cannot process a request to delete your data. If you have any issues with how we validate your Privacy please fill in the details below and we will get back to you ASAP
+            </p>
+        </div>
+    </div>
+    `;
 
+    const leavingProgramYesInput = document.getElementById('leavingProgramYes');
+    const leavingProgramNoInput = document.getElementById('leavingProgramNo');
+    const leavingProgramNoMessage = document.getElementById('leavingProgramNoMessage');
 
-		const leavingProgramNoInput = document.getElementById('leavingProgramNo');
-		const leavingProgramNoMessage = document.getElementById('leavingProgramNoMessage');
+    leavingProgramYesInput.addEventListener('change', () => {
+        leavingProgramNoMessage.classList.add('hidden');
+    });
 
-		leavingProgramNoInput.addEventListener('change', (event) => {
-			if (event.target.value === 'no') {
-			leavingProgramNoMessage.classList.remove('hidden');
-			} else {
-			leavingProgramNoMessage.classList.add('hidden');
-			}
-		});
+    leavingProgramNoInput.addEventListener('change', (event) => {
+        if (event.target.checked) {
+            leavingProgramNoMessage.classList.remove('hidden');
+        }
+    });
+    break;
 		break;
 
 		case 'pressContact':
@@ -834,7 +873,15 @@
 	});
       	    getUserInfo();
       	    handleOptionChange(document.getElementById('option').value);
+			  document.addEventListener("DOMContentLoaded", function() {
+				window.onloadTurnstileCallback = function(token) {
+					// Once the challenge is completed, unhide the main content
+					document.getElementById('main-content').style.display = 'block';
+				};
+			});
+
     </script>
-    <script async defer src="https://web3forms.com/client/script.js"></script>
-  </body>
+	
+<script src="https://web3forms.com/client/script.js" async defer></script>  
+</body>
 </html>
