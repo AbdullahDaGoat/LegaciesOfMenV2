@@ -837,12 +837,13 @@ form.addEventListener('submit', (event) => {
 	.then(async (response) => {
 	  const json = await response.json();
 	  if (response.status === 200) {
-                    // Show the submission result
-                    result.innerHTML = ''; // Clear the 'Please wait...' message
-                    result.classList.remove('hidden');
-                    form.classList.add('hidden'); // Hide the form
-                    result.innerHTML = '<i class="fas fa-check-circle flip-animation mr-4 text-6xl text-green-500"></i><p class="text-xl text-[#ffffff]">Your form has been submitted successfully.</p>';
-                } else  {
+		if (result) {
+		  result.innerHTML = ''; // Clear the 'Please wait...' message
+		  // Show the custom checkmark
+		  result.classList.remove('hidden');
+		  form.classList.add('hidden'); // Hide the form
+		}
+	  } else {
 		console.error(response);
 		if (result) {
 		  result.innerHTML = json.message;
@@ -856,15 +857,15 @@ form.addEventListener('submit', (event) => {
 	  if (result) result.innerHTML = 'Something went wrong!';
 	})
 	.finally(() => {
-                form.reset();
-                form.classList.remove('was-validated');
-                if (result) {
-                    setTimeout(() => {
-                        result.classList.add('hidden'); // Hide the submission result after a while
-                    }, 5000);
-                }
-            });
-        }
+	  form.reset();
+	  form.classList.remove('was-validated');
+	  if (result) {
+		setTimeout(() => {
+		  result.style.display = 'none';
+		}, 5000);
+	  }
+	});
+}
 form.classList.add('was-validated');
 	}, false);
 });
