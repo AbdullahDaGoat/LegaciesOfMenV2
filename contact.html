@@ -189,7 +189,8 @@
 
           <div class="bg-orange-100 border-l-4 border-orange-500 text-orange-700 text-sm p-4 rounded mb-4">
             <p class="font-bold">
-              For Public Speaking and inqueries related to Event Co-ordination click the calendar icon below this form. For inqueries that may require screenshots use an image hosting site OR we will reach out to you via email you may upload your documents then -- Thank You!. 
+				For public speaking inquiries and event coordination, please click the calendar icon below this form.
+				For sensitive documents or attachments, do not send them via this form. Instead, please submit the documents when we reach out to you via email. 
             </p>
           </div>
 
@@ -259,17 +260,15 @@
 
 		  <div class="flex items-start mb-4">
 			<input type="checkbox" id="goodIntent" name="goodIntent" class="mt-1 mr-2 h-4 w-4 border-gray-300 rounded focus:ring-orange-500" required>
-			<label for="goodIntent" class="block text-gray-700 font-bold">I confirm that this form is being submitted in good intent, and if not can be used legally against me in a court of law.</label>
+			<label for="goodIntent" class="block text-gray-700 font-bold">I confirm that this form is being submitted in good faith. If submitted with malicious intent, it may be used against me legally in a court of law.</label>
 		  </div>
 		  <div class="flex items-start mb-4">
 			<input type="checkbox" id="legalPolicies" name="legalPolicies" class="mt-1 mr-2 h-4 w-4 border-gray-300 rounded focus:ring-orange-500" required>
-			<label for="legalPolicies" class="block text-gray-700 font-bold">I agree to the <a href="#" class="text-orange-500 underline">all Legal Policies and data retention</a>.</label>
+			<label for="legalPolicies" class="block text-gray-700 font-bold">I agree to <a href="#" class="text-orange-500 underline">all the Legal Policies and Data Retention as outlined</a>.</label>
 		  </div>
 		  <div class="flex items-start mb-4">
 			<input type="checkbox" id="dataAgreement" name="dataAgreement" class="mt-1 mr-2 h-4 w-4 border-gray-300 rounded focus:ring-orange-500" required>
-			<label for="dataAgreement" class="block text-gray-700 font-bold">I agree to send my data and device specifications, regardless of the contact form type I choose. This information will be used solely to assist with my inquiry and will be deleted immediately afterward; unless otherwise prohibited by law (see Legal Policies of how we handle your data and retention)		
-
-			</label>
+			<label for="dataAgreement" class="block text-gray-700 font-bold">I agree to send my data and device specifications, regardless of the contact form type I choose. This information will be used solely to assist with my inquiry and will be deleted immediately afterward; unless otherwise prohibited by law (see Legal Policies of how we handle your Data).	</label>
 		  </div>
 
 		  <div class="h-captcha" data-captcha="true"></div>
@@ -803,7 +802,7 @@
 	 	const data = {
 			access_key: '6af27dfd-1619-4b1d-af12-b072afe4b21c',
 			from_name: 'Legacies Of Men',
-			replyto: 'no-reply@LegaciesOfMen.org',
+			replyto: 'no-reply@LegaciesOfMen.ContactPage.Website.org',
 			botcheck: botCheck,
 			selectedOption: selectedOption,
 			selectedSubOption: selectedSubOption,
@@ -876,33 +875,34 @@
         document.querySelector('.main-content').style.display = 'block';
 		document.getElementById('turnstile-container').style.display = 'none';
     }
-	document.onkeydown = function(e) {
-    if (e.ctrlKey && e.shiftKey && e.keyCode === 73) {
-        e.preventDefault();
-    }
-    // Disable F12 key
-    if(e.keyCode === 123) {
-        e.preventDefault();
-    }
-};
 
-// Disable right click
-document.addEventListener('contextmenu', event => event.preventDefault());
-let devtools = function() {};
-devtools.toString = function() {
-    if (!this.warned) {
-        alert("Security Settings have been Enabled");
-        this.warned = true;
-    }
-    return 'devtools';
-};
-console.log('%c', devtools);
+// 	document.onkeydown = function(e) {
+//     if (e.ctrlKey && e.shiftKey && e.keyCode === 73) {
+//         e.preventDefault();
+//     }
+//     // Disable F12 key
+//     if(e.keyCode === 123) {
+//         e.preventDefault();
+//     }
+// };
 
-          document.addEventListener('keydown', function(event) {
-            if (event.ctrlKey && (event.key === 'u' || event.key === 'U')) {
-                event.preventDefault();
-            }
-          });
+// // Disable right click
+// document.addEventListener('contextmenu', event => event.preventDefault());
+// let devtools = function() {};
+// devtools.toString = function() {
+//     if (!this.warned) {
+//         alert("Security Settings have been Enabled");
+//         this.warned = true;
+//     }
+//     return 'devtools';
+// };
+// console.log('%c', devtools);
+
+//           document.addEventListener('keydown', function(event) {
+//             if (event.ctrlKey && (event.key === 'u' || event.key === 'U')) {
+//                 event.preventDefault();
+//             }
+//           });
     </script>
 
 <script src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script>
