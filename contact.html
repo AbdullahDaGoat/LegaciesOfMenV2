@@ -174,11 +174,12 @@
 
 
       <div class="mt-8 hidden" id="formContainer">
-        <form action="https://api.web3forms.com/submit" autocomplete="" class="mb-4 rounded bg-white px-8 pb-8 pt-6 shadow-md" id="contactForm" method="post" name="contactForm">
+        <form action="https://lom-backend.vercel.app/api/submit" autocomplete="" class="mb-4 rounded bg-white px-8 pb-8 pt-6 shadow-md" id="contactForm" method="post" name="contactForm">
           <input name="access_key" type="hidden" value="6af27dfd-1619-4b1d-af12-b072afe4b21c" />
-          <input name="from_name" type="hidden" value="Legacies Of Men " />
+          <input name="from_name" type="hidden" value="Legacies Of Men" />
           <input name="replyto" type="hidden" value="no-reply@LegaciesOfMen.ContactPage.Website.org" />
 		  <input name="botcheck" type="checkbox" class="hidden" style="display:none !important;" tabindex="-1" autocomplete="off" />
+		  <input name="Origin" type="hidden" value="User Contact Page"/>
 
           <input type="hidden" name="selectedOption" id="selectedOption" value="" />
           <input type="hidden" name="selectedSubOption" id="selectedSubOption" value="" />
@@ -186,7 +187,7 @@
 
           <div class="mb-6" id="userInfo"></div>
 
-          <div class="bg-orange-100 border-l-4 border-orange-500 text-orange-700 p-4 rounded mb-4">
+          <div class="bg-orange-100 border-l-4 border-orange-500 text-orange-700 text-sm p-4 rounded mb-4">
             <p class="font-bold">
               For Public Speaking and inqueries related to Event Co-ordination click the calendar icon below this form. For inqueries that may require screenshots use an image hosting site OR we will reach out to you via email you may upload your documents then -- Thank You!. 
             </p>
@@ -274,6 +275,7 @@
 		  <div class="h-captcha" data-captcha="true"></div>
 
 
+
 		  <div class="flex items-center justify-between">
             <button class="focus:shadow-outline rounded bg-orange-500 px-4 py-2 font-bold text-white hover:bg-orange-600 focus:outline-none" type="submit">Submit</button>
             <button class="focus:shadow-outline rounded bg-gray-300 px-4 py-2 font-bold text-gray-700 hover:bg-gray-400 focus:outline-none" id="discardFormButton">Discard Form</button>
@@ -308,10 +310,599 @@
 	</div>
 						
 	
-    <script type="text/javascript" async defer>
-		const _0x5d90c8=_0x30ec;(function(_0x5332f3,_0x5585bd){const _0xe78396=_0x30ec,_0x35c188=_0x5332f3();while(!![]){try{const _0xa84897=-parseInt(_0xe78396(0x23e))/0x1*(parseInt(_0xe78396(0x1d6))/0x2)+parseInt(_0xe78396(0x1d3))/0x3*(parseInt(_0xe78396(0x224))/0x4)+-parseInt(_0xe78396(0x23b))/0x5*(parseInt(_0xe78396(0x239))/0x6)+-parseInt(_0xe78396(0x203))/0x7+-parseInt(_0xe78396(0x20c))/0x8+parseInt(_0xe78396(0x251))/0x9*(-parseInt(_0xe78396(0x209))/0xa)+parseInt(_0xe78396(0x1e3))/0xb;if(_0xa84897===_0x5585bd)break;else _0x35c188['push'](_0x35c188['shift']());}catch(_0x447802){_0x35c188['push'](_0x35c188['shift']());}}}(_0x1d4d,0x3a357));const form=document[_0x5d90c8(0x202)](_0x5d90c8(0x245));form[_0x5d90c8(0x22d)]('submit',function(_0x349712){const _0x2969a3=_0x5d90c8,_0x209a72=form[_0x2969a3(0x1ee)]('textarea[name=h-captcha-response]')[_0x2969a3(0x243)];if(!_0x209a72){_0x349712[_0x2969a3(0x244)](),alert(_0x2969a3(0x264));return;}});let formLoadTime=new Date()[_0x5d90c8(0x20f)]();document[_0x5d90c8(0x202)](_0x5d90c8(0x245))[_0x5d90c8(0x22d)](_0x5d90c8(0x1eb),function(_0x3b3751){const _0x37e537=_0x5d90c8;let _0x5afaee=new Date()[_0x37e537(0x20f)]();_0x5afaee-formLoadTime<0xbb8&&(_0x3b3751['preventDefault'](),alert(_0x37e537(0x1e6)));});const startButton=document['getElementById'](_0x5d90c8(0x1f2)),formContainer=document[_0x5d90c8(0x202)](_0x5d90c8(0x1e7)),userInfo=document[_0x5d90c8(0x202)](_0x5d90c8(0x233)),options=document[_0x5d90c8(0x202)]('options'),contactForm=document[_0x5d90c8(0x202)](_0x5d90c8(0x245)),submissionResult=document['getElementById'](_0x5d90c8(0x23a)),shareUrl=document['getElementById'](_0x5d90c8(0x207));let userInfoData='',optionsHTML='',formData={};function getUserInfo(){const _0x7bafea=_0x5d90c8;fetch(_0x7bafea(0x1e5))['then'](_0x12b28e=>_0x12b28e[_0x7bafea(0x219)]())[_0x7bafea(0x1f9)](_0xba1b67=>{const _0x365a1d=_0x7bafea,_0x16696f=_0xba1b67['ip'],_0x7fda02=navigator['userAgent'],_0x236cf5=navigator[_0x365a1d(0x237)],_0x300ab1=navigator[_0x365a1d(0x1f7)];userInfoData=_0x365a1d(0x22e)+_0x16696f+_0x365a1d(0x1ec)+_0x7fda02+_0x365a1d(0x263)+_0x236cf5+_0x365a1d(0x25f)+_0x300ab1+_0x365a1d(0x228)+screen[_0x365a1d(0x1ef)]+'x'+screen[_0x365a1d(0x20b)]+_0x365a1d(0x232)+screen[_0x365a1d(0x223)]+_0x365a1d(0x248)+screen['pixelDepth']+_0x365a1d(0x258)+navigator[_0x365a1d(0x1dd)]+_0x365a1d(0x23d)+navigator[_0x365a1d(0x1f5)]+_0x365a1d(0x24a)+navigator[_0x365a1d(0x210)]+';\x0a\x09\x09\x09\x09Do\x20Not\x20Track:\x20'+navigator[_0x365a1d(0x21b)]+_0x365a1d(0x25a)+navigator['plugins'][_0x365a1d(0x253)]+_0x365a1d(0x222)+navigator[_0x365a1d(0x208)]()+_0x365a1d(0x234)+(navigator[_0x365a1d(0x1f0)]?_0x365a1d(0x1d1):'Blocked')+';\x0a\x09\x09\x09\x09Online:\x20'+navigator['onLine']+_0x365a1d(0x240)+Intl[_0x365a1d(0x1cd)]()[_0x365a1d(0x1e8)]()[_0x365a1d(0x23c)]+_0x365a1d(0x21c)+(navigator[_0x365a1d(0x1fc)]?navigator[_0x365a1d(0x1fc)][_0x365a1d(0x1cf)]:_0x365a1d(0x204))+_0x365a1d(0x214)+(navigator[_0x365a1d(0x1fc)]?navigator[_0x365a1d(0x1fc)]['downlink']:_0x365a1d(0x204))+_0x365a1d(0x256)+(navigator['connection']?navigator[_0x365a1d(0x1fc)][_0x365a1d(0x260)]:_0x365a1d(0x204))+_0x365a1d(0x262)+(navigator[_0x365a1d(0x1fc)]?navigator[_0x365a1d(0x1fc)][_0x365a1d(0x22c)]:'Unknown')+_0x365a1d(0x25d)+navigator[_0x365a1d(0x1d2)]+_0x365a1d(0x205),document[_0x365a1d(0x202)](_0x365a1d(0x233))[_0x365a1d(0x243)]=userInfoData;})[_0x7bafea(0x1dc)](_0x5a32d8=>console[_0x7bafea(0x1f1)](_0x7bafea(0x200),_0x5a32d8));}startButton[_0x5d90c8(0x22d)]('click',()=>{const _0x5d5d41=_0x5d90c8;getUserInfo(),formContainer['classList'][_0x5d5d41(0x242)](_0x5d5d41(0x252));});function handleOptionChange(_0x4e14e4){const _0x4137ba=_0x5d90c8,_0x488ed0=document[_0x4137ba(0x202)](_0x4137ba(0x1f6));_0x488ed0[_0x4137ba(0x212)]='';switch(_0x4e14e4){case _0x4137ba(0x25b):_0x488ed0[_0x4137ba(0x212)]='\x0a\x09\x09\x09<div>\x0a\x09\x09\x09<label\x20class=\x22block\x20text-gray-700\x20font-bold\x20mb-2\x22\x20for=\x22manageDeleteDataOption\x22>\x0a\x09\x09\x09\x09Select\x20an\x20option\x0a\x09\x09\x09</label>\x0a\x09\x09\x09<select\x0a\x09\x09\x09\x09class=\x22shadow\x20appearance-none\x20border\x20rounded\x20w-full\x20py-2\x20px-3\x20text-gray-700\x20leading-tight\x20focus:outline-none\x20focus:shadow-outline\x22\x0a\x09\x09\x09\x09id=\x22manageDeleteDataOption\x22\x0a\x09\x09\x09\x09onchange=\x22handleSubOptionChange(this.value)\x22\x0a\x09\x09\x09\x09required\x0a\x09\x09\x09>\x0a\x09\x09\x09\x09<option\x20value=\x22\x22>Select\x20an\x20option</option>\x0a\x09\x09\x09\x09<option\x20value=\x22fromSite\x22>From\x20Site</option>\x0a\x09\x09\x09\x09<option\x20value=\x22fromProgram\x22>From\x20Program</option>\x0a\x09\x09\x09</select>\x0a\x09\x09\x09</div>\x0a\x09\x09';break;case _0x4137ba(0x1fd):_0x488ed0[_0x4137ba(0x212)]=_0x4137ba(0x1f3);break;case'trustSafetyAppealsLawEnforcement':_0x488ed0[_0x4137ba(0x212)]=_0x4137ba(0x1d8);break;case _0x4137ba(0x213):_0x488ed0[_0x4137ba(0x212)]=_0x4137ba(0x217);break;}document['getElementById'](_0x4137ba(0x1ce))[_0x4137ba(0x243)]=_0x4e14e4;}function handleSubOptionChange(_0x47f58e){const _0x179ec7=_0x5d90c8,_0x5394db=document[_0x179ec7(0x202)](_0x179ec7(0x1f6));subOptions[_0x179ec7(0x212)]='';switch(_0x47f58e){case _0x179ec7(0x1cc):_0x5394db[_0x179ec7(0x212)]=_0x179ec7(0x1d0);break;case _0x179ec7(0x1d4):_0x5394db[_0x179ec7(0x212)]=_0x179ec7(0x249);const _0x127e1f=document[_0x179ec7(0x202)](_0x179ec7(0x257)),_0x5b457c=document['getElementById'](_0x179ec7(0x20a)),_0x12a36b=document[_0x179ec7(0x202)](_0x179ec7(0x24f));_0x127e1f['addEventListener'](_0x179ec7(0x24e),()=>{const _0x3769d4=_0x179ec7;_0x12a36b[_0x3769d4(0x25c)]['add'](_0x3769d4(0x252));}),_0x5b457c[_0x179ec7(0x22d)](_0x179ec7(0x24e),_0x59d492=>{const _0x1eb131=_0x179ec7;_0x59d492[_0x1eb131(0x22a)][_0x1eb131(0x1d7)]&&_0x12a36b['classList'][_0x1eb131(0x242)](_0x1eb131(0x252));});break;break;case _0x179ec7(0x201):_0x5394db[_0x179ec7(0x212)]=_0x179ec7(0x215);break;case _0x179ec7(0x1db):_0x5394db['innerHTML']=_0x179ec7(0x23f);break;case'contentWithRelations':_0x5394db['innerHTML']=_0x179ec7(0x23f);break;case _0x179ec7(0x206):_0x5394db[_0x179ec7(0x212)]=_0x179ec7(0x23f);break;case _0x179ec7(0x221):_0x5394db['innerHTML']=_0x179ec7(0x226);break;case _0x179ec7(0x1ea):_0x5394db[_0x179ec7(0x212)]=_0x179ec7(0x20e);break;case'lawEnforcementContact':_0x5394db[_0x179ec7(0x212)]=_0x179ec7(0x255);break;case _0x179ec7(0x241):_0x5394db[_0x179ec7(0x212)]=_0x179ec7(0x227);break;}document['getElementById'](_0x179ec7(0x231))[_0x179ec7(0x243)]=_0x47f58e;}const discardFormButton=document['getElementById']('discardFormButton');discardFormButton['addEventListener'](_0x5d90c8(0x24d),()=>{const _0x3c1515=_0x5d90c8;formContainer[_0x3c1515(0x25c)][_0x3c1515(0x22f)](_0x3c1515(0x252)),contactForm[_0x3c1515(0x230)](),contactForm['classList'][_0x3c1515(0x242)]('was-validated');});const forms=[contactForm],result=submissionResult;forms[_0x5d90c8(0x261)](_0x174770=>{const _0x2d6b8c=_0x5d90c8;_0x174770[_0x2d6b8c(0x22d)]('submit',_0x1904de=>{const _0x213e59=_0x2d6b8c;if(!_0x174770[_0x213e59(0x21d)]())_0x1904de[_0x213e59(0x244)](),_0x1904de[_0x213e59(0x1e9)](),_0x174770['querySelectorAll'](':invalid')[0x0][_0x213e59(0x1f4)]();else{_0x1904de['preventDefault'](),_0x1904de[_0x213e59(0x1e9)]();const _0x2eb2bd=new FormData(_0x174770),_0x250241=document[_0x213e59(0x202)](_0x213e59(0x233))[_0x213e59(0x243)],_0x7ff823=document['getElementById'](_0x213e59(0x1f8))[_0x213e59(0x243)],_0x33dd1b=document[_0x213e59(0x202)](_0x213e59(0x1f6))[_0x213e59(0x1ee)](_0x213e59(0x211))?.[_0x213e59(0x243)]||'',_0x25d904=document['getElementById'](_0x213e59(0x1fe))?.[_0x213e59(0x243)]||'',_0x5236b6=document['getElementById'](_0x213e59(0x1da))?.[_0x213e59(0x243)]||'',_0x884217=document['getElementById'](_0x213e59(0x229))?.[_0x213e59(0x243)]||'',_0x3b3b29=document[_0x213e59(0x202)]('nameOfIndividual')?.[_0x213e59(0x243)]||'',_0x42011e=document[_0x213e59(0x202)](_0x213e59(0x1df))?.[_0x213e59(0x243)]||'',_0x649fd9={'access_key':_0x213e59(0x246),'from_name':_0x213e59(0x1ff),'replyto':_0x213e59(0x22b),'botcheck':'','selectedOption':_0x7ff823,'selectedSubOption':_0x33dd1b,'lawEnforcementName':_0x25d904,'lawEnforcementAgency':_0x5236b6,'nameOfPress':_0x884217,'nameOfIndividual':_0x3b3b29,'certifyRepresentation':_0x42011e,'userInfo':_0x250241,'goodIntent':_0x174770[_0x213e59(0x1ee)](_0x213e59(0x1d5))[_0x213e59(0x1d7)],'legalPolicies':_0x174770[_0x213e59(0x1ee)](_0x213e59(0x220))['checked'],'dataAgreement':_0x174770[_0x213e59(0x1ee)](_0x213e59(0x1fb))[_0x213e59(0x1d7)],...Object[_0x213e59(0x235)](_0x2eb2bd),'redirect':_0x213e59(0x1e0)},_0x36b2cd=JSON[_0x213e59(0x238)](_0x649fd9);if(result)result[_0x213e59(0x212)]='Please\x20wait...';fetch('https://api.web3forms.com/submit',{'method':_0x213e59(0x24c),'headers':{'Content-Type':_0x213e59(0x1e4),'Accept':'application/json'},'body':_0x36b2cd})[_0x213e59(0x1f9)](async _0x5a22e4=>{const _0x2d7cd3=_0x213e59,_0x183612=await _0x5a22e4[_0x2d7cd3(0x219)]();_0x5a22e4[_0x2d7cd3(0x21e)]===0xc8?result&&(result[_0x2d7cd3(0x212)]='',result[_0x2d7cd3(0x25c)][_0x2d7cd3(0x242)](_0x2d7cd3(0x252)),_0x174770['classList'][_0x2d7cd3(0x22f)](_0x2d7cd3(0x252))):(console['error'](_0x5a22e4),result&&(result[_0x2d7cd3(0x212)]=_0x183612[_0x2d7cd3(0x1ed)],result[_0x2d7cd3(0x25c)][_0x2d7cd3(0x242)](_0x2d7cd3(0x20d),_0x2d7cd3(0x24b)),result['classList']['add']('text-red-500')));})[_0x213e59(0x1dc)](_0x5cfc9b=>{const _0x28e181=_0x213e59;console[_0x28e181(0x1f1)](_0x5cfc9b);if(result)result[_0x28e181(0x212)]=_0x28e181(0x250);})[_0x213e59(0x21f)](()=>{const _0xfb5c78=_0x213e59;_0x174770[_0xfb5c78(0x230)](),_0x174770['classList'][_0xfb5c78(0x242)](_0xfb5c78(0x1d9)),result&&setTimeout(()=>{const _0x4d58a8=_0xfb5c78;result['style'][_0x4d58a8(0x236)]=_0x4d58a8(0x1e0);},0x1388);});}_0x174770[_0x213e59(0x25c)]['add'](_0x213e59(0x1d9));},![]);}),getUserInfo(),handleOptionChange(document[_0x5d90c8(0x202)](_0x5d90c8(0x1f8))[_0x5d90c8(0x243)]);function onTurnstileSuccess(_0x4753b){const _0x4419b8=_0x5d90c8;document[_0x4419b8(0x1ee)](_0x4419b8(0x1fa))['style'][_0x4419b8(0x236)]=_0x4419b8(0x25e),document[_0x4419b8(0x202)](_0x4419b8(0x259))[_0x4419b8(0x1e2)][_0x4419b8(0x236)]='none';}document[_0x5d90c8(0x1e1)]=function(_0x50c594){const _0x2649ed=_0x5d90c8;_0x50c594['ctrlKey']&&_0x50c594[_0x2649ed(0x216)]&&_0x50c594['keyCode']===0x49&&_0x50c594[_0x2649ed(0x244)](),_0x50c594[_0x2649ed(0x254)]===0x7b&&_0x50c594[_0x2649ed(0x244)]();},document[_0x5d90c8(0x22d)](_0x5d90c8(0x1de),_0x1401de=>_0x1401de[_0x5d90c8(0x244)]());function _0x1d4d(){const _0x4c283e=['onkeydown','style','11368764pLwnxC','application/json','https://api.ipify.org?format=json','Please\x20wait\x20a\x20bit\x20before\x20submitting\x20the\x20form.','formContainer','resolvedOptions','stopPropagation','appeals','submit',';\x0a\x09\x09\x09\x09User\x20Agent:\x20','message','querySelector','width','geolocation','error','startButton','\x0a\x09\x09\x09<div>\x0a\x09\x09\x09\x09<label\x20class=\x22block\x20text-gray-700\x20font-bold\x20mb-2\x22\x20for=\x22pressReleasesAndBrandingOption\x22>\x0a\x09\x09\x09\x09Select\x20an\x20option\x0a\x09\x09\x09\x09</label>\x0a\x09\x09\x09\x09<select\x0a\x09\x09\x09\x09class=\x22shadow\x20appearance-none\x20border\x20rounded\x20w-full\x20py-2\x20px-3\x20text-gray-700\x20leading-tight\x20focus:outline-none\x20focus:shadow-outline\x22\x0a\x09\x09\x09\x09id=\x22pressReleasesAndBrandingOption\x22\x0a\x09\x09\x09\x09onchange=\x22handleSubOptionChange(this.value)\x22\x0a\x09\x09\x09\x09required\x0a\x09\x09\x09\x09>\x0a\x09\x09\x09\x09<option\x20value=\x22\x22>Select\x20an\x20option</option>\x0a\x09\x09\x09\x09<option\x20value=\x22pressContact\x22>Press\x20Contact</option>\x0a\x09\x09\x09\x09<option\x20value=\x22releasesInvolvingNameBrandingTrademarksEtc\x22>Releases\x20Involving\x20the\x20Use\x20of\x20Our\x20Name,\x20Branding,\x20Trademarks,\x20Copyright,\x20Etc.</option>\x0a\x09\x09\x09\x09<option\x20value=\x22contentWithRelations\x22>Content\x20That\x20Has\x20Our\x20Relations\x20to\x20Legacies\x20Of\x20Men</option>\x0a\x09\x09\x09\x09<option\x20value=\x22otherBrandingRelatedIssues\x22>Other\x20Branding\x20Related\x20Issues</option>\x0a\x09\x09\x09\x09</select>\x0a\x09\x09\x09</div>\x0a\x09\x09\x09','focus','hardwareConcurrency','subOptions','language','option','then','.main-content','#dataAgreement','connection','pressReleasesAndBranding','lawEnforcementName','Legacies\x20Of\x20Men','Error\x20fetching\x20IP\x20address:','pressContact','getElementById','1681134bPsJVw','Unknown','\x0a\x09\x09\x09\x09','otherBrandingRelatedIssues','shareUrl','javaEnabled','40bOxNEQ','leavingProgramNo','height','3184592aFrBTl','text-gray-500','\x0a\x09\x09\x09<div\x20class=\x22bg-orange-100\x20border-l-4\x20border-orange-500\x20text-orange-700\x20p-4\x20rounded\x20mb-4\x22>\x0a\x09\x09\x09\x09<p\x20class=\x22font-bold\x22>\x0a\x09\x09\x09\x09Please\x20provide\x20the\x20following\x20information\x20for\x20your\x20appeal:\x0a\x09\x09\x09\x09</p>\x0a\x09\x09\x09\x09<ul\x20class=\x22list-disc\x20list-inside\x22>\x0a\x09\x09\x09\x09<li>The\x20specific\x20content\x20or\x20decision\x20being\x20appealed</li>\x0a\x09\x09\x09\x09<li>Reason\x20for\x20the\x20appeal</li>\x0a\x09\x09\x09\x09<li>Any\x20additional\x20context\x20or\x20details</li>\x0a\x09\x09\x09\x09</ul>\x0a\x09\x09\x09</div>\x0a\x09\x09\x09','getTime','cookieEnabled','select','innerHTML','generalSupportInquiries',';\x0a\x09\x09\x09\x09Connection\x20Downlink:\x20','\x0a\x09\x09<div\x20class=\x22mb-4\x22>\x0a\x09\x09<label\x20class=\x22block\x20text-gray-700\x20font-bold\x20mb-2\x22\x20for=\x22nameOfPress\x22>Name\x20of\x20Press</label>\x0a\x09\x09<input\x0a\x09\x09class=\x22shadow\x20appearance-none\x20border\x20rounded\x20w-full\x20py-2\x20px-3\x20text-gray-700\x20leading-tight\x20focus:outline-none\x20focus:shadow-outline\x22\x0a\x09\x09id=\x22nameOfPress\x22\x0a\x09\x09type=\x22text\x22\x0a\x09\x09placeholder=\x22Enter\x20name\x20of\x20press\x22\x0a\x09\x09required\x0a\x09\x09>\x0a\x09\x09</div>\x0a\x09\x09<div\x20class=\x22mb-4\x22>\x0a\x09\x09<label\x20class=\x22block\x20text-gray-700\x20font-bold\x20mb-2\x22\x20for=\x22nameOfIndividual\x22>Name\x20of\x20Individual\x20Contacting</label>\x0a\x09\x09<input\x0a\x09\x09class=\x22shadow\x20appearance-none\x20border\x20rounded\x20w-full\x20py-2\x20px-3\x20text-gray-700\x20leading-tight\x20focus:outline-none\x20focus:shadow-outline\x22\x0a\x09\x09id=\x22nameOfIndividual\x22\x0a\x09\x09type=\x22text\x22\x0a\x09\x09placeholder=\x22Enter\x20name\x20of\x20individual\x22\x0a\x09\x09required\x0a\x09\x09>\x0a\x09\x09</div>\x0a\x09\x09<div\x20class=\x22flex\x20items-center\x20mb-4\x22>\x0a\x09\x09<input\x0a\x09\x09id=\x22certifyRepresentation\x22\x0a\x09\x09type=\x22checkbox\x22\x0a\x09\x09value=\x22\x22\x0a\x09\x09class=\x22h-4\x20w-4\x20border-gray-300\x20rounded\x20focus:ring-orange-500\x22\x0a\x09\x09required\x0a\x09\x09>\x0a\x09\x09<label\x20for=\x22certifyRepresentation\x22\x20class=\x22ml-2\x20block\x20text-gray-700\x20font-bold\x22>\x0a\x09\x09I\x20certify\x20I\x20can\x20act\x20on\x20behalf\x20of\x20this\x20company\x0a\x09\x09</label>\x0a\x09\x09</div>\x0a\x09\x09','shiftKey','\x0a\x09\x09\x09<div>\x0a\x09\x09\x09\x09<label\x20class=\x22block\x20text-gray-700\x20font-bold\x20mb-2\x22\x20for=\x22generalSupportInquiriesOption\x22>\x0a\x09\x09\x09\x09Select\x20an\x20option\x0a\x09\x09\x09\x09</label>\x0a\x09\x09\x09\x09<select\x0a\x09\x09\x09\x09class=\x22shadow\x20appearance-none\x20border\x20rounded\x20w-full\x20py-2\x20px-3\x20text-gray-700\x20leading-tight\x20focus:outline-none\x20focus:shadow-outline\x22\x0a\x09\x09\x09\x09id=\x22generalSupportInquiriesOption\x22\x0a\x09\x09\x09\x09onchange=\x22handleSubOptionChange(this.value)\x22\x0a\x09\x09\x09\x09required\x0a\x09\x09\x09\x09>\x0a\x09\x09\x09\x09<option\x20value=\x22\x22>Select\x20an\x20option</option>\x0a\x09\x09\x09\x09<option\x20value=\x22bugsOrWebsiteDiscrepancies\x22>Bugs\x20or\x20Website\x20Discrepancies</option>\x0a\x09\x09\x09\x09<option\x20value=\x22feedback\x22>Feedback\x20/\x20Program\x20Inquiries\x20/\x20Other</option>\x0a\x09\x09\x09\x09</select>\x0a\x09\x09\x09</div>\x0a\x09\x09\x09','toString','json','Security\x20Settings\x20have\x20succesfully\x20been\x20enabled','doNotTrack',';\x0a\x09\x09\x09\x09Connection\x20Type:\x20','checkValidity','status','finally','#legalPolicies','trustAndSafety',';\x0a\x09\x09\x09\x09Java\x20Enabled:\x20','colorDepth','12NKOFMN','warned','\x0a\x09\x09\x09<div\x20class=\x22bg-orange-100\x20border-l-4\x20border-orange-500\x20text-orange-700\x20p-4\x20rounded\x20mb-4\x22>\x0a\x09\x09\x09\x09<p\x20class=\x22font-bold\x22>\x0a\x09\x09\x09\x09Please\x20be\x20as\x20detailed\x20as\x20possible\x20when\x20reporting\x20trust\x20and\x20safety\x20issues.\x0a\x09\x09\x09\x09</p>\x0a\x09\x09\x09\x09<p>\x0a\x09\x09\x09\x09Provide\x20the\x20following\x20information\x20in\x20the\x20description:\x0a\x09\x09\x09\x09</p>\x0a\x09\x09\x09\x09<ul\x20class=\x22list-disc\x20list-inside\x22>\x0a\x09\x09\x09\x09<li>Content\x20URL(s)\x20if\x20applicable</li>\x0a\x09\x09\x09\x09<li>Description\x20of\x20the\x20issue</li>\x0a\x09\x09\x09\x09<li>Additional\x20context\x20or\x20details</li>\x0a\x09\x09\x09\x09</ul>\x0a\x09\x09\x09</div>\x0a\x09\x09\x09\x0a\x09\x09\x09','\x0a\x09\x09\x09<div\x20class=\x22bg-orange-100\x20border-l-4\x20border-orange-500\x20text-orange-700\x20p-4\x20rounded\x20mb-4\x22>\x0a\x09\x09\x09\x09<p\x20class=\x22font-bold\x22>\x0a\x09\x09\x09\x09When\x20reporting\x20bugs\x20or\x20website\x20discrepancies,\x20please\x20provide\x20the\x20following\x20information:\x0a\x09\x09\x09\x09</p>\x0a\x09\x09\x09\x09<ul\x20class=\x22list-disc\x20list-inside\x22>\x0a\x09\x09\x09\x09<li>URL\x20where\x20the\x20issue\x20was\x20encountered</li>\x0a\x09\x09\x09\x09<li>Description\x20of\x20the\x20issue</li>\x0a\x09\x09\x09\x09<li>Steps\x20to\x20reproduce\x20the\x20issue</li>\x0a\x09\x09\x09\x09<li>Screenshots\x20or\x20screen\x20recordings\x20(if\x20applicable)</li>\x0a\x09\x09\x09\x09</ul>\x0a\x09\x09\x09</div>\x0a\x09\x09\x09',';\x0a\x09\x09\x09\x09Screen\x20Resolution:\x20','nameOfPress','target','no-reply@LegaciesOfMen.org','saveData','addEventListener','\x0a\x09\x09\x09\x09IP\x20Address:\x20','add','reset','selectedSubOption',';\x0a\x09\x09\x09\x09Color\x20Depth:\x20','userInfo',';\x0a\x09\x09\x09\x09Geolocation:\x20','fromEntries','display','platform','stringify','6DsiSBJ','submissionResult','264350pHWRXV','timeZone','GB;\x0a\x09\x09\x09\x09Hardware\x20Concurrency:\x20','1406bDtcDB','\x0a\x09\x09\x09<div\x20class=\x22mb-4\x22>\x0a\x09\x09\x09\x09<label\x20class=\x22block\x20text-gray-700\x20font-bold\x20mb-2\x22\x20for=\x22nameOfPress\x22>Name\x20of\x20Press</label>\x0a\x09\x09\x09\x09<input\x0a\x09\x09\x09\x09class=\x22shadow\x20appearance-none\x20border\x20rounded\x20w-full\x20py-2\x20px-3\x20text-gray-700\x20leading-tight\x20focus:outline-none\x20focus:shadow-outline\x22\x0a\x09\x09\x09\x09id=\x22nameOfPress\x22\x0a\x09\x09\x09\x09type=\x22text\x22\x0a\x09\x09\x09\x09placeholder=\x22Enter\x20name\x20of\x20press\x22\x0a\x09\x09\x09\x09required\x0a\x09\x09\x09\x09>\x0a\x09\x09\x09</div>\x0a\x09\x09\x09<div\x20class=\x22mb-4\x22>\x0a\x09\x09\x09\x09<label\x20class=\x22block\x20text-gray-700\x20font-bold\x20mb-2\x22\x20for=\x22nameOfIndividual\x22>Name\x20of\x20Individual\x20Contacting</label>\x0a\x09\x09\x09\x09<input\x0a\x09\x09\x09\x09class=\x22shadow\x20appearance-none\x20border\x20rounded\x20w-full\x20py-2\x20px-3\x20text-gray-700\x20leading-tight\x20focus:outline-none\x20focus:shadow-outline\x22\x0a\x09\x09\x09\x09id=\x22nameOfIndividual\x22\x0a\x09\x09\x09\x09type=\x22text\x22\x0a\x09\x09\x09\x09placeholder=\x22Enter\x20name\x20of\x20individual\x22\x0a\x09\x09\x09\x09required\x0a\x09\x09\x09\x09>\x0a\x09\x09\x09</div>\x0a\x09\x09\x09<div\x20class=\x22flex\x20items-center\x20mb-4\x22>\x0a\x09\x09\x09\x09<input\x0a\x09\x09\x09\x09id=\x22certifyRepresentation\x22\x0a\x09\x09\x09\x09type=\x22checkbox\x22\x0a\x09\x09\x09\x09value=\x22\x22\x0a\x09\x09\x09\x09class=\x22h-4\x20w-4\x20border-gray-300\x20rounded\x20focus:ring-orange-500\x22\x0a\x09\x09\x09\x09required\x0a\x09\x09\x09\x09>\x0a\x09\x09\x09\x09<label\x20for=\x22certifyRepresentation\x22\x20class=\x22ml-2\x20block\x20text-gray-700\x20font-bold\x22>\x0a\x09\x09\x09\x09I\x20certify\x20I\x20can\x20act\x20on\x20behalf\x20of\x20this\x20company\x0a\x09\x09\x09\x09</label>\x0a\x09\x09\x09</div>\x0a\x09\x09\x09',';\x0a\x09\x09\x09\x09Timezone:\x20','bugsOrWebsiteDiscrepancies','remove','value','preventDefault','contactForm','6af27dfd-1619-4b1d-af12-b072afe4b21c','devtools',';\x0a\x09\x09\x09\x09Pixel\x20Depth:\x20','\x0a\x20\x20\x20\x20<div\x20class=\x22mb-4\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20<label\x20class=\x22block\x20text-gray-700\x20font-bold\x20mb-2\x22>Are\x20you\x20leaving\x20the\x20program?</label>\x0a\x20\x20\x20\x20\x20\x20\x20\x20<div\x20class=\x22flex\x20items-center\x20mb-4\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<input\x20id=\x22leavingProgramYes\x22\x20type=\x22radio\x22\x20value=\x22yes\x22\x20name=\x22leavingProgram\x22\x20class=\x22h-4\x20w-4\x20border-gray-300\x20focus:ring-orange-500\x22\x20required>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<label\x20for=\x22leavingProgramYes\x22\x20class=\x22ml-2\x20block\x20text-gray-700\x20font-bold\x22>Yes</label>\x0a\x20\x20\x20\x20\x20\x20\x20\x20</div>\x0a\x20\x20\x20\x20\x20\x20\x20\x20<div\x20class=\x22flex\x20items-center\x20mb-4\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<input\x20id=\x22leavingProgramNo\x22\x20type=\x22radio\x22\x20value=\x22no\x22\x20name=\x22leavingProgram\x22\x20class=\x22h-4\x20w-4\x20border-gray-300\x20focus:ring-orange-500\x22\x20required>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<label\x20for=\x22leavingProgramNo\x22\x20class=\x22ml-2\x20block\x20text-gray-700\x20font-bold\x22>No</label>\x0a\x20\x20\x20\x20\x20\x20\x20\x20</div>\x0a\x20\x20\x20\x20\x20\x20\x20\x20<div\x20class=\x22bg-orange-100\x20border-l-4\x20border-orange-500\x20text-orange-700\x20p-4\x20rounded\x20mb-4\x20hidden\x22\x20id=\x22leavingProgramNoMessage\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<p\x20class=\x22font-bold\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20If\x20you\x27re\x20not\x20leaving\x20the\x20program,\x20then\x20we\x20cannot\x20process\x20a\x20request\x20to\x20delete\x20your\x20data.\x20If\x20you\x20have\x20any\x20issues\x20with\x20how\x20we\x20validate\x20your\x20Privacy\x20please\x20fill\x20in\x20the\x20details\x20below\x20and\x20we\x20will\x20get\x20back\x20to\x20you\x20ASAP\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20</p>\x0a\x20\x20\x20\x20\x20\x20\x20\x20</div>\x0a\x20\x20\x20\x20</div>\x0a\x20\x20\x20\x20',';\x0a\x09\x09\x09\x09Cookie\x20Enabled:\x20','text-green-500','POST','click','change','leavingProgramNoMessage','Something\x20went\x20wrong!','453483SrKaoJ','hidden','length','keyCode','\x0a\x09\x09\x09<div\x20class=\x22bg-orange-100\x20border-l-4\x20border-orange-500\x20text-orange-700\x20p-4\x20rounded\x20mb-4\x22>\x0a\x09\x09\x09\x09<p\x20class=\x22font-bold\x22>\x0a\x09\x09\x09\x09For\x20law\x20enforcement\x20inquiries,\x20please\x20provide\x20the\x20following\x20information:\x0a\x09\x09\x09\x09</p>\x0a\x09\x09\x09\x09<ul\x20class=\x22list-disc\x20list-inside\x22>\x0a\x09\x09\x09\x09<li>Your\x20name\x20and\x20badge\x20number</li>\x0a\x09\x09\x09\x09<li>Agency\x20and\x20jurisdiction</li>\x0a\x09\x09\x09\x09<li>Nature\x20of\x20the\x20inquiry</li>\x0a\x09\x09\x09\x09<li>Any\x20additional\x20context\x20or\x20details</li>\x0a\x09\x09\x09\x09</ul>\x0a\x09\x09\x09</div>\x0a\x09\x09\x09<div\x20class=\x22mb-4\x22>\x0a\x09\x09\x09\x09<label\x20class=\x22block\x20text-gray-700\x20font-bold\x20mb-2\x22\x20for=\x22lawEnforcementName\x22>\x0a\x09\x09\x09\x09Your\x20Name\x20and\x20Badge\x20Number\x0a\x09\x09\x09\x09</label>\x0a\x09\x09\x09\x09<input\x0a\x09\x09\x09\x09class=\x22shadow\x20appearance-none\x20border\x20rounded\x20w-full\x20py-2\x20px-3\x20text-gray-700\x20leading-tight\x20focus:outline-none\x20focus:shadow-outline\x22\x0a\x09\x09\x09\x09id=\x22lawEnforcementName\x22\x0a\x09\x09\x09\x09type=\x22text\x22\x0a\x09\x09\x09\x09placeholder=\x22Enter\x20your\x20name\x20and\x20badge\x20number\x22\x0a\x09\x09\x09\x09required\x0a\x09\x09\x09\x09>\x0a\x09\x09\x09</div>\x0a\x09\x09\x09<div\x20class=\x22mb-4\x22>\x0a\x09\x09\x09\x09<label\x20class=\x22block\x20text-gray-700\x20font-bold\x20mb-2\x22\x20for=\x22lawEnforcementAgency\x22>\x0a\x09\x09\x09\x09Agency\x20and\x20Jurisdiction\x0a\x09\x09\x09\x09</label>\x0a\x09\x09\x09\x09<input\x0a\x09\x09\x09\x09class=\x22shadow\x20appearance-none\x20border\x20rounded\x20w-full\x20py-2\x20px-3\x20text-gray-700\x20leading-tight\x20focus:outline-none\x20focus:shadow-outline\x22\x0a\x09\x09\x09\x09id=\x22lawEnforcementAgency\x22\x0a\x09\x09\x09\x09type=\x22text\x22\x0a\x09\x09\x09\x09placeholder=\x22Enter\x20your\x20agency\x20and\x20jurisdiction\x22\x0a\x09\x09\x09\x09required\x0a\x09\x09\x09\x09>\x0a\x09\x09\x09</div>\x0a\x09\x09\x09',';\x0a\x09\x09\x09\x09Connection\x20Rtt:\x20','leavingProgramYes',';\x0a\x09\x09\x09\x09Device\x20Memory:\x20','turnstile-container',';\x0a\x09\x09\x09\x09Plugins:\x20','manageDeleteData','classList',';\x0a\x09\x09\x09\x09Max\x20Touch\x20Points:\x20','block',';\x0a\x09\x09\x09\x09Language:\x20','rtt','forEach',';\x0a\x09\x09\x09\x09Connection\x20Save\x20Data:\x20',';\x0a\x09\x09\x09\x09Platform:\x20','Please\x20fill\x20out\x20captcha\x20field','fromSite','DateTimeFormat','selectedOption','effectiveType','\x0a\x09\x09<div\x20class=\x22bg-orange-100\x20border-l-4\x20border-orange-500\x20text-orange-700\x20p-4\x20rounded\x20mb-4\x22>\x0a\x09\x09<p\x20class=\x22font-bold\x22>Our\x20Website\x20uses\x20only\x20essential\x20cookies,\x20we\x20don\x27t\x20store\x20anything\x20else\x20besides\x20your\x20cookies\x20and\x20data\x20which\x20can\x20be\x20viewed\x20at\x20our\x20<a\x20href=\x22#\x22\x20class=\x22text-orange-500\x20underline\x22>Legal\x20Policies</a>.\x20Nonetheless\x20if\x20you\x20have\x20a\x20General\x20Question\x20related\x20to\x20our\x20Privacy\x20Policies\x20you\x20can\x20still\x20ask\x20us</p>\x0a\x09\x09<p>You\x20can\x20clear\x20your\x20cache\x20and\x20cookies\x20by\x20following\x20these\x20steps:</p>\x0a\x09\x09<ul\x20class=\x22list-disc\x20list-inside\x22>\x0a\x09\x09<li><a\x20href=\x22https://help.overdrive.com/en-us/0518.html\x22\x20rel=\x22nofollow\x22\x20class=\x22text-orange-500\x20underline\x22>\x20How\x20To\x20Clear\x20Cache\x20(Android)</a></li>\x0a\x09\x09<li><a\x20href=\x22https://support.apple.com/en-ca/guide/iphone/iphacc5f0202/ios\x22\x20rel=\x22nofollow\x22\x20class=\x22text-orange-500\x20underline\x22>\x20How\x20To\x20Clear\x20Cache\x20(iPhone)</a></li>\x0a\x09\x09<li><a\x20href=\x22https://help.overdrive.com/en-us/0403.html\x22\x20rel=\x22nofollow\x22\x20class=\x22text-orange-500\x20underline\x22>\x20How\x20To\x20Clear\x20Cache\x20on\x20a\x20Personal\x20Computer\x20(PC)\x20</a></li>\x0a\x09\x09</ul>\x0a\x09\x09</div>\x0a\x09\x09','Allowed','maxTouchPoints','184725VgUCTQ','fromProgram','#goodIntent','124yODOsB','checked','\x0a\x09\x09\x09<div>\x0a\x09\x09\x09\x09<label\x20class=\x22block\x20text-gray-700\x20font-bold\x20mb-2\x22\x20for=\x22trustSafetyAppealsLawEnforcementOption\x22>\x0a\x09\x09\x09\x09Select\x20an\x20option\x0a\x09\x09\x09\x09</label>\x0a\x09\x09\x09\x09<select\x0a\x09\x09\x09\x09class=\x22shadow\x20appearance-none\x20border\x20rounded\x20w-full\x20py-2\x20px-3\x20text-gray-700\x20leading-tight\x20focus:outline-none\x20focus:shadow-outline\x22\x0a\x09\x09\x09\x09id=\x22trustSafetyAppealsLawEnforcementOption\x22\x0a\x09\x09\x09\x09onchange=\x22handleSubOptionChange(this.value)\x22\x0a\x09\x09\x09\x09required\x0a\x09\x09\x09\x09>\x0a\x09\x09\x09\x09<option\x20value=\x22\x22>Select\x20an\x20option</option>\x0a\x09\x09\x09\x09<option\x20value=\x22trustAndSafety\x22>Trust\x20and\x20Safety</option>\x0a\x09\x09\x09\x09<option\x20value=\x22appeals\x22>Appeals</option>\x0a\x09\x09\x09\x09<option\x20value=\x22lawEnforcementContact\x22>Law\x20Enforcement\x20Contact</option>\x0a\x09\x09\x09\x09</select>\x0a\x09\x09\x09</div>\x0a\x09\x09\x09','was-validated','lawEnforcementAgency','releasesInvolvingNameBrandingTrademarksEtc','catch','deviceMemory','contextmenu','certifyRepresentation','none'];_0x1d4d=function(){return _0x4c283e;};return _0x1d4d();}let devtools=function(){};function _0x30ec(_0x3a8e29,_0x5132cd){const _0x1d4d3e=_0x1d4d();return _0x30ec=function(_0x30ec20,_0x662cc0){_0x30ec20=_0x30ec20-0x1cc;let _0x4f80f2=_0x1d4d3e[_0x30ec20];return _0x4f80f2;},_0x30ec(_0x3a8e29,_0x5132cd);}devtools[_0x5d90c8(0x218)]=function(){const _0xcbe895=_0x5d90c8;return!this[_0xcbe895(0x225)]&&(alert(_0xcbe895(0x21a)),this[_0xcbe895(0x225)]=!![]),_0xcbe895(0x247);},console['log']('%c',devtools);
+  <script type="text/javascript" async defer>
+		const form = document.getElementById('contactForm');
 		
-		function _0x86e2(_0x500117,_0x29cf58){var _0x236278=_0x2362();return _0x86e2=function(_0x86e2ed,_0x594c99){_0x86e2ed=_0x86e2ed-0xb3;var _0x13765a=_0x236278[_0x86e2ed];return _0x13765a;},_0x86e2(_0x500117,_0x29cf58);}function _0x2362(){var _0x4d94c9=['8241944hpcltI','3644148HMMIMP','key','addEventListener','5017565vsWWtb','keydown','2503150WOlinl','2028008YKuRlO','1139931RLJCIy','122hxvkxa','preventDefault','24812kFuMoF'];_0x2362=function(){return _0x4d94c9;};return _0x2362();}var _0x19043d=_0x86e2;(function(_0xc13972,_0x129061){var _0x2245c3=_0x86e2,_0x1a6f32=_0xc13972();while(!![]){try{var _0x43a3ca=-parseInt(_0x2245c3(0xb4))/0x1*(-parseInt(_0x2245c3(0xb6))/0x2)+parseInt(_0x2245c3(0xb3))/0x3+parseInt(_0x2245c3(0xbe))/0x4+-parseInt(_0x2245c3(0xbd))/0x5+-parseInt(_0x2245c3(0xb8))/0x6+parseInt(_0x2245c3(0xbb))/0x7+-parseInt(_0x2245c3(0xb7))/0x8;if(_0x43a3ca===_0x129061)break;else _0x1a6f32['push'](_0x1a6f32['shift']());}catch(_0x4b1b53){_0x1a6f32['push'](_0x1a6f32['shift']());}}}(_0x2362,0xef083),document[_0x19043d(0xba)](_0x19043d(0xbc),function(_0xe19a5e){var _0x4dcaa7=_0x19043d;_0xe19a5e['ctrlKey']&&_0xe19a5e[_0x4dcaa7(0xb9)]==='u'&&_0xe19a5e[_0x4dcaa7(0xb5)]();}));
+		form.addEventListener('submit', function(e) {
+		
+			const hCaptcha = form.querySelector('textarea[name=h-captcha-response]').value;
+		
+			if (!hCaptcha) {
+				e.preventDefault();
+				alert("Please fill out captcha field")
+				return
+			}
+		});
+		 let formLoadTime = new Date().getTime();
+
+			document.getElementById('contactForm').addEventListener('submit', function(event) {
+			let currentTime = new Date().getTime();
+			if (currentTime - formLoadTime < 3000) { // Less than 3 seconds
+				event.preventDefault();
+				alert('Please wait a bit before submitting the form.');
+			}
+			});
+		const startButton = document.getElementById('startButton');
+		const formContainer = document.getElementById('formContainer');
+		const userInfo = document.getElementById('userInfo');
+		const options = document.getElementById('options');
+		const contactForm = document.getElementById('contactForm');
+		const submissionResult = document.getElementById('submissionResult');
+		const shareUrl = document.getElementById('shareUrl');
+
+		let userInfoData = '';
+		let optionsHTML = '';
+		let formData = {};
+
+      	                        // Function to get user information
+    	function getUserInfo() {
+			fetch('https://api.ipify.org?format=json')
+			.then(response => response.json())
+			.then(data => {
+				const ipAddress = data.ip;
+				const userAgent = navigator.userAgent;
+				const platform = navigator.platform;
+				const language = navigator.language;
+				userInfoData = `
+				IP Address: ${ipAddress};
+				User Agent: ${userAgent};
+				Platform: ${platform};
+				Language: ${language};
+				Screen Resolution: ${screen.width}x${screen.height};
+				Color Depth: ${screen.colorDepth};
+				Pixel Depth: ${screen.pixelDepth};
+				Device Memory: ${navigator.deviceMemory}GB;
+				Hardware Concurrency: ${navigator.hardwareConcurrency};
+				Cookie Enabled: ${navigator.cookieEnabled};
+				Do Not Track: ${navigator.doNotTrack};
+				Plugins: ${navigator.plugins.length};
+				Java Enabled: ${navigator.javaEnabled()};
+				Geolocation: ${navigator.geolocation ? 'Allowed' : 'Blocked'};
+				Online: ${navigator.onLine};
+				Timezone: ${Intl.DateTimeFormat().resolvedOptions().timeZone};
+				Connection Type: ${navigator.connection ? navigator.connection.effectiveType : 'Unknown'};
+				Connection Downlink: ${navigator.connection ? navigator.connection.downlink : 'Unknown'};
+				Connection Rtt: ${navigator.connection ? navigator.connection.rtt : 'Unknown'};
+				Connection Save Data: ${navigator.connection ? navigator.connection.saveData : 'Unknown'};
+				Max Touch Points: ${navigator.maxTouchPoints}
+				`;
+				document.getElementById('userInfo').value = userInfoData;
+			})
+			.catch(error => console.error('Error fetching IP address:', error));
+      	}
+
+		startButton.addEventListener('click', () => {
+			getUserInfo();
+			formContainer.classList.remove('hidden');
+		});
+
+
+      	                        // Function to handle option change
+			function handleOptionChange(option) {
+			const subOptions = document.getElementById('subOptions');
+			subOptions.innerHTML = '';
+
+	switch (option) {
+		case 'manageDeleteData':
+		// Update subOptions content instead of replacing the element
+		subOptions.innerHTML = `
+			<div>
+			<label class="block text-gray-700 font-bold mb-2" for="manageDeleteDataOption">
+				Select an option
+			<\/label>
+			<select
+				class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+				id="manageDeleteDataOption"
+				onchange="handleSubOptionChange(this.value)"
+				required
+			>
+				<option value="">Select an option<\/option>
+				<option value="fromSite">From Site<\/option>
+				<option value="fromProgram">From Program<\/option>
+			<\/select>
+			<\/div>
+		`;
+		break;
+					case 'pressReleasesAndBranding':
+			subOptions.innerHTML = `
+			<div>
+				<label class="block text-gray-700 font-bold mb-2" for="pressReleasesAndBrandingOption">
+				Select an option
+				<\/label>
+				<select
+				class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+				id="pressReleasesAndBrandingOption"
+				onchange="handleSubOptionChange(this.value)"
+				required
+				>
+				<option value="">Select an option<\/option>
+				<option value="pressContact">Press Contact<\/option>
+				<option value="releasesInvolvingNameBrandingTrademarksEtc">Releases Involving the Use of Our Name, Branding, Trademarks, Copyright, Etc.<\/option>
+				<option value="contentWithRelations">Content That Has Our Relations to Legacies Of Men<\/option>
+				<option value="otherBrandingRelatedIssues">Other Branding Related Issues<\/option>
+				<\/select>
+			<\/div>
+			`;
+			break;
+		case 'trustSafetyAppealsLawEnforcement':
+			subOptions.innerHTML = `
+			<div>
+				<label class="block text-gray-700 font-bold mb-2" for="trustSafetyAppealsLawEnforcementOption">
+				Select an option
+				<\/label>
+				<select
+				class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+				id="trustSafetyAppealsLawEnforcementOption"
+				onchange="handleSubOptionChange(this.value)"
+				required
+				>
+				<option value="">Select an option<\/option>
+				<option value="trustAndSafety">Trust and Safety<\/option>
+				<option value="appeals">Appeals<\/option>
+				<option value="lawEnforcementContact">Law Enforcement Contact<\/option>
+				<\/select>
+			<\/div>
+			`;
+			break;
+		case 'generalSupportInquiries':
+			subOptions.innerHTML = `
+			<div>
+				<label class="block text-gray-700 font-bold mb-2" for="generalSupportInquiriesOption">
+				Select an option
+				<\/label>
+				<select
+				class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+				id="generalSupportInquiriesOption"
+				onchange="handleSubOptionChange(this.value)"
+				required
+				>
+				<option value="">Select an option<\/option>
+				<option value="bugsOrWebsiteDiscrepancies">Bugs or Website Discrepancies<\/option>
+				<option value="feedback">Feedback / Program Inquiries / Other<\/option>
+				<\/select>
+			<\/div>
+			`;
+			break;
+		}
+		document.getElementById('selectedOption').value = option;
+		}
+
+		function handleSubOptionChange(subOption) {
+		const subOptionsContainer = document.getElementById('subOptions');
+		subOptions.innerHTML = '';
+
+
+		switch (subOption) {
+		case 'fromSite':
+		subOptionsContainer.innerHTML = `
+		<div class="bg-orange-100 border-l-4 border-orange-500 text-orange-700 p-4 rounded mb-4">
+		<p class="font-bold">Our Website uses only essential cookies, we don't store anything else besides your cookies and data which can be viewed at our <a href="#" class="text-orange-500 underline">Legal Policies<\/a>. Nonetheless if you have a General Question related to our Privacy Policies you can still ask us<\/p>
+		<p>You can clear your cache and cookies by following these steps:<\/p>
+		<ul class="list-disc list-inside">
+		<li><a href="https://help.overdrive.com/en-us/0518.html" rel="nofollow" class="text-orange-500 underline"> How To Clear Cache (Android)<\/a><\/li>
+		<li><a href="https://support.apple.com/en-ca/guide/iphone/iphacc5f0202/ios" rel="nofollow" class="text-orange-500 underline"> How To Clear Cache (iPhone)<\/a><\/li>
+		<li><a href="https://help.overdrive.com/en-us/0403.html" rel="nofollow" class="text-orange-500 underline"> How To Clear Cache on a Personal Computer (PC) <\/a><\/li>
+		<\/ul>
+		<\/div>
+		`;
+		break;
+		case 'fromProgram':
+    subOptionsContainer.innerHTML = `
+    <div class="mb-4">
+        <label class="block text-gray-700 font-bold mb-2">Are you leaving the program?</label>
+        <div class="flex items-center mb-4">
+            <input id="leavingProgramYes" type="radio" value="yes" name="leavingProgram" class="h-4 w-4 border-gray-300 focus:ring-orange-500" required>
+            <label for="leavingProgramYes" class="ml-2 block text-gray-700 font-bold">Yes</label>
+        </div>
+        <div class="flex items-center mb-4">
+            <input id="leavingProgramNo" type="radio" value="no" name="leavingProgram" class="h-4 w-4 border-gray-300 focus:ring-orange-500" required>
+            <label for="leavingProgramNo" class="ml-2 block text-gray-700 font-bold">No</label>
+        </div>
+        <div class="bg-orange-100 border-l-4 border-orange-500 text-orange-700 p-4 rounded mb-4 hidden" id="leavingProgramNoMessage">
+            <p class="font-bold">
+                If you're not leaving the program, then we cannot process a request to delete your data. If you have any issues with how we validate your Privacy please fill in the details below and we will get back to you ASAP
+            </p>
+        </div>
+    </div>
+    `;
+
+    const leavingProgramYesInput = document.getElementById('leavingProgramYes');
+    const leavingProgramNoInput = document.getElementById('leavingProgramNo');
+    const leavingProgramNoMessage = document.getElementById('leavingProgramNoMessage');
+
+    leavingProgramYesInput.addEventListener('change', () => {
+        leavingProgramNoMessage.classList.add('hidden');
+    });
+
+    leavingProgramNoInput.addEventListener('change', (event) => {
+        if (event.target.checked) {
+            leavingProgramNoMessage.classList.remove('hidden');
+        }
+    });
+    break;
+		break;
+
+		case 'pressContact':
+		subOptionsContainer.innerHTML = `
+		<div class="mb-4">
+		<label class="block text-gray-700 font-bold mb-2" for="nameOfPress">Name of Press<\/label>
+		<input
+		class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+		id="nameOfPress"
+		type="text"
+		placeholder="Enter name of press"
+		required
+		>
+		<\/div>
+		<div class="mb-4">
+		<label class="block text-gray-700 font-bold mb-2" for="nameOfIndividual">Name of Individual Contacting<\/label>
+		<input
+		class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+		id="nameOfIndividual"
+		type="text"
+		placeholder="Enter name of individual"
+		required
+		>
+		<\/div>
+		<div class="flex items-center mb-4">
+		<input
+		id="certifyRepresentation"
+		type="checkbox"
+		value=""
+		class="h-4 w-4 border-gray-300 rounded focus:ring-orange-500"
+		required
+		>
+		<label for="certifyRepresentation" class="ml-2 block text-gray-700 font-bold">
+		I certify I can act on behalf of this company
+		<\/label>
+		<\/div>
+		`;
+		break;
+		case 'releasesInvolvingNameBrandingTrademarksEtc':
+			subOptionsContainer.innerHTML = `
+			<div class="mb-4">
+				<label class="block text-gray-700 font-bold mb-2" for="nameOfPress">Name of Press<\/label>
+				<input
+				class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+				id="nameOfPress"
+				type="text"
+				placeholder="Enter name of press"
+				required
+				>
+			<\/div>
+			<div class="mb-4">
+				<label class="block text-gray-700 font-bold mb-2" for="nameOfIndividual">Name of Individual Contacting<\/label>
+				<input
+				class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+				id="nameOfIndividual"
+				type="text"
+				placeholder="Enter name of individual"
+				required
+				>
+			<\/div>
+			<div class="flex items-center mb-4">
+				<input
+				id="certifyRepresentation"
+				type="checkbox"
+				value=""
+				class="h-4 w-4 border-gray-300 rounded focus:ring-orange-500"
+				required
+				>
+				<label for="certifyRepresentation" class="ml-2 block text-gray-700 font-bold">
+				I certify I can act on behalf of this company
+				<\/label>
+			<\/div>
+			`;
+			break;
+		case 'contentWithRelations':
+			subOptionsContainer.innerHTML = `
+			<div class="mb-4">
+				<label class="block text-gray-700 font-bold mb-2" for="nameOfPress">Name of Press<\/label>
+				<input
+				class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+				id="nameOfPress"
+				type="text"
+				placeholder="Enter name of press"
+				required
+				>
+			<\/div>
+			<div class="mb-4">
+				<label class="block text-gray-700 font-bold mb-2" for="nameOfIndividual">Name of Individual Contacting<\/label>
+				<input
+				class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+				id="nameOfIndividual"
+				type="text"
+				placeholder="Enter name of individual"
+				required
+				>
+			<\/div>
+			<div class="flex items-center mb-4">
+				<input
+				id="certifyRepresentation"
+				type="checkbox"
+				value=""
+				class="h-4 w-4 border-gray-300 rounded focus:ring-orange-500"
+				required
+				>
+				<label for="certifyRepresentation" class="ml-2 block text-gray-700 font-bold">
+				I certify I can act on behalf of this company
+				<\/label>
+			<\/div>
+			`;
+			break;
+		case 'otherBrandingRelatedIssues':
+			subOptionsContainer.innerHTML = `
+			<div class="mb-4">
+				<label class="block text-gray-700 font-bold mb-2" for="nameOfPress">Name of Press<\/label>
+				<input
+				class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+				id="nameOfPress"
+				type="text"
+				placeholder="Enter name of press"
+				required
+				>
+			<\/div>
+			<div class="mb-4">
+				<label class="block text-gray-700 font-bold mb-2" for="nameOfIndividual">Name of Individual Contacting<\/label>
+				<input
+				class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+				id="nameOfIndividual"
+				type="text"
+				placeholder="Enter name of individual"
+				required
+				>
+			<\/div>
+			<div class="flex items-center mb-4">
+				<input
+				id="certifyRepresentation"
+				type="checkbox"
+				value=""
+				class="h-4 w-4 border-gray-300 rounded focus:ring-orange-500"
+				required
+				>
+				<label for="certifyRepresentation" class="ml-2 block text-gray-700 font-bold">
+				I certify I can act on behalf of this company
+				<\/label>
+			<\/div>
+			`;
+			break;
+		case 'trustAndSafety':
+			subOptionsContainer.innerHTML = `
+			<div class="bg-orange-100 border-l-4 border-orange-500 text-orange-700 p-4 rounded mb-4">
+				<p class="font-bold">
+				Please be as detailed as possible when reporting trust and safety issues.
+				<\/p>
+				<p>
+				Provide the following information in the description:
+				<\/p>
+				<ul class="list-disc list-inside">
+				<li>Content URL(s) if applicable<\/li>
+				<li>Description of the issue<\/li>
+				<li>Additional context or details<\/li>
+				<\/ul>
+			<\/div>
+			
+			`;
+			break;
+		case 'appeals':
+			subOptionsContainer.innerHTML = `
+			<div class="bg-orange-100 border-l-4 border-orange-500 text-orange-700 p-4 rounded mb-4">
+				<p class="font-bold">
+				Please provide the following information for your appeal:
+				<\/p>
+				<ul class="list-disc list-inside">
+				<li>The specific content or decision being appealed<\/li>
+				<li>Reason for the appeal<\/li>
+				<li>Any additional context or details<\/li>
+				<\/ul>
+			<\/div>
+			`;
+			break;
+			case 'lawEnforcementContact':
+			subOptionsContainer.innerHTML = `
+			<div class="bg-orange-100 border-l-4 border-orange-500 text-orange-700 p-4 rounded mb-4">
+				<p class="font-bold">
+				For law enforcement inquiries, please provide the following information:
+				<\/p>
+				<ul class="list-disc list-inside">
+				<li>Your name and badge number<\/li>
+				<li>Agency and jurisdiction<\/li>
+				<li>Nature of the inquiry<\/li>
+				<li>Any additional context or details<\/li>
+				<\/ul>
+			<\/div>
+			<div class="mb-4">
+				<label class="block text-gray-700 font-bold mb-2" for="lawEnforcementName">
+				Your Name and Badge Number
+				<\/label>
+				<input
+				class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+				id="lawEnforcementName"
+				type="text"
+				placeholder="Enter your name and badge number"
+				required
+				>
+			<\/div>
+			<div class="mb-4">
+				<label class="block text-gray-700 font-bold mb-2" for="lawEnforcementAgency">
+				Agency and Jurisdiction
+				<\/label>
+				<input
+				class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+				id="lawEnforcementAgency"
+				type="text"
+				placeholder="Enter your agency and jurisdiction"
+				required
+				>
+			<\/div>
+			`;
+			break;
+		case 'bugsOrWebsiteDiscrepancies':
+			subOptionsContainer.innerHTML = `
+			<div class="bg-orange-100 border-l-4 border-orange-500 text-orange-700 p-4 rounded mb-4">
+				<p class="font-bold">
+				When reporting bugs or website discrepancies, please provide the following information:
+				<\/p>
+				<ul class="list-disc list-inside">
+				<li>URL where the issue was encountered<\/li>
+				<li>Description of the issue<\/li>
+				<li>Steps to reproduce the issue<\/li>
+				<li>Screenshots or screen recordings (if applicable)<\/li>
+				<\/ul>
+			<\/div>
+			`;
+			break;
+		}
+		// Update the selected sub-option
+		document.getElementById('selectedSubOption').value = subOption;
+		}
+
+		const discardFormButton = document.getElementById('discardFormButton');
+
+		discardFormButton.addEventListener('click', () => {
+			formContainer.classList.add('hidden');
+			contactForm.reset();
+			contactForm.classList.remove('was-validated');
+		});
+		// Form Validation and Submission
+	const forms = [contactForm];
+	const result = submissionResult;
+
+	forms.forEach((form) => {
+	form.addEventListener('submit', (event) => {
+		if (!form.checkValidity()) {
+		event.preventDefault();
+		event.stopPropagation();
+		form.querySelectorAll(':invalid')[0].focus();
+		} else {
+		event.preventDefault();
+		event.stopPropagation();
+
+		// Gather all the form data
+		const formData = new FormData(form);
+		const userInfoData = document.getElementById('userInfo').value;
+		const selectedOption = document.getElementById('option').value;
+		const selectedSubOption = document.getElementById('subOptions').querySelector('select')?.value || '';
+		// get law enfrocement or brand releases or stuff where there is a textarea specifically for that option and call it in the data area if relevabt
+		const lawEnforcementName = document.getElementById('lawEnforcementName')?.value || '';
+		const lawEnforcementAgency = document.getElementById('lawEnforcementAgency')?.value || '';
+		const nameOfPress = document.getElementById('nameOfPress')?.value || '';
+		const nameOfIndividual = document.getElementById('nameOfIndividual')?.value || '';
+		const certifyRepresentation = document.getElementById('certifyRepresentation')?.value || '';
+		const botCheck = document.querySelector('input[name="botcheck"]')?.checked || false;
+	 	const data = {
+			access_key: '6af27dfd-1619-4b1d-af12-b072afe4b21c',
+			from_name: 'Legacies Of Men',
+			replyto: 'no-reply@LegaciesOfMen.org',
+			botcheck: botCheck,
+			selectedOption: selectedOption,
+			selectedSubOption: selectedSubOption,
+
+			lawEnforcementName: lawEnforcementName,
+			lawEnforcementAgency: lawEnforcementAgency,
+			nameOfPress: nameOfPress,
+			nameOfIndividual: nameOfIndividual,
+			certifyRepresentation: certifyRepresentation,
+
+
+			userInfo: userInfoData,
+			goodIntent: form.querySelector('#goodIntent').checked,
+			legalPolicies: form.querySelector('#legalPolicies').checked,
+			dataAgreement: form.querySelector('#dataAgreement').checked,
+			...Object.fromEntries(formData),
+			"redirect": "none"
+		};
+
+      const json = JSON.stringify(data);
+      if (result) result.innerHTML = 'Please wait...';
+
+      fetch('https://lom-backend.vercel.app/api/submit', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          Accept: 'application/json'
+        },
+        body: json,
+      })
+        .then(async (response) => {
+          const json = await response.json();
+          if (response.status === 200) {
+            if (result) {
+              result.innerHTML = ''; // Clear the 'Please wait...' message
+              // Show the custom checkmark
+              result.classList.remove('hidden');
+              form.classList.add('hidden'); // Hide the form
+            }
+          } else {
+            console.error(response);
+            if (result) {
+              result.innerHTML = json.message;
+              result.classList.remove('text-gray-500', 'text-green-500');
+              result.classList.add('text-red-500');
+            }
+          }
+        })
+        .catch((error) => {
+          console.error(error);
+          if (result) result.innerHTML = 'Something went wrong!';
+        })
+        .finally(() => {
+          form.reset();
+          form.classList.remove('was-validated');
+          if (result) {
+            setTimeout(() => {
+              result.style.display = 'none';
+            }, 5000);
+          }
+        });
+    }
+    form.classList.add('was-validated');
+		}, false);
+	});
+      	    getUserInfo();
+      	    handleOptionChange(document.getElementById('option').value);
+			  function onTurnstileSuccess(token) {
+        // Show the main content after CAPTCHA is successfully completed
+        document.querySelector('.main-content').style.display = 'block';
+		document.getElementById('turnstile-container').style.display = 'none';
+    }
+	document.onkeydown = function(e) {
+    if (e.ctrlKey && e.shiftKey && e.keyCode === 73) {
+        e.preventDefault();
+    }
+    // Disable F12 key
+    if(e.keyCode === 123) {
+        e.preventDefault();
+    }
+};
+
+// Disable right click
+document.addEventListener('contextmenu', event => event.preventDefault());
+let devtools = function() {};
+devtools.toString = function() {
+    if (!this.warned) {
+        alert("DevTools is now open!");
+        this.warned = true;
+    }
+    return 'devtools';
+};
+console.log('%c', devtools);
+
+          document.addEventListener('keydown', function(event) {
+            if (event.ctrlKey && (event.key === 'u' || event.key === 'U')) {
+                event.preventDefault();
+            }
+          });
     </script>
 
 <script src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script>
