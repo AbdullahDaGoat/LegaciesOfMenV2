@@ -790,12 +790,12 @@ form.addEventListener('submit', (event) => {
 	const formData = new FormData(form);
 	const userInfoData = document.getElementById('userInfo').value;
 	const selectedOption = document.getElementById('option').value;
-	const selectedSubOption = document.getElementById('subOptions').querySelector('select')?.value || '';
-	const lawEnforcementName = document.getElementById('lawEnforcementName')?.value || '';
-	const lawEnforcementAgency = document.getElementById('lawEnforcementAgency')?.value || '';
-	const nameOfPress = document.getElementById('nameOfPress')?.value || '';
-	const nameOfIndividual = document.getElementById('nameOfIndividual')?.value || '';
-	const certifyRepresentation = document.getElementById('certifyRepresentation')?.value || '';
+	const selectedSubOption = document.getElementById('subOptions').querySelector('select')?.value || 'Geneal';
+	const lawEnforcementName = document.getElementById('lawEnforcementName')?.value || 'N/A or None';
+	const lawEnforcementAgency = document.getElementById('lawEnforcementAgency')?.value || 'N/A or None';
+	const nameOfPress = document.getElementById('nameOfPress')?.value || 'N/A or None';
+	const nameOfIndividual = document.getElementById('nameOfIndividual')?.value || 'N/A or None';
+	const certifyRepresentation = document.getElementById('certifyRepresentation')?.value || 'N/A or None';
 	const botCheck = document.querySelector('input[name="botcheck"]')?.checked || false;
 	const origin = document.querySelector('input[name="Origin"]')?.value || 'unknown';
 	 const data = {
