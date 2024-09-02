@@ -282,6 +282,11 @@
             <div id="formContainer" class="form-container" style="display: none;">
                 <h2 class="text-2xl font-semibold mb-4">Book a Consultation</h2>
                 <form id="consultationForm" action="https://lom-backend.vercel.app/api/submit" method="POST">
+                    <input name="from_name" type="hidden" value="Legacies Of Men" />
+	                <input name="replyto" type="hidden" value="no-reply@LegaciesOfMen.ContactPage.Website.org" />
+	                <input name="botcheck" type="checkbox" class="hidden" style="display:none !important;" tabindex="-1" autocomplete="off" />
+	                <input name="Origin" type="hidden" value="Buisness Contact Page"/>
+
                     <label for="name" class="form-label">Name</label>
                     <input type="text" name="name" x-model="form.name" placeholder="Your Name" required>
                     <label for="email" class="form-label">Email</label>
@@ -315,7 +320,6 @@
                     <button type="submit" class="bg-orange-500 hover:bg-orange-600 text-white font-bold py-2 px-4 rounded">
                         Submit Consultation Request
                     </button>
-                    <div class="h-captcha" data-captcha="true"></div>
                 </form>
             </div>
 
