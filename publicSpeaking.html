@@ -510,6 +510,14 @@
                 async submitForm() {
                     try {
     
+                        const hCaptchaResponse = document.querySelector('.h-captcha textarea').value;
+
+                        if (!hCaptchaResponse) {
+                            alert("Please complete the hCaptcha before submitting.");
+                            event.preventDefault(); // Prevent form submission
+                            return false;
+                        }
+                        
                         // Gathering form data
                         const form = document.getElementById('consultationForm');
                         if (!form.checkValidity()) {
@@ -527,7 +535,6 @@
                             Origin: form.querySelector('input[name="Origin"]').value,
                             ...Object.fromEntries(formData),
                             userInfo: userInfo,
-                            captchaResponse: turnstileResponse.value
                         };
     
                         const json = JSON.stringify(data);
