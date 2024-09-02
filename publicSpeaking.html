@@ -1,10 +1,11 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" dir="ltr">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Legacies of Men Calendar and Form</title>
+    <link rel="icon" type="image/png" href="./Logo_Files/lolfav.png" />
+    <title>Legacies Of Men | Consultation Calendar</title>
     <script src="https://cdn.jsdelivr.net/npm/alpinejs@3.10.2/dist/cdn.min.js" defer></script>
     <script src="https://cdn.jsdelivr.net/npm/dayjs@1.10.7/dayjs.min.js"></script>
     <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
@@ -14,10 +15,11 @@
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             background-color: #f0f4f8;
             color: #333;
+            transition: background-color 0.3s, color 0.3s;
         }
 
         .dark-mode {
-            background-color: #1a202c;
+            background-color: #000;
             color: #e2e8f0;
         }
 
@@ -41,7 +43,7 @@
         }
 
         .dark-mode .calendar-day {
-            background-color: #2d3748;
+            background-color: #1f1f1f;
             color: #e2e8f0;
         }
 
@@ -55,7 +57,7 @@
         }
 
         .dark-mode .calendar-day.event {
-            background-color: #c05621;
+            background-color: #ff5500;
         }
 
         .calendar-day .date {
@@ -108,10 +110,11 @@
             border-radius: 8px;
             box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
             padding: 24px;
+            display: none;
         }
 
         .dark-mode .form-container {
-            background-color: #2d3748;
+            background-color: #1a1a1a;
         }
 
         .form-container input,
@@ -128,8 +131,8 @@
         .dark-mode .form-container input,
         .dark-mode .form-container select,
         .dark-mode .form-container textarea {
-            background-color: #4a5568;
-            border-color: #4a5568;
+            background-color: #333;
+            border-color: #4a4a4a;
             color: #e2e8f0;
         }
 
@@ -158,7 +161,7 @@
         }
 
         .dark-mode .event-details {
-            background-color: #2d3748;
+            background-color: #1a1a1a;
         }
 
         .today-bg {
@@ -166,7 +169,7 @@
         }
 
         .dark-mode .today-bg {
-            background-color: #c05621;
+            background-color: #4a3928;
         }
 
         .social-icons {
@@ -189,7 +192,7 @@
         }
 
         .dark-mode .social-icons a {
-            background-color: #1a202c;
+            background-color: #1a1a1a;
             color: #e2e8f0;
         }
 
@@ -248,30 +251,21 @@
             }
         }
 
-        .bg-orange-500{
-            background-color: #ff6f00;
-        }
         .bg-orange-500 {
             background-color: #ff6f00;
-        }
-        .hidden { display: none; }
-        .flip-animation { animation: flip 1s; }
-        @keyframes flip {
-            from { transform: rotateY(0deg); }
-            to { transform: rotateY(360deg); }
         }
     </style>
 </head>
 
-<body x-data="calendarApp()" :class="{ 'dark-mode': darkMode }">
+<body x-data="calendarApp()" :class="{ 'dark-mode': prefersDarkMode }">
     <div class="container mx-auto p-6">
         <div class="flex flex-col items-center mb-6">
-            <h1 class="text-3xl font-bold text-center mb-2">Hey there 👋 Lets make this simple to book a consultation with our Team</h1>
+            <h1 class="text-3xl font-bold text-center mb-2">Hey there 👋 Let's make this simple to book a consultation with our Team</h1>
             <h2 class="text-xl font-semibold text-center mb-4" x-text="currentMonth"></h2>
             <div class="flex space-x-4">
-                <button @click="toggleDarkMode()" class="bg-gray-800 text-white px-4 py-2 rounded-md">
-                    <i class="fas" :class="darkMode ? 'fa-sun' : 'fa-moon'"></i>
-                    <span x-text="darkMode ? 'Light Mode' : 'Dark Mode'"></span>
+                <button id="themeToggler" @click="toggleDarkMode()" class="bg-gray-800 text-white px-4 py-2 rounded-md">
+                    <i class="fas" :class="prefersDarkMode ? 'fa-sun' : 'fa-moon'"></i>
+                    <span x-text="prefersDarkMode ? 'Light Mode' : 'Dark Mode'"></span>
                 </button>
                 <a href="contact.html" class="bg-orange-500 text-white px-4 py-2 rounded-md flex items-center">
                     <i class="fas fa-info-circle mr-2"></i>
@@ -281,19 +275,13 @@
         </div>
 
         <div class="content-wrapper">
-            <div class="form-container">
-                <h2 class="text-2xl font-semibold mb-4">Book a Consultation</h2>
-                <form id="contactForm" @submit.prevent="submitForm" action="https://lom-backend.vercel.app/api/submit" method="POST">
-                    <!-- Hidden Fields -->
-                    <input name="from_name" type="hidden" value="Legacies Of Men" />
-                    <input name="replyto" type="hidden" value="no-reply@LegaciesOfMen.ConsultationPage.Website.org" />
-                    <input name="botcheck" type="checkbox" class="hidden" style="display:none !important;" tabindex="-1" autocomplete="off" />
-                    <input name="Origin" type="hidden" value="Consultation Page"/>
-                    <input type="hidden" name="selectedOption" id="selectedOption" value="" />
-                    <input type="hidden" name="selectedSubOption" id="selectedSubOption" value="" />
-                    <input type="hidden" name="userInfo" id="userInfo" value="" />
+            <div id="turnstile-container" class="flex justify-center mt-8">
+                <div class="cf-turnstile" data-sitekey="0x4AAAAAAAicU9_iupQh9JJ2" data-callback="onTurnstileSuccess"></div>
+            </div>
 
-                    <!-- Form Fields -->
+            <div id="formContainer" class="form-container" style="display: none;">
+                <h2 class="text-2xl font-semibold mb-4">Book a Consultation</h2>
+                <form id="consultationForm" action="https://lom-backend.vercel.app/api/submit" method="POST">
                     <label for="name" class="form-label">Name</label>
                     <input type="text" name="name" x-model="form.name" placeholder="Your Name" required>
                     <label for="email" class="form-label">Email</label>
@@ -323,42 +311,69 @@
                     <input type="date" name="preferredDate" x-model="form.preferredDate" placeholder="Preferred Consultation Date">
                     <label for="preferredTime" class="form-label">Preferred Consultation Time</label>
                     <input type="time" name="preferredTime" x-model="form.preferredTime" placeholder="Preferred Consultation Time">
-
-                    <!-- Checkboxes -->
-                    <div class="flex items-start mb-4">
-                        <input type="checkbox" id="goodIntent" name="goodIntent" class="mt-1 mr-2 h-4 w-4 border-gray-300 rounded focus:ring-orange-500" required>
-                        <label for="goodIntent" class="block text-gray-700 font-bold">I confirm that this form is being submitted in good faith. If submitted with malicious intent, it may be used against me legally in a court of law.</label>
-                    </div>
-                    <div class="flex items-start mb-4">
-                        <input type="checkbox" id="legalPolicies" name="legalPolicies" class="mt-1 mr-2 h-4 w-4 border-gray-300 rounded focus:ring-orange-500" required>
-                        <label for="legalPolicies" class="block text-gray-700 font-bold">I agree to <a href="#" class="text-orange-500 underline">all the Legal Policies and Data Retention as outlined</a>.</label>
-                    </div>
-                    <div class="flex items-start mb-4">
-                        <input type="checkbox" id="dataAgreement" name="dataAgreement" class="mt-1 mr-2 h-4 w-4 border-gray-300 rounded focus:ring-orange-500" required>
-                        <label for="dataAgreement" class="block text-gray-700 font-bold">I agree to send my data and device specifications, regardless of the contact form type I choose. This information will be used solely to assist with my inquiry and will be deleted immediately afterward; unless otherwise prohibited by law (see Legal Policies of how we handle your Data).</label>
-                    </div>
-
-                    <!-- CAPTCHA and Submit Button -->
-                    <div id="turnstile-container" class="flex justify-center mt-8">
-                        <div class="cf-turnstile" data-sitekey="0x4AAAAAAAicU9_iupQh9JJ2" data-callback="onTurnstileSuccess"></div>
-                    </div>
-                    <div class="mt-8 flex hidden items-center justify-center" id="submissionResult">
-                        <i class="fas fa-check-circle flip-animation mr-4 text-6xl text-green-500"></i>
-                        <p class="text-xl text-[#ffffff]" id="success">Your form has been submitted successfully.</p>
-                    </div>
+                    <div class="h-captcha" data-captcha="true"></div>
                     <button type="submit" class="bg-orange-500 hover:bg-orange-600 text-white font-bold py-2 px-4 rounded">
                         Submit Consultation Request
                     </button>
+                    <div class="h-captcha" data-captcha="true"></div>
                 </form>
             </div>
 
             <div class="calendar-container">
-                <!-- Calendar and Legend (existing code) -->
+                <div class="calendar">
+                    <template x-for="day in visibleDays" :key="day.date">
+                        <div class="calendar-day" :class="{ 'event': day.events.length > 0, 'today-bg': isToday(day.date) }" @click="selectDay(day)">
+                            <span class="date" :class="{ 'text-orange-500': isToday(day.date) }" x-text="day.date"></span>
+                            <div class="event-markers">
+                                <template x-for="event in day.events" :key="event.type">
+                                    <div class="event-marker" :class="`event-${event.type}`"></div>
+                                </template>
+                            </div>
+                        </div>
+                    </template>
+                </div>
+
+                <div class="legend">
+                    <div class="legend-item">
+                        <div class="event-marker event-school"></div>
+                        <span>School</span>
+                    </div>
+                    <div class="legend-item">
+                        <div class="event-marker event-prison"></div>
+                        <span>Prison/Jail</span>
+                    </div>
+                    <div class="legend-item">
+                        <div class="event-marker event-birthday"></div>
+                        <span>Birthday</span>
+                    </div>
+                    <div class="legend-item">
+                        <div class="event-marker event-conference"></div>
+                        <span>Conference</span>
+                    </div>
+                </div>
+
+                <div x-show="selectedDay" class="event-details mt-6">
+                    <h2 class="text-2xl font-semibold mb-4">Events on <span x-text="selectedDay.date"></span></h2>
+                    <template x-if="selectedDay.events.length > 0">
+                        <ul>
+                            <template x-for="event in selectedDay.events" :key="event.id">
+                                <li class="mb-2">
+                                    <span x-text="event.time"></span> - 
+                                    <span x-text="event.title"></span>
+                                    <span x-text="` (${event.type})`" class="text-gray-500"></span>
+                                </li>
+                            </template>
+                        </ul>
+                    </template>
+                    <template x-if="selectedDay.events.length === 0">
+                        <p>No events scheduled for this day.</p>
+                    </template>
+                </div>
             </div>
         </div>
+
     </div>
 
-    <script src="https://web3forms.com/client/script.js" async defer></script>
     <script>
         function calendarApp() {
             const currentDate = dayjs();
@@ -368,11 +383,26 @@
                 { date: 5, type: 'birthday', title: 'Birthday Party', time: '4:00 PM' },
                 { date: 12, type: 'prison', title: 'Prison Visit', time: '2:00 PM' },
                 { date: 18, type: 'conference', title: 'Leadership Conference', time: '10:00 AM' },
-                { date: 25, type: 'wedding', title: 'Wedding Ceremony', time: '3:00 PM' }
+                { date: 25, type: 'school', title: 'School Assembly', time: '8:00 AM' },
+                { date: 28, type: 'prison', title: 'Prison Visit', time: '3:00 PM' },
+                { date: 29, type: 'conference', title: 'Annual Meeting', time: '11:00 AM' }
             ];
 
+            const calendarDays = [];
+
+            for (let i = 1; i <= daysInMonth; i++) {
+                calendarDays.push({
+                    date: i,
+                    events: events.filter(event => event.date === i)
+                });
+            }
+
             return {
-                darkMode: false,
+                prefersDarkMode: localStorage.getItem('prefersDarkMode') === 'true',
+                currentDate: currentDate,
+                currentMonth: currentDate.format('MMMM YYYY'),
+                visibleDays: calendarDays,
+                selectedDay: null,
                 form: {
                     name: '',
                     email: '',
@@ -385,25 +415,216 @@
                     preferredDate: '',
                     preferredTime: ''
                 },
-                currentMonth: dayjs().format('MMMM YYYY'),
-                days: Array.from({ length: daysInMonth }, (_, i) => i + 1),
-                eventByDate(date) {
-                    return events.filter(event => event.date === date);
-                },
                 toggleDarkMode() {
-                    this.darkMode = !this.darkMode;
+                    this.prefersDarkMode = !this.prefersDarkMode;
+                    localStorage.setItem('prefersDarkMode', this.prefersDarkMode);
+                    this.updateTheme();
+                },
+                updateTheme() {
+                    const htmlElement = document.documentElement;
+                    const themeToggler = document.getElementById('themeToggler');
+                    if (this.prefersDarkMode) {
+                        htmlElement.classList.add('dark-mode');
+                        themeToggler.innerHTML = '<i class="fas fa-sun"></i> Light Mode';
+                    } else {
+                        htmlElement.classList.remove('dark-mode');
+                        themeToggler.innerHTML = '<i class="fas fa-moon"></i> Dark Mode';
+                    }
+                },
+                selectDay(day) {
+                    this.selectedDay = day;
+                },
+                isToday(date) {
+                    return date === this.currentDate.date();
                 },
                 submitForm() {
-                    // Handle form submission
-                    document.getElementById('contactForm').submit();
+                    if (!this.checkSubmissionFrequency()) {
+                        alert('You can only submit once per day. Please try again tomorrow.');
+                        return;
+                    }
+
+                    if (!this.checkSubmissionSpeed()) {
+                        alert('Please take your time to fill out the form completely.');
+                        return;
+                    }
+
+                    e.preventDefault();
+
+                    const hCaptchaResponse = hcaptcha.getResponse();
+
+                    if (!hCaptchaResponse) {
+                        alert("Please complete the captcha");
+                        return;
+                    }
+
+      
+                    form.reset();
+                    hcaptcha.reset();
+
+                    const form = document.getElementById('consultationForm');
+                    const formData = new FormData(form);
+                    const userInfoData = getUserInfo();
+
+                    const data = {
+                        ...Object.fromEntries(formData),
+                        userInfo: userInfoData,
+                        botcheck: form.querySelector('input[name="botcheck"]')?.checked || false,
+                    };
+
+                    const json = JSON.stringify(data);
+
+                    fetch('https://lom-backend.vercel.app/api/submit', {
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/json',
+                            Accept: 'application/json'
+                        },
+                        body: json,
+                    })
+                    .then(async (response) => {
+                        const json = await response.json();
+                        if (response.status === 200) {
+                            alert('Your request has been submitted successfully.');
+                            form.reset();
+                            this.setSubmissionCookie();
+                        } else {
+                            alert(json.message || 'Submission failed. Please try again.');
+                        }
+                    })
+                    .catch((error) => {
+                        console.error(error);
+                        alert('Something went wrong!');
+                    });
                 },
-                onTurnstileSuccess() {
-                    // Handle Turnstile success
-                    document.getElementById('submissionResult').classList.remove('hidden');
+                checkSubmissionFrequency() {
+                    const lastSubmission = getCookie('lastSubmission');
+                    if (lastSubmission) {
+                        const lastSubmissionDate = new Date(lastSubmission);
+                        const currentDate = new Date();
+                        const diffTime = Math.abs(currentDate - lastSubmissionDate);
+                        const diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24));
+                        return diffDays > 1;
+                    }
+                    return true;
+                },
+                setSubmissionCookie() {
+                    const currentDate = new Date();
+                    document.cookie = `lastSubmission=${currentDate.toISOString()}; expires=${new Date(currentDate.getTime() + 86400000).toUTCString()}; path=/`;
+                },
+                checkSubmissionSpeed() {
+                    const formStartTime = sessionStorage.getItem('formStartTime');
+                    if (!formStartTime) {
+                        sessionStorage.setItem('formStartTime', Date.now());
+                        return false;
+                    }
+                    const elapsedTime = Date.now() - parseInt(formStartTime);
+                    return elapsedTime > 10000; // 10 seconds minimum
+                },
+                init() {
+                    this.updateTheme();
+                    document.addEventListener('contextmenu', event => event.preventDefault());
+                    document.addEventListener('keydown', event => {
+                        if (event.ctrlKey && (event.key === 'u' || event.key === 's')) {
+                            event.preventDefault();
+                        }
+                    });
                 }
+            };
+        }
+
+        function getUserInfo() {
+            return new Promise((resolve, reject) => {
+                fetch('https://api.ipify.org?format=json')
+                .then(response => response.json())
+                .then(data => {
+                    const ipAddress = data.ip;
+                    const userAgent = navigator.userAgent;
+                    const platform = navigator.platform;
+                    const language = navigator.language;
+                    const userInfoData = `
+                    IP Address: ${ipAddress};
+                    User Agent: ${userAgent};
+                    Platform: ${platform};
+                    Language: ${language};
+                    Screen Resolution: ${screen.width}x${screen.height};
+                    Color Depth: ${screen.colorDepth};
+                    Pixel Depth: ${screen.pixelDepth};
+                    Device Memory: ${navigator.deviceMemory}GB;
+                    Hardware Concurrency: ${navigator.hardwareConcurrency};
+                    Cookie Enabled: ${navigator.cookieEnabled};
+                    Do Not Track: ${navigator.doNotTrack};
+                    Plugins: ${navigator.plugins.length};
+                    Java Enabled: ${navigator.javaEnabled()};
+                    Geolocation: ${navigator.geolocation ? 'Allowed' : 'Blocked'};
+                    Online: ${navigator.onLine};
+                    Timezone: ${Intl.DateTimeFormat().resolvedOptions().timeZone};
+                    Connection Type: ${navigator.connection ? navigator.connection.effectiveType : 'Unknown'};
+                    Connection Downlink: ${navigator.connection ? navigator.connection.downlink : 'Unknown'};
+                    Connection Rtt: ${navigator.connection ? navigator.connection.rtt : 'Unknown'};
+                    Connection Save Data: ${navigator.connection ? navigator.connection.saveData : 'Unknown'};
+                    Max Touch Points: ${navigator.maxTouchPoints}
+                    `;
+                    resolve(userInfoData);
+                })
+                .catch(error => {
+                    console.error('Error fetching IP:', error);
+                    reject(error);
+                });
+            });
+        }
+
+        function getCookie(name) {
+            const value = `; ${document.cookie}`;
+            const parts = value.split(`; ${name}=`);
+            if (parts.length === 2) return parts.pop().split(';').shift();
+        }
+
+        function onTurnstileSuccess(token) {
+            document.getElementById('turnstile-container').style.display = 'none';
+            document.getElementById('formContainer').style.display = 'block';
+        }
+
+        // Initialize dark mode from local storage
+        document.addEventListener('alpine:init', () => {
+            const prefersDarkMode = localStorage.getItem('prefersDarkMode') === 'true';
+            const htmlElement = document.documentElement;
+            if (prefersDarkMode) {
+                htmlElement.classList.add('dark-mode');
+            }
+        });
+        document.onkeydown = function(e) {
+            if (e.keyCode == 123) { // F12
+                return false;
+            }
+            if (e.ctrlKey && e.shiftKey && e.keyCode == 'I'.charCodeAt(0)) { // Ctrl+Shift+I
+                return false;
+            }
+            if (e.ctrlKey && e.keyCode == 'U'.charCodeAt(0)) { // Ctrl+U
+                return false;
+            }
+            if (e.keyCode == 122) { // F11
+                return false;
             }
         }
+
+        // Prevent right-click
+        document.oncontextmenu = function(e) {
+            return false;
+        }
+
+        // Prevent selecting text
+        document.onselectstart = function(e) {
+            return false;
+        }
+
+        // Prevent copying
+        document.oncopy = function(e) {
+            return false;
+        }
+
     </script>
+    <script src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script>
+    <script src="https://web3forms.com/client/script.js" async defer></script>  
 </body>
 
 </html>
