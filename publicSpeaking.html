@@ -42,6 +42,40 @@
             transition: all 0.3s ease;
         }
 
+        /* Scrollbar for Webkit browsers (Chrome, Safari) */
+        ::-webkit-scrollbar {
+            width: 10px; /* Adjust the width of the scrollbar */
+        }
+
+        /* Remove the up and down arrows */
+        ::-webkit-scrollbar-button {
+            display: none;
+        }
+
+        /* Track (the background of the scrollbar) */
+        ::-webkit-scrollbar-track {
+            background: none; /* Grey background */
+        }
+
+        /* Handle (the scroll thumb) */
+        ::-webkit-scrollbar-thumb {
+            background-color: #ff7f00; /* Orange color */
+            border-radius: 8px; /* Rounded corners for the thumb */
+        }
+
+        /* Scrollbar for Firefox */
+        * {
+            scrollbar-width: auto;
+            scrollbar-color: #ff7f00 none; /* Orange thumb and grey background */
+        }
+
+        /* Optional: Adjust the appearance when hovering over the scrollbar */
+        ::-webkit-scrollbar-thumb:hover {
+            background-color: #e67e00; /* Darker orange when hovered */
+        }
+
+
+
         .dark-mode .calendar-day {
             background-color: #1f1f1f;
             color: #e2e8f0;
@@ -97,6 +131,7 @@
             justify-content: center;
             gap: 20px;
             margin-top: 20px;
+            flex-wrap: wrap;
         }
 
         .legend-item {
@@ -218,6 +253,25 @@
             margin-bottom: 4px;
         }
 
+        @media (max-width: 767px) {
+            .calendar {
+                grid-template-columns: repeat(4, 1fr);
+            }
+            
+            .legend {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+            
+            .content-wrapper {
+                flex-direction: column;
+            }
+            
+            .form-container, .calendar-container {
+                width: 100%;
+            }
+        }
+
         @media (min-width: 768px) {
             .content-wrapper {
                 display: flex;
@@ -288,16 +342,16 @@
                     <input name="Origin" type="hidden" value="Business Contact Page" />
 
                     <label for="name" class="form-label">Name</label>
-                    <input type="text" name="name" x-model="form.name" placeholder="Your Name" required>
+                    <input type="text" id="name" name="name" x-model="form.name" placeholder="Your Name" required>
 
                     <label for="email" class="form-label">Email</label>
-                    <input type="email" name="email" x-model="form.email" placeholder="Your Email" required>
+                    <input type="email" id="email" name="email" x-model="form.email" placeholder="Your Email" required>
 
                     <label for="phone" class="form-label">Phone</label>
-                    <input type="tel" name="phone" x-model="form.phone" placeholder="Phone Number" required>
+                    <input type="tel" id="phone" name="phone" x-model="form.phone" placeholder="Phone Number" required>
 
                     <label for="eventType" class="form-label">Consultation Type</label>
-                    <select name="eventType" x-model="form.eventType" required>
+                    <select id="eventType" name="eventType" x-model="form.eventType" required>
                         <option value="">Select Consultation Type</option>
                         <option value="individual">Individual Consultation</option>
                         <option value="group">Group Consultation</option>
@@ -305,26 +359,26 @@
                     </select>
 
                     <label for="message" class="form-label">Message</label>
-                    <textarea name="message" x-model="form.message" rows="4" placeholder="Describe your needs or questions" required></textarea>
+                    <textarea id="message" name="message" x-model="form.message" rows="4" placeholder="Describe your needs or questions" required></textarea>
 
                     <label for="preferredContact" class="form-label">Preferred Contact Method</label>
-                    <select name="preferredContact" x-model="form.preferredContact" required>
+                    <select id="preferredContact" name="preferredContact" x-model="form.preferredContact" required>
                         <option value="">Preferred Contact Method</option>
                         <option value="email">Email</option>
                         <option value="phone">Phone</option>
                     </select>
 
                     <label for="company" class="form-label">Company Name (if applicable)</label>
-                    <input type="text" name="company" x-model="form.company" placeholder="Company Name (if applicable)">
+                    <input type="text" id="company" name="company" x-model="form.company" placeholder="Company Name (if applicable)">
 
                     <label for="position" class="form-label">Your Position (if applicable)</label>
-                    <input type="text" name="position" x-model="form.position" placeholder="Your Position (if applicable)">
+                    <input type="text" id="position" name="position" x-model="form.position" placeholder="Your Position (if applicable)">
 
                     <label for="preferredDate" class="form-label">Preferred Consultation Date</label>
-                    <input type="date" name="preferredDate" x-model="form.preferredDate" placeholder="Preferred Consultation Date">
+                    <input type="date" id="preferredDate" name="preferredDate" x-model="form.preferredDate" placeholder="Preferred Consultation Date">
 
                     <label for="preferredTime" class="form-label">Preferred Consultation Time</label>
-                    <input type="time" name="preferredTime" x-model="form.preferredTime" placeholder="Preferred Consultation Time">
+                    <input type="time" id="preferredTime" name="preferredTime" x-model="form.preferredTime" placeholder="Preferred Consultation Time">
 
                     <div class="h-captcha" data-captcha="true"></div>
 
@@ -456,8 +510,8 @@
                 async submitForm() {
                     try {
                         // Verifying Turnstile (similar to hCaptcha)
-                        const captchaResponse = document.querySelector('.cf-turnstile textarea[name=c-token]').value;
-                        if (!captchaResponse) {
+                        const turnstileResponse = document.querySelector('.cf-turnstile textarea');
+                        if (!turnstileResponse || !turnstileResponse.value) {
                             alert("Please complete the Turnstile verification.");
                             return;
                         }
@@ -465,7 +519,7 @@
                         // Gathering form data
                         const form = document.getElementById('consultationForm');
                         if (!form.checkValidity()) {
-                            form.classList.add('was-validated');
+                            form.reportValidity();
                             return;
                         }
     
@@ -479,7 +533,7 @@
                             Origin: form.querySelector('input[name="Origin"]').value,
                             ...Object.fromEntries(formData),
                             userInfo: userInfo,
-                            captchaResponse: captchaResponse // Include the Turnstile response
+                            captchaResponse: turnstileResponse.value
                         };
     
                         const json = JSON.stringify(data);
