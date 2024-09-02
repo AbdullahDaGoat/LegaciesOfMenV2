@@ -452,12 +452,20 @@
                 isToday(date) {
                     return date === this.currentDate.date();
                 },
+                onTurnstileSuccess() {
+                    const turnstileContainer = document.getElementById('turnstile-container');
+                    const formContainer = document.getElementById('formContainer');
+    
+                    // Hide the Turnstile container and show the form
+                    turnstileContainer.style.display = 'none';
+                    formContainer.style.display = 'block';
+                },
                 async submitForm() {
                     try {
-                        // Verifying captcha
-                        const captchaResponse = document.querySelector('.h-captcha textarea[name=h-captcha-response]').value;
+                        // Verifying Turnstile (similar to hCaptcha)
+                        const captchaResponse = document.querySelector('.cf-turnstile textarea[name=c-token]').value;
                         if (!captchaResponse) {
-                            alert("Please complete the captcha.");
+                            alert("Please complete the Turnstile verification.");
                             return;
                         }
     
@@ -477,7 +485,8 @@
                             botcheck: form.querySelector('input[name="botcheck"]').checked || false,
                             Origin: form.querySelector('input[name="Origin"]').value,
                             ...Object.fromEntries(formData),
-                            userInfo: userInfo
+                            userInfo: userInfo,
+                            captchaResponse: captchaResponse // Include the Turnstile response
                         };
     
                         const json = JSON.stringify(data);
@@ -522,6 +531,11 @@
                     }
                 }
             }
+        }
+    
+        // Turnstile callback function
+        function onTurnstileSuccess(token) {
+            document.querySelector('[x-data]').__x.$data.onTurnstileSuccess();
         }
     </script>
     <script src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script>
