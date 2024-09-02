@@ -452,14 +452,7 @@
                 isToday(date) {
                     return date === this.currentDate.date();
                 },
-                onTurnstileSuccess() {
-                    const turnstileContainer = document.getElementById('turnstile-container');
-                    const formContainer = document.getElementById('formContainer');
-    
-                    // Hide the Turnstile container and show the form
-                    turnstileContainer.style.display = 'none';
-                    formContainer.style.display = 'block';
-                },
+                
                 async submitForm() {
                     try {
                         // Verifying Turnstile (similar to hCaptcha)
@@ -535,7 +528,12 @@
     
         // Turnstile callback function
         function onTurnstileSuccess(token) {
-            document.querySelector('[x-data]').__x.$data.onTurnstileSuccess();
+            const turnstileContainer = document.getElementById('turnstile-container');
+            const formContainer = document.getElementById('formContainer');
+
+            // Hide the Turnstile container and show the form
+            turnstileContainer.style.display = 'none';
+            formContainer.style.display = 'block';
         }
     </script>
     <script src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script>
