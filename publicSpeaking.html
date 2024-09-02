@@ -509,12 +509,6 @@
                 
                 async submitForm() {
                     try {
-                        // Verifying Turnstile (similar to hCaptcha)
-                        const turnstileResponse = document.querySelector('.cf-turnstile textarea');
-                        if (!turnstileResponse || !turnstileResponse.value) {
-                            alert("Please complete the Turnstile verification.");
-                            return;
-                        }
     
                         // Gathering form data
                         const form = document.getElementById('consultationForm');
