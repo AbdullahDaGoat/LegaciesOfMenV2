@@ -336,13 +336,14 @@
             <div id="formContainer" class="form-container" style="display: none;">
                 <h2 class="text-2xl font-semibold mb-4">Book a Consultation</h2>
                 <form id="consultationForm">
+                    <!-- let { from_name, replyto, botCheck, Origin, selectedOption, selectedSubOption, firstName, ...formData } = req.body; -->
                     <input name="from_name" type="hidden" value="Legacies Of Men" />
                     <input name="replyto" type="hidden" value="no-reply@LegaciesOfMen.ContactPage.Website.org" />
                     <input name="botcheck" type="checkbox" class="hidden" style="display:none !important;" tabindex="-1" autocomplete="off" />
                     <input name="Origin" type="hidden" value="Business Contact Page" />
 
                     <label for="name" class="form-label">Name</label>
-                    <input type="text" id="name" name="name" x-model="form.name" placeholder="Your Name" required>
+                    <input type="text" id="name" name="firstName" x-model="form.name" placeholder="Your Name" required>
 
                     <label for="email" class="form-label">Email</label>
                     <input type="email" id="email" name="email" x-model="form.email" placeholder="Your Email" required>
@@ -350,23 +351,23 @@
                     <label for="phone" class="form-label">Phone</label>
                     <input type="tel" id="phone" name="phone" x-model="form.phone" placeholder="Phone Number" required>
 
-                    <label for="eventType" class="form-label">Consultation Type</label>
-                    <select id="eventType" name="eventType" x-model="form.eventType" required>
+                    <label for="selectedOption" class="form-label">Consultation Type</label>
+                    <select id="selectedOption" name="selectedOption" x-model="form.selectedOption" required>
                         <option value="">Select Consultation Type</option>
                         <option value="individual">Individual Consultation</option>
                         <option value="group">Group Consultation</option>
                         <option value="organization">Organization Consultation</option>
                     </select>
 
-                    <label for="message" class="form-label">Message</label>
-                    <textarea id="message" name="message" x-model="form.message" rows="4" placeholder="Describe your needs or questions" required></textarea>
-
-                    <label for="preferredContact" class="form-label">Preferred Contact Method</label>
-                    <select id="preferredContact" name="preferredContact" x-model="form.preferredContact" required>
+                    <label for="selectedSubOption" class="form-label">Preferred Contact Method</label>
+                    <select id="selectedSubOption" name="selectedSubOption" x-model="form.selectedSubOption" required>
                         <option value="">Preferred Contact Method</option>
                         <option value="email">Email</option>
                         <option value="phone">Phone</option>
                     </select>
+
+                    <label for="message" class="form-label">Message</label>
+                    <textarea id="message" name="message" x-model="form.message" rows="4" placeholder="Describe your needs or questions" required></textarea>
 
                     <label for="company" class="form-label">Company Name (if applicable)</label>
                     <input type="text" id="company" name="company" x-model="form.company" placeholder="Company Name (if applicable)">
@@ -476,14 +477,14 @@
                     name: '',
                     email: '',
                     phone: '',
-                    eventType: '',
+                    selectedOption: '',
+                    selectedSubOption: '',
                     message: '',
-                    preferredContact: '',
                     company: '',
                     position: '',
                     preferredDate: '',
                     preferredTime: ''
-                },
+                 },
                 toggleDarkMode() {
                     this.prefersDarkMode = !this.prefersDarkMode;
                     localStorage.setItem('prefersDarkMode', this.prefersDarkMode);
@@ -509,37 +510,36 @@
                 
                 async submitForm() {
                     try {
-    
                         const hCaptchaResponse = document.querySelector('.h-captcha textarea').value;
 
                         if (!hCaptchaResponse) {
                             alert("Please complete the hCaptcha before submitting.");
-                            event.preventDefault(); // Prevent form submission
+                            event.preventDefault();
                             return false;
                         }
                         
-                        // Gathering form data
                         const form = document.getElementById('consultationForm');
                         if (!form.checkValidity()) {
                             form.reportValidity();
                             return;
                         }
-    
+
                         const formData = new FormData(form);
                         const userInfo = await this.getUserInfo();
-    
                         const data = {
                             from_name: 'Legacies Of Men',
                             replyto: 'no-reply@LegaciesOfMen.ContactPage.Website.org',
                             botcheck: form.querySelector('input[name="botcheck"]').checked || false,
                             Origin: form.querySelector('input[name="Origin"]').value,
+                            selectedOption: this.form.selectedOption,
+                            selectedSubOption: this.form.selectedSubOption,
+                            firstName: this.form.name.split(' ')[0] || 'Unknown',
                             ...Object.fromEntries(formData),
                             userInfo: userInfo,
                         };
-    
+
                         const json = JSON.stringify(data);
-    
-                        // Sending the form data
+
                         const response = await fetch('https://lom-backend.vercel.app/api/submit', {
                             method: 'POST',
                             headers: {
@@ -548,12 +548,22 @@
                             },
                             body: json,
                         });
-    
-                        // Handling the response
+
                         if (response.ok) {
                             alert('Consultation request submitted successfully.');
-                            form.reset(); // Reset the form
-                            this.form = {}; // Reset the form data in the state
+                            form.reset();
+                            this.form = {
+                                name: '',
+                                email: '',
+                                phone: '',
+                                selectedOption: '',
+                                selectedSubOption: '',
+                                message: '',
+                                company: '',
+                                position: '',
+                                preferredDate: '',
+                                preferredTime: ''
+                            };
                         } else {
                             const errorData = await response.json();
                             console.error('Submission failed:', errorData);
