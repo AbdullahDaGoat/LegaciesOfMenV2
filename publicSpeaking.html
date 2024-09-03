@@ -44,7 +44,7 @@
 
         /* Scrollbar for Webkit browsers (Chrome, Safari) */
         ::-webkit-scrollbar {
-            width: 10px;
+            width: 10px; /* Adjust the width of the scrollbar */
         }
 
         /* Remove the up and down arrows */
@@ -54,25 +54,27 @@
 
         /* Track (the background of the scrollbar) */
         ::-webkit-scrollbar-track {
-            background: none;
+            background: none; /* Grey background */
         }
 
         /* Handle (the scroll thumb) */
         ::-webkit-scrollbar-thumb {
-            background-color: #ff7f00;
-            border-radius: 8px;
+            background-color: #ff7f00; /* Orange color */
+            border-radius: 8px; /* Rounded corners for the thumb */
         }
 
         /* Scrollbar for Firefox */
         * {
             scrollbar-width: auto;
-            scrollbar-color: #ff7f00 none;
+            scrollbar-color: #ff7f00 none; /* Orange thumb and grey background */
         }
 
         /* Optional: Adjust the appearance when hovering over the scrollbar */
         ::-webkit-scrollbar-thumb:hover {
-            background-color: #e67e00;
+            background-color: #e67e00; /* Darker orange when hovered */
         }
+
+
 
         .dark-mode .calendar-day {
             background-color: #1f1f1f;
@@ -331,7 +333,7 @@
                 <div class="cf-turnstile" data-sitekey="0x4AAAAAAAicU9_iupQh9JJ2" data-callback="onTurnstileSuccess"></div>
             </div>
 
-            <div id="formContainer" class="form-container">
+            <div id="formContainer" class="form-container" style="display: none;">
                 <h2 class="text-2xl font-semibold mb-4">Book a Consultation</h2>
                 <form id="consultationForm">
                     <input name="from_name" type="hidden" value="Legacies Of Men" />
@@ -454,16 +456,16 @@
                 { date: 28, type: 'prison', title: 'Prison Visit', time: '3:00 PM' },
                 { date: 29, type: 'conference', title: 'Annual Meeting', time: '11:00 AM' }
             ];
-
+    
             const calendarDays = [];
-
+    
             for (let i = 1; i <= daysInMonth; i++) {
                 calendarDays.push({
                     date: i,
                     events: events.filter(event => event.date === i)
                 });
             }
-
+    
             return {
                 prefersDarkMode: localStorage.getItem('prefersDarkMode') === 'true',
                 currentDate: currentDate,
@@ -502,68 +504,92 @@
                     this.selectedDay = day;
                 },
                 isToday(date) {
-                    return this.currentDate.date() === date;
+                    return date === this.currentDate.date();
                 },
+                
                 async submitForm() {
                     try {
-                        const formData = {
-                            name: this.form.name,
-                            email: this.form.email,
-                            phone: this.form.phone,
-                            eventType: this.form.eventType,
-                            message: this.form.message,
-                            preferredContact: this.form.preferredContact,
-                            company: this.form.company,
-                            position: this.form.position,
-                            preferredDate: this.form.preferredDate,
-                            preferredTime: this.form.preferredTime
-                        };
+    
+                        const hCaptchaResponse = document.querySelector('.h-captcha textarea').value;
 
-                        // Validate the form fields before submission
-                        if (!this.form.name || !this.form.email || !this.form.phone || !this.form.eventType || !this.form.message || !this.form.preferredContact) {
-                            alert("Please fill out all required fields.");
+                        if (!hCaptchaResponse) {
+                            alert("Please complete the hCaptcha before submitting.");
+                            event.preventDefault(); // Prevent form submission
+                            return false;
+                        }
+                        
+                        // Gathering form data
+                        const form = document.getElementById('consultationForm');
+                        if (!form.checkValidity()) {
+                            form.reportValidity();
                             return;
                         }
-
-                        // Placeholder for submitting form data to a server
-                        // Replace this with an actual API call or form submission logic
-                        console.log("Form submitted successfully!", formData);
-
-                        // Example: Simulate an API call
-                        await new Promise((resolve) => setTimeout(resolve, 1000));
-
-                        // Clear the form after successful submission
-                        this.clearForm();
-
-                        // Notify the user of successful submission
-                        alert("Your consultation request has been submitted successfully!");
-
+    
+                        const formData = new FormData(form);
+                        const userInfo = await this.getUserInfo();
+    
+                        const data = {
+                            from_name: 'Legacies Of Men',
+                            replyto: 'no-reply@LegaciesOfMen.ContactPage.Website.org',
+                            botcheck: form.querySelector('input[name="botcheck"]').checked || false,
+                            Origin: form.querySelector('input[name="Origin"]').value,
+                            ...Object.fromEntries(formData),
+                            userInfo: userInfo,
+                        };
+    
+                        const json = JSON.stringify(data);
+    
+                        // Sending the form data
+                        const response = await fetch('https://lom-backend.vercel.app/api/submit', {
+                            method: 'POST',
+                            headers: {
+                                'Content-Type': 'application/json',
+                                'Accept': 'application/json'
+                            },
+                            body: json,
+                        });
+    
+                        // Handling the response
+                        if (response.ok) {
+                            alert('Consultation request submitted successfully.');
+                            form.reset(); // Reset the form
+                            this.form = {}; // Reset the form data in the state
+                        } else {
+                            const errorData = await response.json();
+                            console.error('Submission failed:', errorData);
+                            alert('There was an issue with your submission. Please try again.');
+                        }
                     } catch (error) {
-                        console.error("Error submitting form:", error);
-                        alert("There was an error submitting your request. Please try again later.");
+                        console.error('Error submitting form:', error);
+                        alert('An unexpected error occurred. Please try again.');
                     }
                 },
-                clearForm() {
-                    this.form = {
-                        name: '',
-                        email: '',
-                        phone: '',
-                        eventType: '',
-                        message: '',
-                        preferredContact: '',
-                        company: '',
-                        position: '',
-                        preferredDate: '',
-                        preferredTime: ''
-                    };
+                async getUserInfo() {
+                    try {
+                        const response = await fetch('https://ipapi.co/json/');
+                        if (response.ok) {
+                            return await response.json();
+                        } else {
+                            console.error('Failed to fetch user info.');
+                            return {};
+                        }
+                    } catch (error) {
+                        console.error('Error fetching user info:', error);
+                        return {};
+                    }
                 }
-            };
+            }
         }
+    
+        // Turnstile callback function
+        function onTurnstileSuccess(token) {
+            const turnstileContainer = document.getElementById('turnstile-container');
+            const formContainer = document.getElementById('formContainer');
 
-        // Initialize Alpine.js
-        document.addEventListener('alpine:init', () => {
-            Alpine.data('calendarApp', calendarApp);
-        });
+            // Hide the Turnstile container and show the form
+            turnstileContainer.style.display = 'none';
+            formContainer.style.display = 'block';
+        }
     </script>
     <script src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script>
     <script src="https://web3forms.com/client/script.js" async defer></script>  
