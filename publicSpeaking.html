@@ -1,3 +1,4 @@
+<!-- If Bot check is true have code not allow submission via client side -->
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
 
@@ -336,7 +337,6 @@
             <div id="formContainer" class="form-container" style="display: none;">
                 <h2 class="text-2xl font-semibold mb-4">Book a Consultation</h2>
                 <form id="consultationForm">
-                    <!-- let { from_name, replyto, botCheck, Origin, selectedOption, selectedSubOption, firstName, ...formData } = req.body; -->
                     <input name="from_name" type="hidden" value="Legacies Of Men" />
                     <input name="replyto" type="hidden" value="no-reply@LegaciesOfMen.ContactPage.Website.org" />
                     <input name="botcheck" type="checkbox" class="hidden" style="display:none !important;" tabindex="-1" autocomplete="off" />
@@ -521,6 +521,13 @@
                         const form = document.getElementById('consultationForm');
                         if (!form.checkValidity()) {
                             form.reportValidity();
+                            return;
+                        }
+
+                        const botcheckInput = form.querySelector('input[name="botcheck"]');
+                        if (botcheckInput.checked) {
+                            form.reset();
+                            alert('Bot detection triggered. Form submission prevented.');
                             return;
                         }
 
