@@ -143,8 +143,7 @@
   </head>
   <body class="bg-white font-sans text-gray-800">
     <div class="main-content animate__animated animate__fadeIn" id="mainContent">
-      <nav class="navbar fixed left-0 right-0 top-0 z-50 bg-white shadow-lg dark:bg-gray-800 dark:text-gray-200">
-        <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+      <nav class="navbar fixed left-0 right-0 top-0 z-50 bg-white shadow-lg dark:bg-gray-800 dark:text-gray-200">        <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div class="flex h-16 justify-between">
             <div class="flex items-center">
               <img src="./Logo_Files/Favicon.png" alt="Brand Logo" class="mr-2 h-8" />
@@ -224,45 +223,72 @@
         </div>
       </nav>
 
-      <div class="flex min-h-screen flex-col items-center justify-center px-4 sm:px-0">
-        <div class="w-full max-w-3xl">
-          <div class="mb-8">
-            <h1 class="mb-4 text-3xl font-bold sm:text-4xl">r/GuyCry - Legacies of Men (Click on image to expand) </h1>
-            <p class="text-lg sm:text-xl">Things are changing, stigmas are being erased, and love is being spread through our very effective teaching methods. If you want to see our work in action, please check out our 38,000 member online community on Reddit. It's the safest ONLINE space ever designed for men.</p>
+      <!-- Main -->
+      <div class="min-h-screen bg-gradient-to-b from-indigo-900 via-purple-800 to-pink-700 dark:from-gray-900 dark:via-gray-800 dark:to-gray-700 py-16 px-4 sm:px-6 lg:px-8">
+        <div class="max-w-5xl mx-auto">
+          <div class="text-center mb-16">
+            <h1 class="text-5xl sm:text-6xl font-extrabold text-white mb-6 leading-tight">
+              <span class="bg-clip-text text-transparent bg-gradient-to-r from-yellow-400 via-red-500 to-pink-500 dark:from-yellow-300 dark:via-red-400 dark:to-pink-400">
+                r/GuyCry: Changing Lives, One Tear at a Time
+              </span>
+            </h1>
+            <p class="text-xl sm:text-2xl text-gray-200 dark:text-gray-300 leading-relaxed max-w-3xl mx-auto">
+              A safe haven where men can express emotions freely, support each other, and break the stigma around male vulnerability. Join our 38,000+ strong community and be part of a movement that's changing the world.
+            </p>
           </div>
-
-          <div class="mb-8">
-            <div class="review-container relative h-64 cursor-pointer overflow-hidden rounded-lg shadow-lg">
+      
+          <div class="mb-16 relative">
+            <div class="review-container relative h-96 cursor-pointer overflow-hidden rounded-2xl shadow-2xl transform transition-all duration-300 hover:scale-105">
               <!-- Reviews will be added here dynamically -->
             </div>
+            <div class="absolute bottom-4 left-1/2 transform -translate-x-1/2 bg-black bg-opacity-50 text-white px-4 py-2 rounded-full text-sm">
+              Click to view stories
+            </div>
           </div>
-          <div class="flex justify-center">
-            <a href="https://www.reddit.com/r/GuyCry" rel="nofollow" class="button-hover flex items-center rounded-md bg-orange-500 px-6 py-3 font-bold text-white hover:bg-orange-600">
-              <span class="mr-2">The Cool kids spot</span>
-              <i class="fas fa-arrow-right"></i>
+      
+          <div class="flex flex-col sm:flex-row justify-center items-center space-y-6 sm:space-y-0 sm:space-x-6">
+            <a href="https://www.reddit.com/r/GuyCry" rel="nofollow" class="group relative inline-flex items-center justify-center overflow-hidden rounded-full p-4 px-6 py-3 font-bold text-white shadow-xl transition duration-300 ease-out hover:ring-4 hover:ring-purple-400">
+              <span class="absolute inset-0 h-full w-full bg-gradient-to-br from-purple-600 via-indigo-700 to-blue-800"></span>
+              <span class="ease absolute bottom-0 right-0 mb-32 mr-4 block h-64 w-64 origin-bottom-left translate-x-24 rotate-45 transform rounded-full bg-pink-500 opacity-30 transition duration-500 group-hover:rotate-90"></span>
+              <span class="relative flex items-center">
+                <span class="mr-2">Join r/GuyCry</span>
+                <i class="fas fa-heart"></i>
+              </span>
             </a>
+            <button class="learn-more-btn bg-white text-purple-700 font-bold py-3 px-6 rounded-full shadow-lg hover:bg-purple-100 transition duration-300 ease-in-out transform hover:scale-105 focus:outline-none focus:ring-2 focus:ring-purple-400 focus:ring-opacity-50">
+              Share Your Story
+            </button>
+          </div>
+      
+          <div class="mt-16 text-center">
+            <p class="text-lg text-gray-300 italic">"The world would be such a better place if more guys cried." - A Supportive Mom</p>
           </div>
         </div>
-
-        <div id="popup-container" class="fixed inset-0 flex hidden items-center justify-center">
-          <div class="relative w-full max-w-md rounded-lg bg-white p-6 shadow-lg">
-            <button id="close-popup" class="absolute right-2 top-2 text-orange-500 hover:text-orange-700">
-              <i class="fas fa-times text-2xl"></i>
+      
+        <div id="popup-container" class="fixed inset-0 flex hidden items-center justify-center z-50">
+          <div class="absolute inset-0 bg-black bg-opacity-75 backdrop-blur-sm"></div>
+          <div class="relative w-full max-w-3xl bg-white rounded-2xl shadow-2xl p-8">
+            <button id="close-popup" class="absolute right-4 top-4 text-gray-500 hover:text-gray-700 transition duration-300">
+              <i class="fas fa-times text-3xl"></i>
             </button>
-            <div class="mb-4">
-              <img id="popup-image" src="" alt="Popup Image" class="max-h-[80vh] max-w-full" />
+            <div class="mb-8">
+              <img id="popup-image" src="" alt="Community Story" class="max-h-[70vh] max-w-full mx-auto rounded-lg shadow-lg" />
             </div>
-            <div class="flex justify-between">
-              <button id="prev-image" class="rounded-full bg-orange-100 p-2 text-orange-500 transition-colors duration-300 ease-in-out hover:bg-orange-200 hover:text-orange-700">
+            <div class="flex justify-between items-center">
+              <button id="prev-image" class="bg-purple-600 text-white rounded-full p-3 hover:bg-purple-700 transition duration-300 ease-in-out transform hover:scale-110 focus:outline-none focus:ring-2 focus:ring-purple-400 focus:ring-opacity-50">
                 <i class="fas fa-chevron-left text-2xl"></i>
               </button>
-              <button id="next-image" class="rounded-full bg-orange-100 p-2 text-orange-500 transition-colors duration-300 ease-in-out hover:bg-orange-200 hover:text-orange-700">
+              <div id="image-caption" class="text-lg font-semibold text-gray-800">Embracing Emotions, Changing Lives</div>
+              <button id="next-image" class="bg-purple-600 text-white rounded-full p-3 hover:bg-purple-700 transition duration-300 ease-in-out transform hover:scale-110 focus:outline-none focus:ring-2 focus:ring-purple-400 focus:ring-opacity-50">
                 <i class="fas fa-chevron-right text-2xl"></i>
               </button>
             </div>
           </div>
         </div>
       </div>
+      
+
+      <!-- End of Main -->
 
       <footer id="bottom" class="bg-gray-900 px-4 py-12 text-white sm:px-0">
         <div class="container mx-auto">
@@ -290,19 +316,35 @@
                 </a>
               </div>
             </div>
+
             <div>
               <h3 class="mb-4 text-2xl font-bold">Search</h3>
               <div class="flex items-center space-x-4">
-                <input type="text" placeholder="Search..." class="w-full rounded-full bg-gray-800 px-4 py-2 text-white focus:outline-none focus:ring focus:ring-orange-500" id="search-input" />
+                <div class="relative w-full">
+                  <input type="text" placeholder="Search..." class="w-full rounded-full bg-gray-800 pl-10 pr-4 py-2 text-white focus:outline-none focus:ring focus:ring-orange-500" id="search-input" />
+                  <i class="fas fa-search absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400"></i>
+                </div>
                 <button class="rounded-full bg-orange-500 px-4 py-2 font-bold text-white shadow-md hover:bg-orange-600" id="clear-search">
                   <i class="fas fa-times"></i>
                 </button>
               </div>
-              <div id="search-results" class="mt-4 hidden rounded-md bg-gray-800 p-4">
-                <h4 class="mb-2 text-lg font-bold">Search Results:</h4>
-                <ul id="search-result-list"></ul>
+            </div>
+            
+            <div id="search-modal" class="fixed inset-0 z-50 flex items-center justify-center hidden">
+              <div class="absolute inset-0 bg-gray-900 bg-opacity-75 backdrop-blur-sm"></div>
+              <div class="relative w-full max-w-2xl mx-4 bg-gray-900 rounded-lg shadow-xl p-6 border border-orange-500">
+                <h2 class="text-2xl font-bold mb-4 text-white">Search Results</h2>
+                  <input type="text" id="modal-search-input" class="w-full rounded-full bg-gray-800 pl-4 py-2 text-white focus:outline-none focus:ring focus:ring-orange-500 mb-4" placeholder="Search...">
+                <div id="modal-search-results" class="mt-4 max-h-96 overflow-y-auto custom-scrollbar">
+                  <ul id="modal-search-result-list"></ul>
+                </div>
+                <button id="close-modal" class="mt-4 bg-orange-500 hover:bg-orange-600 text-white font-bold py-2 px-4 rounded-full shadow-md transition-colors duration-200">Close</button>
+                <button id="modal-clear-search" class="mt-4 bg-orange-500 hover:bg-orange-600 text-white font-bold py-2 px-4 rounded-full shadow-md transition-colors duration-200">Clear Search</button>
               </div>
             </div>
+
+
+
           </div>
           <div class="mt-8 text-center text-gray-400">
             <p>Legacies Of Men and Partners &copy; 2023-Present</p>
@@ -386,6 +428,9 @@
 
         setInterval(displayReviews, 5000);
       });
+      document.querySelector('.learn-more-btn').addEventListener('click', () => {
+          alert("We'd love to hear your story! Share how r/GuyCry has impacted your life or how you've learned to embrace your emotions.");
+      });
     </script>
 
     
@@ -396,155 +441,201 @@
       });
     </script>
 
-    <script type="text/javascript">
-      const mainContent = document.querySelector('.main-content');
-      const searchInput = document.getElementById('search-input');
-      const searchResults = document.getElementById('search-results');
-      const searchResultList = document.getElementById('search-result-list');
+<script type="text/javascript">
+  const mainContent = document.querySelector('.main-content');
+  const searchInput = document.getElementById('search-input');
+  const modalSearchInput = document.getElementById('modal-search-input');
+  const searchModal = document.getElementById('search-modal');
+  const modalSearchResultList = document.getElementById('modal-search-result-list');
+  const closeModalButton = document.getElementById('close-modal');
+  const clearSearchButton = document.getElementById('clear-search');
+  const modalClearSearchButton = document.getElementById('modal-clear-search');
 
-      searchInput.addEventListener('input', () => {
-        const searchTerm = searchInput.value.trim().toLowerCase();
-        if (searchTerm.length > 0) {
-          const pageText = mainContent.innerText.toLowerCase();
-          const matches = findMatches(pageText, searchTerm);
-          displaySearchResults(matches);
-        } else {
-          searchResults.classList.add('hidden');
-          searchResultList.innerHTML = '';
+  function openSearchModal() {
+    searchModal.classList.remove('hidden');
+    modalSearchInput.value = searchInput.value;
+    modalSearchInput.focus();
+    document.body.style.overflow = 'hidden';
+  }
+
+  function closeSearchModal() {
+    searchModal.classList.add('hidden');
+    document.body.style.overflow = '';
+  }
+
+  function clearSearch() {
+    searchInput.value = '';
+    modalSearchInput.value = '';
+    modalSearchResultList.innerHTML = '';
+  }
+
+  searchInput.addEventListener('input', () => {
+    if (searchInput.value.trim().length > 0) {
+      openSearchModal();
+      performSearch(searchInput.value);
+    }
+  });
+
+  modalSearchInput.addEventListener('input', () => {
+    performSearch(modalSearchInput.value);
+  });
+
+  closeModalButton.addEventListener('click', closeSearchModal);
+  clearSearchButton.addEventListener('click', () => {
+    clearSearch();
+    closeSearchModal();
+  });
+
+  modalClearSearchButton.addEventListener('click', () => {
+    clearSearch();
+    modalSearchInput.focus();
+  });
+
+  function performSearch(searchTerm) {
+    searchTerm = searchTerm.trim().toLowerCase();
+    if (searchTerm.length > 0) {
+      const pageText = mainContent.innerText.toLowerCase();
+      const matches = findMatches(pageText, searchTerm);
+      displaySearchResults(matches);
+    } else {
+      modalSearchResultList.innerHTML = '';
+    }
+  }
+
+  function findMatches(text, searchTerm) {
+    const regex = new RegExp(searchTerm, 'gi');
+    const matches = text.matchAll(regex);
+    return Array.from(matches);
+  }
+
+  function displaySearchResults(matches) {
+    modalSearchResultList.innerHTML = '';
+
+    if (matches.length > 0) {
+      const usedExcerpts = new Set();
+      for (const match of matches) {
+        const start = Math.max(0, match.index - 50);
+        const end = Math.min(match.input.length, match.index + match[0].length + 50);
+        const excerpt = match.input.slice(start, end);
+        
+        if (!usedExcerpts.has(excerpt)) {
+          usedExcerpts.add(excerpt);
+          const resultItem = document.createElement('li');
+          resultItem.classList.add('mb-4', 'bg-orange-600', 'rounded-lg', 'p-4', 'cursor-pointer', 'hover:bg-orange-700', 'transition-colors', 'duration-200');
+
+          const highlightedExcerpt = excerpt.replace(new RegExp(match[0], 'gi'), (matched) => `<span class="bg-white text-orange-600 font-semibold">${matched}</span>`);
+          resultItem.innerHTML = highlightedExcerpt;
+
+          resultItem.addEventListener('click', () => {
+            displayPopup(match, highlightedExcerpt);
+          });
+
+          modalSearchResultList.appendChild(resultItem);
         }
-      });
-
-      const clearSearchButton = document.getElementById('clear-search');
-
-      clearSearchButton.addEventListener('click', () => {
-        searchInput.value = '';
-        searchResults.classList.add('hidden');
-        searchResultList.innerHTML = '';
-      });
-
-      function findMatches(text, searchTerm) {
-        const regex = new RegExp(searchTerm, 'gi');
-        const matches = text.matchAll(regex);
-        return Array.from(matches);
       }
+    } else {
+      modalSearchResultList.innerHTML = '<li class="text-white">No results found</li>';
+    }
+  }
 
-      function displaySearchResults(matches) {
-        searchResultList.innerHTML = '';
+  function displayPopup(match, excerpt) {
+    const popup = document.createElement('div');
+    popup.classList.add('fixed', 'inset-0', 'z-50', 'flex', 'items-center', 'justify-center', 'bg-gray-900', 'bg-opacity-75', 'backdrop-blur-sm');
 
-        if (matches.length > 0) {
-          searchResults.classList.remove('hidden');
+    const popupContent = document.createElement('div');
+    popupContent.classList.add('bg-gray-900', 'p-8', 'rounded-lg', 'w-full', 'max-w-2xl', 'max-h-[80vh]', 'overflow-y-auto', 'custom-scrollbar', 'border', 'border-orange-500');
 
-          for (const match of matches) {
-            const resultItem = document.createElement('div');
-            resultItem.classList.add('mb-2', 'bg-gray-800', 'rounded-full', 'p-4', 'flex', 'items-center', 'cursor-pointer');
+    const popupText = document.createElement('div');
+    popupText.classList.add('text-white', 'whitespace-pre-wrap');
 
-            if (match.index === 0) {
-              resultItem.classList.add('bg-gray-700');
-            }
+    const matchStart = Math.max(0, match.index - 100);
+    const matchEnd = Math.min(match.input.length, match.index + match[0].length + 125);
+    const contextText = match.input.slice(matchStart, matchEnd);
+    const highlightedText = contextText.replace(new RegExp(match[0], 'gi'), (matched) => `<span class="bg-white text-orange-600 font-semibold">${matched}</span>`);
+    popupText.innerHTML = highlightedText;
 
-            resultItem.onmouseenter = () => {
-              resultItem.classList.add('cursor-pointer');
-            };
-
-            const start = Math.max(0, match.index - 10);
-            const end = Math.min(match.input.length, match.index + match[0].length + 10);
-            const excerpt = `${match.input.slice(start, match.index)}<span class="text-white">${match[0]}</span>${match.input.slice(match.index + match[0].length, end)}`;
-            resultItem.innerHTML = excerpt;
-
-            resultItem.addEventListener('click', () => {
-              displayPopup(match, excerpt);
-            });
-
-            searchResultList.appendChild(resultItem);
-          }
-        } else {
-          searchResultList.innerHTML = 'No Search Results, click the x icon to clear';
-        }
-      }
-
-      function displayPopup(match, excerpt) {
-        const popup = document.createElement('div');
-        popup.classList.add('fixed', 'top-0', 'left-0', 'w-full', 'h-full', 'bg-gray-900', 'bg-opacity-75', 'flex', 'justify-center', 'items-center', 'z-50');
-
-        const popupContent = document.createElement('div');
-        popupContent.classList.add('bg-white', 'p-8', 'rounded-md', 'w-full', 'max-w-2xl', 'max-h-[80vh]', 'overflow-y-auto');
-
-        const popupText = document.createElement('div');
-        popupText.classList.add('text-gray-900', 'whitespace-pre-wrap');
-
-        const matchStart = Math.max(0, match.index - 100);
-        const matchEnd = Math.min(match.input.length, match.index + match[0].length + 125);
-        const beforeMatch = match.input.slice(matchStart, match.index);
-        const afterMatch = match.input.slice(match.index + match[0].length, matchEnd);
-        const highlightedText = `...${beforeMatch}<span class="bg-orange-500 text-white">${match[0]}</span>${afterMatch}...`;
-        popupText.innerHTML = highlightedText;
-
-        const closeButton = document.createElement('button');
-        closeButton.classList.add('bg-orange-500', 'hover:bg-orange-600', 'text-white', 'font-bold', 'py-2', 'px-4', 'rounded-full', 'shadow-md', 'mt-4');
-        closeButton.textContent = 'Close';
-        closeButton.addEventListener('click', () => {
-          popup.remove();
-        });
-
-        popupContent.appendChild(popupText);
-        popupContent.appendChild(closeButton);
-        popup.appendChild(popupContent);
-        document.body.appendChild(popup);
-
-        // Add custom scrollbar styles
-        const scrollbar = popupContent.querySelector('::-webkit-scrollbar');
-        scrollbar.style.width = '8px';
-        scrollbar.style.backgroundColor = '#718096';
-
-        const scrollbarThumb = popupContent.querySelector('::-webkit-scrollbar-thumb');
-        scrollbarThumb.style.backgroundColor = '#4a5568';
-        scrollbarThumb.style.borderRadius = '4px';
-      }
-    </script>
-
-    <script type="text/javascript">
-            const button = document.getElementById('mobile-menu-button');
-      const menu = document.getElementById('mobile-menu');
-      const navbar = document.querySelector('.navbar');
-      const popupContainer = document.getElementById('popup-container');
-
-      let lastScrollY = 0;
-
-      window.addEventListener('scroll', () => {
-        const currentScrollY = window.pageYOffset;
-
-        if (currentScrollY > lastScrollY && !popupContainer.classList.contains('hidden')) {
-          // Scroll down and popup is open
-          navbar.classList.remove('show');
-        } else if (currentScrollY <= lastScrollY) {
-          // Scroll up or popup is closed
-          navbar.classList.add('show');
-        }
-
-        lastScrollY = currentScrollY;
-      });
-
-      button.addEventListener('click', () => {
-        menu.classList.toggle('open');
-        menu.classList.toggle('closed');
-      });
-
-
-    const themeToggler = document.getElementById('theme-toggler');
-    const body = document.body;
-
-    // Check for the user's preferred theme on page load
-    let prefersDarkMode = window.localStorage.getItem('prefersDarkMode') === 'true';
-    body.classList.toggle('dark', prefersDarkMode);
-    themeToggler.innerHTML = `<i class="${prefersDarkMode ? 'fas fa-sun' : 'fas fa-moon'}"></i>`;
-
-    // Add event listener to the theme toggler button
-    themeToggler.addEventListener('click', () => {
-      body.classList.toggle('dark');
-      prefersDarkMode = body.classList.contains('dark');
-      window.localStorage.setItem('prefersDarkMode', prefersDarkMode);
-      themeToggler.innerHTML = `<i class="${prefersDarkMode ? 'fas fa-sun' : 'fas fa-moon'}"></i>`;
+    const closeButton = document.createElement('button');
+    closeButton.classList.add('bg-orange-500', 'hover:bg-orange-600', 'text-white', 'font-bold', 'py-2', 'px-4', 'rounded-full', 'shadow-md', 'mt-4', 'transition-colors', 'duration-200');
+    closeButton.textContent = 'Close'
+    closeButton.addEventListener('click', () => {
+      popup.remove();
     });
-    </script>
+
+    popupContent.appendChild(popupText);
+    popupContent.appendChild(closeButton);
+    popup.appendChild(popupContent);
+    document.body.appendChild(popup);
+  }
+
+  // Close modal when clicking outside
+  searchModal.addEventListener('click', (e) => {
+    if (e.target === searchModal) {
+      closeSearchModal();
+    }
+  });
+
+  // Close modal with Escape key
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape') {
+      closeSearchModal();
+    }
+  });
+</script>
+
+<script>
+  const button = document.getElementById('mobile-menu-button');
+  const menu = document.getElementById('mobile-menu');
+  const navbar = document.querySelector('.navbar');
+  const popupContainer = document.getElementById('popup-container');
+
+  let lastScrollY = 0;
+
+  window.addEventListener('scroll', () => {
+    const currentScrollY = window.pageYOffset;
+
+    if (currentScrollY > lastScrollY) {
+      // Scroll down
+      navbar.classList.add('hidden');
+    } else {
+      // Scroll up
+      navbar.classList.remove('hidden');
+    }
+
+    // If user is at the top, always show the navbar
+    if (currentScrollY === 0) {
+      navbar.classList.remove('hidden');
+    }
+
+    lastScrollY = currentScrollY;
+  });
+
+  button.addEventListener('click', () => {
+    menu.classList.toggle('open');
+    menu.classList.toggle('closed');
+  });
+
+  const themeToggler = document.getElementById('theme-toggler');
+  const body = document.body;
+
+  // Check for the user's preferred theme on page load
+  let prefersDarkMode = window.localStorage.getItem('prefersDarkMode') === 'true';
+  body.classList.toggle('dark', prefersDarkMode);
+  themeToggler.innerHTML = `<i class="${prefersDarkMode ? 'fas fa-sun' : 'fas fa-moon'}"></i>`;
+
+  // Add event listener to the theme toggler button
+  themeToggler.addEventListener('click', () => {
+    body.classList.toggle('dark');
+    prefersDarkMode = body.classList.contains('dark');
+    window.localStorage.setItem('prefersDarkMode', prefersDarkMode);
+    themeToggler.innerHTML = `<i class="${prefersDarkMode ? 'fas fa-sun' : 'fas fa-moon'}"></i>`;
+  });
+
+  // Update dark theme styles
+  if (prefersDarkMode) {
+    document.documentElement.classList.add('dark');
+  }
+</script>
   </body>
 </html>
+
+

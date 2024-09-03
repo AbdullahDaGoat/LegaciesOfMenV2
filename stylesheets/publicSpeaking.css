@@ -259,6 +259,8 @@ body {
     }
 }
 
+
+
 @media (min-width: 768px) {
     .content-wrapper {
         display: flex;

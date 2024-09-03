@@ -60,6 +60,27 @@ html,
 1. Remove the margin in all browsers.
 2. Inherit line-height from `html` so users can set them as a class directly on the `html` element.
 */
+
+.custom-scrollbar::-webkit-scrollbar {
+  width: 8px;
+}
+.custom-scrollbar::-webkit-scrollbar-track {
+  background: #2d3748;
+}
+.custom-scrollbar::-webkit-scrollbar-thumb {
+  background-color: #ed8936;
+  border-radius: 4px;
+}
+@media (max-width: 640px) {
+  #search-modal .relative {
+    font-size: 14px;
+  }
+  #search-modal h2 {
+    font-size: 1.5rem;
+  }
+}
+
+
 body {
   margin: 0;
   /* 1 */
