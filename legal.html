@@ -133,7 +133,7 @@
 
     <!-- Tailwind CSS Convert Code to generated CSS (https://play.tailwindcss.com/) -->
     <!-- Keep this on until code is finialized -->
-    <!-- <script src="https://cdn.tailwindcss.com" type="text/javascript"></script> -->
+    <script src="https://cdn.tailwindcss.com" type="text/javascript"></script>
 
     <!-- Font Awesome CDN -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
@@ -415,14 +415,26 @@
           <div>
             <h3 class="mb-4 text-2xl font-bold">Search</h3>
             <div class="flex items-center space-x-4">
-              <input type="text" placeholder="Search..." class="w-full rounded-full bg-gray-800 px-4 py-2 text-white focus:outline-none focus:ring focus:ring-orange-500" id="search-input" />
+              <div class="relative w-full">
+                <input type="text" placeholder="Search..." class="w-full rounded-full bg-gray-800 pl-10 pr-4 py-2 text-white focus:outline-none focus:ring focus:ring-orange-500" id="search-input" />
+                <i class="fas fa-search absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400"></i>
+              </div>
               <button class="rounded-full bg-orange-500 px-4 py-2 font-bold text-white shadow-md hover:bg-orange-600" id="clear-search">
                 <i class="fas fa-times"></i>
               </button>
             </div>
-            <div id="search-results" class="mt-4 hidden rounded-md bg-gray-800 p-4">
-              <h4 class="mb-2 text-lg font-bold">Search Results:</h4>
-              <ul id="search-result-list"></ul>
+          </div>
+          
+          <div id="search-modal" class="fixed inset-0 z-50 flex items-center justify-center hidden">
+            <div class="absolute inset-0 bg-gray-900 bg-opacity-75 backdrop-blur-sm"></div>
+            <div class="relative w-full max-w-2xl mx-4 bg-gray-900 rounded-lg shadow-xl p-6 border border-orange-500">
+              <h2 class="text-2xl font-bold mb-4 text-white">Search Results</h2>
+                <input type="text" id="modal-search-input" class="w-full rounded-full bg-gray-800 pl-4 py-2 text-white focus:outline-none focus:ring focus:ring-orange-500 mb-4" placeholder="Search...">
+              <div id="modal-search-results" class="mt-4 max-h-96 overflow-y-auto custom-scrollbar">
+                <ul id="modal-search-result-list"></ul>
+              </div>
+              <button id="close-modal" class="mt-4 bg-orange-500 hover:bg-orange-600 text-white font-bold py-2 px-4 rounded-full shadow-md transition-colors duration-200">Close</button>
+              <button id="modal-clear-search" class="mt-4 bg-orange-500 hover:bg-orange-600 text-white font-bold py-2 px-4 rounded-full shadow-md transition-colors duration-200">Clear Search</button>
             </div>
           </div>
         </div>
@@ -494,111 +506,146 @@
       });
     </script>
 
-    <script type="text/javascript">
-      const mainContent = document.querySelector('.main-content');
-      const searchInput = document.getElementById('search-input');
-      const searchResults = document.getElementById('search-results');
-      const searchResultList = document.getElementById('search-result-list');
+<script type="text/javascript">
+  const mainContent = document.querySelector('.main-content');
+  const searchInput = document.getElementById('search-input');
+  const modalSearchInput = document.getElementById('modal-search-input');
+  const searchModal = document.getElementById('search-modal');
+  const modalSearchResultList = document.getElementById('modal-search-result-list');
+  const closeModalButton = document.getElementById('close-modal');
+  const clearSearchButton = document.getElementById('clear-search');
+  const modalClearSearchButton = document.getElementById('modal-clear-search');
 
-      searchInput.addEventListener('input', () => {
-        const searchTerm = searchInput.value.trim().toLowerCase();
-        if (searchTerm.length > 0) {
-          const pageText = mainContent.innerText.toLowerCase();
-          const matches = findMatches(pageText, searchTerm);
-          displaySearchResults(matches);
-        } else {
-          searchResults.classList.add('hidden');
-          searchResultList.innerHTML = '';
+  function openSearchModal() {
+    searchModal.classList.remove('hidden');
+    modalSearchInput.value = searchInput.value;
+    modalSearchInput.focus();
+    document.body.style.overflow = 'hidden';
+  }
+
+  function closeSearchModal() {
+    searchModal.classList.add('hidden');
+    document.body.style.overflow = '';
+  }
+
+  function clearSearch() {
+    searchInput.value = '';
+    modalSearchInput.value = '';
+    modalSearchResultList.innerHTML = '';
+  }
+
+  searchInput.addEventListener('input', () => {
+    if (searchInput.value.trim().length > 0) {
+      openSearchModal();
+      performSearch(searchInput.value);
+    }
+  });
+
+  modalSearchInput.addEventListener('input', () => {
+    performSearch(modalSearchInput.value);
+  });
+
+  closeModalButton.addEventListener('click', closeSearchModal);
+  clearSearchButton.addEventListener('click', () => {
+    clearSearch();
+    closeSearchModal();
+  });
+
+  modalClearSearchButton.addEventListener('click', () => {
+    clearSearch();
+    modalSearchInput.focus();
+  });
+
+  function performSearch(searchTerm) {
+    searchTerm = searchTerm.trim().toLowerCase();
+    if (searchTerm.length > 0) {
+      const pageText = mainContent.innerText.toLowerCase();
+      const matches = findMatches(pageText, searchTerm);
+      displaySearchResults(matches);
+    } else {
+      modalSearchResultList.innerHTML = '';
+    }
+  }
+
+  function findMatches(text, searchTerm) {
+    const regex = new RegExp(searchTerm, 'gi');
+    const matches = text.matchAll(regex);
+    return Array.from(matches);
+  }
+
+  function displaySearchResults(matches) {
+    modalSearchResultList.innerHTML = '';
+
+    if (matches.length > 0) {
+      const usedExcerpts = new Set();
+      for (const match of matches) {
+        const start = Math.max(0, match.index - 50);
+        const end = Math.min(match.input.length, match.index + match[0].length + 50);
+        const excerpt = match.input.slice(start, end);
+        
+        if (!usedExcerpts.has(excerpt)) {
+          usedExcerpts.add(excerpt);
+          const resultItem = document.createElement('li');
+          resultItem.classList.add('mb-4', 'bg-orange-600', 'rounded-lg', 'p-4', 'cursor-pointer', 'hover:bg-orange-700', 'transition-colors', 'duration-200');
+
+          const highlightedExcerpt = excerpt.replace(new RegExp(match[0], 'gi'), (matched) => `<span class="bg-white text-orange-600 font-semibold">${matched}</span>`);
+          resultItem.innerHTML = highlightedExcerpt;
+
+          resultItem.addEventListener('click', () => {
+            displayPopup(match, highlightedExcerpt);
+          });
+
+          modalSearchResultList.appendChild(resultItem);
         }
-      });
-
-      const clearSearchButton = document.getElementById('clear-search');
-
-      clearSearchButton.addEventListener('click', () => {
-        searchInput.value = '';
-        searchResults.classList.add('hidden');
-        searchResultList.innerHTML = '';
-      });
-
-      function findMatches(text, searchTerm) {
-        const regex = new RegExp(searchTerm, 'gi');
-        const matches = text.matchAll(regex);
-        return Array.from(matches);
       }
+    } else {
+      modalSearchResultList.innerHTML = '<li class="text-white">No results found</li>';
+    }
+  }
 
-      function displaySearchResults(matches) {
-        searchResultList.innerHTML = '';
+  function displayPopup(match, excerpt) {
+    const popup = document.createElement('div');
+    popup.classList.add('fixed', 'inset-0', 'z-50', 'flex', 'items-center', 'justify-center', 'bg-gray-900', 'bg-opacity-75', 'backdrop-blur-sm');
 
-        if (matches.length > 0) {
-          searchResults.classList.remove('hidden');
+    const popupContent = document.createElement('div');
+    popupContent.classList.add('bg-gray-900', 'p-8', 'rounded-lg', 'w-full', 'max-w-2xl', 'max-h-[80vh]', 'overflow-y-auto', 'custom-scrollbar', 'border', 'border-orange-500');
 
-          for (const match of matches) {
-            const resultItem = document.createElement('div');
-            resultItem.classList.add('mb-2', 'bg-gray-800', 'rounded-full', 'p-4', 'flex', 'items-center', 'cursor-pointer');
+    const popupText = document.createElement('div');
+    popupText.classList.add('text-white', 'whitespace-pre-wrap');
 
-            if (match.index === 0) {
-              resultItem.classList.add('bg-gray-700');
-            }
+    const matchStart = Math.max(0, match.index - 100);
+    const matchEnd = Math.min(match.input.length, match.index + match[0].length + 125);
+    const contextText = match.input.slice(matchStart, matchEnd);
+    const highlightedText = contextText.replace(new RegExp(match[0], 'gi'), (matched) => `<span class="bg-white text-orange-600 font-semibold">${matched}</span>`);
+    popupText.innerHTML = highlightedText;
 
-            resultItem.onmouseenter = () => {
-              resultItem.classList.add('cursor-pointer');
-            };
+    const closeButton = document.createElement('button');
+    closeButton.classList.add('bg-orange-500', 'hover:bg-orange-600', 'text-white', 'font-bold', 'py-2', 'px-4', 'rounded-full', 'shadow-md', 'mt-4', 'transition-colors', 'duration-200');
+    closeButton.textContent = 'Close'
+    closeButton.addEventListener('click', () => {
+      popup.remove();
+    });
 
-            const start = Math.max(0, match.index - 10);
-            const end = Math.min(match.input.length, match.index + match[0].length + 10);
-            const excerpt = `${match.input.slice(start, match.index)}<span class="text-white">${match[0]}</span>${match.input.slice(match.index + match[0].length, end)}`;
-            resultItem.innerHTML = excerpt;
+    popupContent.appendChild(popupText);
+    popupContent.appendChild(closeButton);
+    popup.appendChild(popupContent);
+    document.body.appendChild(popup);
+  }
 
-            resultItem.addEventListener('click', () => {
-              displayPopup(match, excerpt);
-            });
+  // Close modal when clicking outside
+  searchModal.addEventListener('click', (e) => {
+    if (e.target === searchModal) {
+      closeSearchModal();
+    }
+  });
 
-            searchResultList.appendChild(resultItem);
-          }
-        } else {
-          searchResultList.innerHTML = 'No Search Results, click the x icon to clear';
-        }
-      }
-
-      function displayPopup(match, excerpt) {
-        const popup = document.createElement('div');
-        popup.classList.add('fixed', 'top-0', 'left-0', 'w-full', 'h-full', 'bg-gray-900', 'bg-opacity-75', 'flex', 'justify-center', 'items-center', 'z-50');
-
-        const popupContent = document.createElement('div');
-        popupContent.classList.add('bg-white', 'p-8', 'rounded-md', 'w-full', 'max-w-2xl', 'max-h-[80vh]', 'overflow-y-auto');
-
-        const popupText = document.createElement('div');
-        popupText.classList.add('text-gray-900', 'whitespace-pre-wrap');
-
-        const matchStart = Math.max(0, match.index - 100);
-        const matchEnd = Math.min(match.input.length, match.index + match[0].length + 125);
-        const beforeMatch = match.input.slice(matchStart, match.index);
-        const afterMatch = match.input.slice(match.index + match[0].length, matchEnd);
-        const highlightedText = `...${beforeMatch}<span class="bg-orange-500 text-white">${match[0]}</span>${afterMatch}...`;
-        popupText.innerHTML = highlightedText;
-
-        const closeButton = document.createElement('button');
-        closeButton.classList.add('bg-orange-500', 'hover:bg-orange-600', 'text-white', 'font-bold', 'py-2', 'px-4', 'rounded-full', 'shadow-md', 'mt-4');
-        closeButton.textContent = 'Close';
-        closeButton.addEventListener('click', () => {
-          popup.remove();
-        });
-
-        popupContent.appendChild(popupText);
-        popupContent.appendChild(closeButton);
-        popup.appendChild(popupContent);
-        document.body.appendChild(popup);
-
-        // Add custom scrollbar styles
-        const scrollbar = popupContent.querySelector('::-webkit-scrollbar');
-        scrollbar.style.width = '8px';
-        scrollbar.style.backgroundColor = '#718096';
-
-        const scrollbarThumb = popupContent.querySelector('::-webkit-scrollbar-thumb');
-        scrollbarThumb.style.backgroundColor = '#4a5568';
-        scrollbarThumb.style.borderRadius = '4px';
-      }
-    </script>
+  // Close modal with Escape key
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape') {
+      closeSearchModal();
+    }
+  });
+</script>
 
     <script type="text/javascript">
         const button = document.getElementById('mobile-menu-button');

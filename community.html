@@ -595,15 +595,15 @@
 
     if (currentScrollY > lastScrollY) {
       // Scroll down
-      navbar.classList.add('hidden');
+      navbar.classList.add('show');
     } else {
       // Scroll up
-      navbar.classList.remove('hidden');
+      navbar.classList.remove('show');
     }
 
     // If user is at the top, always show the navbar
     if (currentScrollY === 0) {
-      navbar.classList.remove('hidden');
+      navbar.classList.remove('show');
     }
 
     lastScrollY = currentScrollY;
